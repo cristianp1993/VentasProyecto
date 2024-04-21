@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="24f75ea2cdd1474f9b9e05503a566c58" Name="Diagram1">
+        <EntityTypeShape EntityType="VENTAS_DBModel.t_categoria" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VENTAS_DBModel.t_ciudad" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VENTAS_DBModel.t_detalle_venta" Width="1.5" PointX="10.5" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VENTAS_DBModel.t_notificaciones" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VENTAS_DBModel.t_pedido" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VENTAS_DBModel.t_persona" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VENTAS_DBModel.t_producto" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VENTAS_DBModel.t_usuario" Width="1.5" PointX="6" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="VENTAS_DBModel.t_venta" Width="1.5" PointX="8.25" PointY="4.625" IsExpanded="true" />
+        <AssociationConnector Association="VENTAS_DBModel.FK__t_product__cat_i__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="VENTAS_DBModel.FK__t_persona__ciu_i__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="VENTAS_DBModel.FK__t_detalle__pro_i__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="VENTAS_DBModel.FK__t_detalle__ven_i__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="VENTAS_DBModel.FK__t_notific__per_i__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="VENTAS_DBModel.FK__t_pedido__per_id__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="VENTAS_DBModel.FK__t_pedido__pro_id__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="VENTAS_DBModel.FK__t_venta__per_id__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="VENTAS_DBModel.FK__t_venta__usu_id__412EB0B6" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
