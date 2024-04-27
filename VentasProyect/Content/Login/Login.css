@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #1C1B3A;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    height: 100vh;
+    margin: 0;
+}
+
+@media (max-width: 720px) {
+    .containerLogin {
+        width: 100%;
+    }
+
+    .containerLogin2 {
+        display: none;
+    }
+}
+
+.shadow-right {
+    box-shadow: 7px 0px 19px 0px #000;
+}
+
+.container-fluid {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.row {
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.NamePage {
+    color: #8852FF;
+    font-weight: 600;
+    font-size: 36px;
+}
+
+.alignForm {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.login-form {
+    display: flex;
+    height: 100vh;
+    padding: 30px 30px 0 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-inputs {
+    margin: auto;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+input.input-with-label-on-top {
+    padding-top: 20px;
+}
+
+
+label {
+    padding: 0 5px 0 5px;
+    background-color: #1C1B3A;
+    font-weight: 300;
+    color: #fff;
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    transition: all 0.2s ease-in-out;
+    z-index:1;
+}
+
+input.input-with-label-on-top:focus + label, input.input-with-label-on-top:not(:placeholder-shown) + label {
+    top: -15px;
+    font-size: 12px;
+    color: #007bff;
+}
+
+.form-control {
+    font-size: 16px;
+    color: #fff;
+    background-color: transparent;
+    width: 300px;
+    height: 45px;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.login-button {
+    width: 280px;
+    margin: auto;
+    background-color: #4E4FEB;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    .login-button:hover {
+        background-color: #0069d9;
+    }
+
+.forgot-password {
+    text-align: center;
+    margin-top: 20px;
+}
+
+    .forgot-password a {
+        color: #fff;
+        text-decoration: underline;
+    }
+
+        .forgot-password a:hover {
+            color: #4E4FEB;
+        }
+
+.password-input {
+    position: relative;
+    width: 100%;
+}
+
+.material-symbols-outlined {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.background-image-container {
+}
+
+.background-image {
+    position: absolute;
+    width:250px;
+    bottom: 8%;
+    right: 6%;
+}

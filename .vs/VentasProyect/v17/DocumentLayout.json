@@ -1,0 +1,127 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Gestion de proyectos de software\\ProyectoClase\\VentasProyecto\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|d:\\gestion de proyectos de software\\proyectoclase\\ventasproyecto\\ventasproyect\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|d:\\gestion de proyectos de software\\proyectoclase\\ventasproyecto\\ventasproyect\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|D:\\Gestion de proyectos de software\\ProyectoClase\\VentasProyecto\\ventasproyect\\views\\shared\\_layoutlogin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\views\\shared\\_layoutlogin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|D:\\Gestion de proyectos de software\\ProyectoClase\\VentasProyecto\\ventasproyect\\content\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\content\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|D:\\Gestion de proyectos de software\\ProyectoClase\\VentasProyecto\\ventasproyect\\content\\login\\login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\content\\login\\login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 10,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\Gestion de proyectos de software\\ProyectoClase\\VentasProyecto\\VentasProyect\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "VentasProyect\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\Gestion de proyectos de software\\ProyectoClase\\VentasProyecto\\VentasProyect\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "VentasProyect\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-27T16:28:57.068Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Site.css",
+              "DocumentMoniker": "D:\\Gestion de proyectos de software\\ProyectoClase\\VentasProyecto\\VentasProyect\\Content\\Site.css",
+              "RelativeDocumentMoniker": "VentasProyect\\Content\\Site.css",
+              "ToolTip": "D:\\Gestion de proyectos de software\\ProyectoClase\\VentasProyecto\\VentasProyect\\Content\\Site.css",
+              "RelativeToolTip": "VentasProyect\\Content\\Site.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-04-27T00:24:56.163Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_LayoutLogin.cshtml",
+              "DocumentMoniker": "D:\\Gestion de proyectos de software\\ProyectoClase\\VentasProyecto\\VentasProyect\\Views\\Shared\\_LayoutLogin.cshtml",
+              "RelativeDocumentMoniker": "VentasProyect\\Views\\Shared\\_LayoutLogin.cshtml",
+              "ToolTip": "D:\\Gestion de proyectos de software\\ProyectoClase\\VentasProyecto\\VentasProyect\\Views\\Shared\\_LayoutLogin.cshtml",
+              "RelativeToolTip": "VentasProyect\\Views\\Shared\\_LayoutLogin.cshtml",
+              "ViewState": "AQIAACIAAAAAAAAAAAAAAAgAAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-26T21:15:32.389Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Login.css",
+              "DocumentMoniker": "D:\\Gestion de proyectos de software\\ProyectoClase\\VentasProyecto\\VentasProyect\\Content\\Login\\Login.css",
+              "RelativeDocumentMoniker": "VentasProyect\\Content\\Login\\Login.css",
+              "ToolTip": "D:\\Gestion de proyectos de software\\ProyectoClase\\VentasProyecto\\VentasProyect\\Content\\Login\\Login.css",
+              "RelativeToolTip": "VentasProyect\\Content\\Login\\Login.css",
+              "ViewState": "AQIAAH4AAAAAAAAAAAAAAG4AAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-04-26T19:34:38.542Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Gestion de proyectos de software\\ProyectoClase\\VentasProyecto\\VentasProyect\\Views\\Login\\Index.cshtml",
+              "RelativeDocumentMoniker": "VentasProyect\\Views\\Login\\Index.cshtml",
+              "ToolTip": "D:\\Gestion de proyectos de software\\ProyectoClase\\VentasProyecto\\VentasProyect\\Views\\Login\\Index.cshtml",
+              "RelativeToolTip": "VentasProyect\\Views\\Login\\Index.cshtml",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAAAIAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-26T15:29:40.44Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
