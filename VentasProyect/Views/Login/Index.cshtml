@@ -44,20 +44,6 @@
     </div>
 </div>
 
-<script>
-    const togglePasswordVisibility = document.getElementById('togglePasswordVisibility');
-    const passwordInput = document.getElementById('password');
-
-    togglePasswordVisibility.addEventListener('click', function () {
-        if (passwordInput.type === "password") {
-            passwordInput.type = "text";
-            togglePasswordVisibility.textContent = "visibility";
-        } else {
-            passwordInput.type = "password";
-            togglePasswordVisibility.textContent = "visibility_off";
-        }
-    });
-</script>
 
 <script src="~/Scripts/Login/Login.js"></script>
 

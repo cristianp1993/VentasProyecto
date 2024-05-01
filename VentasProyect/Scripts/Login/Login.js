@@ -1,6 +1,7 @@
 ﻿const loginButton = document.getElementById('login-button');
 const usernameInput = document.getElementById('username');
 const passwordInput = document.getElementById('password');
+const togglePasswordVisibility = document.getElementById('togglePasswordVisibility');
 
 usernameInput.addEventListener('change', function () {
     const usernameValue = usernameInput.value;
@@ -17,6 +18,15 @@ usernameInput.addEventListener('change', function () {
     }
 });
 
+togglePasswordVisibility.addEventListener('click', function () {
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        togglePasswordVisibility.textContent = "visibility";
+    } else {
+        passwordInput.type = "password";
+        togglePasswordVisibility.textContent = "visibility_off";
+    }
+});
 
 loginButton.addEventListener('click', function (event) {
     event.preventDefault(); 
