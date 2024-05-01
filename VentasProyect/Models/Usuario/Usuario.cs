@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace VentasProyect.Models.usuario
 {
+    [Table("t_usuario")]
     public class usuario
     {
         public int usu_id { get; set; }
