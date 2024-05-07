@@ -24,7 +24,7 @@
         var displayStatus = "";
         var showCloseSesion = ViewBag.SessionStatus;
 
-        if (!ViewBag.SessionStatus)
+        if (showCloseSesion != null && !showCloseSesion)
         {
             displayStatus = "none";
         }
@@ -32,10 +32,8 @@
         {
             displayStatus = "block";
         }
-
-
-
     }
+
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -52,10 +50,10 @@
                     <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
                     <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right" style="display:@(!showCloseSesion ? "block" : "none")">
+                <ul class="nav navbar-nav navbar-right" style="display:@(showCloseSesion != null && !showCloseSesion ? "block" : "none")">
                     <li><a href="~/Login/Index" class="btn btn-default navbar-btn">Iniciar Sesión</a></li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right" style="display:@(showCloseSesion ? "block" : "none")" id="btnCloseSesion">
+                <ul class="nav navbar-nav navbar-right" style="display:@(showCloseSesion != null && showCloseSesion ? "block" : "none")" id="btnCloseSesion">
                     <li>
                         <a href="" class="btn btn-default navbar-btn">
                             Cerrar Sesión
