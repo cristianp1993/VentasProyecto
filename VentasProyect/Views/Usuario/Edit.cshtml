@@ -1,0 +1,29 @@
+﻿@model VentasProyect.Models.usuario.usuario
+
+@{
+    ViewBag.Title = "Editar Usuario";
+}
+
+<h2>Editar Usuario</h2>
+
+@using (Html.BeginForm("Edit", "Usuario", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.usu_id)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.usu_nombre)
+        @Html.TextBoxFor(model => model.usu_nombre, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.usu_rol)
+        @Html.TextBoxFor(model => model.usu_rol, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.usu_correo)
+        @Html.TextBoxFor(model => model.usu_correo, new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+}

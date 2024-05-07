@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<VentasProyect.Models.usuario.usuario>
+
 @{
     ViewBag.Title = "Usuarios";
 }
@@ -6,6 +7,9 @@
 <h2>Lista de Usuarios</h2>
 
 <div class="col-md-10">
+    <p>
+        @Html.ActionLink("Crear Nuevo Usuario", "Create")
+    </p>
     <table id="MyTable" class="table table-striped table-bordered">
         <thead>
             <tr>
@@ -25,18 +29,18 @@
                     <td>@usuario.usu_rol</td>
                     <td>@usuario.usu_correo</td>
                     <td>
-                        <a>
+                        <a href="@Url.Action("Edit", "Usuario", new { id = usuario.usu_id })">
                             <span class="material-symbols-outlined">
                                 edit
                             </span>
                         </a>
 
-                        <a>
+                        <a href="@Url.Action("Details", "Usuario", new { id = usuario.usu_id })">
                             <span class="material-symbols-outlined">
                                 data_info_alert
                             </span>
                         </a>
-                        <a>
+                        <a href="@Url.Action("Delete", "Usuario", new { id = usuario.usu_id })">
                             <span class="material-symbols-outlined">
                                 delete
                             </span>
@@ -48,7 +52,6 @@
         </tbody>
     </table>
 </div>
-
 
 @section Scripts {
     <script>
