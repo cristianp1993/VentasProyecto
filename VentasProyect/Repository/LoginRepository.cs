@@ -8,6 +8,7 @@ namespace VentasProyect.Repository.LoginRepository
 {
     public class LoginRepository
     {
+        EncryptRepository encryptRepository = new EncryptRepository();
         public bool GetSessionStatus(string mail)
         {
             using (VENTAS_DBEntities1 dbContext = new VENTAS_DBEntities1())
@@ -35,6 +36,9 @@ namespace VentasProyect.Repository.LoginRepository
             //pendiente la encriptacion
             using (VENTAS_DBEntities1 dbContext = new VENTAS_DBEntities1())
             {
+
+                string passwordHash = encryptRepository.EncryptPassword(password);
+
                 var data = dbContext.t_usuario.Where(xh => xh.usu_correo == user && xh.usu_contrasenia == password).FirstOrDefault();
 
                 bool result = false;
