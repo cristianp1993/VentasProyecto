@@ -14,7 +14,7 @@ usernameInput.addEventListener('change', function () {
     } else {
         usernameInput.style.borderColor = 'red';
         usernameInput.style.borderWidth = '3px';
-        console.log("Mal correo")
+        console.log("El correo no es correcto")
     }
 });
 
@@ -64,7 +64,6 @@ function ValidateLogin() {
         .then(data => {
             
             if (data == "True") {
-                
                 window.location.href = '/Home/Index'; 
             } else {
                 alert('Usuario o contraseña incorrectos.');

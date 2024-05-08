@@ -5,17 +5,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Venture Sales</title>
-
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
- 
-
-
-
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    @Styles.Render("~/Content/css")
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    @Styles.Render("~/Content/css");
     @Scripts.Render("~/bundles/modernizr");
+    @Styles.Render("~/Layout");
+    @Styles.Render("~/HomeIndex");
+    @Scripts.Render("~/ScrLayout")
 
 </head>
 <body>
@@ -32,91 +30,137 @@
         {
             displayStatus = "block";
         }
-
-
-
     }
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Venture Sales", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
+
+    <div class="distribution">
+
+        <div class="nav-bar">
+
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Productos", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
-                </ul>
                 <ul class="nav navbar-nav navbar-right" style="display:@(!showCloseSesion ? "block" : "none")">
-                    <li><a href="~/Login/Index" class="btn btn-default navbar-btn">Iniciar Sesión</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right" style="display:@(showCloseSesion ? "block" : "none")" id="btnCloseSesion">
                     <li>
-                        <a href="" class="btn btn-default navbar-btn">
-                            Cerrar Sesión
+                        <a href="~/Login/Index" class="btn btn-default navbar-btn">
+                            Iniciar Sesión
                         </a>
                     </li>
                 </ul>
             </div>
+        </div>
 
+
+        <div class="sidebar" style="display:@displayStatus">
+
+            <div class="">
+                <div class="nav-item name">
+                    <a class="name-style" href="@Url.Action("Index", "Home")" asp-controller="Home" asp-action="Index">
+                        <div class="logo-content">
+                            <img src="~/Img/logo.svg" alt="imagen" class="background-image">
+                        </div>
+                        <div class="text-name">
+                            Venture Sales
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="menu">
+                <div class="menu-icon" id="menuToggle">
+                    <span class="material-symbols-outlined icon2">
+                        menu_open
+                    </span>
+                </div>
+                <div class="menu-context">
+                    <ul>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Home")" asp-controller="Home" asp-action="Index">
+                                <span class="material-symbols-outlined icon @(ViewContext.RouteData.Values["Controller"].ToString() == "Home" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                                    grid_view
+                                </span>
+                                <span class="nav-link-text">
+                                    Panel Principal
+                                </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Clientes" asp-action="Index">
+                                <span class="material-symbols-outlined icon @(ViewContext.RouteData.Values["Controller"].ToString() == "Clientes" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                                    groups
+                                </span> 
+                                <span class="nav-link-text">
+                                    Clientes
+                                </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Ventas" asp-action="Index">
+                                <span class="material-symbols-outlined icon @(ViewContext.RouteData.Values["Controller"].ToString() == "Ventas" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                                    currency_exchange
+                                </span>
+                                <span class="nav-link-text">
+                                    Ventas
+                                </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Productos" asp-action="Index">
+                                <span class="material-symbols-outlined icon @(ViewContext.RouteData.Values["Controller"].ToString() == "Productos" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                                    inventory_2
+                                </span>
+                                <span class="nav-link-text">
+                                    Productos
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Usuario")">
+                                <span class="material-symbols-outlined icon @(ViewContext.RouteData.Values["Controller"].ToString() == "Usuario" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                                    manage_accounts
+                                </span>
+                                <span class="nav-link-text">
+                                    Usuarios
+                                </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Categorias" asp-action="Index">
+                                <span class="material-symbols-outlined icon @(ViewContext.RouteData.Values["Controller"].ToString() == "Categorias" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                                    category
+                                </span>
+                                <span class="nav-link-text">
+                                    Categorias
+                                </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Reportes" asp-action="Index">
+                                <span class="material-symbols-outlined icon @(ViewContext.RouteData.Values["Controller"].ToString() == "Reportes" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                                    lab_profile
+                                </span>
+                                <span class="nav-link-text">
+                                    Reportes
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="btn-logout">
+                <ul class="nav navbar-nav navbar-right " style="display:@(showCloseSesion ? "block" : "none")" id="btnCloseSesion">
+                    <li>
+                        <a href="" class="btn btn-default navbar-btn btn-logout-in">
+                            <span class="material-symbols-outlined">
+                                logout
+                            </span>
+                            <span class="icon-logout">Cerrar Sesión</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
 
     </div>
 
-
-
-    <div class="sidebar" style="display:@displayStatus">
-
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link active" asp-controller="Home" asp-action="Index"> Panel Principal</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" asp-controller="Clientes" asp-action="Index">
-                    <span class="material-symbols-outlined">
-                        groups
-                    </span> Clientes
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" asp-controller="Ventas" asp-action="Index">
-                    <span class="material-symbols-outlined">
-                        attach_money
-                    </span>
-                    Ventas
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" asp-controller="Categorias" asp-action="Index">
-                    <span class="material-symbols-outlined">
-                        category
-                    </span> Categorias
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" asp-controller="Productos" asp-action="Index">
-                    <span class="material-symbols-outlined">
-                        shopping_cart
-                    </span> Productos
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("Index", "Usuario")"><span class="material-icons">face</span> Usuarios</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" asp-controller="Reportes" asp-action="Index">
-                    <span class="material-symbols-outlined">
-                        lab_profile
-                    </span>  Reportes
-                </a>
-            </li>
-        </ul>
-    </div>
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -129,28 +173,27 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 
-    <script src="~/Scripts/Layaut/Script.js"></script>
     <link href="https://cdn.datatables.net/v/dt/dt-2.0.5/datatables.min.css" rel="stylesheet">
     <script src="https://cdn.datatables.net/v/dt/dt-2.0.5/datatables.min.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var isLoggedIn = @((bool)ViewBag.SessionStatus ? "true" : "false");
+        if (isLoggedIn) {
+            var navbar = document.querySelector('.nav-bar');
+            var bodyContent = document.querySelector('.body-content');
+            if (navbar) {
+                navbar.classList.add('logged-in');
+            }
+            if (bodyContent) {
+                bodyContent.classList.add('logged-in');
+            }
+        }
+    });
+    </script>
+
+
 </body>
 </html>
 
 
-<style>
-    .sidebar {
-        position: fixed;
-        top: 50px;
-        bottom: 0;
-        right: 0;
-        width: 250px; 
-        background-color: #F9FCFA;
-        padding: 20px;
-        cursor: pointer;
-        z-index: 1000;
-    }
-
-    .navbar {
-        color: #BAC1BC;
-        background-color: #F9FCFA;
-    }
-</style>

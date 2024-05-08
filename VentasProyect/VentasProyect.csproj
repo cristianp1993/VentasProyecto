@@ -188,6 +188,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Home\index.css" />
+    <Content Include="Content\Layout\Layout.css" />
     <Content Include="Content\Login\Login.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -223,7 +225,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\Layaut\Script.js" />
+    <Content Include="Scripts\Layout\Script.js" />
     <Content Include="Scripts\Login\Login.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
@@ -248,6 +250,11 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Img\" />
+    <Folder Include="Views\Categorias\" />
+    <Folder Include="Views\Clientes\" />
+    <Folder Include="Views\Productos\" />
+    <Folder Include="Views\Reportes\" />
+    <Folder Include="Views\Ventas\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
