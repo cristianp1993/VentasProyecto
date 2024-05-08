@@ -39,6 +39,7 @@ namespace VentasProyect.Repository
                     {
                         usu_id = user.usu_id,
                         usu_nombre = user.usu_nombre,
+                        usu_contrasenia = user.usu_contrasenia,
                         usu_rol = user.usu_rol,
                         usu_correo = user.usu_correo
                     };
