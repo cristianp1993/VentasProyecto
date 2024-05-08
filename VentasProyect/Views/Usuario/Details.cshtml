@@ -1,0 +1,23 @@
+﻿@model VentasProyect.Models.usuario.usuario
+
+@{
+    ViewBag.Title = "Detalles del Usuario";
+}
+
+<h2>Detalles del Usuario</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>Nombre:</dt>
+        <dd>@Model.usu_nombre</dd>
+        <dt>Rol:</dt>
+        <dd>@Model.usu_rol</dd>
+        <dt>Correo:</dt>
+        <dd>@Model.usu_correo</dd>
+        
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Volver a la lista", "Index")
+</p>

@@ -1,70 +1,49 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Iniciar Sesion";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
 }
 
-<div class="row">
-    <div class="col-md-4">
-        <div class="login-form">
-            <div class="login-header">
-                <h2>Venture Sales</h2>
+@Styles.Render("~/Login")
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="shadow-right">
+            <div class="login-form">
+                <div class="login-header">
+                    <h2 class="NamePage">Venture Sales</h2>
+                </div>
+
+                <form class="alignForm" action="#">
+                    <div class="login-inputs">
+                        <label for="username">Usuario:</label>
+                        <input type="text" id="username" name="username" class="form-control input-with-label-on-top" placeholder="Ingrese su correo">
+                    </div>
+
+                    <div class="login-inputs">
+                        <label for="password">Contraseña:</label>
+                        <div class="password-input">
+                            <input type="password" id="password" name="password" class="form-control input-with-label-on-top" placeholder="Ingrese su contraseña">
+                            <span class="material-symbols-outlined" id="togglePasswordVisibility">visibility_off</span>
+                        </div>
+                    </div>
+
+
+                    <button type="submit" class="login-button" id="login-button">Ingresa</button>
+
+                    <div class="forgot-password">
+                        <a href="#">¿Olvidó su contraseña?</a>
+                    </div>
+                </form>
             </div>
-
-            <form action="#">
-                <div class="login-inputs">
-                    <label for="username">Usuario:</label>
-                    <input type="text" id="username" name="username" class="form-control" placeholder="Ingrese su correo">
-                </div>
-
-                <div class="login-inputs">
-                    <label for="password">Contraseña:</label>
-                    <input type="password" id="password" name="password" class="form-control" placeholder="Ingrese su contraseña">
-                </div>
-
-                <button type="submit" class="login-button" id="login-button">Ingresa</button>
-
-                <div class="forgot-password">
-                    <a href="#">¿Olvidó su contraseña?</a>
-                </div>
-            </form>
+        </div>
+        <div class="containerLogin2" style="background-color: #1C1B3A;">
+            <div class="background-image">
+                <img src="~/Img/shopping_cart.png" alt="imagen" class="background-image">
+            </div>
         </div>
     </div>
 </div>
+
+
 <script src="~/Scripts/Login/Login.js"></script>
-<style>
-    .row {
-        background-color: #1C1C39;
-        font-family: 'Glacial Indifference', sans-serif;
-    }
-    .login-form{
-        height:100%;
-    }
-    h2 {
-        color: #7B31B9;
-        font-weight:bold;
-    }
-    input {
-        background-color: #1C1C39;
-        color: #F9F9F9;
-        
-    }
 
-    .login-button {
-        display: block;
-        width: 100%;
-        padding: 10px 20px;
-        margin-top: 10px;
-        border-radius: 10px;
-        background-color: #4E4FEB;
-        color: white;
-        font-size: 16px;
-        font-weight: bold;
-        text-align: center;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-        .login-button:hover {
-            background-color: #0056b3;
-        }
-</style>

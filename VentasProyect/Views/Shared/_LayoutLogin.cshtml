@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Venture Sales</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr");
+
+</head>
+<body>
+
+    @{
+        var displayStatus = "";
+        var showCloseSesion = ViewBag.SessionStatus;
+
+        if (!ViewBag.SessionStatus)
+        {
+            displayStatus = "none";
+        }
+        else
+        {
+            displayStatus = "block";
+        }
+
+
+
+    }
+
+    <div class="containerLogin">
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+
+</body>
+</html>
+

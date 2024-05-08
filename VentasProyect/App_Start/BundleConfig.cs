@@ -25,6 +25,18 @@ namespace VentasProyect
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Login").Include(
+                "~/Content/Login/Login.css"));
+
+            bundles.Add(new StyleBundle("~/Layout").Include(
+                "~/Content/Layout/Layout.css"));
+
+            bundles.Add(new ScriptBundle("~/ScrLayout").Include(
+          "~/Scripts/Layout/Script.js"));
+
+            bundles.Add(new StyleBundle("~/HomeIndex").Include(
+                "~/Content/Home/index.css"));
         }
     }
 }
