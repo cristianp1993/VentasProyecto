@@ -33,6 +33,8 @@ namespace VentasProyect.Controllers
         {
             if (ModelState.IsValid)
             {
+                
+
                 // Lógica para guardar el nuevo usuario en la base de datos
                 _usuarioRepository.CreateUsuario(usuario);
 

@@ -52,7 +52,13 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="MD5, Version=2.1.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MD5.2.1.5\lib\netstandard2.0\MD5.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -107,9 +113,6 @@
     <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
@@ -179,6 +182,7 @@
     </Compile>
     <Compile Include="Models\Usuario\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\EncryptRepository.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
     <Compile Include="Repository\HomeRepository.cs" />
     <Compile Include="Repository\LoginRepository.cs" />
@@ -189,6 +193,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Home\index.css" />
+    <Content Include="Content\Layout\Layout.css" />
     <Content Include="Content\Login\Login.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -224,7 +230,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\Layaut\Script.js" />
+    <Content Include="Scripts\Layout\Script.js" />
     <Content Include="Scripts\Login\Login.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
@@ -252,6 +258,11 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Img\" />
+    <Folder Include="Views\Categorias\" />
+    <Folder Include="Views\Clientes\" />
+    <Folder Include="Views\Productos\" />
+    <Folder Include="Views\Reportes\" />
+    <Folder Include="Views\Ventas\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

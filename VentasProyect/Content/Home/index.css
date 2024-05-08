@@ -1,0 +1,15 @@
+.card {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 30px;
+}
+
+body {
+    background-color: #1C1B3A;
+}
+
+.container-cards {
+    display: flex;
+    margin-top: 100px;
+    justify-content: space-evenly;
+}

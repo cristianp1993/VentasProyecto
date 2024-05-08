@@ -144,9 +144,6 @@ input.input-with-label-on-top:focus + label, input.input-with-label-on-top:not(:
     color: #fff;
 }
 
-.background-image-container {
-}
-
 .background-image {
     position: absolute;
     width:250px;

@@ -1,12 +1,29 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 body {
     font-family: "Poppins", sans-serif;
+}
+
+.containerLogin {
+    margin-right: auto;
+    margin-left: 0;
+    padding-left: 0;
+    min-width: 400px;
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    width: 100%;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    transition: width 1s;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
