@@ -60,19 +60,19 @@ function ValidateLogin() {
         },
         body: JSON.stringify(data)
     })
-        .then(response => response.text())
-        .then(data => {
+    .then(response => response.text())
+    .then(data => {
             
-            if (data == "True") {
-                window.location.href = '/Home/Index'; 
-            } else {
-                alert('Usuario o contraseña incorrectos.');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Hubo un error al intentar iniciar sesión.');
-        });
+        if (data == "True") {
+            window.location.href = '/Home/Index'; 
+        } else {
+            alert('Usuario o contraseña incorrectos.');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Hubo un error al intentar iniciar sesión.');
+    });
 }
 
 

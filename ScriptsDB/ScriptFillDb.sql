@@ -20,3 +20,5 @@ WHERE NOT EXISTS (
     SELECT 1 FROM t_usuario WHERE usu_correo = 'cristian.piedrahita88@gmail.com'
 );
 GO
+
+update t_usuario set usu_contrasenia='3d9188577cc9bfe9291ac66b5cc872b7' where usu_correo='cristian.piedrahita88@gmail.com'
