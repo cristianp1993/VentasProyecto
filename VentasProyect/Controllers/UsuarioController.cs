@@ -25,12 +25,15 @@ namespace VentasProyect.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.SessionStatus = true;
             return View();
         }
 
         [HttpPost]
         public ActionResult Create(usuario usuario)
         {
+            
+            
             if (ModelState.IsValid)
             {
                 

@@ -178,10 +178,10 @@
 
     <script>
     document.addEventListener('DOMContentLoaded', function () {
-        var isLoggedIn = @((bool)ViewBag.SessionStatus ? "true" : "false");
+        let isLoggedIn = @((bool)ViewBag.SessionStatus ? "true" : "false");
         if (isLoggedIn) {
-            var navbar = document.querySelector('.nav-bar');
-            var bodyContent = document.querySelector('.body-content');
+            let navbar = document.querySelector('.nav-bar');
+            let bodyContent = document.querySelector('.body-content');
             if (navbar) {
                 navbar.classList.add('logged-in');
             }

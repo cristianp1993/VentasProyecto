@@ -39,7 +39,7 @@ namespace VentasProyect.Repository.LoginRepository
 
                 string passwordHash = encryptRepository.EncryptPassword(password);
 
-                var data = dbContext.t_usuario.Where(xh => xh.usu_correo == user && xh.usu_contrasenia == password).FirstOrDefault();
+                var data = dbContext.t_usuario.Where(xh => xh.usu_correo == user && xh.usu_contrasenia == passwordHash).FirstOrDefault();
 
                 bool result = false;
 
