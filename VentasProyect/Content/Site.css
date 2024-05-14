@@ -24,6 +24,8 @@ body {
     top: 70px;
     left: 0;
     transition: width 1s;
+    display:flex;
+    flex-direction:column;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -38,4 +40,13 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+
+footer {
+    color: #F2F4F7;
+    font-size:18px;
+    position:fixed;
+    bottom:0;
+    display:grid;
 }

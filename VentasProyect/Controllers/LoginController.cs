@@ -9,11 +9,8 @@ namespace VentasProyect.Controllers
         // GET: Login
         public ActionResult Index()
         {
-            
-            bool loggedIn = Session["SessionStatus"] != null && (bool)Session["SessionStatus"];
 
             
-            ViewBag.SessionStatus = loggedIn;
             return View();
         }
 
@@ -22,11 +19,15 @@ namespace VentasProyect.Controllers
         {
 
             var result = loginRepository.ValidateLogin(user,password);
-
+            Session["SessionStatus"] = false;
             if (result)
             {
                 Session["Email"] = user;
-                Session["SessionStatus"] = result;
+                Session["SessionStatus"] = true;
+            }
+            else
+            {
+                Session["SessionStatus"] = false;
             }
 
             return result;

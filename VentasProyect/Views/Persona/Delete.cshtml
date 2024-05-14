@@ -1,0 +1,28 @@
+﻿@model VentasProyect.Models.Ciudad.Ciudad
+
+@{
+    ViewBag.Title = "Eliminar Usuario";
+}
+
+<h2>Eliminar Ciudad</h2>
+
+<h3>¿Estás seguro de que deseas eliminar esta ciudad?</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>Nombre:</dt>
+        <dd>@Model.ciu_nombre</dd>
+        <dt>Rol:</dt>
+        <dd>@Model.ciu_depto</dd>      
+        
+    </dl>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <p>
+        <input type="submit" value="Eliminar" class="btn btn-danger" />
+        @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-default" })
+    </p>
+}

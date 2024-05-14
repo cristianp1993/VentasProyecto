@@ -1,67 +1,59 @@
 ﻿using System.Web.Mvc;
-using VentasProyect.Models.usuario;
+using VentasProyect.Models.Ciudad;
 using VentasProyect.Repository;
 
 namespace VentasProyect.Controllers
 {
-    public class UsuarioController : Controller
+    public class CiudadController : Controller
     {
-        private readonly UsuarioRepository _usuarioRepository;
-
-        public UsuarioController()
-        {
-            _usuarioRepository = new UsuarioRepository();
-        }
-
-        // GET: Usuario
+        public CiudadRepository _ciudadRepository = new CiudadRepository();
+        // GET: Ciudad
         public ActionResult Index()
         {
             Session["SessionStatus"] = true;
+
+            var data = _ciudadRepository.GetData();
             
-            var usuarios = _usuarioRepository.GetUsuarios();
-            return View(usuarios);
+            return View(data);
         }
 
         public ActionResult Create()
         {
-            Session["SessionStatus"] = true;
+            
             return View();
         }
 
         [HttpPost]
-        public ActionResult Create(usuario usuario)
+        public ActionResult Create(Ciudad  model)
         {
-            
-            
             if (ModelState.IsValid)
             {
-                
+
 
                 // Lógica para guardar el nuevo usuario en la base de datos
-                _usuarioRepository.CreateUsuario(usuario);
+                _ciudadRepository.CreateCiudad(model);
 
                 // Redirecciona al usuario a alguna página de confirmación o a la lista de usuarios
                 return RedirectToAction("Index");
             }
-            return View(usuario);
+            return View(model);
         }
-
         public ActionResult Edit(int id)
         {
-            var usuario = _usuarioRepository.GetUsuarioById(id);
-            if (usuario == null)
+            var data = _ciudadRepository.GetDataById(id);
+            if (data == null)
             {
-                return HttpNotFound(); // Devuelve un error 404 si no se encuentra el usuario
+                return HttpNotFound();
             }
-            return View(usuario);
+            return View(data);
         }
 
         [HttpPost]
-        public ActionResult Edit(usuario usuario)
+        public ActionResult Edit(Ciudad usuario)
         {
             if (ModelState.IsValid)
             {
-                _usuarioRepository.UpdateUsuario(usuario);
+                _ciudadRepository.UpdateUsuario(usuario);
                 return RedirectToAction("Index");
             }
             return View(usuario);
@@ -69,7 +61,7 @@ namespace VentasProyect.Controllers
 
         public ActionResult Details(int id)
         {
-            var usuario = _usuarioRepository.GetUsuarioById(id);
+            var usuario = _ciudadRepository.GetDataById(id);
             if (usuario == null)
             {
                 return HttpNotFound(); // Devuelve un error 404 si no se encuentra el usuario
@@ -79,7 +71,7 @@ namespace VentasProyect.Controllers
 
         public ActionResult Delete(int id)
         {
-            var usuario = _usuarioRepository.GetUsuarioById(id);
+            var usuario = _ciudadRepository.GetDataById(id);
             if (usuario == null)
             {
                 return HttpNotFound(); // Devuelve un error 404 si no se encuentra el usuario
@@ -91,7 +83,7 @@ namespace VentasProyect.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            _usuarioRepository.DeleteUsuario(id);
+            _ciudadRepository.Delete(id);
             return RedirectToAction("Index");
         }
     }

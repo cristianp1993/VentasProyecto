@@ -1,48 +1,45 @@
-﻿@model IEnumerable<VentasProyect.Models.usuario.usuario>
+﻿@model IEnumerable<VentasProyect.Models.Ciudad.Ciudad>
 
 @{
-    ViewBag.Title = "Usuarios";
+    ViewBag.Title = "Ciudad";
 }
 
-<h2>Lista de Usuarios</h2>
+<h2>Ciudades</h2>
 
 <div class="col-md-12">
     <p>
-        @Html.ActionLink("Crear Nuevo Usuario", "Create")
+        @Html.ActionLink("Crear Nueva Ciudad", "Create")
     </p>
     <table id="MyTable" class="table table-striped table-bordered">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Nombre</th>
-                <th>Contraseña</th>
-                <th>Rol</th>
-                <th>Correo</th>
+                <th>Ciudad</th>
+                <th>Departamento</th>
+               
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var usuario in Model)
+            @foreach (var data in Model)
             {
                 <tr>
-                    <td>@usuario.usu_id</td>
-                    <td>@usuario.usu_nombre</td>
-                    <td>@usuario.usu_contrasenia</td>
-                    <td>@usuario.usu_rol</td>
-                    <td>@usuario.usu_correo</td>
+                    <td>@data.ciu_id</td>
+                    <td>@data.ciu_nombre</td>
+                    <td>@data.ciu_depto</td>                   
                     <td>
-                        <a href="@Url.Action("Edit", "Usuario", new { id = usuario.usu_id })">
+                        <a href="@Url.Action("Edit", "Ciudad", new { id = data.ciu_id })">
                             <span class="material-symbols-outlined">
                                 edit
                             </span>
                         </a>
 
-                        <a href="@Url.Action("Details", "Usuario", new { id = usuario.usu_id })">
+                        <a href="@Url.Action("Details", "Ciudad", new { id = data.ciu_id })">
                             <span class="material-symbols-outlined">
                                 data_info_alert
                             </span>
                         </a>
-                        <a href="@Url.Action("Delete", "Usuario", new { id = usuario.usu_id })">
+                        <a href="@Url.Action("Delete", "Ciudad", new { id = data.ciu_id })">
                             <span class="material-symbols-outlined">
                                 delete
                             </span>
@@ -61,4 +58,5 @@
             $('#MyTable').DataTable();
         });
     </script>
+    
 }

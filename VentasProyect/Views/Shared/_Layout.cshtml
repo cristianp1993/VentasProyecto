@@ -19,10 +19,10 @@
 <body>
 
     @{
-        var displayStatus = "";
-        var showCloseSesion = ViewBag.SessionStatus;
+        var displayStatus = "";      
 
-        if (!ViewBag.SessionStatus)
+
+        if (!(bool)Session["SessionStatus"])
         {
             displayStatus = "none";
         }
@@ -37,7 +37,7 @@
         <div class="nav-bar">
 
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right" style="display:@(!showCloseSesion ? "block" : "none")">
+                <ul class="nav navbar-nav navbar-right" style="display:@(!(bool)Session["SessionStatus"] ? "block" : "none")">
                     <li>
                         <a href="~/Login/Index" class="btn btn-default navbar-btn">
                             Iniciar Sesión
@@ -82,12 +82,22 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Clientes" asp-action="Index">
-                                <span class="material-symbols-outlined icon @(ViewContext.RouteData.Values["Controller"].ToString() == "Clientes" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                            <a class="nav-link" href="@Url.Action("Index", "Persona", new { type = "Cliente" })">
+                                <span class="material-symbols-outlined icon @(ViewContext.RouteData.Values["Controller"].ToString() == "Persona" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
                                     groups
-                                </span> 
+                                </span>
                                 <span class="nav-link-text">
                                     Clientes
+                                </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Persona", new { type = "Proveedor" })">
+                                <span class="material-symbols-outlined icon @(ViewContext.RouteData.Values["Controller"].ToString() == "Persona" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                                    engineering
+                                </span>
+                                <span class="nav-link-text">
+                                    Proveedores
                                 </span>
                             </a>
                         </li>
@@ -111,7 +121,18 @@
                                 </span>
                             </a>
                         </li>
-
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Ciudad")">
+                                <span class="material-symbols-outlined icon @(ViewContext.RouteData.Values["Controller"].ToString() == "Ciudad" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                                    
+                                    location_city
+                                    
+                                </span>
+                                <span class="nav-link-text">
+                                    Ciudades
+                                </span>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="@Url.Action("Index", "Usuario")">
                                 <span class="material-symbols-outlined icon @(ViewContext.RouteData.Values["Controller"].ToString() == "Usuario" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
@@ -146,7 +167,7 @@
                 </div>
             </div>
             <div class="btn-logout">
-                <ul class="nav navbar-nav navbar-right " style="display:@(showCloseSesion ? "block" : "none")" id="btnCloseSesion">
+                <ul class="nav navbar-nav navbar-right " style="display:@((bool)Session["SessionStatus"] ? "block" : "none")" id="btnCloseSesion">
                     <li>
                         <a href="" class="btn btn-default navbar-btn btn-logout-in">
                             <span class="material-symbols-outlined">
@@ -178,10 +199,11 @@
 
     <script>
     document.addEventListener('DOMContentLoaded', function () {
-        var isLoggedIn = @((bool)ViewBag.SessionStatus ? "true" : "false");
+        let isLoggedIn = @( (bool)(Session["SessionStatus"] ?? false) ? "true" : "false" );
+
         if (isLoggedIn) {
-            var navbar = document.querySelector('.nav-bar');
-            var bodyContent = document.querySelector('.body-content');
+            let navbar = document.querySelector('.nav-bar');
+            let bodyContent = document.querySelector('.body-content');
             if (navbar) {
                 navbar.classList.add('logged-in');
             }

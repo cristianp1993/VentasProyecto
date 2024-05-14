@@ -14,11 +14,7 @@ namespace VentasProyect.Controllers
         public ActionResult Index()
         {
             // Obtener el valor de la variable de sesión SessionStatus
-            bool loggedIn = Session["SessionStatus"] != null && (bool)Session["SessionStatus"];
-
-            // Asignar el valor a una variable de vista (view bag)
-            ViewBag.SessionStatus = loggedIn;           
-            
+            Session["SessionStatus"] = true;
             return View();
         }
 
