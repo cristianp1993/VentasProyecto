@@ -1,75 +1,74 @@
-﻿using System.Web.Mvc;
-using VentasProyect.Models.usuario;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using VentasProyect.Models.Persona;
 using VentasProyect.Repository;
 
 namespace VentasProyect.Controllers
 {
-    public class UsuarioController : Controller
+    public class PersonaController : Controller
     {
-        private readonly UsuarioRepository _usuarioRepository;
-
-        public UsuarioController()
-        {
-            _usuarioRepository = new UsuarioRepository();
-        }
-
-        // GET: Usuario
-        public ActionResult Index()
+        PersonaRepository _personaRepository = new PersonaRepository();
+        CiudadRepository _ciudadRepository = new CiudadRepository();
+        // GET: Persona
+        public ActionResult Index(string type)
         {
             Session["SessionStatus"] = true;
-            
-            var usuarios = _usuarioRepository.GetUsuarios();
-            return View(usuarios);
+
+            ViewBag.Type = type;
+
+            var data = _personaRepository.GetData(type);
+
+            return View(data);
         }
 
         public ActionResult Create()
         {
-            Session["SessionStatus"] = true;
+            ViewBag.Ciudades = _ciudadRepository.GetSelectCiudades();
             return View();
         }
 
         [HttpPost]
-        public ActionResult Create(usuario usuario)
+        public ActionResult Create(Persona model)
         {
-            
-            
             if (ModelState.IsValid)
             {
-                
+
 
                 // Lógica para guardar el nuevo usuario en la base de datos
-                _usuarioRepository.CreateUsuario(usuario);
+                _personaRepository.Create(model);
 
                 // Redirecciona al usuario a alguna página de confirmación o a la lista de usuarios
                 return RedirectToAction("Index");
             }
-            return View(usuario);
+            return View(model);
         }
-
         public ActionResult Edit(int id)
         {
-            var usuario = _usuarioRepository.GetUsuarioById(id);
-            if (usuario == null)
+            var data = _personaRepository.GetDataById(id);
+            if (data == null)
             {
-                return HttpNotFound(); // Devuelve un error 404 si no se encuentra el usuario
+                return HttpNotFound();
             }
-            return View(usuario);
+            return View(data);
         }
 
         [HttpPost]
-        public ActionResult Edit(usuario usuario)
+        public ActionResult Edit(Persona data)
         {
             if (ModelState.IsValid)
             {
-                _usuarioRepository.UpdateUsuario(usuario);
+                _personaRepository.Update(data);
                 return RedirectToAction("Index");
             }
-            return View(usuario);
+            return View(data);
         }
 
         public ActionResult Details(int id)
         {
-            var usuario = _usuarioRepository.GetUsuarioById(id);
+            var usuario = _personaRepository.GetDataById(id);
             if (usuario == null)
             {
                 return HttpNotFound(); // Devuelve un error 404 si no se encuentra el usuario
@@ -79,7 +78,7 @@ namespace VentasProyect.Controllers
 
         public ActionResult Delete(int id)
         {
-            var usuario = _usuarioRepository.GetUsuarioById(id);
+            var usuario = _personaRepository.GetDataById(id);
             if (usuario == null)
             {
                 return HttpNotFound(); // Devuelve un error 404 si no se encuentra el usuario
@@ -91,7 +90,7 @@ namespace VentasProyect.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            _usuarioRepository.DeleteUsuario(id);
+            _personaRepository.Delete(id);
             return RedirectToAction("Index");
         }
     }

@@ -1,0 +1,51 @@
+﻿@model VentasProyect.Models.Persona.Persona
+
+@{
+    ViewBag.Title = "Editar Persona";
+}
+
+<h2>Editar Persona</h2>
+
+@using (Html.BeginForm("Edit", "Persona", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.per_id)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.per_nombre)
+        @Html.TextBoxFor(model => model.per_nombre, new { @class = "form-control", @onchange = "CapitalizeText(this)" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.per_direccion)
+        @Html.TextBoxFor(model => model.per_direccion, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.per_telefono)
+        @Html.TextBoxFor(model => model.per_telefono, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.per_cuenta_bancaria)
+        @Html.TextBoxFor(model => model.per_cuenta_bancaria, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.per_correo)
+        @Html.TextBoxFor(model => model.per_correo, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.per_nit)
+        @Html.TextBoxFor(model => model.per_nit, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.per_tipo)
+        @Html.TextBoxFor(model => model.per_tipo, new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+}
+
+<script src="~/Scripts/Generales/General.js"></script>

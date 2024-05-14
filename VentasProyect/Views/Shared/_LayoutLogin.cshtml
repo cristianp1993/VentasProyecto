@@ -16,9 +16,9 @@
 
     @{
         var displayStatus = "";
-        var showCloseSesion = ViewBag.SessionStatus;
+        var showCloseSesion =Convert.ToBoolean(Session["SessionStatus"]);
 
-        if (!ViewBag.SessionStatus)
+        if (!showCloseSesion)
         {
             displayStatus = "none";
         }
