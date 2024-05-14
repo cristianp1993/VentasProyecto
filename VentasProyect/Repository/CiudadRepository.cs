@@ -101,7 +101,9 @@ namespace VentasProyect.Repository
 
         public IEnumerable<SelectListItem> GetSelectCiudades()
         {
-            var ciudades = _dbContext.t_ciudad.OrderBy(c => c.ciu_nombre)
+            
+
+            var lista = _dbContext.t_ciudad.OrderBy(c => c.ciu_nombre)
                               .Select(c => new SelectListItem
                               {
                                   Value = c.ciu_id.ToString(),
@@ -109,10 +111,10 @@ namespace VentasProyect.Repository
                               })
                               .ToList();
 
-            
-            ciudades.Insert(0, new SelectListItem { Value = "0", Text = "Seleccione una ciudad" });
 
-            return ciudades;
+            lista.Insert(0, new SelectListItem { Value = "0", Text = "Seleccione una ciudad" });
+
+            return lista;
         }
     }
 }

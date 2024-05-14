@@ -106,7 +106,8 @@ namespace VentasProyect.Repository
                         per_cuenta_bancaria = data.per_cuenta_bancaria,
                         per_correo = data.per_correo,
                         per_nit = (int)data.per_nit,
-                        per_tipo = data.per_tipo
+                        per_tipo = data.per_tipo,
+                        ciu_id = Convert.ToString(data.ciu_id)
 
                     };
                 }

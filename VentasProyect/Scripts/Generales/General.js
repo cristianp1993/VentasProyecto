@@ -11,3 +11,7 @@
     textoCapitalizado = textoCapitalizado.replace(/ +/g, ' ');
     input.value = textoCapitalizado.trim();
 }
+
+function UpdateHiddenValue(select) {
+    document.getElementById('ciu_id_hidden').value = parseInt(select.value);
+}

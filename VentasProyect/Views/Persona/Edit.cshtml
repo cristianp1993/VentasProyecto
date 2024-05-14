@@ -2,50 +2,68 @@
 
 @{
     ViewBag.Title = "Editar Persona";
+
+    var type = Model.per_tipo == "Ambos" ? "Cliente" : Model.per_tipo;
 }
 
 <h2>Editar Persona</h2>
 
-@using (Html.BeginForm("Edit", "Persona", FormMethod.Post))
+@using (Html.BeginForm("Edit", "Persona", new { type = type }, FormMethod.Post))
 {
+    
     @Html.HiddenFor(model => model.per_id)
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.per_nombre)
-        @Html.TextBoxFor(model => model.per_nombre, new { @class = "form-control", @onchange = "CapitalizeText(this)" })
+    <div class="form-group col-md-12">
+        <div class="col-md-6">
+            @Html.LabelFor(model => model.per_nombre)
+            @Html.TextBoxFor(model => model.per_nombre, new { @class = "form-control", @onchange = "CapitalizeText(this)" })
+        </div>
+        <div class="col-md-6">
+            @Html.LabelFor(model => model.per_direccion)
+            @Html.TextBoxFor(model => model.per_direccion, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group col-md-12">
+        <div class="col-md-6">
+            @Html.LabelFor(model => model.per_telefono)
+            @Html.TextBoxFor(model => model.per_telefono, new { @class = "form-control" })
+        </div>
+        <div class="col-md-6">
+            @Html.LabelFor(model => model.per_cuenta_bancaria)
+            @Html.TextBoxFor(model => model.per_cuenta_bancaria, new { @class = "form-control" })
+        </div>
     </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.per_direccion)
-        @Html.TextBoxFor(model => model.per_direccion, new { @class = "form-control" })
+    <div class="form-group col-md-12">
+        <div class="col-md-6">
+            @Html.LabelFor(model => model.per_correo)
+            @Html.TextBoxFor(model => model.per_correo, new { @class = "form-control" })
+        </div>
+        <div class="col-md-6">
+            @Html.LabelFor(model => model.per_nit)
+            @Html.TextBoxFor(model => model.per_nit, new { @class = "form-control" })
+        </div>
     </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.per_telefono)
-        @Html.TextBoxFor(model => model.per_telefono, new { @class = "form-control" })
-    </div>
+    <div class="form-group col-md-12">
+        <div class="col-md-6">
+            @Html.LabelFor(model => model.per_tipo)
+            @Html.TextBoxFor(model => model.per_tipo, new { @class = "form-control" })
+        </div>
+        <div class="col-md-6">
+            @Html.LabelFor(model => model.ciu_id)
+            @Html.HiddenFor(model => model.ciu_id, new { id = "ciu_id_hidden" })
+            @Html.DropDownList("ciu_idTemp", (IEnumerable<SelectListItem>)ViewBag.Ciudades, new { @class = "form-control", onchange = "UpdateHiddenValue(this);"})
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.per_cuenta_bancaria)
-        @Html.TextBoxFor(model => model.per_cuenta_bancaria, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.ciu_id)
+        </div>
     </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.per_correo)
-        @Html.TextBoxFor(model => model.per_correo, new { @class = "form-control" })
+    <div class="form-group col-md-12">
+        <div class="col-md-6">
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        </div>
     </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.per_nit)
-        @Html.TextBoxFor(model => model.per_nit, new { @class = "form-control" })
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.per_tipo)
-        @Html.TextBoxFor(model => model.per_tipo, new { @class = "form-control" })
-    </div>
-
-    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
 }
 
 <script src="~/Scripts/Generales/General.js"></script>
+<script src="~/Scripts/Persona/Persona.js"></script>
+

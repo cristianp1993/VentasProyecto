@@ -33,6 +33,13 @@ namespace VentasProyect.Controllers
         [HttpPost]
         public ActionResult Create(Persona model)
         {
+            string type = model.per_tipo;
+
+            if (type == "Ambos")
+            {
+                type = "Cliente";
+            }
+
             if (ModelState.IsValid)
             {
 
@@ -41,12 +48,13 @@ namespace VentasProyect.Controllers
                 _personaRepository.Create(model);
 
                 // Redirecciona al usuario a alguna página de confirmación o a la lista de usuarios
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { type= type });
             }
             return View(model);
         }
         public ActionResult Edit(int id)
         {
+            ViewBag.Ciudades = _ciudadRepository.GetSelectCiudades();
             var data = _personaRepository.GetDataById(id);
             if (data == null)
             {

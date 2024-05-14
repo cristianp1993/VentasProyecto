@@ -1,19 +1,31 @@
-﻿@model VentasProyect.Models.Ciudad.Ciudad
+﻿@model VentasProyect.Models.Persona.Persona
 
 @{
     ViewBag.Title = "Eliminar Usuario";
+    var type = Model.per_tipo == "Ambos" ? "Cliente" : Model.per_tipo;
 }
 
-<h2>Eliminar Ciudad</h2>
+<h2>Eliminar Persona</h2>
 
-<h3>¿Estás seguro de que deseas eliminar esta ciudad?</h3>
+<h3>¿Estás seguro de que deseas eliminar esta Persona?</h3>
 <div>
     <dl class="dl-horizontal">
+        <dt>Id de Ciudad:</dt>
+        <dd>@Model.ciu_id</dd>
         <dt>Nombre:</dt>
-        <dd>@Model.ciu_nombre</dd>
-        <dt>Rol:</dt>
-        <dd>@Model.ciu_depto</dd>      
-        
+        <dd>@Model.per_nombre</dd>
+        <dt>Dirección:</dt>
+        <dd>@Model.per_direccion</dd>
+        <dt>Teléfono:</dt>
+        <dd>@Model.per_telefono</dd>
+        <dt>Cuenta Bancaria:</dt>
+        <dd>@Model.per_cuenta_bancaria</dd>
+        <dt>Correo Electrónico:</dt>
+        <dd>@Model.per_correo</dd>
+        <dt>NIT:</dt>
+        <dd>@Model.per_nit</dd>
+        <dt>Tipo Persona:</dt>
+        <dd>@Model.per_tipo</dd>
     </dl>
 </div>
 
@@ -21,8 +33,10 @@
 {
     @Html.AntiForgeryToken()
 
+    @Html.Hidden("type", type)
+
     <p>
         <input type="submit" value="Eliminar" class="btn btn-danger" />
-        @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-default" })
+        @Html.ActionLink("Cancelar", "Index", new { type = type }, new { @class = "btn btn-default" })
     </p>
 }
