@@ -20,6 +20,16 @@
     transition: width 0.5s; /* Transición de ancho */
 }
 
+.sidebar-hidden {
+    width: 100vw;
+    transition: width 0.5s; /* Transición de ancho */
+}
+
+.sidebar-visible {
+    width: calc(100vw - 171px); /* Resta el ancho del sidebar cuando está visible */
+    transition: width 0.5s; /* Transición de ancho */
+}
+
 .nav-bar {
     min-height: 80px;
     width: 100vw;
@@ -30,6 +40,16 @@
     left: 0;
     padding-right: 20px;
     transition: width 0.5s; /* Transición de ancho */
+}
+
+.btn-login{
+    display:block;
+    float:right;
+}
+
+.btn-login a{
+    padding-top:15px;
+    padding-bottom:15px;
 }
 
 .logged-in {
@@ -97,9 +117,8 @@ li {
 }
 
 .background-image {
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
+    width: 100%;
+    height: 100%;
 }
 
 .logo-content {
@@ -145,11 +164,15 @@ li {
     justify-content: center;
 }
 
-.btn-logout .btn-logout-in {
-    display:flex;
-    justify-content:center;
-}
+    .btn-logout .btn-logout-in {
+        display: flex;
+        justify-content: center;
+        transition: width 0.5s; /* Transición de ancho */
+    }
 
+.btn-logout-in .icon-logout {
+    transition: width 0.5s; /* Transición de ancho */
+}
 
 /* Aplica los estilos de colapso cuando el ancho de la pantalla sea menor o igual a 1200px */
 @media screen and (max-width: 1200px) {
@@ -189,7 +212,7 @@ li {
             display: none;
         }
 
-    .nav-bar {
+    .sidebar-visible {
         width: calc(100vw - 80px);
     }
 
@@ -243,10 +266,6 @@ li {
     }
 
 .nav-bar.collapsed {
-    width: calc(100% - 171px);
-}
-
-.body-content.collapsed {
     width: calc(100vw - 171px);
 }
 
@@ -257,4 +276,9 @@ li {
     .sidebar.collapsed .btn-logout-in .icon-logout {
         display: flex;
     }
+.body-content.collapsed-body {
+    width: calc(100vw - 171px);
+    transition: width 0.5s;
+}
+
 
