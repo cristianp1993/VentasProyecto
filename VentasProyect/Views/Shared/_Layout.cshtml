@@ -9,35 +9,29 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-    @Styles.Render("~/Content/css");
-    @Scripts.Render("~/bundles/modernizr");
-    @Styles.Render("~/Layout");
-    @Styles.Render("~/HomeIndex");
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Layout")
+    @Styles.Render("~/HomeIndex")
     @Scripts.Render("~/ScrLayout")
 
 </head>
 <body>
 
     @{
-        var displayStatus = "";      
-
-
-        if (!(bool)Session["SessionStatus"])
-        {
-            displayStatus = "none";
-        }
-        else
-        {
-            displayStatus = "block";
-        }
+        bool sessionStatus = (bool)(Session["SessionStatus"] ?? false);
+        var displayStatus = sessionStatus ? "block" : "none";
     }
-
     <div class="distribution">
-
-        <div class="nav-bar">
-
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right" style="display:@(!(bool)Session["SessionStatus"] ? "block" : "none")">
+        <div class="nav-bar @(sessionStatus ? "sidebar-visible" : "sidebar-hidden")">
+            <div class="txtBox-search">
+                <input type="text" id="search" class="input-search form-control" placeholder="Realizar busqueda" />
+                <span class="material-symbols-outlined icon-search">
+                    search
+                </span>
+            </div>
+            <div class="">
+                <ul class="btn-login" style="display:@(sessionStatus ? "none" : "block")">
                     <li>
                         <a href="~/Login/Index" class="btn btn-default navbar-btn">
                             Iniciar Sesión
@@ -46,139 +40,141 @@
                 </ul>
             </div>
         </div>
+    </div>
 
 
-        <div class="sidebar" style="display:@displayStatus">
 
-            <div class="">
-                <div class="nav-item name">
-                    <a class="name-style" href="@Url.Action("Index", "Home")" asp-controller="Home" asp-action="Index">
-                        <div class="logo-content">
-                            <img src="~/Img/logo.svg" alt="imagen" class="background-image">
-                        </div>
-                        <div class="text-name">
-                            Venture Sales
-                        </div>
-                    </a>
-                </div>
+    <div class="sidebar" style="display:@displayStatus">
+
+        <div class="">
+            <div class="nav-item name">
+                <a class="name-style" href="@Url.Action("Index", "Home")" asp-controller="Home" asp-action="Index">
+                    <div class="logo-content">
+                        <img src="~/Img/logo.svg" alt="imagen" class="background-image">
+                    </div>
+                    <div class="text-name">
+                        Venture Sales
+                    </div>
+                </a>
             </div>
+        </div>
 
-            <div class="menu">
-                <div class="menu-icon" id="menuToggle">
-                    <span class="material-symbols-outlined icon2">
-                        menu_open
-                    </span>
-                </div>
-                <div class="menu-context">
-                    <ul>
-                        <li class="nav-item">
-                            <a class="nav-link" href="@Url.Action("Index", "Home")" asp-controller="Home" asp-action="Index">
-                                <span class="material-symbols-outlined icon @(ViewContext.RouteData.Values["Controller"].ToString() == "Home" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
-                                    grid_view
-                                </span>
-                                <span class="nav-link-text">
-                                    Panel Principal
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="@Url.Action("Index", "Persona", new { type = "Cliente" })">
-                                <span class="material-symbols-outlined icon @(ViewContext.RouteData.Values["Controller"].ToString() == "Persona" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
-                                    groups
-                                </span>
-                                <span class="nav-link-text">
-                                    Clientes
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="@Url.Action("Index", "Persona", new { type = "Proveedor" })">
-                                <span class="material-symbols-outlined icon @(ViewContext.RouteData.Values["Controller"].ToString() == "Persona" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
-                                    engineering
-                                </span>
-                                <span class="nav-link-text">
-                                    Proveedores
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Ventas" asp-action="Index">
-                                <span class="material-symbols-outlined icon @(ViewContext.RouteData.Values["Controller"].ToString() == "Ventas" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
-                                    currency_exchange
-                                </span>
-                                <span class="nav-link-text">
-                                    Ventas
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Productos" asp-action="Index">
-                                <span class="material-symbols-outlined icon @(ViewContext.RouteData.Values["Controller"].ToString() == "Productos" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
-                                    inventory_2
-                                </span>
-                                <span class="nav-link-text">
-                                    Productos
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="@Url.Action("Index", "Ciudad")">
-                                <span class="material-symbols-outlined icon @(ViewContext.RouteData.Values["Controller"].ToString() == "Ciudad" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
-                                    
-                                    location_city
-                                    
-                                </span>
-                                <span class="nav-link-text">
-                                    Ciudades
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="@Url.Action("Index", "Usuario")">
-                                <span class="material-symbols-outlined icon @(ViewContext.RouteData.Values["Controller"].ToString() == "Usuario" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
-                                    manage_accounts
-                                </span>
-                                <span class="nav-link-text">
-                                    Usuarios
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Categorias" asp-action="Index">
-                                <span class="material-symbols-outlined icon @(ViewContext.RouteData.Values["Controller"].ToString() == "Categorias" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
-                                    category
-                                </span>
-                                <span class="nav-link-text">
-                                    Categorias
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Reportes" asp-action="Index">
-                                <span class="material-symbols-outlined icon @(ViewContext.RouteData.Values["Controller"].ToString() == "Reportes" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
-                                    lab_profile
-                                </span>
-                                <span class="nav-link-text">
-                                    Reportes
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+        <div class="menu">
+            <div class="menu-icon" id="menuToggle">
+                <span class="material-symbols-outlined icon2">
+                    menu_open
+                </span>
             </div>
-            <div class="btn-logout">
-                <ul class="nav navbar-nav navbar-right " style="display:@((bool)Session["SessionStatus"] ? "block" : "none")" id="btnCloseSesion">
-                    <li>
-                        <a href="" class="btn btn-default navbar-btn btn-logout-in">
-                            <span class="material-symbols-outlined">
-                                logout
+            <div class="menu-context">
+                <ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "Home")" asp-controller="Home" asp-action="Index">
+                            <span class="material-symbols-outlined icon @(ViewContext.RouteData.Values["Controller"].ToString() == "Home" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                                grid_view
                             </span>
-                            <span class="icon-logout">Cerrar Sesión</span>
+                            <span class="nav-link-text">
+                                Panel Principal
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "Persona", new { type = "Cliente" })">
+                            <span class="material-symbols-outlined icon @(ViewContext.RouteData.Values["Controller"].ToString() == "Persona" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                                groups
+                            </span>
+                            <span class="nav-link-text">
+                                Clientes
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "Persona", new { type = "Proveedor" })">
+                            <span class="material-symbols-outlined icon @(ViewContext.RouteData.Values["Controller"].ToString() == "Persona" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                                engineering
+                            </span>
+                            <span class="nav-link-text">
+                                Proveedores
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Ventas" asp-action="Index">
+                            <span class="material-symbols-outlined icon @(ViewContext.RouteData.Values["Controller"].ToString() == "Ventas" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                                currency_exchange
+                            </span>
+                            <span class="nav-link-text">
+                                Ventas
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Productos" asp-action="Index">
+                            <span class="material-symbols-outlined icon @(ViewContext.RouteData.Values["Controller"].ToString() == "Productos" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                                inventory_2
+                            </span>
+                            <span class="nav-link-text">
+                                Productos
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "Ciudad")">
+                            <span class="material-symbols-outlined icon @(ViewContext.RouteData.Values["Controller"].ToString() == "Ciudad" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+
+                                location_city
+
+                            </span>
+                            <span class="nav-link-text">
+                                Ciudades
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "Usuario")">
+                            <span class="material-symbols-outlined icon @(ViewContext.RouteData.Values["Controller"].ToString() == "Usuario" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                                manage_accounts
+                            </span>
+                            <span class="nav-link-text">
+                                Usuarios
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Categorias" asp-action="Index">
+                            <span class="material-symbols-outlined icon @(ViewContext.RouteData.Values["Controller"].ToString() == "Categorias" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                                category
+                            </span>
+                            <span class="nav-link-text">
+                                Categorias
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Reportes" asp-action="Index">
+                            <span class="material-symbols-outlined icon @(ViewContext.RouteData.Values["Controller"].ToString() == "Reportes" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                                lab_profile
+                            </span>
+                            <span class="nav-link-text">
+                                Reportes
+                            </span>
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
+        <div class="btn-logout">
+            <ul class="nav navbar-nav navbar-right " style="display:@((bool)Session["SessionStatus"] ? "block" : "none")" id="btnCloseSesion">
+                <li>
+                    <a href="" class="btn btn-default navbar-btn btn-logout-in">
+                        <span class="material-symbols-outlined">
+                            logout
+                        </span>
+                        <span class="icon-logout">Cerrar Sesión</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
 
     </div>
 

@@ -2,6 +2,9 @@
 
 body {
     font-family: "Poppins", sans-serif;
+    overflow-y:auto;
+    color:#fff;
+    margin-top:80px;
 }
 
 .containerLogin {
@@ -17,12 +20,10 @@ body {
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
+    position:relative;
     padding-left: 15px;
     padding-right: 15px;
     width: 100%;
-    position: fixed;
-    top: 70px;
-    left: 0;
     transition: width 1s;
     display:flex;
     flex-direction:column;
@@ -36,17 +37,9 @@ body {
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
-}
-
 
 footer {
     color: #F2F4F7;
     font-size:18px;
-    position:fixed;
-    bottom:0;
     display:grid;
 }

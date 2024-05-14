@@ -5,13 +5,21 @@
     ViewBag.Title = typeForm;
 }
 
+@Styles.Render("~/Table")
+
 <h2>Personas</h2>
 
-<div class="col-md-12">
-    <p>
-        @Html.ActionLink("Crear" , "Create")
-    </p>
-    <table id="MyTable" class="table table-striped table-bordered">
+<div class="col-md-12 table-style">
+    <div class="container-buttom">
+        <a href="@Url.Action("Create", "Persona")" class="btn btn-default btn-add-form">
+            <span class="icon-logout">Registrar Persona</span>
+            <span class="material-symbols-outlined">
+                add
+            </span>
+        </a>
+    </div>
+
+    <table id="MyTable" class="">
         <thead>
             <tr>
                 <th>ID</th>
@@ -39,18 +47,18 @@
                     <td>@data.per_tipo</td>
                     <td>
                         <a href="@Url.Action("Edit", "Persona", new { id = data.per_id })">
-                            <span class="material-symbols-outlined">
-                                edit
+                            <span class="material-symbols-outlined icon-actions-table">
+                                edit_square
                             </span>
                         </a>
 
                         <a href="@Url.Action("Details", "Persona", new { id = data.per_id })">
-                            <span class="material-symbols-outlined">
-                                data_info_alert
+                            <span class="material-symbols-outlined icon-actions-table">
+                                text_ad
                             </span>
                         </a>
                         <a href="@Url.Action("Delete", "Persona", new { id = data.per_id })">
-                            <span class="material-symbols-outlined">
+                            <span class="material-symbols-outlined icon-actions-table">
                                 delete
                             </span>
                         </a>
@@ -63,9 +71,5 @@
 </div>
 
 @section Scripts {
-    <script>
-        $(document).ready(function () {
-            $('#MyTable').DataTable();
-        });
-    </script>
+    @Scripts.Render("~/TableScript")
 }

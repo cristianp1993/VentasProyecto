@@ -1,0 +1,102 @@
+.container-buttom {
+    position: relative;
+    right: 20px;
+    top: -33px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.btn-add-form {
+    display: flex;
+    align-items: center;
+    width: 240px;
+    justify-content: space-evenly;
+    color: #fff;
+    background-color: #390063;
+    font-size: 1.3em;
+    border-radius:15px;
+}
+
+    .btn-add-form:hover {
+        color: #fff;
+        background-color: #622c8c;
+    }
+
+.table-style {
+    border-radius: 15px;
+    background-color: #000038;
+    padding: 15px;
+}
+table {
+    border-spacing: 0px 18px !important;
+    border-collapse: separate;
+}
+
+table tbody tr {
+    background-color: #390063 !important;
+    border: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+    border-radius:15px;
+}
+
+table tbody tr td{
+    vertical-align:middle;
+
+}
+
+div.dt-container div.dt-layout-row.dt-layout-table {
+    display: block;
+}
+
+#MyTable {
+    width: -webkit-fill-available !important;
+}
+
+td:first-child,
+td:last-child {
+    border: 0px solid;
+}
+
+td:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+td:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.dt-paging-button{
+    border:1px solid #bfbfbf !important;
+    border-radius:18px !important;
+}
+
+.paging_full_numbers buttom{
+    border: 1px solid #bfbfbf !important;
+    border-radius: 18px !important;
+}
+
+.disabled {
+    display: none !important;
+    border: none !important;
+}
+
+    .disabled:hover {
+        border: none !important;
+        color: transparent !important;
+        background-color: transparent !important;
+    }
+.current {
+    background-color: #390063 !important;
+}
+
+.icon-actions-table {
+    font-variation-settings: 'FILL' 0;
+    color: #fff;
+}
+
+
+

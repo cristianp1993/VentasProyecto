@@ -37,6 +37,12 @@ namespace VentasProyect
 
             bundles.Add(new StyleBundle("~/HomeIndex").Include(
                 "~/Content/Home/index.css"));
+
+            bundles.Add(new StyleBundle("~/Table").Include(
+                "~/Content/table.css"));
+            
+            bundles.Add(new ScriptBundle("~/TableScript").Include(
+                "~/Scripts/Tables.js"));
         }
     }
 }

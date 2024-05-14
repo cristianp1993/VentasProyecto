@@ -3,12 +3,14 @@
 }
 
 .distribution {
+    position:fixed;
     width: 100vw;
     display: flex;
+    z-index:1000;
 }
 
 .sidebar {
-    height:100vh;
+    height: 100vh;
     position: fixed;
     width: 15vw;
     top: 0;
@@ -17,17 +19,49 @@
     background-color: #F9FCFA;
     padding: 10px;
     z-index: 1000;
-    transition: width 0.5s; /* Transición de ancho */
+    transition: width 0.5s;
+    border-left: 1px solid #cfcfcf;
 }
 
 .sidebar-hidden {
     width: 100vw;
-    transition: width 0.5s; /* Transición de ancho */
+    transition: width 0.5s;
 }
 
 .sidebar-visible {
-    width: calc(100vw - 171px); /* Resta el ancho del sidebar cuando está visible */
-    transition: width 0.5s; /* Transición de ancho */
+    width: calc(100vw - 171px);
+    transition: width 0.5s;
+}
+
+.txtBox-search {
+    width: 25vw;
+    top: 20px;
+    left: 20px;
+    position: relative;
+    display: inline-block;
+    transition: width 0.5s;
+}
+
+    .txtBox-search input[type="text"] {
+        padding-left: 20px;
+        padding-right: 30px;
+    }
+
+.input-search {
+    font-size: 16px;
+    border-radius: 20px;
+    border: 1px solid #cfcfcf;
+    width: 25vw;
+    height: 40px;
+    transition: width 0.5s;
+}
+
+.icon-search {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
 }
 
 .nav-bar {
@@ -53,6 +87,7 @@
 }
 
 .logged-in {
+    margin-left:0;
     width: 85vw;
 }
 
