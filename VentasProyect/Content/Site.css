@@ -4,6 +4,11 @@ body {
     font-family: "Poppins", sans-serif;
 }
 
+label, h2,dd {
+    color: #F2F4F7;
+}
+
+
 .containerLogin {
     margin-right: auto;
     margin-left: 0;
