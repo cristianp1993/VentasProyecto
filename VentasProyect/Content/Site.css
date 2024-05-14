@@ -7,6 +7,11 @@ body {
     margin-top:80px;
 }
 
+label, h2,dd {
+    color: #F2F4F7;
+}
+
+
 .containerLogin {
     margin-right: auto;
     margin-left: 0;

@@ -63,7 +63,8 @@
         <div class="col-md-6">
             @Html.LabelFor(model => model.ciu_id)
             @Html.HiddenFor(model => model.ciu_id, new { id = "ciu_id_hidden" })
-            @Html.DropDownList("ciu_id", (IEnumerable<SelectListItem>)ViewBag.Ciudades, new { @class = "form-control", onchange = "updateHiddenValue(this);" })
+            @Html.DropDownList("ciu_idTemp", (IEnumerable<SelectListItem>)ViewBag.Ciudades,null, new { @class = "form-control", onchange = "UpdateHiddenValue(this);" })
+
             @Html.ValidationMessageFor(model => model.ciu_id)
         </div>
     </div>
@@ -78,9 +79,4 @@
     @Scripts.Render("~/bundles/jqueryval")
 }
 
-<script>
-    function updateHiddenValue(select) {
-        document.getElementById('ciu_id_hidden').value = select.value;
-    }
-</script>
 <script src="~/Scripts/Generales/General.js"></script>
