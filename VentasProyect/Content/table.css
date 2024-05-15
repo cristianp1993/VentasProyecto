@@ -98,5 +98,7 @@ td:last-child {
     color: #fff;
 }
 
-
+.dt-length label select:focus{
+    color: #000 !important;
+}
 

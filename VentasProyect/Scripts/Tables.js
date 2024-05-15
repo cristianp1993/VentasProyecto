@@ -5,7 +5,7 @@ $(document).ready(function () {
         "language": {
             "zeroRecords": "No se encontraron registros",
             "info": "Mostrando del _START_ al _END_ de _TOTAL_ registros",
-            "lengthMenu": "Mostrar _MENU_ registros por página",
+            "lengthMenu": "Mostrar _MENU_ registros por pagina",
             "search": "Buscar:",
             "paginate": {
                 "previous": "Anterior",
