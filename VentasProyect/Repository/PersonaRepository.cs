@@ -17,10 +17,11 @@ namespace VentasProyect.Repository
         }
         public IEnumerable<Models.Persona.Persona> GetData(string type)
         {
+            string diftype = (type == "Cliente")? "Proveedor": "Cliente";
 
             using (VENTAS_DBEntities1 dbContext = new VENTAS_DBEntities1())
             {
-                var data = dbContext.t_persona.Where(xh => xh.per_tipo == type).Select(xh => new Models.Persona.Persona
+                var data = dbContext.t_persona.Where(xh => xh.per_tipo != diftype).Select(xh => new Models.Persona.Persona
                 {
                     per_id = xh.per_id,
                     per_nombre = xh.per_nombre,

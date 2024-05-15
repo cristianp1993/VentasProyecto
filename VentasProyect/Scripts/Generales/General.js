@@ -15,3 +15,14 @@
 function UpdateHiddenValue(select) {
     document.getElementById('ciu_id_hidden').value = parseInt(select.value);
 }
+
+function ValidateEmpy() {
+    if (this.value == "" || this.value == null) {
+        Swal.fire({
+            title: 'Error!',
+            text: 'El campo no puede estar vacio',
+            icon: 'error',
+            confirmButtonText: 'Cool'
+        })
+    }
+}

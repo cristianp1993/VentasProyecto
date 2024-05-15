@@ -31,6 +31,8 @@ namespace VentasProyect.Models
         public string per_correo { get; set; }
         public Nullable<int> per_nit { get; set; }
         public string per_tipo { get; set; }
+        public string per_tipo_documento { get; set; }
+        public string per_tipo_cuenta { get; set; }
     
         public virtual t_ciudad t_ciudad { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
