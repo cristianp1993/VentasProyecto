@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="VENTAS_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="VENTAS_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="t_categoria">
           <Key>
             <PropertyRef Name="cat_id" />
@@ -64,6 +64,8 @@
           <Property Name="per_correo" Type="nvarchar" MaxLength="50" />
           <Property Name="per_nit" Type="int" />
           <Property Name="per_tipo" Type="nvarchar" MaxLength="50" />
+          <Property Name="per_tipo_documento" Type="varchar" MaxLength="50" />
+          <Property Name="per_tipo_cuenta" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="t_producto">
           <Key>
@@ -75,6 +77,7 @@
           <Property Name="pro_descripcion" Type="nvarchar" MaxLength="150" />
           <Property Name="pro_valor_unitario" Type="int" />
           <Property Name="pro_stock" Type="int" />
+          <Property Name="pro_url_img" Type="varchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="t_usuario">
           <Key>
@@ -254,8 +257,7 @@
             <End Role="t_venta" EntitySet="t_venta" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="VENTAS_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -329,6 +331,8 @@
           <NavigationProperty Name="t_notificaciones" Relationship="Self.FK__t_notific__per_i__3B75D760" FromRole="t_persona" ToRole="t_notificaciones" />
           <NavigationProperty Name="t_pedido" Relationship="Self.FK__t_pedido__per_id__4D94879B" FromRole="t_persona" ToRole="t_pedido" />
           <NavigationProperty Name="t_venta" Relationship="Self.FK__t_venta__per_id__403A8C7D" FromRole="t_persona" ToRole="t_venta" />
+          <Property Name="per_tipo_documento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="per_tipo_cuenta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="t_producto">
           <Key>
@@ -343,6 +347,7 @@
           <NavigationProperty Name="t_categoria" Relationship="Self.FK__t_product__cat_i__45F365D3" FromRole="t_producto" ToRole="t_categoria" />
           <NavigationProperty Name="t_detalle_venta" Relationship="Self.FK__t_detalle__pro_i__49C3F6B7" FromRole="t_producto" ToRole="t_detalle_venta" />
           <NavigationProperty Name="t_pedido" Relationship="Self.FK__t_pedido__pro_id__4CA06362" FromRole="t_producto" ToRole="t_pedido" />
+          <Property Name="pro_url_img" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="t_usuario">
           <Key>
@@ -586,6 +591,8 @@
           <EntitySetMapping Name="t_persona">
             <EntityTypeMapping TypeName="VENTAS_DBModel.t_persona">
               <MappingFragment StoreEntitySet="t_persona">
+                <ScalarProperty Name="per_tipo_cuenta" ColumnName="per_tipo_cuenta" />
+                <ScalarProperty Name="per_tipo_documento" ColumnName="per_tipo_documento" />
                 <ScalarProperty Name="per_id" ColumnName="per_id" />
                 <ScalarProperty Name="ciu_id" ColumnName="ciu_id" />
                 <ScalarProperty Name="per_nombre" ColumnName="per_nombre" />
@@ -601,6 +608,7 @@
           <EntitySetMapping Name="t_producto">
             <EntityTypeMapping TypeName="VENTAS_DBModel.t_producto">
               <MappingFragment StoreEntitySet="t_producto">
+                <ScalarProperty Name="pro_url_img" ColumnName="pro_url_img" />
                 <ScalarProperty Name="pro_id" ColumnName="pro_id" />
                 <ScalarProperty Name="cat_id" ColumnName="cat_id" />
                 <ScalarProperty Name="pro_nombre" ColumnName="pro_nombre" />

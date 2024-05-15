@@ -3,59 +3,43 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using VentasProyect.Models.Persona;
+using VentasProyect.Models.Categoria;
 using VentasProyect.Repository;
 
 namespace VentasProyect.Controllers
 {
-    public class PersonaController : Controller
+    public class CategoriaController : Controller
     {
-        PersonaRepository _personaRepository = new PersonaRepository();
-        CiudadRepository _ciudadRepository = new CiudadRepository();
-        // GET: Persona
-        public ActionResult Index(string type)
+        CategoriaRepository _categoriaRepository = new CategoriaRepository();
+        // GET: Categoria
+        public ActionResult Index()
         {
-            Session["SessionStatus"] = true;
-
-            ViewBag.Type = type;
-
-            var data = _personaRepository.GetData(type);
-
-            return View(data);
+            return View();
         }
-
         public ActionResult Create()
         {
-            ViewBag.Ciudades = _ciudadRepository.GetSelectCiudades();
+
             return View();
         }
 
         [HttpPost]
-        public ActionResult Create(Persona model)
+        public ActionResult Create(Categoria model)
         {
-            string type = model.per_tipo;
-
-            if (type == "Ambos")
-            {
-                type = "Cliente";
-            }
-
             if (ModelState.IsValid)
             {
 
 
                 // Lógica para guardar el nuevo usuario en la base de datos
-                _personaRepository.Create(model);
+                //_categoriaRepository.CreateCiudad(model);
 
                 // Redirecciona al usuario a alguna página de confirmación o a la lista de usuarios
-                return RedirectToAction("Index", new { type= type });
+                return RedirectToAction("Index");
             }
             return View(model);
         }
         public ActionResult Edit(int id)
         {
-            ViewBag.Ciudades = _ciudadRepository.GetSelectCiudades();
-            var data = _personaRepository.GetDataById(id);
+            var data = _categoriaRepository.GetDataById(id);
             if (data == null)
             {
                 return HttpNotFound();
@@ -64,19 +48,19 @@ namespace VentasProyect.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(Persona data)
+        public ActionResult Edit(Categoria usuario)
         {
             if (ModelState.IsValid)
             {
-                _personaRepository.Update(data);
+                _categoriaRepository.Update(usuario);
                 return RedirectToAction("Index");
             }
-            return View(data);
+            return View(usuario);
         }
 
         public ActionResult Details(int id)
         {
-            var usuario = _personaRepository.GetDataById(id);
+            var usuario = _categoriaRepository.GetDataById(id);
             if (usuario == null)
             {
                 return HttpNotFound(); // Devuelve un error 404 si no se encuentra el usuario
@@ -86,7 +70,7 @@ namespace VentasProyect.Controllers
 
         public ActionResult Delete(int id)
         {
-            var usuario = _personaRepository.GetDataById(id);
+            var usuario = _categoriaRepository.GetDataById(id);
             if (usuario == null)
             {
                 return HttpNotFound(); // Devuelve un error 404 si no se encuentra el usuario
@@ -98,10 +82,8 @@ namespace VentasProyect.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            _personaRepository.Delete(id);
+            _categoriaRepository.Delete(id);
             return RedirectToAction("Index");
         }
-
-
     }
 }

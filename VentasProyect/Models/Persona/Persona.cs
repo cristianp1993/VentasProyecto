@@ -11,8 +11,10 @@ namespace VentasProyect.Models.Persona
         public int per_id { get; set; }
 
         [Display(Name = "Ciudad")]
+        
         public string ciu_id { get; set; }
 
+        [StringLength(5, ErrorMessage = "El nombre no puede estar vacio")]
         [Display(Name = "Nombre")]
         public string per_nombre { get; set; }
 
@@ -33,5 +35,7 @@ namespace VentasProyect.Models.Persona
 
         [Display(Name = "Tipo Persona")]
         public string per_tipo { get; set; }
+        public string per_tipo_cuenta { get; set; }
+        public string per_tipo_documento { get; set; }
     }
 }

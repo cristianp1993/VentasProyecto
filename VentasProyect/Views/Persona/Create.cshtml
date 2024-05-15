@@ -13,7 +13,7 @@
     <div class="form-group col-md-12">
         <div class="col-md-6">
             @Html.LabelFor(model => model.per_nombre)
-            @Html.TextBoxFor(model => model.per_nombre, new { @class = "form-control", @onchange = "CapitalizeText(this)" })
+            @Html.TextBoxFor(model => model.per_nombre, new { @class = "form-control", @onchange = "CapitalizeText(this);ValidateEmpy(this)" })
             @Html.ValidationMessageFor(model => model.per_nombre)
         </div>
 
