@@ -31,7 +31,7 @@
                         location_city
                     </span>
                     @Html.TextBoxFor(model => model.ciu_nombre, new { @class = "form-control", @onchange = "CapitalizeText(this)", placeholder = "Ciudad" })
-                    @Html.ValidationMessageFor(model => model.ciu_nombre)
+                    @Html.ValidationMessageFor(model => model.ciu_nombre, "", new { @class = "field-validation-error" })
                 </div>
             </div>
         </div>
@@ -42,7 +42,7 @@
                         home_pin
                     </span>
                     @Html.TextBoxFor(model => model.ciu_depto, new { @class = "form-control", @onchange = "CapitalizeText(this)", placeholder = "Departamento" })
-                    @Html.ValidationMessageFor(model => model.ciu_depto)
+                    @Html.ValidationMessageFor(model => model.ciu_depto, "", new { @class = "field-validation-error" })
                 </div>
             </div>
         </div>

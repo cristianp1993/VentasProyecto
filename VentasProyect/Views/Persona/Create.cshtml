@@ -36,7 +36,7 @@
                             new SelectListItem { Text = "NIT", Value = "NIT" }
                         }, "Value", "Text"), new { @class = "form-control" })
                     </div>
-                    @Html.ValidationMessageFor(model => model.per_tipo_documento)
+                    @Html.ValidationMessageFor(model => model.per_tipo_documento, "", new { @class = "field-validation-error" })
                 </div>
                 <div class="input-form p-right">
                     <div class="icon-container">
@@ -44,7 +44,7 @@
                             id_card
                         </span>
                         @Html.TextBoxFor(model => model.per_nit, new { @class = "form-control", placeholder = "Numero de documento" })
-                        @Html.ValidationMessageFor(model => model.per_nit)
+                        @Html.ValidationMessageFor(model => model.per_nit, "", new { @class = "field-validation-error" })
                     </div>
                 </div>
             </div>
@@ -56,7 +56,7 @@
                             person
                         </span>
                         @Html.TextBoxFor(model => model.per_nombre, new { @class = "form-control", @onchange = "CapitalizeText(this);ValidateEmpy(this)", placeholder = "Nombre completo" })
-                        @Html.ValidationMessageFor(model => model.per_nombre)
+                        @Html.ValidationMessageFor(model => model.per_nombre, "", new { @class = "field-validation-error" })
                     </div>
                 </div>
                 <div class="input-form p-right">
@@ -65,7 +65,7 @@
                             phone_enabled
                         </span>
                         @Html.TextBoxFor(model => model.per_telefono, new { @class = "form-control", placeholder = "Telefono" })
-                        @Html.ValidationMessageFor(model => model.per_telefono)
+                        @Html.ValidationMessageFor(model => model.per_telefono, "", new { @class = "field-validation-error" })
                     </div>
                 </div>
             </div>
@@ -76,7 +76,7 @@
                             home_pin
                         </span>
                         @Html.TextBoxFor(model => model.per_direccion, new { @class = "form-control", placeholder = "Dirección" })
-                        @Html.ValidationMessageFor(model => model.per_direccion)
+                        @Html.ValidationMessageFor(model => model.per_direccion, "", new { @class = "field-validation-error" })
                     </div>
                 </div>
                 <div class="input-form p-right">
@@ -85,7 +85,7 @@
                             mail
                         </span>
                         @Html.TextBoxFor(model => model.per_correo, new { @class = "form-control", placeholder = "Correo electrónico" })
-                        @Html.ValidationMessageFor(model => model.per_correo)
+                        @Html.ValidationMessageFor(model => model.per_correo, "", new { @class = "field-validation-error" })
                     </div>
                 </div>
             </div>
@@ -102,7 +102,7 @@
                             new SelectListItem { Text = "Proveedor", Value = "Proveedor" },
                             new SelectListItem { Text = "Ambos", Value = "Ambos" }
                         }, "Value", "Text"), new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.per_tipo)
+                        @Html.ValidationMessageFor(model => model.per_tipo, "", new { @class = "field-validation-error" })
                     </div>
                 </div>
                 <div class="input-form p-right">
@@ -113,7 +113,7 @@
                         @Html.HiddenFor(model => model.ciu_id, new { id = "ciu_id_hidden" })
                         @Html.DropDownList("ciu_idTemp", (IEnumerable<SelectListItem>)ViewBag.Ciudades, null, new { @class = "form-control", onchange = "UpdateHiddenValue(this);" })
 
-                        @Html.ValidationMessageFor(model => model.ciu_id)
+                        @Html.ValidationMessageFor(model => model.ciu_id, "", new { @class = "field-validation-error" })
                     </div>
                 </div>
             </div>
@@ -124,7 +124,7 @@
                             assured_workload
                         </span>
                         @Html.TextBoxFor(model => model.per_cuenta_bancaria, new { @class = "form-control", placeholder = "Cuenta bancaria" })
-                        @Html.ValidationMessageFor(model => model.per_cuenta_bancaria)
+                        @Html.ValidationMessageFor(model => model.per_cuenta_bancaria, "", new { @class = "field-validation-error" })
                     </div>
                 </div>
                 <div class="input-form">
@@ -138,7 +138,7 @@
                             new SelectListItem { Text = "Ahorro", Value = "Ahorro" },
                             new SelectListItem { Text = "Corriente", Value = "Corriente" }
                         }, "Value", "Text"), new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.per_tipo_cuenta)
+                        @Html.ValidationMessageFor(model => model.per_tipo_cuenta, "", new { @class = "field-validation-error" })
                     </div>
                 </div>
             </div>
