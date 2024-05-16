@@ -43,8 +43,11 @@ table tbody tr {
 
 table tbody tr td{
     vertical-align:middle;
-
 }
+
+    .dataTable tbody tr td a span {
+        font-variation-settings: 'FILL' 0;
+    }
 
 div.dt-container div.dt-layout-row.dt-layout-table {
     display: block;
@@ -94,11 +97,10 @@ td:last-child {
 }
 
 .icon-actions-table {
-    font-variation-settings: 'FILL' 0;
     color: #fff;
 }
 
-.dt-length label select:focus{
-    color: #000 !important;
+.dt-length label select {
+    background-color: #390063 !important;
 }
 

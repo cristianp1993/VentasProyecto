@@ -202,10 +202,11 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Generales\Form.css" />
     <Content Include="Content\Home\index.css" />
     <Content Include="Content\Layout\Layout.css" />
     <Content Include="Content\Login\Login.css" />
-    <Content Include="Content\table.css" />
+    <Content Include="Content\Generales\table.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -244,6 +245,7 @@
     <Content Include="Scripts\Layout\Script.js" />
     <Content Include="Scripts\Login\Login.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Personas\Create.js" />
     <Content Include="Scripts\Tables.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
