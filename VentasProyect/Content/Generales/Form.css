@@ -104,6 +104,10 @@ h2 {
         padding: 2px;
     }
 
+    .input-form .icon-container .pos-top {
+        top: 68%;
+    }
+
 .btn-primary {
     background-color: #AE00A0;
     color: white;

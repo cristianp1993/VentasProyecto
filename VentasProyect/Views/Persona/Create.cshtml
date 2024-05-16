@@ -35,8 +35,8 @@
                             new SelectListItem { Text = "CE", Value = "CE" },
                             new SelectListItem { Text = "NIT", Value = "NIT" }
                         }, "Value", "Text"), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.per_tipo_documento, "", new { @class = "field-validation-error" })
                     </div>
-                    @Html.ValidationMessageFor(model => model.per_tipo_documento, "", new { @class = "field-validation-error" })
                 </div>
                 <div class="input-form p-right">
                     <div class="icon-container">
