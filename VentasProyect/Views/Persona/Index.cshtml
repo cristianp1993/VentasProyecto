@@ -1,17 +1,16 @@
 ﻿@model IEnumerable<VentasProyect.Models.Persona.Persona>
 
 @{
-    var typeForm = ViewBag.Type;
-    ViewBag.Title = typeForm;
+    var typoVista = Model.First().per_vista;
 }
 
-@Styles.Render("~/Table")
+@Styles.Render("~/tables")
 
 <h2>Personas</h2>
 
 <div class="col-md-12 table-style">
     <div class="container-buttom">
-        <a href="@Url.Action("Create", "Persona")" class="btn btn-default btn-add-form">
+        <a href="@Url.Action("Create", "Persona",new{ typeView = typoVista})" class="btn btn-default btn-add-form">
             <span class="icon-logout">Registrar Persona</span>
             <span class="material-symbols-outlined">
                 add
@@ -30,7 +29,7 @@
                 <th>Correo Electrónico</th>
                 <th>NIT</th>
                 <th>Tipo</th>
-                <th></th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -46,18 +45,18 @@
                     <td>@data.per_nit</td>
                     <td>@data.per_tipo</td>
                     <td>
-                        <a href="@Url.Action("Edit", "Persona", new { id = data.per_id })">
+                        <a href="@Url.Action("Edit", "Persona", new { id = data.per_id, typeView = typoVista})">
                             <span class="material-symbols-outlined icon-actions-table">
                                 edit_square
                             </span>
                         </a>
 
-                        <a href="@Url.Action("Details", "Persona", new { id = data.per_id })">
+                        <a href="@Url.Action("Details", "Persona", new { id = data.per_id, typeView = typoVista })">
                             <span class="material-symbols-outlined icon-actions-table">
                                 text_ad
                             </span>
                         </a>
-                        <a href="@Url.Action("Delete", "Persona", new { id = data.per_id })">
+                        <a href="@Url.Action("Delete", "Persona", new { id = data.per_id, typeView = typoVista })">
                             <span class="material-symbols-outlined icon-actions-table">
                                 delete
                             </span>

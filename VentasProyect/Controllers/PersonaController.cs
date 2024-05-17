@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using VentasProyect.Models.Persona;
 using VentasProyect.Repository;
 
@@ -24,8 +25,9 @@ namespace VentasProyect.Controllers
             return View(data);
         }
 
-        public ActionResult Create()
+        public ActionResult Create(string typeView)
         {
+            ViewBag.vista = typeView;
             ViewBag.Ciudades = _ciudadRepository.GetSelectCiudades();
             return View();
         }
@@ -33,12 +35,7 @@ namespace VentasProyect.Controllers
         [HttpPost]
         public ActionResult Create(Persona model)
         {
-            string type = model.per_tipo;
-
-            if (type == "Ambos")
-            {
-                type = "Cliente";
-            }
+            string type = model.per_vista;
 
             if (ModelState.IsValid)
             {
@@ -52,10 +49,10 @@ namespace VentasProyect.Controllers
             }
             return View(model);
         }
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id, string typeView)
         {
             ViewBag.Ciudades = _ciudadRepository.GetSelectCiudades();
-            var data = _personaRepository.GetDataById(id);
+            var data = _personaRepository.GetDataById(id, typeView);
             if (data == null)
             {
                 return HttpNotFound();
@@ -64,19 +61,19 @@ namespace VentasProyect.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(Persona data)
+        public ActionResult Edit(Persona data, sbyte typeView)
         {
             if (ModelState.IsValid)
             {
                 _personaRepository.Update(data);
                 return RedirectToAction("Index");
             }
-            return View(data);
+            return RedirectToAction("Index", new { type = typeView });
         }
 
-        public ActionResult Details(int id)
+        public ActionResult Details(int id, string typeView)
         {
-            var usuario = _personaRepository.GetDataById(id);
+            var usuario = _personaRepository.GetDataById(id, typeView);
             if (usuario == null)
             {
                 return HttpNotFound(); // Devuelve un error 404 si no se encuentra el usuario
@@ -84,9 +81,9 @@ namespace VentasProyect.Controllers
             return View(usuario);
         }
 
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id,string typeView)
         {
-            var usuario = _personaRepository.GetDataById(id);
+            var usuario = _personaRepository.GetDataById(id, typeView);
             if (usuario == null)
             {
                 return HttpNotFound(); // Devuelve un error 404 si no se encuentra el usuario

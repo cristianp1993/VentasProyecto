@@ -2,81 +2,164 @@
 
 @{
     ViewBag.Title = "Crear Persona";
+
+    var typeView = ViewBag.vista;
 }
 
-<h2>Crear Persona</h2>
+@Styles.Render("~/Forms")
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-    <div class="form-group col-md-12">
-        <div class="col-md-6">
-            @Html.LabelFor(model => model.per_nombre)
-            @Html.TextBoxFor(model => model.per_nombre, new { @class = "form-control", @onchange = "CapitalizeText(this);ValidateEmpy(this)" })
-            @Html.ValidationMessageFor(model => model.per_nombre)
-        </div>
-
-        <div class="col-md-6">
-            @Html.LabelFor(model => model.per_direccion)
-            @Html.TextBoxFor(model => model.per_direccion, new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.per_direccion)
-        </div>
-
+    <div class="container-buttom">
+        <a href="@Url.Action("Index", "Persona", new {type = typeView})" class="btn btn-default btn-back">
+            <span class="material-symbols-outlined">
+                arrow_circle_left
+            </span>
+            <span class="icon-logout">Regresar</span>
+        </a>
     </div>
 
-    <div class="form-group col-md-12">
-        <div class="col-md-6">
-            @Html.LabelFor(model => model.per_telefono)
-            @Html.TextBoxFor(model => model.per_telefono, new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.per_telefono)
+    <div class="form-container">
+
+        <h2>CREAR PERSONA</h2>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.HiddenFor(model => model.per_vista, new {@value = typeView })
+            <div class="row-form">
+                <div class="input-form p-right">
+                    <div class="icon-container">
+                        <span class="material-symbols-outlined">style</span>
+                        @Html.DropDownListFor(model => model.per_tipo_documento, new SelectList(new[]
+                        {
+                            new SelectListItem { Text = "Seleccione tipo documento", Value = "Seleccione tipo documento" },
+                            new SelectListItem { Text = "CC", Value = "CC" },
+                            new SelectListItem { Text = "CE", Value = "CE" },
+                            new SelectListItem { Text = "NIT", Value = "NIT" }
+                        }, "Value", "Text"), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.per_tipo_documento, "", new { @class = "field-validation-error" })
+                    </div>
+                </div>
+                <div class="input-form p-right">
+                    <div class="icon-container">
+                        <span class="material-symbols-outlined">
+                            id_card
+                        </span>
+                        @Html.TextBoxFor(model => model.per_nit, new { @class = "form-control", placeholder = "Numero de documento" })
+                        @Html.ValidationMessageFor(model => model.per_nit, "", new { @class = "field-validation-error" })
+                    </div>
+                </div>
             </div>
-            <div class="col-md-6">
-                @Html.LabelFor(model => model.per_cuenta_bancaria)
-                @Html.TextBoxFor(model => model.per_cuenta_bancaria, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.per_cuenta_bancaria)
 
+            <div class="row-form">
+                <div class="input-form p-right">
+                    <div class="icon-container">
+                        <span class="material-symbols-outlined">
+                            person
+                        </span>
+                        @Html.TextBoxFor(model => model.per_nombre, new { @class = "form-control", @onchange = "CapitalizeText(this)", placeholder = "Nombre completo" })
+                        @Html.ValidationMessageFor(model => model.per_nombre, "", new { @class = "field-validation-error" })
+                    </div>
+                </div>
+                <div class="input-form p-right">
+                    <div class="icon-container">
+                        <span class="material-symbols-outlined">
+                            phone_enabled
+                        </span>
+                        @Html.TextBoxFor(model => model.per_telefono, new { @class = "form-control", placeholder = "Telefono" })
+                        @Html.ValidationMessageFor(model => model.per_telefono, "", new { @class = "field-validation-error" })
+                    </div>
+                </div>
             </div>
-        </div>
-    <div class="form-group col-md-12">
-        <div class="col-md-6">
-            @Html.LabelFor(model => model.per_correo)
-            @Html.TextBoxFor(model => model.per_correo, new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.per_correo)
-        </div>
-        <div class="col-md-6">
-            @Html.LabelFor(model => model.per_nit)
-            @Html.TextBoxFor(model => model.per_nit, new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.per_nit)
-        </div>
-    </div>
-    <div class="form-group col-md-12">
-        <div class="col-md-6">
-            @Html.LabelFor(model => model.per_tipo)
-            @Html.DropDownListFor(model => model.per_tipo, new SelectList(new[]
-            {
-                new SelectListItem { Text = "Cliente", Value = "Cliente" },            
-                new SelectListItem { Text = "Ambos", Value = "Ambos" }
-            }, "Value", "Text"), new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.per_tipo)
-        </div>
-        <div class="col-md-6">
-            @Html.LabelFor(model => model.ciu_id)
-            @Html.HiddenFor(model => model.ciu_id, new { id = "ciu_id_hidden" })
-            @Html.DropDownList("ciu_idTemp", (IEnumerable<SelectListItem>)ViewBag.Ciudades,null, new { @class = "form-control", onchange = "UpdateHiddenValue(this);" })
+            <div class="row-form">
+                <div class="input-form p-right">
+                    <div class="icon-container">
+                        <span class="material-symbols-outlined">
+                            home_pin
+                        </span>
+                        @Html.TextBoxFor(model => model.per_direccion, new { @class = "form-control", placeholder = "Dirección" })
+                        @Html.ValidationMessageFor(model => model.per_direccion, "", new { @class = "field-validation-error" })
+                    </div>
+                </div>
+                <div class="input-form p-right">
+                    <div class="icon-container">
+                        <span class="material-symbols-outlined">
+                            mail
+                        </span>
+                        @Html.TextBoxFor(model => model.per_correo, new { @class = "form-control", placeholder = "Correo electrónico" })
+                        @Html.ValidationMessageFor(model => model.per_correo, "", new { @class = "field-validation-error" })
+                    </div>
+                </div>
+            </div>
+            <div class="row-form">
+                <div class="input-form p-right">
+                    <div class="icon-container">
+                        <span class="material-symbols-outlined">
+                            user_attributes
+                        </span>
+                        @Html.DropDownListFor(model => model.per_tipo, new SelectList(new[]
+                        {
+                            new SelectListItem { Text = "Seleccione tipo cliente", Value = "Seleccione tipo cliente" },
+                            new SelectListItem { Text = "Cliente", Value = "Cliente" },
+                            new SelectListItem { Text = "Proveedor", Value = "Proveedor" },
+                            new SelectListItem { Text = "Ambos", Value = "Ambos" }
+                        }, "Value", "Text"), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.per_tipo, "", new { @class = "field-validation-error" })
+                    </div>
+                </div>
+                <div class="input-form p-right">
+                    <div class="icon-container">
+                        <span class="material-symbols-outlined">
+                            location_city
+                        </span>
+                        @Html.HiddenFor(model => model.ciu_id, new { id = "ciu_id_hidden" })
+                        @Html.DropDownList("ciu_idTemp", (IEnumerable<SelectListItem>)ViewBag.Ciudades, null, new { @class = "form-control", onchange = "UpdateHiddenValue(this);" })
 
-            @Html.ValidationMessageFor(model => model.ciu_id)
-        </div>
+                        @Html.ValidationMessageFor(model => model.ciu_id, "", new { @class = "field-validation-error" })
+                    </div>
+                </div>
+            </div>
+            <div class="row-form">
+                <div class="input-form p-right">
+                    <div class="icon-container">
+                        <span class="material-symbols-outlined">
+                            assured_workload
+                        </span>
+                        @Html.TextBoxFor(model => model.per_cuenta_bancaria, new { @class = "form-control", placeholder = "Cuenta bancaria" })
+                        @Html.ValidationMessageFor(model => model.per_cuenta_bancaria, "", new { @class = "field-validation-error" })
+                    </div>
+                </div>
+                <div class="input-form">
+                    <div class="icon-container">
+                        <span class="material-symbols-outlined">
+                            checklist
+                        </span>
+                        @Html.DropDownListFor(model => model.per_tipo_cuenta, new SelectList(new[]
+                   {
+                            new SelectListItem { Text = "Seleccione tipo cuenta", Value = "Seleccione tipo cuenta" },
+                            new SelectListItem { Text = "Ahorro", Value = "Ahorro" },
+                            new SelectListItem { Text = "Corriente", Value = "Corriente" }
+                        }, "Value", "Text"), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.per_tipo_cuenta, "", new { @class = "field-validation-error" })
+                    </div>
+                </div>
+            </div>
+            <div class="content-button">
+                <div class="container-btn">
+                    <button type="submit" class="btn btn-primary">
+                        GUARDAR
+                        <span class="material-symbols-outlined">
+                            library_add
+                        </span>
+                    </button>
+                </div>
+            </div>
+        }
     </div>
-    <div class="col-md-12">
-        <div class="col-md-6">
-            <button type="submit" class="btn btn-primary">CREAR</button>
-        </div>
-    </div>
-}
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/ScCreate")
+    }
 
-<script src="~/Scripts/Generales/General.js"></script>
+    <script src="~/Scripts/Generales/General.js"></script>

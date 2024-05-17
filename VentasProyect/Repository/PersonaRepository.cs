@@ -23,6 +23,7 @@ namespace VentasProyect.Repository
             {
                 var data = dbContext.t_persona.Where(xh => xh.per_tipo != diftype).Select(xh => new Models.Persona.Persona
                 {
+                    per_vista = type,
                     per_id = xh.per_id,
                     per_nombre = xh.per_nombre,
                     per_direccion = xh.per_direccion,
@@ -90,7 +91,7 @@ namespace VentasProyect.Repository
 
         }
 
-        public Models.Persona.Persona GetDataById(int id)
+        public Models.Persona.Persona GetDataById(int id,string typeView)
         {
             using (VENTAS_DBEntities1 dbContext = new VENTAS_DBEntities1())
             {
@@ -100,6 +101,7 @@ namespace VentasProyect.Repository
                 {
                     return new Models.Persona.Persona
                     {
+                        per_vista = typeView,
                         per_id = data.per_id,
                         per_nombre = data.per_nombre,
                         per_direccion = data.per_direccion,
@@ -108,7 +110,9 @@ namespace VentasProyect.Repository
                         per_correo = data.per_correo,
                         per_nit = (int)data.per_nit,
                         per_tipo = data.per_tipo,
-                        ciu_id = Convert.ToString(data.ciu_id)
+                        ciu_id = Convert.ToString(data.ciu_id),
+                        per_tipo_cuenta = data.per_tipo_cuenta,
+                        per_tipo_documento = data.per_tipo_documento
 
                     };
                 }

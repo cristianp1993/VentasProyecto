@@ -3,67 +3,158 @@
 @{
     ViewBag.Title = "Editar Persona";
 
-    var type = Model.per_tipo == "Ambos" ? "Cliente" : Model.per_tipo;
-}
-
-<h2>Editar Persona</h2>
-
-@using (Html.BeginForm("Edit", "Persona", new { type = type }, FormMethod.Post))
-{
     
-    @Html.HiddenFor(model => model.per_id)
-    <div class="form-group col-md-12">
-        <div class="col-md-6">
-            @Html.LabelFor(model => model.per_nombre)
-            @Html.TextBoxFor(model => model.per_nombre, new { @class = "form-control", @onchange = "CapitalizeText(this)" })
-        </div>
-        <div class="col-md-6">
-            @Html.LabelFor(model => model.per_direccion)
-            @Html.TextBoxFor(model => model.per_direccion, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group col-md-12">
-        <div class="col-md-6">
-            @Html.LabelFor(model => model.per_telefono)
-            @Html.TextBoxFor(model => model.per_telefono, new { @class = "form-control" })
-        </div>
-        <div class="col-md-6">
-            @Html.LabelFor(model => model.per_cuenta_bancaria)
-            @Html.TextBoxFor(model => model.per_cuenta_bancaria, new { @class = "form-control" })
-        </div>
-    </div>
-
-    <div class="form-group col-md-12">
-        <div class="col-md-6">
-            @Html.LabelFor(model => model.per_correo)
-            @Html.TextBoxFor(model => model.per_correo, new { @class = "form-control" })
-        </div>
-        <div class="col-md-6">
-            @Html.LabelFor(model => model.per_nit)
-            @Html.TextBoxFor(model => model.per_nit, new { @class = "form-control" })
-        </div>
-    </div>
-
-    <div class="form-group col-md-12">
-        <div class="col-md-6">
-            @Html.LabelFor(model => model.per_tipo)
-            @Html.TextBoxFor(model => model.per_tipo, new { @class = "form-control" })
-        </div>
-        <div class="col-md-6">
-            @Html.LabelFor(model => model.ciu_id)
-            @Html.HiddenFor(model => model.ciu_id, new { id = "ciu_id_hidden" })
-            @Html.DropDownList("ciu_idTemp", (IEnumerable<SelectListItem>)ViewBag.Ciudades, new { @class = "form-control", onchange = "UpdateHiddenValue(this);"})
-
-            @Html.ValidationMessageFor(model => model.ciu_id)
-        </div>
-    </div>
-    <div class="form-group col-md-12">
-        <div class="col-md-6">
-            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-        </div>
-    </div>
 }
 
-<script src="~/Scripts/Generales/General.js"></script>
-<script src="~/Scripts/Persona/Persona.js"></script>
+@Styles.Render("~/Forms")
+
+<div class="container-buttom">
+    <a href="@Url.Action("Index", "Persona", new {type= Model.per_vista})" class="btn btn-default btn-back">
+        <span class="material-symbols-outlined">
+            arrow_circle_left
+        </span>
+        <span class="icon-logout">Regresar</span>
+    </a>
+</div>
+
+<div class="form-container">
+
+    <h2>Editar Persona</h2>
+
+    @using (Html.BeginForm("Edit", "Persona", new { type = Model.per_vista }, FormMethod.Post))
+    {
+
+        @Html.HiddenFor(model => model.per_id)
+
+        <div class="row-form">
+            <div class="input-form p-right">
+                <div class="icon-container">
+                    <span class="material-symbols-outlined pos-top">style</span>
+                    @Html.LabelFor(model => model.per_tipo_documento)
+                    @Html.HiddenFor(model => model.per_tipo_documento, new { id = "per_tipo_documento_hidden" })
+                    @Html.TextBoxFor(model => model.per_tipo_documento, new { @class = "form-control", @onchange = "CapitalizeText(this)" })
+                    @Html.ValidationMessageFor(model => model.per_tipo_documento, "", new { @class = "field-validation-error" })
+                </div>
+            </div>
+            <div class="input-form p-right">
+                <div class="icon-container">
+                    <span class="material-symbols-outlined pos-top">
+                        id_card
+                    </span>
+                    @Html.LabelFor(model => model.per_nit)
+                    @Html.TextBoxFor(model => model.per_nit, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.per_nit, "", new { @class = "field-validation-error" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row-form">
+            <div class="input-form p-right">
+                <div class="icon-container">
+                    <span class="material-symbols-outlined pos-top">
+                        person
+                    </span>
+                    @Html.LabelFor(model => model.per_nombre)
+                    @Html.TextBoxFor(model => model.per_nombre, new { @class = "form-control", @onchange = "CapitalizeText(this)" })
+                    @Html.ValidationMessageFor(model => model.per_nombre, "", new { @class = "field-validation-error" })
+                </div>
+            </div>
+            <div class="input-form p-right">
+                <div class="icon-container">
+                    <span class="material-symbols-outlined pos-top">
+                        phone_enabled
+                    </span>
+                    @Html.LabelFor(model => model.per_telefono)
+                    @Html.TextBoxFor(model => model.per_telefono, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.per_telefono, "", new { @class = "field-validation-error" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row-form">
+            <div class="input-form p-right">
+                <div class="icon-container">
+                    <span class="material-symbols-outlined pos-top">
+                        home_pin
+                    </span>
+                    @Html.LabelFor(model => model.per_direccion)
+                    @Html.TextBoxFor(model => model.per_direccion, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.per_direccion, "", new { @class = "field-validation-error" })
+                </div>
+            </div>
+            <div class="input-form p-right">
+                <div class="icon-container">
+                    <span class="material-symbols-outlined pos-top">
+                        mail
+                    </span>
+                    @Html.LabelFor(model => model.per_correo)
+                    @Html.TextBoxFor(model => model.per_correo, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.per_correo, "", new { @class = "field-validation-error" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row-form">
+            <div class="input-form p-right">
+                <div class="icon-container">
+                    <span class="material-symbols-outlined pos-top">
+                        user_attributes
+                    </span>
+                    @Html.LabelFor(model => model.per_tipo)
+                    @Html.TextBoxFor(model => model.per_tipo, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.per_tipo, "", new { @class = "field-validation-error" })
+                </div>
+            </div>
+            <div class="input-form p-right">
+                <div class="icon-container">
+                    <span class="material-symbols-outlined pos-top">
+                        location_city
+                    </span>
+                    @Html.LabelFor(model => model.ciu_id)
+                    @Html.HiddenFor(model => model.ciu_id, new { id = "ciu_id_hidden" })
+                    @Html.DropDownList("ciu_idTemp", (IEnumerable<SelectListItem>)ViewBag.Ciudades, new { @class = "form-control", onchange = "UpdateHiddenValue(this);" })
+                    @Html.ValidationMessageFor(model => model.ciu_id, "", new { @class = "field-validation-error" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row-form">
+            <div class="input-form p-right">
+                <div class="icon-container">
+                    <span class="material-symbols-outlined pos-top">
+                        assured_workload
+                    </span>
+                    @Html.LabelFor(model => model.per_cuenta_bancaria)
+                    @Html.TextBoxFor(model => model.per_cuenta_bancaria, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.per_cuenta_bancaria, "", new { @class = "field-validation-error" })
+                </div>
+            </div>
+            <div class="input-form">
+                <div class="icon-container">
+                    <span class="material-symbols-outlined pos-top">
+                        checklist
+                    </span>
+                    @Html.LabelFor(model => model.per_tipo_cuenta)
+                    @Html.TextBoxFor(model => model.per_tipo_cuenta, new { @class = "form-control", @onchange = "CapitalizeText(this)" })
+                    @Html.ValidationMessageFor(model => model.per_tipo_cuenta, "", new { @class = "field-validation-error" })
+                </div>
+            </div>
+        </div>
+        <div class="content-button">
+            <div class="container-btn">
+                <button type="submit" class="btn btn-primary">
+                    GUARDAR
+                    <span class="material-symbols-outlined">
+                        source_notes
+                    </span>
+                </button>
+            </div>
+        </div>
+    }
+
+</div>
+
+
+    <script src="~/Scripts/Generales/General.js"></script>
+    <script src="~/Scripts/Persona/Persona.js"></script>
 

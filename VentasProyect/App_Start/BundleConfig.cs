@@ -33,16 +33,22 @@ namespace VentasProyect
                 "~/Content/Layout/Layout.css"));
 
             bundles.Add(new ScriptBundle("~/ScrLayout").Include(
-          "~/Scripts/Layout/Script.js"));
+                "~/Scripts/Layout/Script.js"));
 
             bundles.Add(new StyleBundle("~/HomeIndex").Include(
                 "~/Content/Home/index.css"));
 
-            bundles.Add(new StyleBundle("~/Table").Include(
-                "~/Content/table.css"));
-            
+            bundles.Add(new StyleBundle("~/tables").Include(
+                "~/Content/Generales/table.css"));
+
+            bundles.Add(new StyleBundle("~/Forms").Include(
+                "~/Content/Generales/Form.css"));
+
             bundles.Add(new ScriptBundle("~/TableScript").Include(
                 "~/Scripts/Tables.js"));
+
+            bundles.Add(new ScriptBundle("~/ScCreate").Include(
+                "~/Scripts/Personas/Create.js"));
         }
     }
 }
