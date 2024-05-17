@@ -11,6 +11,9 @@ label, h2,dd {
     color: #F2F4F7;
 }
 
+.field-validation-error {
+    color: #FA3105;
+}
 
 .containerLogin {
     margin-right: auto;

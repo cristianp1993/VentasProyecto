@@ -15,7 +15,7 @@ namespace VentasProyect.Repository
         {
             _dbContext = new VENTAS_DBEntities1();
         }
-        public IEnumerable<Models.Categoria.Categoria> GetData(string type)
+        public IEnumerable<Models.Categoria.Categoria> GetData()
         {
             
             using (VENTAS_DBEntities1 dbContext = new VENTAS_DBEntities1())

@@ -14,11 +14,12 @@ namespace VentasProyect.Controllers
         // GET: Categoria
         public ActionResult Index()
         {
-            return View();
+            IEnumerable<Models.Categoria.Categoria> data = _categoriaRepository.GetData();
+            return View(data);
         }
         public ActionResult Create()
         {
-
+            
             return View();
         }
 
@@ -28,9 +29,8 @@ namespace VentasProyect.Controllers
             if (ModelState.IsValid)
             {
 
-
                 // Lógica para guardar el nuevo usuario en la base de datos
-                //_categoriaRepository.CreateCiudad(model);
+                _categoriaRepository.Create(model);
 
                 // Redirecciona al usuario a alguna página de confirmación o a la lista de usuarios
                 return RedirectToAction("Index");

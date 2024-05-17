@@ -1,0 +1,22 @@
+﻿@model VentasProyect.Models.Categoria.Categoria
+
+@{
+    ViewBag.Title = "Editar Categoria";
+}
+
+<h2>Editar Ciudad</h2>
+
+@using (Html.BeginForm("Edit", "Categoria", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.cat_id)
+  
+<div class="form-group">
+    @Html.LabelFor(model => model.cat_nombre)
+    @Html.TextBoxFor(model => model.cat_nombre, new { @class = "form-control", @onchange = "CapitalizeText(this)" })
+    @Html.ValidationMessageFor(model => model.cat_nombre, "", new { @class = "field-validation-error" })
+</div>    
+
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+}
+
+<script src="~/Scripts/Generales/General.js"></script>
