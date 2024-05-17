@@ -3,13 +3,13 @@
 @{
     ViewBag.Title = "Editar Persona";
 
-    var type = Model.per_tipo == "Ambos" ? "Cliente" : Model.per_tipo;
+    
 }
 
 @Styles.Render("~/Forms")
 
 <div class="container-buttom">
-    <a href="@Url.Action("Index", "Persona")" class="btn btn-default btn-back">
+    <a href="@Url.Action("Index", "Persona", new {type= Model.per_vista})" class="btn btn-default btn-back">
         <span class="material-symbols-outlined">
             arrow_circle_left
         </span>
@@ -21,7 +21,7 @@
 
     <h2>Editar Persona</h2>
 
-    @using (Html.BeginForm("Edit", "Persona", new { type = type }, FormMethod.Post))
+    @using (Html.BeginForm("Edit", "Persona", new { type = Model.per_vista }, FormMethod.Post))
     {
 
         @Html.HiddenFor(model => model.per_id)

@@ -2,12 +2,14 @@
 
 @{
     ViewBag.Title = "Crear Persona";
+
+    var typeView = ViewBag.vista;
 }
 
 @Styles.Render("~/Forms")
 
     <div class="container-buttom">
-        <a href="@Url.Action("Index", "Persona")" class="btn btn-default btn-back">
+        <a href="@Url.Action("Index", "Persona", new {type = typeView})" class="btn btn-default btn-back">
             <span class="material-symbols-outlined">
                 arrow_circle_left
             </span>
@@ -23,7 +25,7 @@
         {
             @Html.AntiForgeryToken()
 
-
+            @Html.HiddenFor(model => model.per_vista, new {@value = typeView })
             <div class="row-form">
                 <div class="input-form p-right">
                     <div class="icon-container">
@@ -55,7 +57,7 @@
                         <span class="material-symbols-outlined">
                             person
                         </span>
-                        @Html.TextBoxFor(model => model.per_nombre, new { @class = "form-control", @onchange = "CapitalizeText(this);ValidateEmpy(this)", placeholder = "Nombre completo" })
+                        @Html.TextBoxFor(model => model.per_nombre, new { @class = "form-control", @onchange = "CapitalizeText(this)", placeholder = "Nombre completo" })
                         @Html.ValidationMessageFor(model => model.per_nombre, "", new { @class = "field-validation-error" })
                     </div>
                 </div>

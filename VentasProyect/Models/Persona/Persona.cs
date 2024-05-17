@@ -40,5 +40,6 @@ namespace VentasProyect.Models.Persona
 
         [Display(Name = "Tipo Documento")]
         public string per_tipo_documento { get; set; }
+        public string per_vista { get; set; }
     }
 }
