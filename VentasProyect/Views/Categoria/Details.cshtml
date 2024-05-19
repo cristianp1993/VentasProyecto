@@ -1,0 +1,21 @@
+﻿@model VentasProyect.Models.Categoria.Categoria
+
+@{
+    ViewBag.Title = "Detalles del Categoria";
+}
+
+<h2>Detalles de la Ciudad</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>Id:</dt>
+        <dd>@Model.cat_id</dd>
+        <dt>Departamento:</dt>
+        <dd>@Model.cat_nombre</dd>       
+        
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Volver a la lista", "Index")
+</p>

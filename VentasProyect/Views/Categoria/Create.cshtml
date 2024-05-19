@@ -1,0 +1,25 @@
+﻿@model VentasProyect.Models.Categoria.Categoria
+
+@{
+    ViewBag.Title = "Crear Categoria";
+}
+
+<h2>Crear Categoria</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.cat_nombre)
+        @Html.TextBoxFor(model => model.cat_nombre, new { @class = "form-control", @onchange = "CapitalizeText(this)" })
+        @Html.ValidationMessageFor(model => model.cat_nombre,"",new { @class = "field-validation-error" })
+    </div>
+
+   <button type="submit" class="btn btn-primary">CREAR</button>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<script src="~/Scripts/Generales/General.js"></script>

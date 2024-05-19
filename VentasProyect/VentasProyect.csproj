@@ -278,12 +278,15 @@
     <Content Include="Views\Persona\Details.cshtml" />
     <Content Include="Views\Persona\Delete.cshtml" />
     <Content Include="Views\Persona\Create.cshtml" />
+    <Content Include="Views\Categoria\Index.cshtml" />
+    <Content Include="Views\Categoria\Edit.cshtml" />
+    <Content Include="Views\Categoria\Details.cshtml" />
+    <Content Include="Views\Categoria\Delete.cshtml" />
+    <Content Include="Views\Categoria\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Img\" />
-    <Folder Include="Views\Categorias\" />
-    <Folder Include="Views\Categoria\" />
     <Folder Include="Views\Clientes\" />
     <Folder Include="Views\Productos\" />
     <Folder Include="Views\Reportes\" />
