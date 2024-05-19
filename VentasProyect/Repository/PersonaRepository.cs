@@ -31,7 +31,9 @@ namespace VentasProyect.Repository
                     per_cuenta_bancaria = xh.per_cuenta_bancaria,
                     per_correo = xh.per_correo,
                     per_nit =(int) xh.per_nit,
-                    per_tipo = xh.per_tipo
+                    per_tipo = xh.per_tipo,
+                    per_tipo_cuenta = xh.per_tipo_cuenta,
+                    per_tipo_documento = xh.per_tipo_documento
 
 
                 }).ToList();
@@ -52,7 +54,9 @@ namespace VentasProyect.Repository
                 per_cuenta_bancaria = model.per_cuenta_bancaria,
                 per_correo = model.per_correo,
                 per_nit = model.per_nit,
-                per_tipo = model.per_tipo
+                per_tipo = model.per_tipo,
+                per_tipo_cuenta = model.per_tipo_cuenta,
+                per_tipo_documento = model.per_tipo_documento
 
             };
 
@@ -75,6 +79,8 @@ namespace VentasProyect.Repository
                 existingUsuario.per_correo = model.per_correo;
                 existingUsuario.per_nit = model.per_nit;
                 existingUsuario.per_tipo = model.per_tipo;
+                existingUsuario.per_tipo_cuenta = model.per_tipo_cuenta;
+                existingUsuario.per_tipo_documento = model.per_tipo_documento;
 
                 _dbContext.SaveChanges();
             }

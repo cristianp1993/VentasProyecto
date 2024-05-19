@@ -13,7 +13,8 @@ namespace VentasProyect.Models.Persona
         [Display(Name = "Ciudad")]
         public string ciu_id { get; set; }
 
-        [StringLength(5, ErrorMessage = "El nombre no puede estar vacio")]
+        [Required(ErrorMessage = "El nombre es obligatorio")]
+        [StringLength(50, ErrorMessage = "El nombre excede los 50 caracteres")]
         [Display(Name = "Nombre")]
         public string per_nombre { get; set; }
 
@@ -26,6 +27,7 @@ namespace VentasProyect.Models.Persona
         [Display(Name = "Cuenta Bancaria")]
         public string per_cuenta_bancaria { get; set; }
 
+        [EmailAddress(ErrorMessage = "El formato del correo electrónico no es válido")]
         [Display(Name = "Correo Electrónico")]
         public string per_correo { get; set; }
 

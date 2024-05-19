@@ -48,6 +48,7 @@ h2 {
 }
 
 .input-form {
+    position:relative;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -82,27 +83,36 @@ h2 {
     transition: font-size 0.5s ease;
 }
 
+    .input-form .form-control:-webkit-autofill {
+        background-color: #380063 !important;
+        color: #fff !important;
+        -webkit-text-fill-color: #fff !important;
+
+        transition: background-color 5000s ease-in-out 0s; /* Esto asegura que el fondo no cambie rápidamente */
+    }
+
     .input-form .form-control::placeholder {
         color: #fff;
     }
 
 .input-form .icon-container {
     position: relative;
-    display: inline-block;
+    display: flex;
+    align-items:center;
 }
 
-    .input-form .icon-container .material-symbols-outlined {
-        position: absolute;
-        top: 50%;
-        left: 10px;
-        transform: translateY(-50%);
-        color: #AE00A0;
-        font-size: 30px;
-        transition: font-size 0.5s ease;
-        background-color: #fff;
-        border-radius: 17px;
-        padding: 2px;
-    }
+.icon-container .material-symbols-outlined {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #AE00A0;
+    font-size: 30px;
+    transition: font-size 0.5s ease;
+    background-color: #fff;
+    border-radius: 17px;
+    padding: 2px;
+}
 
     .input-form .icon-container .pos-top {
         top: 68%;
@@ -138,6 +148,15 @@ h2 {
     .container-btn .btn-primary span {
         font-variation-settings: 'FILL' 0;
     }
+
+.field-validation-error {
+    color: red;
+    position: absolute;
+    bottom: -20px; /* Ajusta esto según la posición que desees */
+    left: 0;
+    font-size: 12px;
+    white-space: nowrap;
+}
 
 @media screen and (max-width: 1155px) {
     .input-form .form-control {

@@ -33,6 +33,12 @@
                     search
                 </span>
             </div>
+            <div class="user-info @(sessionStatus ? "visible" : "hidden")">
+                <span class="user-name">Administrador</span>
+                <span class="material-symbols-outlined account-icon">
+                    account_circle
+                </span>
+            </div>
             <div class="">
                 <ul class="btn-login" style="display:@(sessionStatus ? "none" : "block")">
                     <li>

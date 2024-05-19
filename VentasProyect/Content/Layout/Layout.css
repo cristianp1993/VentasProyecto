@@ -63,7 +63,6 @@
 
 .txtBox-search {
     width: 25vw;
-    top: 20px;
     left: 20px;
     position: relative;
     display: inline-block;
@@ -92,6 +91,27 @@
     pointer-events: none;
 }
 
+.user-info {
+    display: flex;
+    width: 25vw;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    position: absolute;
+    right: 40px;
+}
+
+.user-name {
+    font-size: 16px;
+    color: #000;
+    margin-right: 10px;
+}
+
+.account-icon {
+    font-size: 32px;
+    color: #686767;
+}
+
 .nav-bar {
     min-height: 80px;
     width: 100vw;
@@ -101,7 +121,10 @@
     position: fixed;
     left: 0;
     padding-right: 20px;
-    transition: width 0.5s; /* Transición de ancho */
+    transition: width 0.5s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .btn-login{
