@@ -24,11 +24,11 @@
 
         <div class="row-form">
             <div class="input-form p-right">
+                @Html.LabelFor(model => model.usu_nombre)
                 <div class="icon-container">
                     <span class="material-symbols-outlined pos-top">
                         manage_accounts
                     </span>
-                    @Html.LabelFor(model => model.usu_nombre)
                     @Html.TextBoxFor(model => model.usu_nombre, new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.usu_nombre, "", new { @class = "field-validation-error" })
                 </div>
@@ -36,11 +36,11 @@
         </div>
         <div class="row-form">
             <div class="input-form p-right">
+                @Html.LabelFor(model => model.usu_rol)
                 <div class="icon-container">
                     <span class="material-symbols-outlined pos-top">
                         manage_accounts
                     </span>
-                    @Html.LabelFor(model => model.usu_rol)
                     @Html.TextBoxFor(model => model.usu_rol, new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.usu_rol, "", new { @class = "field-validation-error" })
                 </div>
@@ -48,11 +48,11 @@
         </div>
         <div class="row-form">
             <div class="input-form p-right">
+                @Html.LabelFor(model => model.usu_correo)
                 <div class="icon-container">
                     <span class="material-symbols-outlined pos-top">
                         manage_accounts
                     </span>
-                    @Html.LabelFor(model => model.usu_correo)
                     @Html.TextBoxFor(model => model.usu_correo, new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.usu_nombre, "", new { @class = "field-validation-error" })
                 </div>

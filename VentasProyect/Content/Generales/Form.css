@@ -24,7 +24,7 @@
 
     .btn-back span {
         padding-right:5px;
-        font-variation-settings: 'FILL' 0;
+        font-variation-settings: normal;
     }
 
 .form-container {
@@ -54,14 +54,11 @@ h2 {
     flex-direction: column;
 }
 
-    .input-form > * {
-        margin-bottom: 15px;
-    }
-
 .row-form {
     display: flex;
     gap: 15px;
-    height:75px;
+    height: 75px;
+    margin-bottom: 20px;
 }
 
 .input-form p-right {
@@ -115,7 +112,7 @@ h2 {
 }
 
     .input-form .icon-container .pos-top {
-        top: 68%;
+        top: 50%;
     }
 
 .btn-primary {
@@ -146,7 +143,7 @@ h2 {
     }
 
     .container-btn .btn-primary span {
-        font-variation-settings: 'FILL' 0;
+        font-variation-settings: normal;
     }
 
 .field-validation-error {

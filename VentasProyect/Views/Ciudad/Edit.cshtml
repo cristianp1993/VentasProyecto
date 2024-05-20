@@ -25,11 +25,11 @@
 
         <div class="row-form">
             <div class="input-form p-right">
+                @Html.LabelFor(model => model.ciu_nombre)
                 <div class="icon-container">
                     <span class="material-symbols-outlined pos-top">
                         location_city
                     </span>
-                    @Html.LabelFor(model => model.ciu_nombre)
                     @Html.TextBoxFor(model => model.ciu_nombre, new { @class = "form-control", @onchange = "CapitalizeText(this)" })
                     @Html.ValidationMessageFor(model => model.ciu_nombre, "", new { @class = "field-validation-error" })
                 </div>
@@ -37,11 +37,11 @@
         </div>
         <div class="row-form">
             <div class="input-form p-right">
+                @Html.LabelFor(model => model.ciu_depto)
                 <div class="icon-container">
                     <span class="material-symbols-outlined pos-top">
                         home_pin
                     </span>
-                    @Html.LabelFor(model => model.ciu_depto)
                     @Html.TextBoxFor(model => model.ciu_depto, new { @class = "form-control", @onchange = "CapitalizeText(this)" })
                     @Html.ValidationMessageFor(model => model.ciu_depto, "", new { @class = "field-validation-error" })
                 </div>
