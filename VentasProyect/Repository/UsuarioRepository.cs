@@ -18,6 +18,7 @@ namespace VentasProyect.Repository
                 {
                     usu_id = user.usu_id,
                     usu_nombre = user.usu_nombre,
+                    usu_contrasenia = user.usu_contrasenia,
                     usu_rol = user.usu_rol,
                     usu_correo = user.usu_correo
 
@@ -39,6 +40,7 @@ namespace VentasProyect.Repository
                     {
                         usu_id = user.usu_id,
                         usu_nombre = user.usu_nombre,
+                        usu_contrasenia = user.usu_contrasenia,
                         usu_rol = user.usu_rol,
                         usu_correo = user.usu_correo
                     };
@@ -68,6 +70,7 @@ namespace VentasProyect.Repository
             {
                 
                 existingUsuario.usu_nombre = usuario.usu_nombre;
+                existingUsuario.usu_contrasenia = usuario.usu_contrasenia;
                 existingUsuario.usu_rol = usuario.usu_rol;
                 existingUsuario.usu_correo = usuario.usu_correo;
 
@@ -83,6 +86,7 @@ namespace VentasProyect.Repository
             var newUser = new t_usuario
             {
                 usu_nombre = usuario.usu_nombre,
+                usu_contrasenia = usuario.usu_contrasenia,
                 usu_rol = usuario.usu_rol,
                 usu_correo = usuario.usu_correo
                 
