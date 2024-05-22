@@ -54,3 +54,38 @@ BEGIN
     ADD pro_url_img character varying(500); 
 END
 GO
+
+-- Insertar 'Equipamiento de seguridad' si no existe
+INSERT INTO t_categoria (cat_nombre)
+SELECT 'Equipamiento de seguridad'
+WHERE NOT EXISTS (
+    SELECT 1 FROM t_categoria WHERE cat_nombre = 'Equipamiento de seguridad'
+);
+
+-- Insertar 'Equipamiento de deportes acuáticos' si no existe
+INSERT INTO t_categoria (cat_nombre)
+SELECT 'Equipamiento de deportes acuáticos'
+WHERE NOT EXISTS (
+    SELECT 1 FROM t_categoria WHERE cat_nombre = 'Equipamiento de deportes acuáticos'
+);
+
+-- Insertar 'Equipamiento de escalada' si no existe
+INSERT INTO t_categoria (cat_nombre)
+SELECT 'Equipamiento de escalada'
+WHERE NOT EXISTS (
+    SELECT 1 FROM t_categoria WHERE cat_nombre = 'Equipamiento de escalada'
+);
+
+-- Insertar 'Accesorios de bicicleta' si no existe
+INSERT INTO t_categoria (cat_nombre)
+SELECT 'Accesorios de bicicleta'
+WHERE NOT EXISTS (
+    SELECT 1 FROM t_categoria WHERE cat_nombre = 'Accesorios de bicicleta'
+);
+
+-- Insertar 'Equipos de deportes de invierno' si no existe
+INSERT INTO t_categoria (cat_nombre)
+SELECT 'Equipos de deportes de invierno'
+WHERE NOT EXISTS (
+    SELECT 1 FROM t_categoria WHERE cat_nombre = 'Equipos de deportes de invierno'
+);

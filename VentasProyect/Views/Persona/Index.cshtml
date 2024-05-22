@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<VentasProyect.Models.Persona.Persona>
 
 @{
-    var typoVista = Model.First().per_vista;
+    var typoVista = ViewBag.Type;
 }
 
 @Styles.Render("~/tables")
