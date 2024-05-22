@@ -39,6 +39,17 @@
             <div class="input-form p-right">
                 <div class="icon-container">
                     <span class="material-symbols-outlined">
+                        Password
+                    </span>
+                    @Html.PasswordFor(model => model.usu_contrasenia, new { @class = "form-control", placeholder = "Contraseña" })
+                    @Html.ValidationMessageFor(model => model.usu_contrasenia, "", new { @class = "field-validation-error" })
+                </div>
+            </div>
+        </div>
+        <div class="row-form">
+            <div class="input-form p-right">
+                <div class="icon-container">
+                    <span class="material-symbols-outlined">
                         admin_panel_settings
                     </span>
                     @Html.TextBoxFor(model => model.usu_rol, new { @class = "form-control", placeholder = "Rol" })
@@ -72,4 +83,6 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/cryptojs")
+    <script src="~/Scripts/Generales/General.js"></script>
 }

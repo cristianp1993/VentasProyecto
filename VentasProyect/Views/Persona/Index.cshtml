@@ -21,13 +21,14 @@
     <table id="MyTable" class="">
         <thead>
             <tr>
-                <th>ID</th>
                 <th>Nombre</th>
                 <th>Dirección</th>
                 <th>Teléfono</th>
+                <th>T. Cuenta</th>
                 <th>Cuenta Bancaria</th>
                 <th>Correo Electrónico</th>
-                <th>NIT</th>
+                <th>T. Id</th>
+                <th>Identificación</th>
                 <th>Tipo</th>
                 <th>Acciones</th>
             </tr>
@@ -36,12 +37,13 @@
             @foreach (var data in Model)
             {
                 <tr>
-                    <td>@data.per_id</td>
                     <td>@data.per_nombre</td>
                     <td>@data.per_direccion</td>
                     <td>@data.per_telefono</td>
+                    <td>@data.per_tipo_cuenta</td>
                     <td>@data.per_cuenta_bancaria</td>
                     <td>@data.per_correo</td>
+                    <td>@data.per_tipo_documento</td>
                     <td>@data.per_nit</td>
                     <td>@data.per_tipo</td>
                     <td>

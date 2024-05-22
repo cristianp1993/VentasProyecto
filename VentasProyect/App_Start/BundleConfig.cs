@@ -49,6 +49,11 @@ namespace VentasProyect
 
             bundles.Add(new ScriptBundle("~/ScCreate").Include(
                 "~/Scripts/Personas/Create.js"));
+
+            // Agregar CryptoJS desde los archivos descargados
+            bundles.Add(new ScriptBundle("~/bundles/cryptojs").Include(
+                "~/Scripts/CryptoJS/core.js",
+                "~/Scripts/CryptoJS/sha256.js"));
         }
     }
 }

@@ -232,6 +232,7 @@
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\Ciudades\Ciudad.js" />
+    <Content Include="Scripts\CryptoJS\core.js" />
     <Content Include="Scripts\Generales\General.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -246,6 +247,7 @@
     <Content Include="Scripts\Login\Login.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\Personas\Create.js" />
+    <Content Include="Scripts\CryptoJS\sha256.js" />
     <Content Include="Scripts\Tables.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

@@ -14,6 +14,7 @@
         @Html.LabelFor(model => model.cat_nombre)
         @Html.TextBoxFor(model => model.cat_nombre, new { @class = "form-control", @onchange = "CapitalizeText(this)" })
         @Html.ValidationMessageFor(model => model.cat_nombre,"",new { @class = "field-validation-error" })
+
     </div>
 
    <button type="submit" class="btn btn-primary">CREAR</button>

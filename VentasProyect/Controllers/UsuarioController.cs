@@ -17,7 +17,7 @@ namespace VentasProyect.Controllers
         public ActionResult Index()
         {
             Session["SessionStatus"] = true;
-            
+
             var usuarios = _usuarioRepository.GetUsuarios();
             return View(usuarios);
         }
@@ -31,11 +31,11 @@ namespace VentasProyect.Controllers
         [HttpPost]
         public ActionResult Create(usuario usuario)
         {
-            
-            
+
+
             if (ModelState.IsValid)
             {
-                
+
 
                 // Lógica para guardar el nuevo usuario en la base de datos
                 _usuarioRepository.CreateUsuario(usuario);

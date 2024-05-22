@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.UI.WebControls;
 using VentasProyect.Models.Persona;
 using VentasProyect.Repository;
 
@@ -13,15 +12,13 @@ namespace VentasProyect.Controllers
     {
         PersonaRepository _personaRepository = new PersonaRepository();
         CiudadRepository _ciudadRepository = new CiudadRepository();
+
         // GET: Persona
         public ActionResult Index(string type)
         {
             Session["SessionStatus"] = true;
-
             ViewBag.Type = type;
-
             var data = _personaRepository.GetData(type);
-
             return View(data);
         }
 
@@ -39,16 +36,25 @@ namespace VentasProyect.Controllers
 
             if (ModelState.IsValid)
             {
-
+                if (_personaRepository.DocumentoExiste(model.per_nit))
+                {
+                    ModelState.AddModelError("per_nit", "El número de documento ya existe.");
+                    ViewBag.vista = type;
+                    ViewBag.Ciudades = _ciudadRepository.GetSelectCiudades();
+                    return View(model);
+                }
 
                 // Lógica para guardar el nuevo usuario en la base de datos
                 _personaRepository.Create(model);
 
                 // Redirecciona al usuario a alguna página de confirmación o a la lista de usuarios
-                return RedirectToAction("Index", new { type= type });
+                return RedirectToAction("Index", new { type = type });
             }
+            ViewBag.vista = model.per_vista;
+            ViewBag.Ciudades = _ciudadRepository.GetSelectCiudades();
             return View(model);
         }
+
         public ActionResult Edit(int id, string typeView)
         {
             ViewBag.Ciudades = _ciudadRepository.GetSelectCiudades();
@@ -81,7 +87,7 @@ namespace VentasProyect.Controllers
             return View(usuario);
         }
 
-        public ActionResult Delete(int id,string typeView)
+        public ActionResult Delete(int id, string typeView)
         {
             var usuario = _personaRepository.GetDataById(id, typeView);
             if (usuario == null)
@@ -98,7 +104,5 @@ namespace VentasProyect.Controllers
             _personaRepository.Delete(id);
             return RedirectToAction("Index");
         }
-
-
     }
 }
