@@ -7,6 +7,7 @@ namespace VentasProyect.Controllers
     public class UsuarioController : Controller
     {
         private readonly UsuarioRepository _usuarioRepository;
+        public EncryptRepository _encryptRepository = new EncryptRepository();
 
         public UsuarioController()
         {
@@ -35,7 +36,8 @@ namespace VentasProyect.Controllers
 
             if (ModelState.IsValid)
             {
-
+                //Encriptar contraseña
+                usuario.usu_contrasenia = _encryptRepository.EncryptPassword(usuario.usu_contrasenia);
 
                 // Lógica para guardar el nuevo usuario en la base de datos
                 _usuarioRepository.CreateUsuario(usuario);
