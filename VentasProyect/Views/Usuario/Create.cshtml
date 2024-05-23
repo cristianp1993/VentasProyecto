@@ -5,6 +5,7 @@
 }
 
 @Styles.Render("~/Forms")
+@Styles.Render("~/Validations")
 
 <div class="container-buttom">
     <a href="@Url.Action("Index", "Usuario")" class="btn btn-default btn-back">
@@ -31,7 +32,7 @@
                         manage_accounts
                     </span>
                     @Html.TextBoxFor(model => model.usu_nombre, new { @class = "form-control", placeholder = "Nombre" })
-                    @Html.ValidationMessageFor(model => model.usu_nombre, "", new { @class = "field-validation-error" })
+                    @Html.ValidationMessageFor(model => model.usu_nombre, "", new { @class = "field-validation-error error-message" })
                 </div>
             </div>
         </div>
@@ -42,19 +43,26 @@
                         Password
                     </span>
                     @Html.PasswordFor(model => model.usu_contrasenia, new { @class = "form-control", placeholder = "Contraseña" })
-                    @Html.ValidationMessageFor(model => model.usu_contrasenia, "", new { @class = "field-validation-error" })
+                    @Html.ValidationMessageFor(model => model.usu_contrasenia, "", new { @class = "field-validation-error error-message" })
                 </div>
             </div>
         </div>
         <div class="row-form">
             <div class="input-form p-right">
+
                 <div class="icon-container">
                     <span class="material-symbols-outlined">
                         admin_panel_settings
                     </span>
-                    @Html.TextBoxFor(model => model.usu_rol, new { @class = "form-control", placeholder = "Rol" })
-                    @Html.ValidationMessageFor(model => model.usu_rol, "", new { @class = "field-validation-error" })
+                    @Html.DropDownListFor(model => model.usu_rol, new SelectList(new[]
+                    {
+                        new SelectListItem { Text = "Seleccione Rol", Value = "" },
+                        new SelectListItem { Text = "Administrador", Value = "ADMINISTRADOR" },
+                        new SelectListItem { Text = "Vendedor", Value = "VENDEDOR" }
+                    }, "Value", "Text"), new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.usu_rol, "", new { @class = "field-validation-error error-message" })
                 </div>
+
             </div>
         </div>
         <div class="row-form">
@@ -64,7 +72,7 @@
                         mail
                     </span>
                     @Html.TextBoxFor(model => model.usu_correo, new { @class = "form-control", placeholder = "Correo" })
-                    @Html.ValidationMessageFor(model => model.usu_correo, "", new { @class = "field-validation-error" })
+                    @Html.ValidationMessageFor(model => model.usu_correo, "", new { @class = "field-validation-error error-message" })
                 </div>
             </div>
         </div>

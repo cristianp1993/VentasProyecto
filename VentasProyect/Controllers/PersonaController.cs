@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using VentasProyect.Models.Persona;
+using VentasProyect.Models.usuario;
 using VentasProyect.Repository;
 
 namespace VentasProyect.Controllers
@@ -12,6 +13,7 @@ namespace VentasProyect.Controllers
     {
         PersonaRepository _personaRepository = new PersonaRepository();
         CiudadRepository _ciudadRepository = new CiudadRepository();
+        public EncryptRepository _encryptRepository = new EncryptRepository();
 
         // GET: Persona
         public ActionResult Index(string type)
@@ -43,6 +45,9 @@ namespace VentasProyect.Controllers
                     ViewBag.Ciudades = _ciudadRepository.GetSelectCiudades();
                     return View(model);
                 }
+
+                //Encriptar cuenta Bancaria
+                model.per_cuenta_bancaria = _encryptRepository.EncryptPassword(model.per_cuenta_bancaria);
 
                 // Lógica para guardar el nuevo usuario en la base de datos
                 _personaRepository.Create(model);

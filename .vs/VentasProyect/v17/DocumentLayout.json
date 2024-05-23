@@ -3,84 +3,100 @@
   "WorkspaceRootPath": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|c:\\users\\leoma\\onedrive\\documentos\\proyectowill\\ventasproyecto\\ventasproyect\\models\\usuario\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|c:\\users\\leoma\\onedrive\\documentos\\proyectowill\\ventasproyecto\\ventasproyect\\content\\generales\\validation.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\content\\generales\\validation.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\ventasproyect\\models\\usuario\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\models\\usuario\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|c:\\users\\leoma\\onedrive\\documentos\\proyectowill\\ventasproyecto\\ventasproyect\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|c:\\users\\leoma\\onedrive\\documentos\\proyectowill\\ventasproyecto\\ventasproyect\\scripts\\generales\\general.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\scripts\\generales\\general.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|c:\\users\\leoma\\onedrive\\documentos\\proyectowill\\ventasproyecto\\ventasproyect\\repository\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\repository\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|c:\\users\\leoma\\onedrive\\documentos\\proyectowill\\ventasproyecto\\ventasproyect\\repository\\personarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\repository\\personarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|c:\\users\\leoma\\onedrive\\documentos\\proyectowill\\ventasproyecto\\ventasproyect\\views\\usuario\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\ventasproyect\\views\\usuario\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\views\\usuario\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\ventasproyect\\views\\persona\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\views\\persona\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\ventasproyect\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\ventasproyect\\app_start\\bundleconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\app_start\\bundleconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|c:\\users\\leoma\\onedrive\\documentos\\proyectowill\\ventasproyecto\\ventasproyect\\views\\persona\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\views\\persona\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|c:\\users\\leoma\\onedrive\\documentos\\proyectowill\\ventasproyecto\\ventasproyect\\scripts\\ciudades\\ciudad.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\scripts\\ciudades\\ciudad.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|c:\\users\\leoma\\onedrive\\documentos\\proyectowill\\ventasproyecto\\ventasproyect\\models\\persona\\persona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\models\\persona\\persona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|c:\\users\\leoma\\onedrive\\documentos\\proyectowill\\ventasproyecto\\ventasproyect\\views\\usuario\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\views\\usuario\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|c:\\users\\leoma\\onedrive\\documentos\\proyectowill\\ventasproyecto\\ventasproyect\\controllers\\personacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\controllers\\personacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|c:\\users\\leoma\\onedrive\\documentos\\proyectowill\\ventasproyecto\\ventasproyect\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|c:\\users\\leoma\\onedrive\\documentos\\proyectowill\\ventasproyecto\\ventasproyect\\views\\categoria\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\views\\categoria\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|c:\\users\\leoma\\onedrive\\documentos\\proyectowill\\ventasproyecto\\ventasproyect\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|c:\\users\\leoma\\onedrive\\documentos\\proyectowill\\ventasproyecto\\ventasproyect\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\ventasproyect\\content\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\content\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|c:\\users\\leoma\\onedrive\\documentos\\proyectowill\\ventasproyecto\\ventasproyect\\views\\persona\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\views\\persona\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\ventasproyect\\scripts\\layout\\script.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\scripts\\layout\\script.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\ventasproyect\\content\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\content\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\ventasproyect\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\ventasproyect\\content\\layout\\layout.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\content\\layout\\layout.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\ventasproyect\\scripts\\generales\\general.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\scripts\\generales\\general.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\ventasproyect\\models\\persona\\persona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\models\\persona\\persona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\ventasproyect\\controllers\\personacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\controllers\\personacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\ventasproyect\\repository\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\repository\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\ventasproyect\\repository\\encryptrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\repository\\encryptrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\ventasproyect\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\ventasproyect\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\ventasproyect\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\ventasproyect\\repository\\personarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\repository\\personarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\ventasproyect\\scripts\\ciudades\\ciudad.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\scripts\\ciudades\\ciudad.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\ventasproyect\\views\\usuario\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\views\\usuario\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\ventasproyect\\views\\categoria\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\views\\categoria\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\ventasproyect\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\ventasproyect\\scripts\\layout\\script.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\scripts\\layout\\script.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     }
   ],
   "DocumentGroupContainers": [
@@ -90,7 +106,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -118,39 +134,91 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Views\\Persona\\Index.cshtml",
-              "RelativeDocumentMoniker": "VentasProyect\\Views\\Persona\\Index.cshtml",
-              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Views\\Persona\\Index.cshtml",
-              "RelativeToolTip": "VentasProyect\\Views\\Persona\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-21T04:03:22.799Z",
+              "DocumentIndex": 0,
+              "Title": "Validation.css",
+              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Content\\Generales\\Validation.css",
+              "RelativeDocumentMoniker": "VentasProyect\\Content\\Generales\\Validation.css",
+              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Content\\Generales\\Validation.css",
+              "RelativeToolTip": "VentasProyect\\Content\\Generales\\Validation.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-05-23T03:29:39.9Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Persona.cs",
-              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Models\\Persona\\Persona.cs",
-              "RelativeDocumentMoniker": "VentasProyect\\Models\\Persona\\Persona.cs",
-              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Models\\Persona\\Persona.cs",
-              "RelativeToolTip": "VentasProyect\\Models\\Persona\\Persona.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAIAAAA",
+              "DocumentIndex": 4,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "VentasProyect\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "VentasProyect\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAA4AAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-04T20:12:59.273Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UsuarioController.cs",
+              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Controllers\\UsuarioController.cs",
+              "RelativeDocumentMoniker": "VentasProyect\\Controllers\\UsuarioController.cs",
+              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Controllers\\UsuarioController.cs",
+              "RelativeToolTip": "VentasProyect\\Controllers\\UsuarioController.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAAACgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-21T04:24:00.695Z",
+              "WhenOpened": "2024-05-21T07:19:05.608Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Models\\Usuario\\Usuario.cs",
+              "RelativeDocumentMoniker": "VentasProyect\\Models\\Usuario\\Usuario.cs",
+              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Models\\Usuario\\Usuario.cs",
+              "RelativeToolTip": "VentasProyect\\Models\\Usuario\\Usuario.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAxwBwAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T06:02:10.418Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "Site.css",
+              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Content\\Site.css",
+              "RelativeDocumentMoniker": "VentasProyect\\Content\\Site.css",
+              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Content\\Site.css",
+              "RelativeToolTip": "VentasProyect\\Content\\Site.css",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAADYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-05-05T01:38:04.021Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Views\\Usuario\\Create.cshtml",
+              "RelativeDocumentMoniker": "VentasProyect\\Views\\Usuario\\Create.cshtml",
+              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Views\\Usuario\\Create.cshtml",
+              "RelativeToolTip": "VentasProyect\\Views\\Usuario\\Create.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-21T06:10:50.777Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "BundleConfig.cs",
               "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\App_Start\\BundleConfig.cs",
               "RelativeDocumentMoniker": "VentasProyect\\App_Start\\BundleConfig.cs",
               "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\App_Start\\BundleConfig.cs",
               "RelativeToolTip": "VentasProyect\\App_Start\\BundleConfig.cs",
-              "ViewState": "AQIAAB8AAAAAAAAAAAAgwDgAAAAJAAAA",
+              "ViewState": "AQIAABwAAAAAAAAAAAAgwDQAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-04T20:51:12.491Z",
               "EditorCaption": ""
@@ -158,32 +226,45 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "UsuarioRepository.cs",
-              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Repository\\UsuarioRepository.cs",
-              "RelativeDocumentMoniker": "VentasProyect\\Repository\\UsuarioRepository.cs",
-              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Repository\\UsuarioRepository.cs",
-              "RelativeToolTip": "VentasProyect\\Repository\\UsuarioRepository.cs",
-              "ViewState": "AQIAADYAAAAAAAAAAAAAwGIAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-21T06:16:21.808Z",
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Views\\Persona\\Create.cshtml",
+              "RelativeDocumentMoniker": "VentasProyect\\Views\\Persona\\Create.cshtml",
+              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Views\\Persona\\Create.cshtml",
+              "RelativeToolTip": "VentasProyect\\Views\\Persona\\Create.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-21T04:54:37.048Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UsuarioController.cs",
-              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Controllers\\UsuarioController.cs",
-              "RelativeDocumentMoniker": "VentasProyect\\Controllers\\UsuarioController.cs",
-              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Controllers\\UsuarioController.cs",
-              "RelativeToolTip": "VentasProyect\\Controllers\\UsuarioController.cs",
-              "ViewState": "AQIAAEUAAAAAAAAAAAAuwGEAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-21T07:19:05.608Z",
+              "DocumentIndex": 9,
+              "Title": "Layout.css",
+              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Content\\Layout\\Layout.css",
+              "RelativeDocumentMoniker": "VentasProyect\\Content\\Layout\\Layout.css",
+              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Content\\Layout\\Layout.css",
+              "RelativeToolTip": "VentasProyect\\Content\\Layout\\Layout.css",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAL8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-05-04T20:46:23.34Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Views\\Persona\\Index.cshtml",
+              "RelativeDocumentMoniker": "VentasProyect\\Views\\Persona\\Index.cshtml",
+              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Views\\Persona\\Index.cshtml",
+              "RelativeToolTip": "VentasProyect\\Views\\Persona\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-21T04:03:22.799Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "General.js",
               "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Scripts\\Generales\\General.js",
               "RelativeDocumentMoniker": "VentasProyect\\Scripts\\Generales\\General.js",
@@ -196,161 +277,67 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Usuario.cs",
-              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Models\\Usuario\\Usuario.cs",
-              "RelativeDocumentMoniker": "VentasProyect\\Models\\Usuario\\Usuario.cs",
-              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Models\\Usuario\\Usuario.cs",
-              "RelativeToolTip": "VentasProyect\\Models\\Usuario\\Usuario.cs",
-              "ViewState": "AQIAAAEAAAAAAAAAAAAgwBIAAAAUAAAA",
+              "DocumentIndex": 14,
+              "Title": "EncryptRepository.cs",
+              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Repository\\EncryptRepository.cs",
+              "RelativeDocumentMoniker": "VentasProyect\\Repository\\EncryptRepository.cs",
+              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Repository\\EncryptRepository.cs",
+              "RelativeToolTip": "VentasProyect\\Repository\\EncryptRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-21T06:02:10.418Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-23T03:02:08.338Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "PersonaRepository.cs",
-              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Repository\\PersonaRepository.cs",
-              "RelativeDocumentMoniker": "VentasProyect\\Repository\\PersonaRepository.cs",
-              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Repository\\PersonaRepository.cs",
-              "RelativeToolTip": "VentasProyect\\Repository\\PersonaRepository.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAwwIQAAAAAAAAA",
+              "DocumentIndex": 13,
+              "Title": "UsuarioRepository.cs",
+              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Repository\\UsuarioRepository.cs",
+              "RelativeDocumentMoniker": "VentasProyect\\Repository\\UsuarioRepository.cs",
+              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Repository\\UsuarioRepository.cs",
+              "RelativeToolTip": "VentasProyect\\Repository\\UsuarioRepository.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAYwBAAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-21T05:49:30.215Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Views\\Usuario\\Create.cshtml",
-              "RelativeDocumentMoniker": "VentasProyect\\Views\\Usuario\\Create.cshtml",
-              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Views\\Usuario\\Create.cshtml",
-              "RelativeToolTip": "VentasProyect\\Views\\Usuario\\Create.cshtml",
-              "ViewState": "AQIAAEEAAAAAAAAAAAAAAFcAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-21T06:10:50.777Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Views\\Persona\\Create.cshtml",
-              "RelativeDocumentMoniker": "VentasProyect\\Views\\Persona\\Create.cshtml",
-              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Views\\Persona\\Create.cshtml",
-              "RelativeToolTip": "VentasProyect\\Views\\Persona\\Create.cshtml",
-              "ViewState": "AQIAAIgAAAAAAAAAAAAowKMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-21T04:54:37.048Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-21T06:16:21.808Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
+              "Title": "Persona.cs",
+              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Models\\Persona\\Persona.cs",
+              "RelativeDocumentMoniker": "VentasProyect\\Models\\Persona\\Persona.cs",
+              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Models\\Persona\\Persona.cs",
+              "RelativeToolTip": "VentasProyect\\Models\\Persona\\Persona.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAowCQAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T04:24:00.695Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "PersonaController.cs",
               "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Controllers\\PersonaController.cs",
               "RelativeDocumentMoniker": "VentasProyect\\Controllers\\PersonaController.cs",
               "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Controllers\\PersonaController.cs",
               "RelativeToolTip": "VentasProyect\\Controllers\\PersonaController.cs",
-              "ViewState": "AQIAAFEAAAAAAAAAAAAmwGwAAAAAAAAA",
+              "ViewState": "AQIAACkAAAAAAAAAAAAwwDIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-21T05:51:45.937Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Views\\Usuario\\Index.cshtml",
-              "RelativeDocumentMoniker": "VentasProyect\\Views\\Usuario\\Index.cshtml",
-              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Views\\Usuario\\Index.cshtml",
-              "RelativeToolTip": "VentasProyect\\Views\\Usuario\\Index.cshtml",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAACIAAAAwAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-21T06:23:36.005Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Ciudad.js",
-              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Scripts\\Ciudades\\Ciudad.js",
-              "RelativeDocumentMoniker": "VentasProyect\\Scripts\\Ciudades\\Ciudad.js",
-              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Scripts\\Ciudades\\Ciudad.js",
-              "RelativeToolTip": "VentasProyect\\Scripts\\Ciudades\\Ciudad.js",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-05-21T04:15:22.327Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Script.js",
-              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Scripts\\Layout\\Script.js",
-              "RelativeDocumentMoniker": "VentasProyect\\Scripts\\Layout\\Script.js",
-              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Scripts\\Layout\\Script.js",
-              "RelativeToolTip": "VentasProyect\\Scripts\\Layout\\Script.js",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-05-06T00:02:05.098Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Layout.css",
-              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Content\\Layout\\Layout.css",
-              "RelativeDocumentMoniker": "VentasProyect\\Content\\Layout\\Layout.css",
-              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Content\\Layout\\Layout.css",
-              "RelativeToolTip": "VentasProyect\\Content\\Layout\\Layout.css",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAL8AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-05-04T20:46:23.34Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "VentasProyect\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "VentasProyect\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAAwBkAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-04T20:12:59.273Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Views\\Categoria\\Create.cshtml",
-              "RelativeDocumentMoniker": "VentasProyect\\Views\\Categoria\\Create.cshtml",
-              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Views\\Categoria\\Create.cshtml",
-              "RelativeToolTip": "VentasProyect\\Views\\Categoria\\Create.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-21T04:19:32.049Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "VentasProyect\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "VentasProyect\\Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-21T04:04:30.22Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-21T05:51:45.937Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 15,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "VentasProyect\\Controllers\\LoginController.cs",
+              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "VentasProyect\\Controllers\\LoginController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-23T02:58:24.012Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "Web.config",
               "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Web.config",
               "RelativeDocumentMoniker": "VentasProyect\\Web.config",
@@ -364,14 +351,86 @@
             {
               "$type": "Document",
               "DocumentIndex": 18,
-              "Title": "Site.css",
-              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Content\\Site.css",
-              "RelativeDocumentMoniker": "VentasProyect\\Content\\Site.css",
-              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Content\\Site.css",
-              "RelativeToolTip": "VentasProyect\\Content\\Site.css",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACkAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-05-05T01:38:04.021Z"
+              "Title": "PersonaRepository.cs",
+              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Repository\\PersonaRepository.cs",
+              "RelativeDocumentMoniker": "VentasProyect\\Repository\\PersonaRepository.cs",
+              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Repository\\PersonaRepository.cs",
+              "RelativeToolTip": "VentasProyect\\Repository\\PersonaRepository.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAwwIQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T05:49:30.215Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Views\\Web.config",
+              "RelativeDocumentMoniker": "VentasProyect\\Views\\Web.config",
+              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Views\\Web.config",
+              "RelativeToolTip": "VentasProyect\\Views\\Web.config",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-05-23T02:54:07.987Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Views\\Usuario\\Index.cshtml",
+              "RelativeDocumentMoniker": "VentasProyect\\Views\\Usuario\\Index.cshtml",
+              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Views\\Usuario\\Index.cshtml",
+              "RelativeToolTip": "VentasProyect\\Views\\Usuario\\Index.cshtml",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAACIAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-21T06:23:36.005Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Ciudad.js",
+              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Scripts\\Ciudades\\Ciudad.js",
+              "RelativeDocumentMoniker": "VentasProyect\\Scripts\\Ciudades\\Ciudad.js",
+              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Scripts\\Ciudades\\Ciudad.js",
+              "RelativeToolTip": "VentasProyect\\Scripts\\Ciudades\\Ciudad.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-05-21T04:15:22.327Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Script.js",
+              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Scripts\\Layout\\Script.js",
+              "RelativeDocumentMoniker": "VentasProyect\\Scripts\\Layout\\Script.js",
+              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Scripts\\Layout\\Script.js",
+              "RelativeToolTip": "VentasProyect\\Scripts\\Layout\\Script.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-05-06T00:02:05.098Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Views\\Categoria\\Create.cshtml",
+              "RelativeDocumentMoniker": "VentasProyect\\Views\\Categoria\\Create.cshtml",
+              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Views\\Categoria\\Create.cshtml",
+              "RelativeToolTip": "VentasProyect\\Views\\Categoria\\Create.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-21T04:19:32.049Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "VentasProyect\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "VentasProyect\\Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-21T04:04:30.22Z"
             }
           ]
         }
