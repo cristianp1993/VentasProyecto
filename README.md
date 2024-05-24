@@ -1,7 +1,6 @@
 ## Configuración de FTP
 
 Para configurar las credenciales de FTP, crea un archivo `ftpconfig.json` en el directorio raíz del proyecto con el siguiente formato:
-Cambia el puerto
 
 ```json
 {
