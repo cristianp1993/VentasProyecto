@@ -7,6 +7,7 @@ namespace VentasProyect.Controllers
     public class UsuarioController : Controller
     {
         private readonly UsuarioRepository _usuarioRepository;
+        public EncryptRepository _encryptRepository = new EncryptRepository();
 
         public UsuarioController()
         {
@@ -17,7 +18,7 @@ namespace VentasProyect.Controllers
         public ActionResult Index()
         {
             Session["SessionStatus"] = true;
-            
+
             var usuarios = _usuarioRepository.GetUsuarios();
             return View(usuarios);
         }
@@ -31,11 +32,12 @@ namespace VentasProyect.Controllers
         [HttpPost]
         public ActionResult Create(usuario usuario)
         {
-            
-            
+
+
             if (ModelState.IsValid)
             {
-                
+                //Encriptar contraseña
+                usuario.usu_contrasenia = _encryptRepository.EncryptPassword(usuario.usu_contrasenia);
 
                 // Lógica para guardar el nuevo usuario en la base de datos
                 _usuarioRepository.CreateUsuario(usuario);

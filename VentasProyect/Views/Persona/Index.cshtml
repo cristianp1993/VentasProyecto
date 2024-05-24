@@ -1,10 +1,11 @@
 ﻿@model IEnumerable<VentasProyect.Models.Persona.Persona>
 
 @{
-    var typoVista = Model.First().per_vista;
+    var typoVista = ViewBag.Type;
 }
 
 @Styles.Render("~/tables")
+
 
 <h2>Personas</h2>
 
@@ -25,7 +26,6 @@
                 <th>Dirección</th>
                 <th>Teléfono</th>
                 <th>T. Cuenta</th>
-                <th>Cuenta Bancaria</th>
                 <th>Correo Electrónico</th>
                 <th>T. Id</th>
                 <th>Identificación</th>
@@ -41,7 +41,6 @@
                     <td>@data.per_direccion</td>
                     <td>@data.per_telefono</td>
                     <td>@data.per_tipo_cuenta</td>
-                    <td>@data.per_cuenta_bancaria</td>
                     <td>@data.per_correo</td>
                     <td>@data.per_tipo_documento</td>
                     <td>@data.per_nit</td>

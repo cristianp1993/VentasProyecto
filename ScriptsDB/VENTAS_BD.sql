@@ -90,3 +90,14 @@ CREATE TABLE t_pedido(
 	 FOREIGN KEY (per_id) REFERENCES t_persona(per_id)
 );
 
+INSERT INTO t_ciudad (ciu_nombre, ciu_depto) VALUES
+('Bogotá', 'Cundinamarca'),
+('Medellín', 'Antioquia'),
+('Cali', 'Valle del Cauca'),
+('Barranquilla', 'Atlántico'),
+('Cartagena', 'Bolívar'),
+('Bucaramanga', 'Santander'),
+('Santa Marta', 'Magdalena'),
+('Ibagué', 'Tolima');
+
+ALTER TABLE t_ciudad ADD  ciu_depto varchar(200);

@@ -15,9 +15,10 @@ namespace VentasProyect.Repository
         {
             _dbContext = new VENTAS_DBEntities1();
         }
+
         public IEnumerable<Models.Persona.Persona> GetData(string type)
         {
-            string diftype = (type == "Cliente")? "Proveedor": "Cliente";
+            string diftype = (type == "Cliente") ? "Proveedor" : "Cliente";
 
             using (VENTAS_DBEntities1 dbContext = new VENTAS_DBEntities1())
             {
@@ -30,17 +31,16 @@ namespace VentasProyect.Repository
                     per_telefono = xh.per_telefono,
                     per_cuenta_bancaria = xh.per_cuenta_bancaria,
                     per_correo = xh.per_correo,
-                    per_nit =(int) xh.per_nit,
+                    per_nit = (int)xh.per_nit,
                     per_tipo = xh.per_tipo,
                     per_tipo_cuenta = xh.per_tipo_cuenta,
                     per_tipo_documento = xh.per_tipo_documento
-
-
                 }).ToList();
 
                 return data;
             }
         }
+
         public void Create(Persona model)
         {
             int ciu_id = Convert.ToInt32(model.ciu_id);
@@ -57,12 +57,15 @@ namespace VentasProyect.Repository
                 per_tipo = model.per_tipo,
                 per_tipo_cuenta = model.per_tipo_cuenta,
                 per_tipo_documento = model.per_tipo_documento
-
             };
 
             _dbContext.t_persona.Add(newData);
-
             _dbContext.SaveChanges();
+        }
+
+        public bool DocumentoExiste(int numeroDocumento)
+        {
+            return _dbContext.t_persona.Any(p => p.per_nit == numeroDocumento);
         }
 
         public void Update(Persona model)
@@ -71,7 +74,6 @@ namespace VentasProyect.Repository
 
             if (existingUsuario != null)
             {
-
                 existingUsuario.per_nombre = model.per_nombre;
                 existingUsuario.per_direccion = model.per_direccion;
                 existingUsuario.per_telefono = model.per_telefono;
@@ -84,8 +86,8 @@ namespace VentasProyect.Repository
 
                 _dbContext.SaveChanges();
             }
-
         }
+
         public void Delete(int id)
         {
             var toDelete = _dbContext.t_persona.FirstOrDefault(u => u.per_id == id);
@@ -94,10 +96,9 @@ namespace VentasProyect.Repository
                 _dbContext.t_persona.Remove(toDelete);
                 _dbContext.SaveChanges();
             }
-
         }
 
-        public Models.Persona.Persona GetDataById(int id,string typeView)
+        public Models.Persona.Persona GetDataById(int id, string typeView)
         {
             using (VENTAS_DBEntities1 dbContext = new VENTAS_DBEntities1())
             {
@@ -119,12 +120,10 @@ namespace VentasProyect.Repository
                         ciu_id = Convert.ToString(data.ciu_id),
                         per_tipo_cuenta = data.per_tipo_cuenta,
                         per_tipo_documento = data.per_tipo_documento
-
                     };
                 }
                 else
                 {
-
                     return null;
                 }
             }
