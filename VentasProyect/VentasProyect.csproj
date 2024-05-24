@@ -137,6 +137,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PersonaController.cs" />
+    <Compile Include="Controllers\ProductosController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -159,6 +160,7 @@
       <DependentUpon>DbContext.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Persona\Persona.cs" />
+    <Compile Include="Models\Productos\Productos.cs" />
     <Compile Include="Models\t_categoria.cs">
       <DependentUpon>DbContext.tt</DependentUpon>
     </Compile>
@@ -195,6 +197,7 @@
     <Compile Include="Repository\HomeRepository.cs" />
     <Compile Include="Repository\LoginRepository.cs" />
     <Compile Include="Repository\PersonaRepository.cs" />
+    <Compile Include="Repository\ProductosRepository.cs" />
     <Compile Include="Repository\UsuarioRepository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -205,9 +208,11 @@
     <Content Include="Content\Generales\Form.css" />
     <Content Include="Content\Generales\Validation.css" />
     <Content Include="Content\Home\index.css" />
+    <Content Include="Content\Home\popup.css" />
     <Content Include="Content\Layout\Layout.css" />
     <Content Include="Content\Login\Login.css" />
     <Content Include="Content\Generales\table.css" />
+    <Content Include="Content\Productos\Productos.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -235,6 +240,8 @@
     <Content Include="Scripts\Ciudades\Ciudad.js" />
     <Content Include="Scripts\CryptoJS\core.js" />
     <Content Include="Scripts\Generales\General.js" />
+    <Content Include="Scripts\Home\index.js" />
+    <Content Include="Scripts\Home\popup.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -248,7 +255,11 @@
     <Content Include="Scripts\Login\Login.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\Personas\Create.js" />
+<<<<<<< HEAD
+    <Content Include="Scripts\Productos\Productos.js" />
+=======
     <Content Include="Scripts\CryptoJS\sha256.js" />
+>>>>>>> c81b24c5015f5a5cad305c43a93c90951f41d7cc
     <Content Include="Scripts\Tables.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -286,6 +297,12 @@
     <Content Include="Views\Categoria\Details.cshtml" />
     <Content Include="Views\Categoria\Delete.cshtml" />
     <Content Include="Views\Categoria\Create.cshtml" />
+    <Content Include="Views\Productos\Create.cshtml" />
+    <Content Include="Views\Productos\Details.cshtml" />
+    <Content Include="Views\Productos\Edit.cshtml" />
+    <Content Include="Views\Productos\Index.cshtml" />
+    <Content Include="Views\Home\_ProductList.cshtml" />
+    <Content Include="Views\Home\_ProductPopup.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

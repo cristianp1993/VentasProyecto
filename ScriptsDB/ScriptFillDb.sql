@@ -209,3 +209,22 @@ SELECT 5, 'Esquis Freeride', 'Esquís diseñados para descensos en nieve profund
 WHERE NOT EXISTS (
 SELECT 1 FROM t_producto WHERE pro_nombre = 'Esquis Freeride'
 );
+
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.COLUMNS 
+               WHERE TABLE_NAME = 't_producto' AND COLUMN_NAME = 'pro_estado')
+BEGIN   
+    ALTER TABLE t_producto
+    ADD pro_estado character varying(10); 
+END
+GO
+
+-- Insertar 'Equipamiento skate' si no existe
+INSERT INTO t_categoria (cat_nombre)
+SELECT 'Equipamiento skate'
+WHERE NOT EXISTS (
+    SELECT 1 FROM t_categoria WHERE cat_nombre = 'Equipamiento skate'
+);
+
+-- Actualizacion del producto con ID 7 a la categoria Equipamiento skate
+UPDATE t_producto
+SET cat_id = 6 WHERE pro_id = 7
