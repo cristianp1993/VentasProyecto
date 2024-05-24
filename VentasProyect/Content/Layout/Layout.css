@@ -125,6 +125,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0px 3px 19px 1px #000000;
 }
 
 .btn-login{
@@ -137,9 +138,14 @@
     padding-bottom:15px;
 }
 
-.logged-in {
-    margin-left:0;
+.logged-in2{
+    margin-left: 0;
     width: 85vw;
+}
+
+.logged-in {
+    margin-left: 0;
+    width: calc(85vw - 19px);
 }
 
 .menu {

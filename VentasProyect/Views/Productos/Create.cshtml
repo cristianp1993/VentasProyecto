@@ -1,0 +1,130 @@
+﻿@model VentasProyect.Models.Productos.Productos
+
+@{
+    ViewBag.Title = "Crear Producto";
+
+    var typeView = ViewBag.vista;
+}
+
+@Styles.Render("~/Forms")
+
+    <div class="container-buttom">
+        <a href="@Url.Action("Index", "Productos", new {type = typeView})" class="btn btn-default btn-back">
+            <span class="material-symbols-outlined">
+                arrow_circle_left
+            </span>
+            <span class="icon-logout">Regresar</span>
+        </a>
+    </div>
+
+    <div class="form-container">
+
+        <h2>CREAR PRODUCTO</h2>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="row-form">
+                <div class="input-form p-right">
+                    <div class="icon-container">
+                        <span class="material-symbols-outlined">
+                            package_2
+                        </span>
+                        @Html.TextBoxFor(model => model.pro_nombre, new { @class = "form-control", @onchange = "CapitalizeText(this)", placeholder = "Nombre" })
+                        @Html.ValidationMessageFor(model => model.pro_nombre, "", new { @class = "field-validation-error" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row-form description">
+                <div class="input-form p-right">
+                    <div class="icon-container">
+                        <span class="material-symbols-outlined">
+                            article
+                        </span>
+                        @Html.TextAreaFor(model => model.pro_descripcion, new { @class = "form-control", placeholder = "Descripción", rows = 2 })
+                        @Html.ValidationMessageFor(model => model.pro_descripcion, "", new { @class = "field-validation-error" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row-form">
+                <div class="input-form p-right">
+                    <div class="icon-container">
+                        <span class="material-symbols-outlined">
+                            inventory
+                        </span>
+                        @Html.TextBoxFor(model => model.pro_stock, new { @class = "form-control", placeholder = "Stock" })
+                        @Html.ValidationMessageFor(model => model.pro_stock, "", new { @class = "field-validation-error" })
+                    </div>
+                </div>
+                <div class="input-form p-right">
+                    <div class="icon-container">
+                        <span class="material-symbols-outlined">
+                            request_quote
+                        </span>
+                        @Html.TextBoxFor(model => model.pro_valor_unitario, new { @class = "form-control", placeholder = "Valor Unitario" })
+                        @Html.ValidationMessageFor(model => model.pro_valor_unitario, "", new { @class = "field-validation-error" })
+                    </div>
+                </div>
+            </div>
+            <div class="row-form">
+                <div class="input-form p-right">
+                    <div class="icon-container">
+                        <span class="material-symbols-outlined">
+                            gpp_maybe
+                        </span>
+                        @Html.DropDownListFor(model => model.pro_estado, new SelectList(new[]
+                        {
+                            new SelectListItem { Text = "Seleccione estado", Value = "Seleccione estado" },
+                            new SelectListItem { Text = "Activo", Value = "Activo" },
+                            new SelectListItem { Text = "Inactivo", Value = "Inactivo" },
+                            new SelectListItem { Text = "Disponible", Value = "NDisponibleIT" },
+                            new SelectListItem { Text = "Agotado", Value = "Agotado" }
+                        }, "Value", "Text"), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.pro_estado, "", new { @class = "field-validation-error" })
+                    </div>
+                </div>
+                <div class="input-form p-right">
+                    <div class="icon-container">
+                        <span class="material-symbols-outlined">
+                            add_photo_alternate
+                        </span>
+                        @Html.TextBoxFor(model => model.pro_url_img, new { @class = "form-control", placeholder = "Url imagen" })
+                        @Html.ValidationMessageFor(model => model.pro_url_img, "", new { @class = "field-validation-error" })
+                    </div>
+                </div>
+            </div>
+            <div class="row-form">
+                <div class="input-form p-right">
+                    <div class="icon-container">
+                        <span class="material-symbols-outlined">
+                            category
+                        </span>
+                        @Html.HiddenFor(model => model.cat_id, new { id = "Dropdown_id_hidden" })
+                        @Html.DropDownList("cat_idTemp", (IEnumerable<SelectListItem>)ViewBag.Categorias, null, new { @class = "form-control", onchange = "UpdateHiddenValue(this);" })
+
+                        @Html.ValidationMessageFor(model => model.cat_id, "", new { @class = "field-validation-error" })
+                    </div>
+                </div>
+            </div>
+            <div class="content-button">
+                <div class="container-btn">
+                    <button type="submit" class="btn btn-primary">
+                        GUARDAR
+                        <span class="material-symbols-outlined">
+                            library_add
+                        </span>
+                    </button>
+                </div>
+            </div>
+        }
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/ScCreate")
+    }
+
+    <script src="~/Scripts/Generales/General.js"></script>

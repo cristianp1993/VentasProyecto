@@ -1,7 +1,7 @@
 ﻿@model VentasProyect.Models.Persona.Persona
 
 @{
-    ViewBag.Title = "Detalles del Ciudad";
+    ViewBag.Title = "Detalles de la Persona";
     var type = Model.per_tipo == "Ambos" ? "Cliente" : Model.per_tipo;
 }
 
@@ -9,25 +9,11 @@
 
 <div>
     <dl class="dl-horizontal">
-        <dt>Id de Ciudad:</dt>
-        <dd>@Model.ciu_id</dd>
-        <dt>Nombre:</dt>
-        <dd>@Model.per_nombre</dd>
-        <dt>Dirección:</dt>
-        <dd>@Model.per_direccion</dd>
-        <dt>Teléfono:</dt>
-        <dd>@Model.per_telefono</dd>
-        <dt>Cuenta Bancaria:</dt>
-        <dd>@Model.per_cuenta_bancaria</dd>
-        <dt>Correo Electrónico:</dt>
-        <dd>@Model.per_correo</dd>
-        <dt>NIT:</dt>
-        <dd>@Model.per_nit</dd>
-        <dt>Tipo Persona:</dt>
-        <dd>@Model.per_tipo</dd>
+        <dt>Nombre del producto:</dt>
+        <dd>@Model</dd>
     </dl>
 </div>
 
 <p>
-    @Html.ActionLink("Volver a la lista", "Index",new { type= type })
+    @Html.ActionLink("Volver a la lista", "Index")
 </p>

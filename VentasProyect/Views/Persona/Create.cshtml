@@ -112,7 +112,7 @@
                         <span class="material-symbols-outlined">
                             location_city
                         </span>
-                        @Html.HiddenFor(model => model.ciu_id, new { id = "ciu_id_hidden" })
+                        @Html.HiddenFor(model => model.ciu_id, new { id = "Dropdown_id_hidden" })
                         @Html.DropDownList("ciu_idTemp", (IEnumerable<SelectListItem>)ViewBag.Ciudades, null, new { @class = "form-control", onchange = "UpdateHiddenValue(this);" })
 
                         @Html.ValidationMessageFor(model => model.ciu_id, "", new { @class = "field-validation-error" })

@@ -1,41 +1,37 @@
-﻿@{
+﻿@model IEnumerable<VentasProyect.Models.Productos.Productos>
+
+@{
     ViewBag.Title = "Home Page";
 }
 
+@Styles.Render("~/HomeIndex")
 
-<div class="container-cards mt-5">
-    <div class="row">
-        <div class="col-md-4 mb-4">
-            <div class="card rounded">
-                <img src="ruta-a-imagen1.jpg" class="card-img-top" alt="Producto 1">
-                <div class="card-body">
-                    <h4 class="card-title">Producto 1</h4>
-                    <p class="card-text">Descripción breve del producto 1.</p>
-                    <h5>$60.000</h5>
-                </div>
-            </div>
-        </div>
+<h2 class="title">Productos Disponibles</h2>
 
-        <div class="col-md-4 mb-4">
-            <div class="card rounded">
-                <img src="ruta-a-imagen2.jpg" class="card-img-top" alt="Producto 2">
-                <div class="card-body">
-                    <h4 class="card-title">Producto 1</h4>
-                    <p class="card-text">Descripción breve del producto 2.</p>
-                    <h5>$60.000</h5>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4 mb-4">
-            <div class="card rounded">
-                <img src="ruta-a-imagen3.jpg" class="card-img-top" alt="Producto 3">
-                <div class="card-body">
-                    <h4 class="card-title">Producto 1</h4>
-                    <p class="card-text">Descripción breve del producto 3.</p>
-                    <h5>$60.000</h5>
-                </div>
-            </div>
-        </div>
+<div class="category-filter">
+    <div class="group-filter">
+        <button id="category-button" class="btn btn-secondary btn-filtrar"><span class="material-symbols-outlined" style="font-variation-settings:normal">filter_alt</span>Sin filtros aplicados</button>
+        <ul id="category-list" class="d-none">
+            @foreach (var categoria in ViewBag.Categories)
+            {
+                <li class="list_filter">
+                    <input type="checkbox" id="cat_@categoria.Value" value="@categoria.Value" data-name="@categoria.Text">
+                    <label for="cat_@categoria.Value">@categoria.Text</label>
+                </li>
+            }
+        </ul>
     </div>
+    <label for="category-button">Seleccione categoría:</label>
 </div>
+
+<div id="product-container">
+    @Html.Partial("_ProductList", Model)
+</div>
+
+@Html.Partial("_ProductPopup")
+
+@section scripts {
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/ScriptBtFilter")
+
+}

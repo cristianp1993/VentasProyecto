@@ -13,7 +13,7 @@
 }
 
 function UpdateHiddenValue(select) {
-    document.getElementById('ciu_id_hidden').value = parseInt(select.value);
+    document.getElementById('Dropdown_id_hidden').value = parseInt(select.value);
 }
 
 function ValidateEmpy() {

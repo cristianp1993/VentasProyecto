@@ -1,0 +1,30 @@
+﻿@model VentasProyect.Models.Productos.Productos
+
+@{
+    ViewBag.Title = "Detalles deL Producto";
+}
+
+<h2>Detalles de la Persona</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>Nombre del producto:</dt>
+        <dd>@Model.pro_nombre</dd>
+        <dt>Descripción:</dt>
+        <dd>@Model.pro_descripcion</dd>
+        <dt>Stock:</dt>
+        <dd>@Model.pro_stock</dd>
+        <dt>Valor unitario:</dt>
+        <dd>@string.Format("{0:C0}", Model.pro_valor_unitario)</dd>
+        <dt>Estado:</dt>
+        <dd>@Model.pro_estado</dd>
+        <dt>URL imagen:</dt>
+        <dd>@Model.pro_url_img</dd>
+        <dt>Categoría:</dt>
+        <dd>@Model.cat_nombre</dd>
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Volver a la lista", "Index")
+</p>

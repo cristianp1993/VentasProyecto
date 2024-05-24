@@ -11,7 +11,7 @@
     font-size: 18px;
     width: 100%;
     background-color: #AE00A0;
-    border:none;
+    border: none;
     color: #fff;
 }
 
@@ -23,7 +23,7 @@
 
 
     .btn-back span {
-        padding-right:5px;
+        padding-right: 5px;
         font-variation-settings: normal;
     }
 
@@ -48,7 +48,7 @@ h2 {
 }
 
 .input-form {
-    position:relative;
+    position: relative;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -84,7 +84,6 @@ h2 {
         background-color: #380063 !important;
         color: #fff !important;
         -webkit-text-fill-color: #fff !important;
-
         transition: background-color 5000s ease-in-out 0s; /* Esto asegura que el fondo no cambie rápidamente */
     }
 
@@ -95,7 +94,7 @@ h2 {
 .input-form .icon-container {
     position: relative;
     display: flex;
-    align-items:center;
+    align-items: center;
 }
 
 .icon-container .material-symbols-outlined {
@@ -111,9 +110,9 @@ h2 {
     padding: 2px;
 }
 
-    .input-form .icon-container .pos-top {
-        top: 50%;
-    }
+.input-form .icon-container .pos-top {
+    top: 50%;
+}
 
 .btn-primary {
     background-color: #AE00A0;
@@ -155,21 +154,35 @@ h2 {
     white-space: nowrap;
 }
 
+.description {
+    height: 120px;
+    max-width:714px;
+    width: auto;
+}
+
+.icon-container textarea {
+    height: 90px !important;
+    resize:none;
+}
+
 @media screen and (max-width: 1155px) {
     .input-form .form-control {
         padding-left: 40px;
         font-size: 16px;
     }
+
     .input-form .icon-container .material-symbols-outlined {
         left: 8px;
         font-size: 25px;
     }
 }
+
 @media screen and (max-width: 1110px) {
     .input-form .form-control {
         padding-left: 35px;
         font-size: 15px;
     }
+
     .input-form .icon-container .material-symbols-outlined {
         left: 7px;
         font-size: 20px;
@@ -180,6 +193,7 @@ h2 {
     .input-form .form-control {
         font-size: 14px;
     }
+
     .input-form .icon-container .material-symbols-outlined {
         left: 6px;
         font-size: 20px;

@@ -78,6 +78,7 @@
           <Property Name="pro_valor_unitario" Type="int" />
           <Property Name="pro_stock" Type="int" />
           <Property Name="pro_url_img" Type="varchar" MaxLength="500" />
+          <Property Name="pro_estado" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="t_usuario">
           <Key>
@@ -102,7 +103,7 @@
           <Property Name="ven_total" Type="int" />
           <Property Name="ven_numero_transaccion" Type="int" />
         </EntityType>
-        <Association Name="FK__t_detalle__pro_i__49C3F6B7">
+        <Association Name="FK__t_detalle__pro_i__37A5467C">
           <End Role="t_producto" Type="Self.t_producto" Multiplicity="0..1" />
           <End Role="t_detalle_venta" Type="Self.t_detalle_venta" Multiplicity="*" />
           <ReferentialConstraint>
@@ -114,7 +115,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__t_detalle__ven_i__48CFD27E">
+        <Association Name="FK__t_detalle__ven_i__36B12243">
           <End Role="t_venta" Type="Self.t_venta" Multiplicity="0..1" />
           <End Role="t_detalle_venta" Type="Self.t_detalle_venta" Multiplicity="*" />
           <ReferentialConstraint>
@@ -126,7 +127,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__t_notific__per_i__3B75D760">
+        <Association Name="FK__t_notific__per_i__29572725">
           <End Role="t_persona" Type="Self.t_persona" Multiplicity="0..1" />
           <End Role="t_notificaciones" Type="Self.t_notificaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -138,7 +139,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__t_pedido__per_id__4D94879B">
+        <Association Name="FK__t_pedido__per_id__3B75D760">
           <End Role="t_persona" Type="Self.t_persona" Multiplicity="0..1" />
           <End Role="t_pedido" Type="Self.t_pedido" Multiplicity="*" />
           <ReferentialConstraint>
@@ -150,7 +151,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__t_pedido__pro_id__4CA06362">
+        <Association Name="FK__t_pedido__pro_id__3A81B327">
           <End Role="t_producto" Type="Self.t_producto" Multiplicity="0..1" />
           <End Role="t_pedido" Type="Self.t_pedido" Multiplicity="*" />
           <ReferentialConstraint>
@@ -162,7 +163,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__t_persona__ciu_i__38996AB5">
+        <Association Name="FK__t_persona__ciu_i__267ABA7A">
           <End Role="t_ciudad" Type="Self.t_ciudad" Multiplicity="0..1" />
           <End Role="t_persona" Type="Self.t_persona" Multiplicity="*" />
           <ReferentialConstraint>
@@ -174,7 +175,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__t_product__cat_i__45F365D3">
+        <Association Name="FK__t_product__cat_i__33D4B598">
           <End Role="t_categoria" Type="Self.t_categoria" Multiplicity="0..1" />
           <End Role="t_producto" Type="Self.t_producto" Multiplicity="*" />
           <ReferentialConstraint>
@@ -186,7 +187,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__t_venta__per_id__403A8C7D">
+        <Association Name="FK__t_venta__per_id__2E1BDC42">
           <End Role="t_persona" Type="Self.t_persona" Multiplicity="0..1" />
           <End Role="t_venta" Type="Self.t_venta" Multiplicity="*" />
           <ReferentialConstraint>
@@ -198,7 +199,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__t_venta__usu_id__412EB0B6">
+        <Association Name="FK__t_venta__usu_id__2F10007B">
           <End Role="t_usuario" Type="Self.t_usuario" Multiplicity="0..1" />
           <End Role="t_venta" Type="Self.t_venta" Multiplicity="*" />
           <ReferentialConstraint>
@@ -220,39 +221,39 @@
           <EntitySet Name="t_producto" EntityType="Self.t_producto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="t_usuario" EntityType="Self.t_usuario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="t_venta" EntityType="Self.t_venta" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__t_detalle__pro_i__49C3F6B7" Association="Self.FK__t_detalle__pro_i__49C3F6B7">
+          <AssociationSet Name="FK__t_detalle__pro_i__37A5467C" Association="Self.FK__t_detalle__pro_i__37A5467C">
             <End Role="t_producto" EntitySet="t_producto" />
             <End Role="t_detalle_venta" EntitySet="t_detalle_venta" />
           </AssociationSet>
-          <AssociationSet Name="FK__t_detalle__ven_i__48CFD27E" Association="Self.FK__t_detalle__ven_i__48CFD27E">
+          <AssociationSet Name="FK__t_detalle__ven_i__36B12243" Association="Self.FK__t_detalle__ven_i__36B12243">
             <End Role="t_venta" EntitySet="t_venta" />
             <End Role="t_detalle_venta" EntitySet="t_detalle_venta" />
           </AssociationSet>
-          <AssociationSet Name="FK__t_notific__per_i__3B75D760" Association="Self.FK__t_notific__per_i__3B75D760">
+          <AssociationSet Name="FK__t_notific__per_i__29572725" Association="Self.FK__t_notific__per_i__29572725">
             <End Role="t_persona" EntitySet="t_persona" />
             <End Role="t_notificaciones" EntitySet="t_notificaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__t_pedido__per_id__4D94879B" Association="Self.FK__t_pedido__per_id__4D94879B">
+          <AssociationSet Name="FK__t_pedido__per_id__3B75D760" Association="Self.FK__t_pedido__per_id__3B75D760">
             <End Role="t_persona" EntitySet="t_persona" />
             <End Role="t_pedido" EntitySet="t_pedido" />
           </AssociationSet>
-          <AssociationSet Name="FK__t_pedido__pro_id__4CA06362" Association="Self.FK__t_pedido__pro_id__4CA06362">
+          <AssociationSet Name="FK__t_pedido__pro_id__3A81B327" Association="Self.FK__t_pedido__pro_id__3A81B327">
             <End Role="t_producto" EntitySet="t_producto" />
             <End Role="t_pedido" EntitySet="t_pedido" />
           </AssociationSet>
-          <AssociationSet Name="FK__t_persona__ciu_i__38996AB5" Association="Self.FK__t_persona__ciu_i__38996AB5">
+          <AssociationSet Name="FK__t_persona__ciu_i__267ABA7A" Association="Self.FK__t_persona__ciu_i__267ABA7A">
             <End Role="t_ciudad" EntitySet="t_ciudad" />
             <End Role="t_persona" EntitySet="t_persona" />
           </AssociationSet>
-          <AssociationSet Name="FK__t_product__cat_i__45F365D3" Association="Self.FK__t_product__cat_i__45F365D3">
+          <AssociationSet Name="FK__t_product__cat_i__33D4B598" Association="Self.FK__t_product__cat_i__33D4B598">
             <End Role="t_categoria" EntitySet="t_categoria" />
             <End Role="t_producto" EntitySet="t_producto" />
           </AssociationSet>
-          <AssociationSet Name="FK__t_venta__per_id__403A8C7D" Association="Self.FK__t_venta__per_id__403A8C7D">
+          <AssociationSet Name="FK__t_venta__per_id__2E1BDC42" Association="Self.FK__t_venta__per_id__2E1BDC42">
             <End Role="t_persona" EntitySet="t_persona" />
             <End Role="t_venta" EntitySet="t_venta" />
           </AssociationSet>
-          <AssociationSet Name="FK__t_venta__usu_id__412EB0B6" Association="Self.FK__t_venta__usu_id__412EB0B6">
+          <AssociationSet Name="FK__t_venta__usu_id__2F10007B" Association="Self.FK__t_venta__usu_id__2F10007B">
             <End Role="t_usuario" EntitySet="t_usuario" />
             <End Role="t_venta" EntitySet="t_venta" />
           </AssociationSet>
@@ -348,6 +349,7 @@
           <NavigationProperty Name="t_detalle_venta" Relationship="Self.FK__t_detalle__pro_i__49C3F6B7" FromRole="t_producto" ToRole="t_detalle_venta" />
           <NavigationProperty Name="t_pedido" Relationship="Self.FK__t_pedido__pro_id__4CA06362" FromRole="t_producto" ToRole="t_pedido" />
           <Property Name="pro_url_img" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="pro_estado" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="t_usuario">
           <Key>
@@ -608,6 +610,7 @@
           <EntitySetMapping Name="t_producto">
             <EntityTypeMapping TypeName="VENTAS_DBModel.t_producto">
               <MappingFragment StoreEntitySet="t_producto">
+                <ScalarProperty Name="pro_estado" ColumnName="pro_estado" />
                 <ScalarProperty Name="pro_url_img" ColumnName="pro_url_img" />
                 <ScalarProperty Name="pro_id" ColumnName="pro_id" />
                 <ScalarProperty Name="cat_id" ColumnName="cat_id" />

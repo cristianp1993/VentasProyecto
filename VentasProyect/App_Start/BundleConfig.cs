@@ -49,6 +49,20 @@ namespace VentasProyect
 
             bundles.Add(new ScriptBundle("~/ScCreate").Include(
                 "~/Scripts/Personas/Create.js"));
+
+            bundles.Add(new ScriptBundle("~/ScProduct").Include(
+                "~/Scripts/Productos/Productos.js"));
+
+            bundles.Add(new StyleBundle("~/ProductStyle").Include(
+                "~/Content/Productos/Productos.css"));
+
+
+            bundles.Add(new StyleBundle("~/Popup").Include(
+                "~/Content/Home/popup.css"));
+
+            bundles.Add(new ScriptBundle("~/ScriptBtFilter").Include(
+                "~/Scripts/Home/index.js"));
+
         }
     }
 }

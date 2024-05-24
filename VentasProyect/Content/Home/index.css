@@ -1,15 +1,148 @@
-.card {
-    background-color: #fff;
-    border-radius: 15px;
-    padding: 30px;
-}
-
 body {
     background-color: #1C1B3A;
 }
 
 .container-cards {
-    display: flex;
     margin-top: 100px;
     justify-content: space-evenly;
+    color: #000;
 }
+
+.product-card {
+    max-width: 350px;
+    height: 360px;
+    max-height: 360px; /* Establece la altura máxima de la tarjeta */
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.out-of-stock {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    background-color: orange;
+    color: white;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 0 15px 0 10px;
+}
+
+
+.card-img-container {
+    flex: 0 0 65%; /* Ocupa el 65% de la altura total de la tarjeta */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10px;
+    border-bottom: inherit;
+}
+
+.card-img-top {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra el contenedor */
+}
+
+.card-body {
+    display: flex;
+    flex: 0 0 35%;
+    text-align: center;
+    padding: 10px 0;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+.card-title {
+    text-align: left;
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+}
+
+.card-price {
+    font-size: 1.1em;
+    color: #333;
+}
+
+.title {
+    text-align: center;
+    margin-bottom:60px;
+}
+
+.d-none {
+    display: none;
+}
+
+.category-filter {
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+#category-list {
+    position: absolute;
+    background-color: #AE00A0;
+    border-radius: 0 0 15px 15px;
+    padding: 10px;
+    z-index: 900;
+    width: 220px;
+    box-shadow: 0px 1px 10px 1px #000000;
+}
+
+    #category-list li {
+        list-style: none;
+    }
+
+.category-filter label {
+    margin-right: 10px;
+}
+
+.btn-filtrar {
+    display: flex;
+    font-size: 15px;
+    min-width: 220px;
+    width: auto;
+    background-color: #AE00A0;
+    color: #fff;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    .btn-filtrar:hover {
+        transform: scale(1.03);
+        background-color: #7E007B;
+        color: #fff;
+    }
+
+    .btn-filtrar:focus {
+        border: none;
+        color: #fff;
+        background-color: #7E007B;
+        border-radius: 5px 5px 0 0;
+    }
+
+.list_filter {
+    display: flex !important;
+    width: 100%;
+    border-bottom: 1px solid;
+    margin-bottom:2px;
+    padding-bottom:5px;
+}
+
+    .list_filter input {
+        margin-right: 5px;
+    }
+
+    .list_filter label {
+        font-weight: normal !important;
+        margin: 0;
+    }

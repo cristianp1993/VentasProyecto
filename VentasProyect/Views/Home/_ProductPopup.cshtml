@@ -1,0 +1,33 @@
+<div id="product-popup" class="popup d-none">
+    <div class="popup-content">
+        <span class="material-symbols-outlined close-popup" style="color: red;">cancel</span>
+        <div class="popup-body">
+            <div class="popup-column" style="width: 65%;">
+                <div class="popup-row" style="height: 80%;">
+                    <img id="popup-product-image" src="" alt="" class="popup-image">
+                </div>
+                <div class="popup-row2" style="height: 20%;">
+                    <h3>Descripción:</h3>
+                    <p id="popup-product-description"></p>
+                </div>
+            </div>
+            <div class="popup-column2" style="width: 35%;">
+                <h3 id="popup-product-name"></h3>
+                <h4 id="popup-product-price"></h4>
+                <div class="cant_pedido">
+                    <p>Stock: <span id="popup-product-stock"></span></p>
+                    <div class="quantity-control">
+                        <span class="material-symbols-outlined increase-quantity">add_circle</span>
+                        <input type="text" id="quantity" value="1" readonly>
+                        <span class="material-symbols-outlined decrease-quantity">do_not_disturb_on</span>
+                    </div>
+                </div>
+                <button id="buy-now" class="btn">Comprar Ahora</button>
+                <button id="add-to-cart" class="btn">Agregar al carrito</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Styles.Render("~/Popup")
+<script src="~/Scripts/Home/popup.js"></script>

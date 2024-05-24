@@ -1,0 +1,79 @@
+﻿@model IEnumerable<VentasProyect.Models.Productos.Productos>
+
+@{
+    ViewBag.Title = "Productos";
+}
+
+@Styles.Render("~/tables")
+@Styles.Render("~/ProductStyle")
+
+<h2>Productos</h2>
+
+<div class="col-md-12 table-style">
+    <div class="container-buttom">
+        <a href="@Url.Action("Create", "Productos")" class="btn btn-default btn-add-form">
+            <span class="icon-logout">Registrar Productos</span>
+            <span class="material-symbols-outlined">
+                add
+            </span>
+        </a>
+    </div>
+
+    <table id="MyTable" class="">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Categoría</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Valor unitario</th>
+                <th>Stock</th>
+                <th>Imagen</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var data in Model)
+            {
+                <tr>
+                    <td>@data.pro_id</td>
+                    <td>@data.cat_nombre</td>
+                    <td>@data.pro_nombre</td>
+                    <td>@data.pro_descripcion</td>
+                    <td>@data.pro_valor_unitario.ToString("C0", System.Globalization.CultureInfo.GetCultureInfo("es-CO"))</td>
+                    <td class="align_center_stock">@data.pro_stock</td>
+                    <td>
+                        <img src="@data.pro_url_img" alt="Imagen de @data.pro_nombre" class="img-thumbnail" onclick="showPopup('@data.pro_url_img')" />
+                    </td>
+                    <td>@data.pro_estado</td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Productos", new { id = data.pro_id})">
+                            <span class="material-symbols-outlined icon-actions-table">
+                                edit_square
+                            </span>
+                        </a>
+
+                        <a href="@Url.Action("Details", "Productos", new { id = data.pro_id})">
+                            <span class="material-symbols-outlined icon-actions-table">
+                                text_ad
+                            </span>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div id="imagePopup" class="popup">
+    <div class="popup-content">
+        <span class="material-symbols-outlined close-btn" onclick="hidePopup()">cancel</span>
+        <img id="popupImage" src="" alt="Imagen ampliada" class="popup-image" />
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/TableScript")
+    @Scripts.Render("~/ScProduct")
+}

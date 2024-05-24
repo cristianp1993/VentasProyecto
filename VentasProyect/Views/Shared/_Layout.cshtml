@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Venture Sales</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -117,7 +117,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="Productos" asp-action="Index">
+                        <a class="nav-link" href="@Url.Action("Index", "Productos")" asp-controller="Productos" asp-action="Index">
                             <span class="material-symbols-outlined icon @(ViewContext.RouteData.Values["Controller"].ToString() == "Productos" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
                                 inventory_2
                             </span>
@@ -208,7 +208,7 @@
             let navbar = document.querySelector('.nav-bar');
             let bodyContent = document.querySelector('.body-content');
             if (navbar) {
-                navbar.classList.add('logged-in');
+                navbar.classList.add('logged-in2');
             }
             if (bodyContent) {
                 bodyContent.classList.add('logged-in');

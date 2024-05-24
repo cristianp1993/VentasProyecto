@@ -1,34 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using VentasProyect.Repository.HomeRepository;
-using VentasProyect.Repository.LoginRepository;
+using VentasProyect.Models.Productos;
+using VentasProyect.Repository;
 
 namespace VentasProyect.Controllers
 {
     public class HomeController : Controller
     {
-        
-        public ActionResult Index()
+        private readonly ProductosRepository _productosRepository = new ProductosRepository();
+        private readonly CategoriaRepository _categoriaRepository = new CategoriaRepository();
+
+        public ActionResult Index(string selectedCategories)
         {
-            // Obtener el valor de la variable de sesión SessionStatus
             Session["SessionStatus"] = true;
-            return View();
+
+            IEnumerable<Productos> productos = _productosRepository.GetProductos(); // Este método ya filtra productos inactivos
+
+            if (!string.IsNullOrEmpty(selectedCategories))
+            {
+                var categories = selectedCategories.Split(',').Select(int.Parse).ToList();
+                productos = productos.Where(p => categories.Contains(int.Parse(p.cat_id)));
+            }
+
+            ViewBag.Categories = _categoriaRepository.GetSelectCategorias();
+
+            return View(productos);
         }
 
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }

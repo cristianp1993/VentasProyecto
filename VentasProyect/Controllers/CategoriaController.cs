@@ -28,11 +28,8 @@ namespace VentasProyect.Controllers
         {
             if (ModelState.IsValid)
             {
-
-                // Lógica para guardar el nuevo usuario en la base de datos
                 _categoriaRepository.Create(model);
 
-                // Redirecciona al usuario a alguna página de confirmación o a la lista de usuarios
                 return RedirectToAction("Index");
             }
             return View(model);

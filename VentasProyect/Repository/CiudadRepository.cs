@@ -98,7 +98,6 @@ namespace VentasProyect.Repository
             }
         }
 
-
         public IEnumerable<SelectListItem> GetSelectCiudades()
         {
             
