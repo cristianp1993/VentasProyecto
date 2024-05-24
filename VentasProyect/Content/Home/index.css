@@ -26,12 +26,12 @@ body {
 .out-of-stock {
     position: absolute;
     top: 0;
-    right: 15px;
+    left: 15px;
     background-color: orange;
     color: white;
     font-weight: 700;
     padding: 5px 10px;
-    border-radius: 0 15px 0 10px;
+    border-radius: 15px 0 10px 0;
 }
 
 
