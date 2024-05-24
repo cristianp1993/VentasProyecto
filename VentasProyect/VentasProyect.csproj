@@ -255,11 +255,8 @@
     <Content Include="Scripts\Login\Login.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\Personas\Create.js" />
-<<<<<<< HEAD
     <Content Include="Scripts\Productos\Productos.js" />
-=======
     <Content Include="Scripts\CryptoJS\sha256.js" />
->>>>>>> c81b24c5015f5a5cad305c43a93c90951f41d7cc
     <Content Include="Scripts\Tables.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
