@@ -55,7 +55,7 @@
                         <span class="material-symbols-outlined">
                             inventory
                         </span>
-                        @Html.TextBoxFor(model => model.pro_stock, new { @class = "form-control", placeholder = "Stock" })
+                        @Html.TextBoxFor(model => model.pro_stock, new { @class = "form-control", placeholder = "Stock", type = "number" })
                         @Html.ValidationMessageFor(model => model.pro_stock, "", new { @class = "field-validation-error" })
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                         <span class="material-symbols-outlined">
                             request_quote
                         </span>
-                        @Html.TextBoxFor(model => model.pro_valor_unitario, new { @class = "form-control", placeholder = "Valor Unitario" })
+                        @Html.TextBoxFor(model => model.pro_valor_unitario, new { @class = "form-control", placeholder = "Valor Unitario",type ="number" })
                         @Html.ValidationMessageFor(model => model.pro_valor_unitario, "", new { @class = "field-validation-error" })
                     </div>
                 </div>
@@ -80,7 +80,7 @@
                             new SelectListItem { Text = "Seleccione estado", Value = "Seleccione estado" },
                             new SelectListItem { Text = "Activo", Value = "Activo" },
                             new SelectListItem { Text = "Inactivo", Value = "Inactivo" },
-                            new SelectListItem { Text = "Disponible", Value = "NDisponibleIT" },
+                            new SelectListItem { Text = "Disponible", Value = "Disponible" },
                             new SelectListItem { Text = "Agotado", Value = "Agotado" }
                         }, "Value", "Text"), new { @class = "form-control" })
                         @Html.ValidationMessageFor(model => model.pro_estado, "", new { @class = "field-validation-error" })
