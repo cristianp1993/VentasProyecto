@@ -226,5 +226,7 @@ WHERE NOT EXISTS (
 );
 
 -- Actualizacion del producto con ID 7 a la categoria Equipamiento skate
-UPDATE t_producto
+--NO TIENE VALIDACION
+/*UPDATE t_producto
 SET cat_id = 6 WHERE pro_id = 7
+*/

@@ -41,7 +41,7 @@ $(document).ready(function () {
             $('#buy-now, #add-to-cart').prop('disabled', false);
         }
 
-        bindEvents(); // Bind the events when opening the popup
+        bindEvents(); 
 
         $('#product-popup').removeClass('d-none').show();
     });
@@ -51,6 +51,6 @@ $(document).ready(function () {
         $('#product-popup').hide();
     });
 
-    // Initial bind for events outside the popup
+    
     bindEvents();
 });

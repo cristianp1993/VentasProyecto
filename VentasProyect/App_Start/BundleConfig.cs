@@ -76,9 +76,6 @@ namespace VentasProyect
 
             bundles.Add(new ScriptBundle("~/ScriptSwwtalert").Include(
                 "~/Scripts/sweetalert2.js"));
-
-            bundles.Add(new ScriptBundle("~/Notificaciones").Include(
-                "~/Scripts/Productos/Notificaciones.js"));
         }
     }
 }
