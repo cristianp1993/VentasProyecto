@@ -316,11 +316,15 @@
     <Content Include="Views\Productos\Index.cshtml" />
     <Content Include="Views\Home\_ProductList.cshtml" />
     <Content Include="Views\Home\_ProductPopup.cshtml" />
+    <Content Include="Views\Productos\BulkUpload.cshtml" />
     <Content Include="Views\Ventas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Img\" />
+    <Folder Include="Views\Clientes\" />
     <Folder Include="Views\Reportes\" />
+    <Folder Include="Views\Ventas\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
