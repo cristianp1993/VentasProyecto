@@ -4,6 +4,11 @@
     top: 30px;
 }
 
+.container-buttom2 {
+    width: 300px;
+    position: relative;
+}
+
 .btn-back {
     display: flex;
     align-items: center;
@@ -29,7 +34,7 @@
 
 .form-container {
     padding: 18px;
-    margin: 10vh auto;
+    margin: 10vh auto 20px auto;
     border-radius: 15px;
     width: 750px;
     max-width: 60vw;

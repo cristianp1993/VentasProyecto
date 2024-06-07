@@ -1,0 +1,98 @@
+﻿@{
+    ViewBag.Title = "Carga Masiva de Productos";
+}
+
+@Styles.Render("~/Forms")
+
+
+<div class="container-buttom">
+    <a href="@Url.Action("Create", "Productos")" class="btn btn-default btn-back">
+        <span class="material-symbols-outlined">
+            arrow_circle_left
+        </span>
+        <span class="icon-logout">Regresar</span>
+    </a>
+</div>
+
+<div class="form-container">
+    <h2>CARGA MASIVA DE PRODUCTOS</h2>
+
+    <div style="border-bottom: 1px solid;">
+
+        <!-- Formulario para cargar imágenes -->
+        <h3>Cargar Imágenes</h3>
+        @using (Html.BeginForm("UploadImages", "Productos", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="row-form">
+                <div class="input-form p-right">
+                    <label for="files">Selecciona una o varias imágenes</label>
+                    <div class="icon-container">
+                        <input type="file" name="files" id="files" class="form-control" multiple style="cursor:pointer" />
+                        @Html.ValidationMessage("files", "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-button">
+                <div class="container-btn">
+                    <button type="submit" class="btn btn-primary">
+                        Subir Imágenes
+                        <span class="material-symbols-outlined">
+                            cloud_upload
+                        </span>
+                    </button>
+                </div>
+            </div>
+        }
+
+    </div>
+
+    <div>
+        <!-- Formulario para cargar productos -->
+        <h3>Cargar Productos</h3>
+        @using (Html.BeginForm("BulkUpload", "Productos", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="row-form">
+                <div class="input-form p-right">
+                    <label for="file">Selecciona un archivo CSV</label>
+                    <div class="icon-container">
+                        <input type="file" name="file" id="file" class="form-control" style="cursor:pointer" />
+                        @Html.ValidationMessage("file", "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-button">
+                <div class="container-btn">
+                    <a href="@Url.Action("DownloadTemplate", "Productos")" class="btn btn-default btn-back">
+                        <span class="material-symbols-outlined">
+                            table
+                        </span>
+                        <span class="icon-logout" style="font-weight:700">Descargar Plantilla</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="content-button">
+                <div class="container-btn">
+                    <button type="submit" class="btn btn-primary">
+                        Cargar
+                        <span class="material-symbols-outlined">
+                            library_add
+                        </span>
+                    </button>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/ScriptSwwtalert")
+}

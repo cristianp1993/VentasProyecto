@@ -2,3 +2,5 @@
 VentasProyect/obj
 .vs/VentasProyect/v16/.suo
 .vs
+# Exclude ftpconfig.json from the repository
+VentasProyect/ftpconfig.json
