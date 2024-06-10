@@ -220,6 +220,7 @@
     <Content Include="Content\Login\Login.css" />
     <Content Include="Content\Generales\table.css" />
     <Content Include="Content\Productos\Productos.css" />
+    <Content Include="Content\sweetalert2.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -244,6 +245,7 @@
     <Content Include="Models\DbContext.edmx.diagram">
       <DependentUpon>DbContext.edmx</DependentUpon>
     </Content>
+    <Content Include="ftpconfig.json" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\Ciudades\Ciudad.js" />
     <Content Include="Scripts\CryptoJS\core.js" />
@@ -269,6 +271,7 @@
     <Content Include="Scripts\Persona\Persona.js" />
     <Content Include="Scripts\Productos\Productos.js" />
     <Content Include="Scripts\CryptoJS\sha256.js" />
+    <Content Include="Scripts\sweetalert2.js" />
     <Content Include="Scripts\Tables.js" />
     <Content Include="Scripts\Ventas\Ventas.js" />
     <Content Include="Web.config" />
@@ -313,12 +316,16 @@
     <Content Include="Views\Productos\Index.cshtml" />
     <Content Include="Views\Home\_ProductList.cshtml" />
     <Content Include="Views\Home\_ProductPopup.cshtml" />
+    <Content Include="Views\Productos\BulkUpload.cshtml" />
     <Content Include="Views\Ventas\Index.cshtml" />
     <Content Include="Views\Ventas\Sale.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Img\" />
+    <Folder Include="Views\Clientes\" />
     <Folder Include="Views\Reportes\" />
+    <Folder Include="Views\Ventas\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

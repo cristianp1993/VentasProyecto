@@ -71,6 +71,11 @@ namespace VentasProyect
             bundles.Add(new ScriptBundle("~/ScriptBtFilter").Include(
                 "~/Scripts/Home/index.js"));
 
+            bundles.Add(new StyleBundle("~/BulkUpload").Include(
+                "~/Content/Productos/styleBulkUpload.css"));
+
+            bundles.Add(new ScriptBundle("~/ScriptSwwtalert").Include(
+                "~/Scripts/sweetalert2.js"));
         }
     }
 }
