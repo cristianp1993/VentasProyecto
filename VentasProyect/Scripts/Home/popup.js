@@ -1,15 +1,15 @@
 $(document).ready(function () {
     function bindEvents() {
         $('.increase-quantity').off('click').on('click', function () {
-            var quantity = parseInt($('#quantity').val());
-            var stock = parseInt($('#popup-product-stock').text());
+            let quantity = parseInt($('#quantity').val());
+            let stock = parseInt($('#popup-product-stock').text());
             if (quantity < stock) {
                 $('#quantity').val(quantity + 1);
             }
         });
 
         $('.decrease-quantity').off('click').on('click', function () {
-            var quantity = parseInt($('#quantity').val());
+            let quantity = parseInt($('#quantity').val());
             if (quantity > 1) {
                 $('#quantity').val(quantity - 1);
             }
@@ -19,18 +19,18 @@ $(document).ready(function () {
     $('.open-popup').on('click', function () {
         $('body').addClass('overlay-active');
 
-        var productData = $(this).data('product');
+        let productData = $(this).data('product');
 
         $('#popup-product-image').attr('src', productData.pro_url_img);
         $('#popup-product-image').attr('alt', productData.pro_nombre);
         $('#popup-product-name').text(productData.pro_nombre);
-        var price = '$ ' + productData.pro_valor_unitario.toLocaleString('es-CO', { minimumFractionDigits: 0 }) + ' COP';
+        let price = '$ ' + productData.pro_valor_unitario.toLocaleString('es-CO', { minimumFractionDigits: 0 }) + ' COP';
         $('#popup-product-price').text(price);
 
         $('#popup-product-stock').text(productData.pro_stock);
         $('#popup-product-description').text(productData.pro_descripcion);
 
-        var stock = productData.pro_stock;
+        let stock = productData.pro_stock;
         if (stock === 0) {
             $('#quantity').val(0);
             $('.increase-quantity, .decrease-quantity, #quantity').prop('disabled', true);
@@ -53,4 +53,17 @@ $(document).ready(function () {
 
     
     bindEvents();
+});
+
+
+document.getElementById('add-to-cart').addEventListener('click', function () {
+
+    $('#product-popup').hide();
+    $('#popupSale').show();
+   
+});
+
+
+document.getElementById('closePopupButton').addEventListener('click', function () {
+    $('#popupSale').hide();
 });

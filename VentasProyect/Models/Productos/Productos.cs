@@ -38,5 +38,6 @@ namespace VentasProyect.Models.Productos
 
         [Display(Name = "Estado")]
         public string pro_estado { get; set; }
+        public string pro_cantidad { get; set; }
     }
 }

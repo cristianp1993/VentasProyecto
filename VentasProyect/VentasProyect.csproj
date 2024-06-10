@@ -314,6 +314,7 @@
     <Content Include="Views\Home\_ProductList.cshtml" />
     <Content Include="Views\Home\_ProductPopup.cshtml" />
     <Content Include="Views\Ventas\Index.cshtml" />
+    <Content Include="Views\Ventas\Sale.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

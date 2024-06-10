@@ -2,30 +2,47 @@
 
 @if (Model != null && Model.Any())
 {
-    <div class="container-cards mt-5">
-        <div class="row justify-content-center">
-            @foreach (var producto in Model)
-            {
-                <div class="col-md-3 mb-4 d-flex align-items-stretch">
-                    <div class="card product-card rounded" data-product='@Html.Raw(Json.Encode(producto))'>
-                        @if (producto.pro_estado != "Inactivo" && producto.pro_stock == 0)
-                        {
-                            <div class="out-of-stock">Sin Stock</div>
-                        }
-                        <div class="card-img-container">
-                            <img src="@producto.pro_url_img" class="card-img-top" alt="@producto.pro_nombre">
-                        </div>
-                        <div class="card-body">
-                            <h4 class="card-title">@producto.pro_nombre</h4>
-                            <h5 class="card-price"><strong>@producto.pro_valor_unitario.ToString("C")</strong></h5>
-                            <button class="btn btn-primary open-popup" data-product='@Html.Raw(Json.Encode(producto))'>Ver Detalles</button>
-                        </div>
+<div class="container-cards mt-5">
+    <div class="row justify-content-center">
+        @foreach (var producto in Model)
+        {
+            <div class="col-md-3 mb-4 d-flex align-items-stretch">
+                <div class="card product-card rounded" data-product='@Html.Raw(Json.Encode(producto))'>
+                    @if (producto.pro_estado != "Inactivo" && producto.pro_stock == 0)
+                    {
+                        <div class="out-of-stock">Sin Stock</div>
+                    }
+                    <div class="card-img-container">
+                        <img src="@producto.pro_url_img" class="card-img-top" alt="@producto.pro_nombre">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">@producto.pro_nombre</h4>
+                        <h5 class="card-price"><strong>@producto.pro_valor_unitario.ToString("C")</strong></h5>
+                        <button class="btn btn-primary open-popup" data-product='@Html.Raw(Json.Encode(producto))'>Ver Detalles</button>
                     </div>
                 </div>
+            </div>
 
-            }
-        </div>
+        }
     </div>
+
+    <div id="popupSale" class="popupSale">
+        <div>
+            <div class="col-md-6 text-left">
+                <span id="closePopupButton" class="material-symbols-outlined close-btn">
+                    arrow_forward_ios
+                </span>
+            </div>
+            <div class="col-md-6 text-right">
+                Bolsa de compras
+                <span class="material-symbols-outlined">
+                    shopping_cart
+                </span>
+            </div>
+        </div> 
+        <p>Contenido del Pop-Up</p>
+    </div>
+</div>
 }
 else
 {
