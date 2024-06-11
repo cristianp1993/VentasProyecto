@@ -10,8 +10,8 @@ $(document).ready(function () {
     });
 
     $('#category-list input[type="checkbox"]').on('change', function () {
-        var selectedCategories = [];
-        var selectedCategoryNames = [];
+        let  selectedCategories = [];
+        let  selectedCategoryNames = [];
 
         $('#category-list input[type="checkbox"]:checked').each(function () {
             selectedCategories.push($(this).val());
@@ -23,7 +23,7 @@ $(document).ready(function () {
             type: 'GET',
             data: { selectedCategories: selectedCategories.join(',') },
             success: function (data) {
-                var newHtml = $(data).find('#product-container').html();
+                let  newHtml = $(data).find('#product-container').html();
                 $('#product-container').html(newHtml);
             },
             error: function (xhr, status, error) {
@@ -36,11 +36,11 @@ $(document).ready(function () {
 
     function updateFilterButtonText(selectedCategoryNames) {
         if (selectedCategoryNames.length === 0) {
-            $('#category-button').html('<span class="material-symbols-outlined" style="font-variation-settings:normal">filter_alt</span>Sin filtros aplicados');
+            $('#category-button').html('<span class="material-symbols-outlined" style="font-let iation-settings:normal">filter_alt</span>Sin filtros aplicados');
         } else if (selectedCategoryNames.length <= 2) {
-            $('#category-button').html('<span class="material-symbols-outlined" style="font-variation-settings:normal">filter_alt</span>' + selectedCategoryNames.join(', '));
+            $('#category-button').html('<span class="material-symbols-outlined" style="font-let iation-settings:normal">filter_alt</span>' + selectedCategoryNames.join(', '));
         } else {
-            $('#category-button').html('<span class="material-symbols-outlined" style="font-variation-settings:normal">filter_alt</span>' + selectedCategoryNames.length + ' filtros aplicados');
+            $('#category-button').html('<span class="material-symbols-outlined" style="font-let iation-settings:normal">filter_alt</span>' + selectedCategoryNames.length + ' filtros aplicados');
         }
     }
 });

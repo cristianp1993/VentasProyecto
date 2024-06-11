@@ -170,3 +170,25 @@
     font-size: 24px;
     cursor: pointer;
 }
+
+
+.button-section {
+   padding:5vh;
+   background-image: linear-gradient(to bottom, #9B9B9B, transparent);   
+}
+
+#ButtonsPopUp button {   
+    margin-bottom: 5vh;
+    width: 100%;
+    font-weight: bold;
+    cursor: pointer;
+}
+.end-buy {
+    background-color: #AD039C;
+}
+
+.closePopupButton {
+    background-color: transparent;
+    text-decoration: underline;
+    color: black;
+}
