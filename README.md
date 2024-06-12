@@ -1,4 +1,4 @@
-## Table of Contents
+## Tabla de Contenido
 1. [Configuracion FTP](#configuracion-ftp)
 2. [Configuracion JWT](#configuracion-jwt)
 
