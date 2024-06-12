@@ -1,8 +1,8 @@
 ## Table of Contents
-1. [Configuración FTP](#configuracion-ftp)
-2. [Configuración JWT](#configuracion-jwt)
+1. [Configuracion FTP](#configuracion-ftp)
+2. [Configuracion JWT](#configuracion-jwt)
 
-### Configuración FTP
+### Configuracion FTP
 ***
 Para configurar las credenciales de FTP, crea un archivo `ftpconfig.json` en el directorio raíz del proyecto con el siguiente formato:
 ```json
@@ -13,7 +13,7 @@ Para configurar las credenciales de FTP, crea un archivo `ftpconfig.json` en el 
   "FtpPassword": "your-ftp-password"
 }
 ```
-## Configuración JWT
+### Configuracion JWT
 ***
 Este proyecto utiliza JSON Web Tokens (JWT) para la autenticacion. Para configurar el proyecto adecuadamente, sigue estos pasos:
 **Crear el archivo `appsettings.local.json`**:
