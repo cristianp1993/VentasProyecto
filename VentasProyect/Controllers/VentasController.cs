@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using VentasProyect.Models.Productos;
@@ -77,11 +79,64 @@ namespace VentasProyect.Controllers
             return RedirectToAction("Index");
         }
 
-
-        public ActionResult MakeSale(VentasProyect.Models.Productos.Productos dataProduct)
+        
+        public ActionResult MakeSale(string dataProduct)
         {
-            IEnumerable<Productos> productos = _productosRepository.GetProductos();
-            return RedirectToAction("~/Views/Ventas/Sale.cshtml", productos);
+            if (dataProduct == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "No data received");
+            }
+            var arrayProductsModel = JsonConvert.DeserializeObject<Productos[]>(dataProduct);
+
+            //IEnumerable<Productos> productos = _productosRepository.GetProductos();
+            IEnumerable<Productos> productos = arrayProductsModel.ToList() ;
+            //ViewBag.DataProduct = dataProduct;
+            return View("~/Views/Ventas/Sale.cshtml", productos);
+        }
+
+
+        public ActionResult SaveSale(List<Productos> products)
+        {
+
+            try
+            {
+                int totalSale = 0;
+
+                if (products.Count > 0)
+                {
+                    DateTime fechaActual = DateTime.Today;
+
+                    Random rnd = new Random();
+                    int transactionNumber = rnd.Next(100000000, 999999999);
+
+                    foreach (var item in products)
+                    {
+                        totalSale += Convert.ToInt32(item.pro_cantidad) * item.pro_valor_unitario;
+                    }
+
+                    var newData = new Models.Ventas.Ventas
+                    {
+                        ven_id = 0,
+                        per_id = 7,
+                        usu_id = 1,
+                        ven_fecha = fechaActual,
+                        ven_metodo_pago = "CONTADO",
+                        ven_total = totalSale,
+                        ven_numero_transaccion = transactionNumber
+                    };
+
+                    _ventasRepository.Create(newData, products);
+
+                }
+                                
+                return Json(new { success = true, message = "Venta guardada exitosamente." });
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+           
         }
     }
 }

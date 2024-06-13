@@ -4,3 +4,4 @@ VentasProyect/obj
 .vs
 # Exclude ftpconfig.json from the repository
 VentasProyect/ftpconfig.json
+packages

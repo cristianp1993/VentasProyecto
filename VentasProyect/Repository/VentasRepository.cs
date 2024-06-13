@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using VentasProyect.Models;
+using VentasProyect.Models.Productos;
 
 namespace VentasProyect.Repository
 {
@@ -38,7 +39,7 @@ namespace VentasProyect.Repository
             }
         }
 
-        public void Create(Models.Ventas.Ventas model)
+        public void Create(Models.Ventas.Ventas model, List<Productos> products)
         {
             int id = Convert.ToInt32(model.ven_id);
             var newData = new t_venta
@@ -54,8 +55,27 @@ namespace VentasProyect.Repository
 
             _dbContext.t_venta.Add(newData);
             _dbContext.SaveChanges();
-        }
 
+            var newId = newData.ven_id;
+
+            foreach (var item in products)
+            {
+                int quantity = Convert.ToInt32(item.pro_cantidad);
+                var totalProduct = quantity * item.pro_valor_unitario;
+
+                var newProduct = new t_detalle_venta
+                {
+                    ven_id = newId,
+                    pro_id = item.pro_id,
+                    det_cantidad = quantity,
+                    det_valor_total = totalProduct
+
+                };
+
+                _dbContext.t_detalle_venta.Add(newProduct);
+                _dbContext.SaveChanges();
+            }
+        }
 
         public void Update(Models.Ventas.Ventas model)
         {

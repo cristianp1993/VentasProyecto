@@ -158,4 +158,27 @@
 
         popupSale.style.display = 'block';
     }
+
+
+    document.getElementById("end-Sale-Btn").addEventListener('click', async function () {
+
+        if (arrayProducts.length > 0) {
+
+            const encodedProducts = JSON.stringify(arrayProducts);
+
+            const baseURL = "Ventas/MakeSale?dataProduct=" + encodedProducts;
+
+            window.open(baseURL, "_self");
+           
+        } else {
+            Swal.fire({
+                icon: 'warning',
+                title: 'No ha elegido producto a comprar',
+                text: 'Por favor, seleccione al menos un producto antes de proceder a la compra.'
+            });
+        }
+            
+    })
+
+    
 })();

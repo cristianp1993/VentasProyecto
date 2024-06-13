@@ -173,8 +173,8 @@
 
 
 .button-section {
-   padding:5vh;
-   background-image: linear-gradient(to bottom, #9B9B9B, transparent);   
+    padding: 5vh;
+    background-image: linear-gradient(to bottom, #E8E7E7 0.1%, transparent);
 }
 
 #ButtonsPopUp button {   

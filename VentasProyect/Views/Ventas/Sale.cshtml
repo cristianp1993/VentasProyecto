@@ -1,8 +1,108 @@
-﻿
+﻿@model IEnumerable<VentasProyect.Models.Productos.Productos>
 @{
     ViewBag.Title = "Realizar Venta";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@Styles.Render("~/tables")
+<h2>Productos en Venta</h2>
+<div class="col-md-12 table-style">
+    <table id="MyTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th></th>
+                <th>Producto</th>
+                <th>Valor Unitario</th>
+                <th>Cantidad</th>
+                <th>Valor Total</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.pro_id</td>
+                    <td>
+                        <img src="@product.pro_url_img" alt="Imagen del producto" width="100" height="100" style="border-radius:10px" />
+                    </td>
+                    <td>@product.pro_nombre</td>
+                    <td>@product.pro_valor_unitario</td>
+                    <td>
+                        @product.pro_cantidad
+                    </td>
+
+                    @{
+                        if (int.TryParse(product.pro_cantidad, out int cantidad))
+                        {
+                            <td>@(cantidad * product.pro_valor_unitario)</td>
+                        }
+                        else
+                        {
+                            <td>0</td>
+                        }
+                    }
+                    <td align="center" style="cursor:pointer">
+                        <span class="material-symbols-outlined">
+                            delete
+                        </span>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="col-md-12">
+    <button id="btnFinalizarCompra" class="btn btn-primary">Finalizar Compra</button>
+</div>
 
 
+@section Scripts {
+    @Scripts.Render("~/TableScript")
 
+<script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('btnFinalizarCompra').addEventListener('click', function () {
+                // Obtener la lista de productos en formato JSON
+                const products = @Html.Raw(Json.Encode(Model));
+                console.log(products)
+                // Realizar la solicitud Fetch
+                fetch('/Ventas/SaveSale', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(products)
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data);
+
+                    if (data.success) {
+                        
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Venta exitosa',
+                            text: data.message,
+                            timer: 3000, 
+                            showConfirmButton: false 
+                        }).then(() => {
+                            
+                            window.location.href = '/Home/Index';
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('There has been a problem with your fetch operation:', error);
+                });
+            });
+        });
+</script>
+}
