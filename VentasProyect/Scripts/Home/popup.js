@@ -164,7 +164,7 @@
 
         if (arrayProducts.length > 0) {
 
-            const encodedProducts = JSON.stringify(arrayProducts);
+            const encodedProducts = encodeURIComponent(JSON.stringify(arrayProducts));
 
             const baseURL = "Ventas/MakeSale?dataProduct=" + encodedProducts;
 
