@@ -3,7 +3,7 @@ body {
 }
 
 .container-cards {
-    margin-top: 100px;
+    margin-top: 3vh;
     justify-content: space-evenly;
     color: #000;
 }
@@ -20,7 +20,7 @@ body {
     border: 1px solid #ddd;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .out-of-stock {
@@ -74,7 +74,7 @@ body {
 
 .title {
     text-align: center;
-    margin-bottom:60px;
+    margin-bottom:5vh;
 }
 
 .d-none {

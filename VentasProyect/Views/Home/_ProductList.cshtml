@@ -2,7 +2,7 @@
 
 @if (Model != null && Model.Any())
 {
-<div class="container-cards mt-5">
+<div class="container-cards mt-2">
     <div class="row justify-content-center">
         @foreach (var producto in Model)
         {
@@ -27,20 +27,29 @@
     </div>
 
     <div id="popupSale" class="popupSale">
-        <div>
-            <div class="col-md-6 text-left">
-                <span id="closePopupButton" class="material-symbols-outlined close-btn">
-                    arrow_forward_ios
-                </span>
-            </div>
-            <div class="col-md-6 text-right">
-                Bolsa de compras
-                <span class="material-symbols-outlined">
-                    shopping_cart
-                </span>
-            </div>
-        </div> 
-        <p>Contenido del Pop-Up</p>
+        
+            <section style="width:100%; margin-bottom:10vh">
+                <div class="col-md-6 text-left">
+                    <span id="closePopupButton" class="material-symbols-outlined close-btn closePopupButton">
+                        arrow_forward_ios
+                    </span>
+                </div>
+                <div class="col-md-6 text-right">
+                    Bolsa de compras
+                    <span class="material-symbols-outlined">
+                        shopping_cart
+                    </span>
+                </div>
+            </section> 
+            <section id="popupSaleArticles">
+
+            </section>
+            <section id="ButtonsPopUp" class="col-md-12 button-section">
+                
+                <button class="btn btn-primary block end-buy" id="end-Sale-Btn" >FINALIZAR COMPRA</button>
+                <button class="btn block closePopupButton" >SEGUIR COMPRANDO</button>
+                  
+            </section>
     </div>
 </div>
 }

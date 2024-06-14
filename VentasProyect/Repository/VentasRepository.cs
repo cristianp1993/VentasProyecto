@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using VentasProyect.Models;
+using VentasProyect.Models.Productos;
 
 namespace VentasProyect.Repository
 {
@@ -13,7 +15,6 @@ namespace VentasProyect.Repository
         {
             _dbContext = new VENTAS_DBEntities1();
         }
-
         public IEnumerable<Models.Ventas.Ventas> GetAll()
         {
             using (VENTAS_DBEntities1 dbContext = new VENTAS_DBEntities1())
@@ -30,16 +31,17 @@ namespace VentasProyect.Repository
                                 usu_nombre = u.usu_nombre,
                                 ven_fecha = v.ven_fecha,
                                 ven_metodo_pago = v.ven_metodo_pago,
-                                ven_total = (int?)v.ven_total, // Conversión explícita
-                                ven_numero_transaccion = (int?)v.ven_numero_transaccion // Conversión explícita
+                                ven_total = v.ven_total,
+                                ven_numero_transaccion = v.ven_numero_transaccion
                             };
 
                 return query.ToList();
             }
         }
 
-        public void Create(Models.Ventas.Ventas model)
+        public void Create(Models.Ventas.Ventas model, List<Productos> products)
         {
+            int id = Convert.ToInt32(model.ven_id);
             var newData = new t_venta
             {
                 ven_id = model.ven_id,
@@ -47,12 +49,32 @@ namespace VentasProyect.Repository
                 usu_id = model.usu_id,
                 ven_fecha = model.ven_fecha,
                 ven_metodo_pago = model.ven_metodo_pago,
-                ven_total = model.ven_total.HasValue ? (long)model.ven_total : (long?)null, // Conversión explícita
-                ven_numero_transaccion = model.ven_numero_transaccion.HasValue ? (long)model.ven_numero_transaccion : (long?)null // Conversión explícita
+                ven_total = model.ven_total,
+                ven_numero_transaccion = model.ven_numero_transaccion
             };
 
             _dbContext.t_venta.Add(newData);
             _dbContext.SaveChanges();
+
+            var newId = newData.ven_id;
+
+            foreach (var item in products)
+            {
+                int quantity = Convert.ToInt32(item.pro_cantidad);
+                var totalProduct = quantity * item.pro_valor_unitario;
+
+                var newProduct = new t_detalle_venta
+                {
+                    ven_id = newId,
+                    pro_id = item.pro_id,
+                    det_cantidad = quantity,
+                    det_valor_total = totalProduct
+
+                };
+
+                _dbContext.t_detalle_venta.Add(newProduct);
+                _dbContext.SaveChanges();
+            }
         }
 
         public void Update(Models.Ventas.Ventas model)
@@ -65,14 +87,14 @@ namespace VentasProyect.Repository
                 existing.usu_id = model.usu_id;
                 existing.ven_fecha = model.ven_fecha;
                 existing.ven_metodo_pago = model.ven_metodo_pago;
-                existing.ven_total = model.ven_total.HasValue ? (long)model.ven_total : (long?)null; // Conversión explícita
-                existing.ven_numero_transaccion = model.ven_numero_transaccion.HasValue ? (long)model.ven_numero_transaccion : (long?)null; // Conversión explícita
+                existing.ven_total = model.ven_total;               
+                existing.ven_numero_transaccion = model.ven_numero_transaccion;               
 
                 _dbContext.SaveChanges();
             }
         }
 
-        public void Delete(long id)
+        public void Delete(int id)
         {
             var toDelete = _dbContext.t_venta.FirstOrDefault(u => u.ven_id == id);
             if (toDelete != null)
@@ -82,27 +104,29 @@ namespace VentasProyect.Repository
             }
         }
 
-        public Models.Ventas.Ventas GetDataById(long id)
+        public Models.Ventas.Ventas GetDataById(int id)
         {
-            var data = _dbContext.t_venta.FirstOrDefault(u => u.ven_id == id);
+            
+            var data = _dbContext.t_venta.FirstOrDefault(u => u.per_id == id);
 
             if (data != null)
             {
                 return new Models.Ventas.Ventas
                 {
-                    ven_id = data.ven_id,
                     per_id = data.per_id,
                     usu_id = data.usu_id,
                     ven_fecha = data.ven_fecha,
                     ven_metodo_pago = data.ven_metodo_pago,
-                    ven_total = (int?)data.ven_total, // Conversión explícita
-                    ven_numero_transaccion = (int?)data.ven_numero_transaccion // Conversión explícita
+                    ven_total = data.ven_total,
+                    ven_numero_transaccion = data.ven_numero_transaccion
                 };
             }
             else
             {
                 return null;
             }
+            
         }
+
     }
 }
