@@ -132,6 +132,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ReportesController.cs" />
     <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\CiudadController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -162,6 +163,7 @@
     </Compile>
     <Compile Include="Models\Persona\Persona.cs" />
     <Compile Include="Models\Productos\Productos.cs" />
+    <Compile Include="Models\Reportes\Reportes.cs" />
     <Compile Include="Models\t_categoria.cs">
       <DependentUpon>DbContext.tt</DependentUpon>
     </Compile>
@@ -193,6 +195,7 @@
     <Compile Include="Models\Ventas\DetalleVenta.cs" />
     <Compile Include="Models\Ventas\Ventas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\ReportesRepository.cs" />
     <Compile Include="Repository\CategoriaRepository.cs" />
     <Compile Include="Repository\CiudadRepository.cs" />
     <Compile Include="Repository\EncryptRepository.cs" />
@@ -319,13 +322,11 @@
     <Content Include="Views\Productos\BulkUpload.cshtml" />
     <Content Include="Views\Ventas\Index.cshtml" />
     <Content Include="Views\Ventas\Sale.cshtml" />
+    <Content Include="Views\Reportes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Img\" />
     <Folder Include="Views\Clientes\" />
-    <Folder Include="Views\Reportes\" />
-    <Folder Include="Views\Ventas\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

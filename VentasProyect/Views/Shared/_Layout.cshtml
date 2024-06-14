@@ -25,8 +25,13 @@
 </head>
 <body>
 
+    @*@{
+            bool sessionStatus = (bool)(Session["SessionStatus"] ?? false);
+            var displayStatus = sessionStatus ? "block" : "none";
+        }*@
+
     @{
-        bool sessionStatus = (bool)(Session["SessionStatus"] ?? false);
+        bool sessionStatus = true; // Asigna true de manera fija
         var displayStatus = sessionStatus ? "block" : "none";
     }
     <div class="distribution">
@@ -163,7 +168,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="Reportes" asp-action="Index">
+                        <a class="nav-link" href="@Url.Action("Index", "Reportes")">
                             <span class="material-symbols-outlined icon @(ViewContext.RouteData.Values["Controller"].ToString() == "Reportes" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
                                 lab_profile
                             </span>
