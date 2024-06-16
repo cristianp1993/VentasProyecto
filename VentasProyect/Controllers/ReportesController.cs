@@ -71,71 +71,83 @@ namespace VentasProyect.Controllers
         [HttpPost]
         public ActionResult DownloadReport(string Items, string Formatos)
         {
-            List<Dictionary<string, object>> data;
-            string nombreConsulta = string.Empty;
 
-            switch (Items)
+            try
+            {
+                List<Dictionary<string, object>> data;
+                string nombreConsulta = string.Empty;
+
+                switch (Items)
+                {
+
+                    case "1":
+                        data = _reportesRepository.ProductCategory();
+                        nombreConsulta = "CategoriaDeProducto";
+                        break;
+                    case "2":
+                        data = _reportesRepository.SalesByProduct();
+                        nombreConsulta = "VentaPorProducto";
+                        break;
+                    case "3":
+                        data = _reportesRepository.BestSellingProduct();
+                        nombreConsulta = "ProductoMasVendido";
+                        break;
+                    case "4":
+                        data = _reportesRepository.LeastSoldProduct();
+                        nombreConsulta = "ProductoMenosVendido";
+                        break;
+                    case "5":
+                        data = _reportesRepository.ProductsOutOfStock();
+                        nombreConsulta = "ProductoAgotado";
+                        break;
+                    case "6":
+                        data = _reportesRepository.SalesByDate();
+                        nombreConsulta = "FechaVentas";
+                        break;
+                    case "7":
+                        data = _reportesRepository.SalesForClient();
+                        nombreConsulta = "VentasPorCliente";
+                        break;
+                    case "8":
+                        data = _reportesRepository.StoreCustomers();
+                        nombreConsulta = "ClientesTienda";
+                        break;
+                    case "9":
+                        data = _reportesRepository.PurchasedByTheCust();
+                        nombreConsulta = "ProductoMasCompradoXcliente";
+                        break;
+                    case "10":
+                        data = _reportesRepository.CustomersByProductCategory();
+                        nombreConsulta = "ClientesXcategoríaDeProductos";
+                        break;
+                    case "11":
+                        data = _reportesRepository.SalesList();
+                        nombreConsulta = "ListaVentas";
+                        break;
+                    // Agregar más casos para otras opciones
+                    default:
+                        return new HttpStatusCodeResult(400, "Reporte no soportado");
+                }
+
+                if (Formatos == "Excel")
+                {
+                    return GenerarExcel(data, nombreConsulta);
+                }
+                else if (Formatos == "PDF")
+                {
+                    return GenerarPDF(data, nombreConsulta);
+                }
+
+                return RedirectToAction("Index");
+            }
+           
+            
+
+             catch (Exception ex)
             {
 
-                case "1":
-                    data = _reportesRepository.ProductCategory();
-                    nombreConsulta = "CategoriaDeProducto";
-                    break;
-                case "2":
-                    data = _reportesRepository.SalesByProduct();
-                    nombreConsulta = "VentaPorProducto";
-                    break;
-                case "3":
-                    data = _reportesRepository.BestSellingProduct();
-                    nombreConsulta = "ProductoMasVendido";
-                    break;
-                case "4":
-                    data = _reportesRepository.LeastSoldProduct();
-                    nombreConsulta = "ProductoMenosVendido";
-                    break;
-                case "5":
-                    data = _reportesRepository.ProductsOutOfStock();
-                    nombreConsulta = "ProductoAgotado";
-                    break;
-                case "6":
-                    data = _reportesRepository.SalesByDate();
-                    nombreConsulta = "FechaVentas";
-                    break;
-                case "7":
-                    data = _reportesRepository.SalesForClient();
-                    nombreConsulta = "VentasPorCliente";
-                    break;
-                case "8":
-                    data = _reportesRepository.StoreCustomers();
-                    nombreConsulta = "ClientesTienda";
-                    break;
-                case "9":
-                    data = _reportesRepository.PurchasedByTheCust();
-                    nombreConsulta = "ProductoMasCompradoXcliente";
-                    break;
-                case "10":
-                    data = _reportesRepository.CustomersByProductCategory();
-                    nombreConsulta = "ClientesXcategoríaDeProductos";
-                    break;
-                case "11":
-                    data = _reportesRepository.SalesList();
-                    nombreConsulta = "ListaVentas";
-                    break;
-                // Agregar más casos para otras opciones
-                default:
-                    return new HttpStatusCodeResult(400, "Reporte no soportado");
+                return RedirectToAction("Index","Error");
             }
-
-            if (Formatos == "Excel")
-            {
-                return GenerarExcel(data, nombreConsulta);
-            }
-            else if (Formatos == "PDF")
-            {
-                return GenerarPDF(data, nombreConsulta);
-            }
-
-            return RedirectToAction("Index");
         }
 
 

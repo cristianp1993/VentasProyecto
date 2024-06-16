@@ -3,23 +3,27 @@
   "WorkspaceRootPath": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\ventasproyect\\controllers\\reportescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\controllers\\reportescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\ventasproyect\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\ventasproyect\\repository\\ventasrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\repository\\ventasrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|c:\\users\\leoma\\onedrive\\documentos\\proyectowill\\ventasproyecto\\ventasproyect\\controllers\\personacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\controllers\\personacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|c:\\users\\leoma\\onedrive\\documentos\\proyectowill\\ventasproyecto\\ventasproyect\\repository\\ventasrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\repository\\ventasrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|c:\\users\\leoma\\onedrive\\documentos\\proyectowill\\ventasproyecto\\ventasproyect\\controllers\\ventascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\ventasproyect\\controllers\\ventascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\controllers\\ventascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|c:\\users\\leoma\\onedrive\\documentos\\proyectowill\\ventasproyecto\\ventasproyect\\models\\t_detalle_venta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\models\\t_detalle_venta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|c:\\users\\leoma\\onedrive\\documentos\\proyectowill\\ventasproyecto\\ventasproyect\\models\\t_venta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\ventasproyect\\models\\t_venta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\models\\t_venta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -27,16 +31,8 @@
       "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\repository\\reportesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\ventasproyect\\controllers\\reportescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\controllers\\reportescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\ventasproyect\\models\\reportes\\reportes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\models\\reportes\\reportes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|c:\\users\\leoma\\onedrive\\documentos\\proyectowill\\ventasproyecto\\ventasproyect\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3BE087E8-CD0B-4CF5-BAAF-C1766A0EE8B6}|VentasProyect\\VentasProyect.csproj|solutionrelative:ventasproyect\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -75,58 +71,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "VentasRepository.cs",
-              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Repository\\VentasRepository.cs",
-              "RelativeDocumentMoniker": "VentasProyect\\Repository\\VentasRepository.cs",
-              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Repository\\VentasRepository.cs",
-              "RelativeToolTip": "VentasProyect\\Repository\\VentasRepository.cs",
-              "ViewState": "AQIAAHAAAAAAAAAAAAAhwHoAAAAtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T20:12:14.806Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "t_detalle_venta.cs",
-              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Models\\t_detalle_venta.cs",
-              "RelativeDocumentMoniker": "VentasProyect\\Models\\t_detalle_venta.cs",
-              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Models\\t_detalle_venta.cs",
-              "RelativeToolTip": "VentasProyect\\Models\\t_detalle_venta.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAABUAAAAbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T20:11:54.084Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "t_venta.cs",
-              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Models\\t_venta.cs",
-              "RelativeDocumentMoniker": "VentasProyect\\Models\\t_venta.cs",
-              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Models\\t_venta.cs",
-              "RelativeToolTip": "VentasProyect\\Models\\t_venta.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAQwBsAAAAbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T20:11:36.011Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "VentasController.cs",
-              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Controllers\\VentasController.cs",
-              "RelativeDocumentMoniker": "VentasProyect\\Controllers\\VentasController.cs",
-              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Controllers\\VentasController.cs",
-              "RelativeToolTip": "VentasProyect\\Controllers\\VentasController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAG4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T15:38:13.892Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
               "Title": "ProductosController.cs",
               "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Controllers\\ProductosController.cs",
               "RelativeDocumentMoniker": "VentasProyect\\Controllers\\ProductosController.cs",
@@ -139,7 +83,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "PersonaController.cs",
               "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Controllers\\PersonaController.cs",
               "RelativeDocumentMoniker": "VentasProyect\\Controllers\\PersonaController.cs",
@@ -152,7 +96,59 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ReportesController.cs",
+              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Controllers\\ReportesController.cs",
+              "RelativeDocumentMoniker": "VentasProyect\\Controllers\\ReportesController.cs",
+              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Controllers\\ReportesController.cs",
+              "RelativeToolTip": "VentasProyect\\Controllers\\ReportesController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-10T23:53:07.795Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "VentasRepository.cs",
+              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Repository\\VentasRepository.cs",
+              "RelativeDocumentMoniker": "VentasProyect\\Repository\\VentasRepository.cs",
+              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Repository\\VentasRepository.cs",
+              "RelativeToolTip": "VentasProyect\\Repository\\VentasRepository.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAnwBkAAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T20:12:14.806Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "VentasController.cs",
+              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Controllers\\VentasController.cs",
+              "RelativeDocumentMoniker": "VentasProyect\\Controllers\\VentasController.cs",
+              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Controllers\\VentasController.cs",
+              "RelativeToolTip": "VentasProyect\\Controllers\\VentasController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAG4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T15:38:13.892Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "t_venta.cs",
+              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Models\\t_venta.cs",
+              "RelativeDocumentMoniker": "VentasProyect\\Models\\t_venta.cs",
+              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Models\\t_venta.cs",
+              "RelativeToolTip": "VentasProyect\\Models\\t_venta.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAQwBsAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T20:11:36.011Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "ReportesRepository.cs",
               "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Repository\\ReportesRepository.cs",
               "RelativeDocumentMoniker": "VentasProyect\\Repository\\ReportesRepository.cs",
@@ -161,19 +157,6 @@
               "ViewState": "AQIAAGABAAAAAAAAAAAwwHcBAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-10T23:54:18.149Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ReportesController.cs",
-              "DocumentMoniker": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Controllers\\ReportesController.cs",
-              "RelativeDocumentMoniker": "VentasProyect\\Controllers\\ReportesController.cs",
-              "ToolTip": "C:\\Users\\leoma\\OneDrive\\Documentos\\ProyectoWill\\VentasProyecto\\VentasProyect\\Controllers\\ReportesController.cs",
-              "RelativeToolTip": "VentasProyect\\Controllers\\ReportesController.cs",
-              "ViewState": "AQIAAHYAAAAAAAAAAAAiwHgAAAA4AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-10T23:53:07.795Z",
               "EditorCaption": ""
             },
             {
