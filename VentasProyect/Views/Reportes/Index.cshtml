@@ -1,0 +1,15 @@
+﻿@* Views/Reportes/Index.cshtml *@
+@{
+    ViewBag.Title = "Reportes";
+}
+
+<h2>Reportes</h2>
+<ul>
+    <li>@Html.ActionLink("Ventas de Productos", "VentasProductos", "Reportes")</li>
+    <li>@Html.ActionLink("Ventas por Clientes", "VentasClientes", "Reportes")</li>
+    <li>@Html.ActionLink("Órdenes", "Ordenes", "Reportes")</li>
+    <li>@Html.ActionLink("Ventas por Categorías", "VentasCategorias", "Reportes")</li>
+    <li>@Html.ActionLink("Ventas Mensuales", "VentasMensuales", "Reportes")</li>
+    <li>@Html.ActionLink("Productos en Stock", "ProductosStock", "Reportes")</li>
+    <li>@Html.ActionLink("Fidelización", "Fidelizacion", "Reportes")</li>
+</ul>
