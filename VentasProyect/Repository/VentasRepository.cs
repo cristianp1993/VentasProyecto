@@ -31,8 +31,8 @@ namespace VentasProyect.Repository
                                 usu_nombre = u.usu_nombre,
                                 ven_fecha = v.ven_fecha,
                                 ven_metodo_pago = v.ven_metodo_pago,
-                                ven_total = v.ven_total,
-                                ven_numero_transaccion = v.ven_numero_transaccion
+                                ven_total = (int?)v.ven_total,
+                                ven_numero_transaccion = (int?)v.ven_numero_transaccion
                             };
 
                 return query.ToList();
@@ -42,6 +42,8 @@ namespace VentasProyect.Repository
         public void Create(Models.Ventas.Ventas model, List<Productos> products)
         {
             int id = Convert.ToInt32(model.ven_id);
+
+            
             var newData = new t_venta
             {
                 ven_id = model.ven_id,
