@@ -1,7 +1,10 @@
 ﻿@model IEnumerable<VentasProyect.Models.Productos.Productos>
 @{
     ViewBag.Title = "Realizar Venta";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+
+    decimal subtotal = 0;
+    decimal subtotalProducto = 0;
 }
 @Styles.Render("~/tables")
 <h2>Productos en Venta</h2>
@@ -21,88 +24,291 @@
         <tbody>
             @foreach (var product in Model)
             {
-                <tr>
-                    <td>@product.pro_id</td>
-                    <td>
-                        <img src="@product.pro_url_img" alt="Imagen del producto" width="100" height="100" style="border-radius:10px" />
-                    </td>
-                    <td>@product.pro_nombre</td>
-                    <td>@product.pro_valor_unitario</td>
-                    <td>
-                        @product.pro_cantidad
-                    </td>
+            <tr id="product-row-@product.pro_id">
+                <td>@product.pro_id</td>
+                <td>
+                    <img src="@product.pro_url_img" alt="Imagen del producto" width="100" height="100" style="border-radius:10px" />
+                </td>
+                <td>@product.pro_nombre</td>
+                <td>@product.pro_valor_unitario</td>
+                <td>
+                    <div style="display: flex; align-items: center;">
+                        <button type="button" class="decrease-quantity quantity-button" data-product-id="@product.pro_id">-</button>
+                        <span id="product-quantity-@product.pro_id">@product.pro_cantidad</span>
+                        <button type="button" class="increase-quantity quantity-button" data-product-id="@product.pro_id">+</button>
+                    </div>
+                </td>
 
-                    @{
-                        if (int.TryParse(product.pro_cantidad, out int cantidad))
-                        {
-                            <td>@(cantidad * product.pro_valor_unitario)</td>
-                        }
-                        else
-                        {
-                            <td>0</td>
-                        }
+                @{
+                    if (int.TryParse(product.pro_cantidad, out int cantidad))
+                    {
+                        subtotalProducto = cantidad * product.pro_valor_unitario;
+                        subtotal += subtotalProducto;
+                        <td id="subtotal-@product.pro_id">@subtotalProducto</td>
                     }
-                    <td align="center" style="cursor:pointer">
-                        <span class="material-symbols-outlined">
-                            delete
-                        </span>
-                    </td>
+                    else
+                    {
+                        <td>0</td>
+                    }
+                }
+                <td align="center" style="cursor:pointer">
+                    <span id="delete-product-@product.pro_id" class="material-symbols-outlined delete-product" data-product-id="@product.pro_id">
+                        delete
+                    </span>
+                </td>
 
-                </tr>
+            </tr>
             }
         </tbody>
     </table>
+    <div class="checkout-container">
+        <div class="order-summary">
+            
+            <div class="payment-information text-left">
+                <h2>Entrega</h2>
+                <div>
+                    <label>Ciudad</label>
+                    @Html.DropDownList("ciu_idTemp", (IEnumerable<SelectListItem>)ViewBag.Ciudades, null, new { @class = "form-control col-md-3" })
+                </div>
+               
+            </div>
+            <div class="resume-information">
+                <div>
+                    <table class="order-details">
+                        <tr>
+                            <th>Subtotal</th>
+                            <td id="subtotal">
+                                $ @subtotal
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Gastos de envío</th>
+                            <td>Gratis</td>
+                        </tr>
+                        <tr>
+                            <th>Total</th>
+                            <td id="subtotal">$ @subtotal</td>
+                        </tr>
+                    </table>
+                    <div class="col-md-12">
+                        <button id="btnFinalizarCompra" class="btn btn-primary">Finalizar Compra</button>
+                    </div>
+                </div>               
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="col-md-12">
-    <button id="btnFinalizarCompra" class="btn btn-primary">Finalizar Compra</button>
-</div>
+
 
 
 @section Scripts {
     @Scripts.Render("~/TableScript")
 
 <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            document.getElementById('btnFinalizarCompra').addEventListener('click', function () {
-                // Obtener la lista de productos en formato JSON
-                const products = @Html.Raw(Json.Encode(Model));
-                console.log(products)
-                // Realizar la solicitud Fetch
-                fetch('/Ventas/SaveSale', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(products)
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log(data);
+document.addEventListener('DOMContentLoaded', function() {
+    const arrayProducts = @Html.Raw(Json.Encode(Model));
 
-                    if (data.success) {
-                        
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Venta exitosa',
-                            text: data.message,
-                            timer: 3000, 
-                            showConfirmButton: true
-                        }).then(() => {
-                            
-                            window.location.href = '/Home/Index';
-                        });
-                    }
-                })
-                .catch(error => {
-                    console.error('There has been a problem with your fetch operation:', error);
-                });
-            });
+    function updateQuantity(productId, delta) {
+        const quantityElement = document.getElementById(`product-quantity-${productId}`);
+        let currentQuantity = parseInt(quantityElement.textContent);
+        let newQuantity = currentQuantity + delta;
+
+        if (newQuantity < 1) newQuantity = 1;
+
+        quantityElement.textContent = newQuantity;
+
+        const product = arrayProducts.find(product => product.pro_id === productId);
+        if (product) {
+            product.pro_cantidad = newQuantity;
+
+            const productSubtotalElement = document.getElementById(`subtotal-${productId}`);
+            const newSubtotal = newQuantity * product.pro_valor_unitario;
+            productSubtotalElement.innerHTML = `$ ${newSubtotal.toLocaleString('es-CO', { minimumFractionDigits: 0 })}`;
+
+
+            updateSubtotal();
+        }
+    }
+
+    function updateSubtotal() {
+        let subtotal = 0;
+        arrayProducts.forEach(product => {
+            subtotal += product.pro_cantidad * product.pro_valor_unitario;
         });
+
+        document.getElementById('subtotal').innerHTML = `$ ${subtotal.toLocaleString('es-CO', { minimumFractionDigits: 0 })} COP`;
+        document.getElementById('total').innerHTML = `$ ${subtotal.toLocaleString('es-CO', { minimumFractionDigits: 0 })} COP`;
+    }
+
+    document.querySelectorAll('.increase-quantity').forEach(function(button) {
+        button.addEventListener('click', function() {
+            const productId = button.getAttribute('data-product-id');
+            updateQuantity(productId, 1);
+        });
+    });
+
+    document.querySelectorAll('.decrease-quantity').forEach(function(button) {
+        button.addEventListener('click', function() {
+            const productId = button.getAttribute('data-product-id');
+            updateQuantity(productId, -1);
+        });
+    });
+});
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+    const tableBody = document.querySelector('#MyTable tbody');
+    let arrayProducts = [];
+
+    // Populando arrayProducts con datos de Model en el servidor
+    @foreach (var product in Model)
+    {
+        <text>
+            arrayProducts.push({
+                pro_id: "@product.pro_id",
+                pro_url_img: "@product.pro_url_img",
+                pro_nombre: "@product.pro_nombre",
+                pro_valor_unitario: @product.pro_valor_unitario,
+                pro_cantidad: @product.pro_cantidad
+            });
+        </text>
+    }
+
+    tableBody.addEventListener('click', function (event) {
+        if (event.target.closest('.delete-product')) {
+            const productId = event.target.dataset.productId;
+            const row = document.getElementById(`product-row-${productId}`);
+
+            // Eliminar el producto del array
+            arrayProducts = arrayProducts.filter(product => product.pro_id !== productId);
+
+            // Eliminar la fila de la tabla
+            row.remove();
+
+            // Actualizar la tabla
+            updateTable();
+        }
+    });
+
+    function updateTable() {
+        const rows = tableBody.querySelectorAll('tr');
+        if (rows.length === 0) {
+            window.location.href = '/Home/Index';
+        } else {
+            let subtotal = 0;
+            arrayProducts.forEach(product => {
+                const row = document.getElementById(`product-row-${product.pro_id}`);
+                const quantityElement = row.querySelector(`#product-quantity-${product.pro_id}`);
+                const subtotalElement = row.querySelector(`#subtotal-${product.pro_id}`);
+                const unitPrice = parseFloat(row.querySelector('td:nth-child(4)').textContent.trim());
+                const quantity = parseInt(quantityElement.textContent.trim());
+
+                if (!isNaN(quantity) && !isNaN(unitPrice)) {
+                    const subtotalProducto = unitPrice * quantity;
+                    subtotalElement.textContent = subtotalProducto;
+                    subtotal += subtotalProducto;
+                }
+            });
+
+            document.getElementById('subtotal').textContent = `$ ${subtotal}`;
+        }
+    }
+});
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('btnFinalizarCompra').addEventListener('click', function () {
+        // Obtener la lista de productos en formato JSON
+        const products = @Html.Raw(Json.Encode(Model));
+        console.log(products)
+        // Realizar la solicitud Fetch
+        fetch('/Ventas/SaveSale', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(products)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+
+            if (data.success) {
+
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Venta exitosa',
+                    text: data.message,
+                    timer: 3000,
+                    showConfirmButton: true
+                }).then(() => {
+
+                    window.location.href = '/Home/Index';
+                });
+            }
+        })
+        .catch(error => {
+            console.error('There has been a problem with your fetch operation:', error);
+        });
+    });
+});
 </script>
 }
+<style>
+    .order-summary {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .payment-information,
+    .resume-information {
+        width: calc(50% - 10px); 
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    #btnFinalizarCompra {
+        background-color: #AD039C;
+    }
+
+    .resume-information {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: end;
+    }
+
+    .order-details th {
+        text-align: left;
+    }
+
+    .order-details td {
+        text-align: right;
+    }
+
+    .quantity-button {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px 15px;
+        margin: 0 5px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 18px;
+    }
+
+        .quantity-button:hover {
+            background-color: #555;
+        }
+
+        .quantity-button:focus {
+            outline: none;
+        }
+
+</style>

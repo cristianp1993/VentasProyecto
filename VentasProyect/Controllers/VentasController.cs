@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace VentasProyect.Controllers
     {
         ProductosRepository _productosRepository = new ProductosRepository();
         VentasRepository _ventasRepository = new VentasRepository();
-
+        CiudadRepository _ciudadRepository = new CiudadRepository();
         // GET: Ventas
         public ActionResult Index()
         {
@@ -53,22 +54,22 @@ namespace VentasProyect.Controllers
 
         public ActionResult Details(int id)
         {
-            var usuario = _ventasRepository.GetDataById(id);
-            if (usuario == null)
+            var data = _ventasRepository.GetDataById(id);
+            if (data == null)
             {
                 return HttpNotFound(); // Devuelve un error 404 si no se encuentra el usuario
             }
-            return View(usuario);
+            return View(data);
         }
 
         public ActionResult Delete(int id)
         {
-            var usuario = _ventasRepository.GetDataById(id);
-            if (usuario == null)
+            var data = _ventasRepository.GetDataById(id);
+            if (data == null)
             {
                 return HttpNotFound(); // Devuelve un error 404 si no se encuentra el usuario
             }
-            return View(usuario);
+            return View(data);
         }
 
         [HttpPost, ActionName("Delete")]
@@ -79,22 +80,60 @@ namespace VentasProyect.Controllers
             return RedirectToAction("Index");
         }
 
-        
-        public ActionResult MakeSale(string dataProduct)
+        [HttpPost]
+        public JsonResult MakeSale(DataProductRequest request)
         {
-            if (dataProduct == null)
+            try
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "No data received");
-            }
-            var arrayProductsModel = JsonConvert.DeserializeObject<Productos[]>(dataProduct);
+                if (request.DataProduct == null)
+                {
+                    return Json(new { success = false, message = "No data received" });
+                }
 
-            //IEnumerable<Productos> productos = _productosRepository.GetProductos();
-            IEnumerable<Productos> productos = arrayProductsModel.ToList() ;
-            //ViewBag.DataProduct = dataProduct;
-            return View("~/Views/Ventas/Sale.cshtml", productos);
+                var arrayProductsModel = JsonConvert.DeserializeObject<Productos[]>(request.DataProduct);
+                
+                IEnumerable<Productos> productos = arrayProductsModel.ToList();
+               
+                var productosJson = JsonConvert.SerializeObject(productos);
+
+                // Almacenar los productos en la sesión en lugar de TempData
+                Session["Products"] = productosJson;                
+
+                // Devuelve una URL de redirección a la vista de venta junto con los productos
+                return Json(new { success = true, productos = productosJson, redirectUrl = Url.Action("Sale", "Ventas") });
+            }
+            catch (Exception)
+            {
+                // Devuelve una URL de redirección a la vista de error
+                return Json(new { success = false, redirectUrl = Url.Action("Index", "Error") });
+            }
         }
 
+        [HttpGet]
+        public ActionResult Sale()
+        {
 
+            string productosJson = Session["Products"] as string; 
+
+            if (!string.IsNullOrEmpty(productosJson))
+            {
+                ViewBag.Ciudades = _ciudadRepository.GetSelectCiudades();
+
+                var productosList = JsonConvert.DeserializeObject<IEnumerable<Productos>>(productosJson);
+                if (productosList.Any())
+                {
+                    // Los productos ya han sido obtenidos, mostrar la vista directamente
+                    return View(productosList);
+                }
+            }
+
+            return RedirectToAction("Index", "Error");
+        }
+
+        public class DataProductRequest
+        {
+            public string DataProduct { get; set; }
+        }
         public ActionResult SaveSale(List<Productos> products)
         {
 
@@ -134,7 +173,7 @@ namespace VentasProyect.Controllers
             catch (Exception ex)
             {
 
-                throw;
+                return RedirectToAction("Index", "Error");
             }
            
         }

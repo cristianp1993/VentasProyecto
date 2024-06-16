@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using VentasProyect.Models;
 using VentasProyect.Models.Productos;
+using VentasProyect.Models.Ventas;
 
 namespace VentasProyect.Repository
 {
@@ -17,11 +18,11 @@ namespace VentasProyect.Repository
         }
         public IEnumerable<Models.Ventas.Ventas> GetAll()
         {
-            using (VENTAS_DBEntities1 dbContext = new VENTAS_DBEntities1())
+            try
             {
-                var query = from v in dbContext.t_venta
-                            join u in dbContext.t_usuario on v.usu_id equals u.usu_id
-                            join p in dbContext.t_persona on v.per_id equals p.per_id
+                var query = from v in _dbContext.t_venta
+                            join u in _dbContext.t_usuario on v.usu_id equals u.usu_id
+                            join p in _dbContext.t_persona on v.per_id equals p.per_id
                             select new Models.Ventas.Ventas
                             {
                                 ven_id = v.ven_id,
@@ -31,19 +32,24 @@ namespace VentasProyect.Repository
                                 usu_nombre = u.usu_nombre,
                                 ven_fecha = v.ven_fecha,
                                 ven_metodo_pago = v.ven_metodo_pago,
-                                ven_total = (int?)v.ven_total,
-                                ven_numero_transaccion = (int?)v.ven_numero_transaccion
+                                ven_total = (long)v.ven_total,
+                                ven_numero_transaccion = (long)v.ven_numero_transaccion
                             };
 
                 return query.ToList();
             }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+           
+           
         }
 
         public void Create(Models.Ventas.Ventas model, List<Productos> products)
         {
             int id = Convert.ToInt32(model.ven_id);
-
-            
             var newData = new t_venta
             {
                 ven_id = model.ven_id,
@@ -106,28 +112,42 @@ namespace VentasProyect.Repository
             }
         }
 
-        public Models.Ventas.Ventas GetDataById(int id)
+        public Models.Ventas.VentaConDetalle GetDataById(int id)
         {
-            
-            var data = _dbContext.t_venta.FirstOrDefault(u => u.per_id == id);
+            VentaConDetalle nuevaVenta = new VentaConDetalle();
 
-            if (data != null)
+            // Consulta para obtener la cabecera de la venta
+            var venta = _dbContext.t_venta.FirstOrDefault(u => u.ven_id == id);
+            if (venta != null)
             {
-                return new Models.Ventas.Ventas
+                nuevaVenta.head = new Ventas
                 {
-                    per_id = data.per_id,
-                    usu_id = data.usu_id,
-                    ven_fecha = data.ven_fecha,
-                    ven_metodo_pago = data.ven_metodo_pago,
-                    ven_total = data.ven_total,
-                    ven_numero_transaccion = data.ven_numero_transaccion
+                    per_id = venta.per_id,
+                    usu_id = venta.usu_id,
+                    ven_fecha = venta.ven_fecha,
+                    ven_metodo_pago = venta.ven_metodo_pago,
+                    ven_total = (int)venta.ven_total,
+                    ven_numero_transaccion = (int)venta.ven_numero_transaccion
                 };
             }
-            else
-            {
-                return null;
-            }
-            
+
+            // Consulta para obtener el detalle de la venta
+            nuevaVenta.detail = _dbContext.t_detalle_venta
+            .Where(u => u.ven_id == id)
+            .Join(_dbContext.t_producto, 
+                  detalle => detalle.pro_id,
+                  producto => producto.pro_id, 
+                  (detalle, producto) => new DetalleVenta
+                  {
+                      ven_id = (int)detalle.ven_id,
+                      pro_id = (int)detalle.pro_id,
+                      det_cantidad = (int)detalle.det_cantidad,
+                      det_valor_total = (long)detalle.det_valor_total,
+                      pro_nombre = producto.pro_nombre 
+                  })
+            .ToList();
+
+            return nuevaVenta;
         }
 
     }

@@ -103,305 +103,6 @@
           <Property Name="ven_total" Type="bigint" />
           <Property Name="ven_numero_transaccion" Type="bigint" />
         </EntityType>
-        <Association Name="FK__t_detalle__pro_i__5CD6CB2B">
-          <End Role="t_producto" Type="Self.t_producto" Multiplicity="0..1" />
-          <End Role="t_detalle_venta" Type="Self.t_detalle_venta" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="t_producto">
-              <PropertyRef Name="pro_id" />
-            </Principal>
-            <Dependent Role="t_detalle_venta">
-              <PropertyRef Name="pro_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__t_detalle__ven_i__5BE2A6F2">
-          <End Role="t_venta" Type="Self.t_venta" Multiplicity="0..1" />
-          <End Role="t_detalle_venta" Type="Self.t_detalle_venta" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="t_venta">
-              <PropertyRef Name="ven_id" />
-            </Principal>
-            <Dependent Role="t_detalle_venta">
-              <PropertyRef Name="ven_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__t_notific__per_i__4E88ABD4">
-          <End Role="t_persona" Type="Self.t_persona" Multiplicity="0..1" />
-          <End Role="t_notificaciones" Type="Self.t_notificaciones" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="t_persona">
-              <PropertyRef Name="per_id" />
-            </Principal>
-            <Dependent Role="t_notificaciones">
-              <PropertyRef Name="per_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__t_pedido__per_id__60A75C0F">
-          <End Role="t_persona" Type="Self.t_persona" Multiplicity="0..1" />
-          <End Role="t_pedido" Type="Self.t_pedido" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="t_persona">
-              <PropertyRef Name="per_id" />
-            </Principal>
-            <Dependent Role="t_pedido">
-              <PropertyRef Name="per_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__t_pedido__pro_id__5FB337D6">
-          <End Role="t_producto" Type="Self.t_producto" Multiplicity="0..1" />
-          <End Role="t_pedido" Type="Self.t_pedido" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="t_producto">
-              <PropertyRef Name="pro_id" />
-            </Principal>
-            <Dependent Role="t_pedido">
-              <PropertyRef Name="pro_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__t_persona__ciu_i__4BAC3F29">
-          <End Role="t_ciudad" Type="Self.t_ciudad" Multiplicity="0..1" />
-          <End Role="t_persona" Type="Self.t_persona" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="t_ciudad">
-              <PropertyRef Name="ciu_id" />
-            </Principal>
-            <Dependent Role="t_persona">
-              <PropertyRef Name="ciu_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__t_product__cat_i__59063A47">
-          <End Role="t_categoria" Type="Self.t_categoria" Multiplicity="0..1" />
-          <End Role="t_producto" Type="Self.t_producto" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="t_categoria">
-              <PropertyRef Name="cat_id" />
-            </Principal>
-            <Dependent Role="t_producto">
-              <PropertyRef Name="cat_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__t_venta__per_id__534D60F1">
-          <End Role="t_persona" Type="Self.t_persona" Multiplicity="0..1" />
-          <End Role="t_venta" Type="Self.t_venta" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="t_persona">
-              <PropertyRef Name="per_id" />
-            </Principal>
-            <Dependent Role="t_venta">
-              <PropertyRef Name="per_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__t_venta__usu_id__5441852A">
-          <End Role="t_usuario" Type="Self.t_usuario" Multiplicity="0..1" />
-          <End Role="t_venta" Type="Self.t_venta" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="t_usuario">
-              <PropertyRef Name="usu_id" />
-            </Principal>
-            <Dependent Role="t_venta">
-              <PropertyRef Name="usu_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="VENTAS_DBModelStoreContainer">
-          <EntitySet Name="t_categoria" EntityType="Self.t_categoria" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="t_ciudad" EntityType="Self.t_ciudad" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="t_detalle_venta" EntityType="Self.t_detalle_venta" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="t_notificaciones" EntityType="Self.t_notificaciones" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="t_pedido" EntityType="Self.t_pedido" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="t_persona" EntityType="Self.t_persona" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="t_producto" EntityType="Self.t_producto" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="t_usuario" EntityType="Self.t_usuario" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="t_venta" EntityType="Self.t_venta" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__t_detalle__pro_i__5CD6CB2B" Association="Self.FK__t_detalle__pro_i__5CD6CB2B">
-            <End Role="t_producto" EntitySet="t_producto" />
-            <End Role="t_detalle_venta" EntitySet="t_detalle_venta" />
-          </AssociationSet>
-          <AssociationSet Name="FK__t_detalle__ven_i__5BE2A6F2" Association="Self.FK__t_detalle__ven_i__5BE2A6F2">
-            <End Role="t_venta" EntitySet="t_venta" />
-            <End Role="t_detalle_venta" EntitySet="t_detalle_venta" />
-          </AssociationSet>
-          <AssociationSet Name="FK__t_notific__per_i__4E88ABD4" Association="Self.FK__t_notific__per_i__4E88ABD4">
-            <End Role="t_persona" EntitySet="t_persona" />
-            <End Role="t_notificaciones" EntitySet="t_notificaciones" />
-          </AssociationSet>
-          <AssociationSet Name="FK__t_pedido__per_id__60A75C0F" Association="Self.FK__t_pedido__per_id__60A75C0F">
-            <End Role="t_persona" EntitySet="t_persona" />
-            <End Role="t_pedido" EntitySet="t_pedido" />
-          </AssociationSet>
-          <AssociationSet Name="FK__t_pedido__pro_id__5FB337D6" Association="Self.FK__t_pedido__pro_id__5FB337D6">
-            <End Role="t_producto" EntitySet="t_producto" />
-            <End Role="t_pedido" EntitySet="t_pedido" />
-          </AssociationSet>
-          <AssociationSet Name="FK__t_persona__ciu_i__4BAC3F29" Association="Self.FK__t_persona__ciu_i__4BAC3F29">
-            <End Role="t_ciudad" EntitySet="t_ciudad" />
-            <End Role="t_persona" EntitySet="t_persona" />
-          </AssociationSet>
-          <AssociationSet Name="FK__t_product__cat_i__59063A47" Association="Self.FK__t_product__cat_i__59063A47">
-            <End Role="t_categoria" EntitySet="t_categoria" />
-            <End Role="t_producto" EntitySet="t_producto" />
-          </AssociationSet>
-          <AssociationSet Name="FK__t_venta__per_id__534D60F1" Association="Self.FK__t_venta__per_id__534D60F1">
-            <End Role="t_persona" EntitySet="t_persona" />
-            <End Role="t_venta" EntitySet="t_venta" />
-          </AssociationSet>
-          <AssociationSet Name="FK__t_venta__usu_id__5441852A" Association="Self.FK__t_venta__usu_id__5441852A">
-            <End Role="t_usuario" EntitySet="t_usuario" />
-            <End Role="t_venta" EntitySet="t_venta" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema></edmx:StorageModels>
-    <!-- CSDL content -->
-    <edmx:ConceptualModels>
-      <Schema Namespace="VENTAS_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="t_categoria">
-          <Key>
-            <PropertyRef Name="cat_id" />
-          </Key>
-          <Property Name="cat_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="cat_nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="t_producto" Relationship="Self.FK__t_product__cat_i__45F365D3" FromRole="t_categoria" ToRole="t_producto" />
-        </EntityType>
-        <EntityType Name="t_ciudad">
-          <Key>
-            <PropertyRef Name="ciu_id" />
-          </Key>
-          <Property Name="ciu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ciu_nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ciu_depto" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="t_persona" Relationship="Self.FK__t_persona__ciu_i__38996AB5" FromRole="t_ciudad" ToRole="t_persona" />
-        </EntityType>
-        <EntityType Name="t_detalle_venta">
-          <Key>
-            <PropertyRef Name="det_id" />
-          </Key>
-          <Property Name="det_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ven_id" Type="Int32" />
-          <Property Name="pro_id" Type="Int32" />
-          <Property Name="det_cantidad" Type="Int32" />
-          <Property Name="det_productos_vendidos" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="det_valor_total" Type="Int32" />
-          <NavigationProperty Name="t_producto" Relationship="Self.FK__t_detalle__pro_i__49C3F6B7" FromRole="t_detalle_venta" ToRole="t_producto" />
-          <NavigationProperty Name="t_venta" Relationship="Self.FK__t_detalle__ven_i__48CFD27E" FromRole="t_detalle_venta" ToRole="t_venta" />
-        </EntityType>
-        <EntityType Name="t_notificaciones">
-          <Key>
-            <PropertyRef Name="not_id" />
-          </Key>
-          <Property Name="not_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="per_id" Type="Int32" />
-          <Property Name="not_fecha" Type="DateTime" Precision="0" />
-          <Property Name="not_descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="t_persona" Relationship="Self.FK__t_notific__per_i__3B75D760" FromRole="t_notificaciones" ToRole="t_persona" />
-        </EntityType>
-        <EntityType Name="t_pedido">
-          <Key>
-            <PropertyRef Name="ped_id" />
-          </Key>
-          <Property Name="ped_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="pro_id" Type="Int32" />
-          <Property Name="per_id" Type="Int32" />
-          <Property Name="ped_cant_solicitada" Type="Int32" />
-          <Property Name="ped_cant_entregada" Type="Int32" />
-          <Property Name="ped_fecha" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="t_persona" Relationship="Self.FK__t_pedido__per_id__4D94879B" FromRole="t_pedido" ToRole="t_persona" />
-          <NavigationProperty Name="t_producto" Relationship="Self.FK__t_pedido__pro_id__4CA06362" FromRole="t_pedido" ToRole="t_producto" />
-        </EntityType>
-        <EntityType Name="t_persona">
-          <Key>
-            <PropertyRef Name="per_id" />
-          </Key>
-          <Property Name="per_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ciu_id" Type="Int32" />
-          <Property Name="per_nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="per_direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="per_telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="per_cuenta_bancaria" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="per_correo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="per_nit" Type="Int32" />
-          <Property Name="per_tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="t_ciudad" Relationship="Self.FK__t_persona__ciu_i__38996AB5" FromRole="t_persona" ToRole="t_ciudad" />
-          <NavigationProperty Name="t_notificaciones" Relationship="Self.FK__t_notific__per_i__3B75D760" FromRole="t_persona" ToRole="t_notificaciones" />
-          <NavigationProperty Name="t_pedido" Relationship="Self.FK__t_pedido__per_id__4D94879B" FromRole="t_persona" ToRole="t_pedido" />
-          <NavigationProperty Name="t_venta" Relationship="Self.FK__t_venta__per_id__403A8C7D" FromRole="t_persona" ToRole="t_venta" />
-          <Property Name="per_tipo_documento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="per_tipo_cuenta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="t_producto">
-          <Key>
-            <PropertyRef Name="pro_id" />
-          </Key>
-          <Property Name="pro_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="cat_id" Type="Int32" />
-          <Property Name="pro_nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="pro_descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="pro_valor_unitario" Type="Int32" />
-          <Property Name="pro_stock" Type="Int32" />
-          <NavigationProperty Name="t_categoria" Relationship="Self.FK__t_product__cat_i__45F365D3" FromRole="t_producto" ToRole="t_categoria" />
-          <NavigationProperty Name="t_detalle_venta" Relationship="Self.FK__t_detalle__pro_i__49C3F6B7" FromRole="t_producto" ToRole="t_detalle_venta" />
-          <NavigationProperty Name="t_pedido" Relationship="Self.FK__t_pedido__pro_id__4CA06362" FromRole="t_producto" ToRole="t_pedido" />
-          <Property Name="pro_url_img" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="pro_estado" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="t_usuario">
-          <Key>
-            <PropertyRef Name="usu_id" />
-          </Key>
-          <Property Name="usu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="usu_nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="usu_contrasenia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="usu_rol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="usu_sesion_activa" Type="Boolean" />
-          <Property Name="usu_correo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="t_venta" Relationship="Self.FK__t_venta__usu_id__412EB0B6" FromRole="t_usuario" ToRole="t_venta" />
-        </EntityType>
-        <EntityType Name="t_venta">
-          <Key>
-            <PropertyRef Name="ven_id" />
-          </Key>
-          <Property Name="ven_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="per_id" Type="Int32" />
-          <Property Name="usu_id" Type="Int32" />
-          <Property Name="ven_fecha" Type="DateTime" Precision="0" />
-          <Property Name="ven_metodo_pago" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="ven_total" Type="Int32" />
-          <Property Name="ven_numero_transaccion" Type="Int32" />
-          <NavigationProperty Name="t_detalle_venta" Relationship="Self.FK__t_detalle__ven_i__48CFD27E" FromRole="t_venta" ToRole="t_detalle_venta" />
-          <NavigationProperty Name="t_persona" Relationship="Self.FK__t_venta__per_id__403A8C7D" FromRole="t_venta" ToRole="t_persona" />
-          <NavigationProperty Name="t_usuario" Relationship="Self.FK__t_venta__usu_id__412EB0B6" FromRole="t_venta" ToRole="t_usuario" />
-        </EntityType>
-        <Association Name="FK__t_product__cat_i__45F365D3">
-          <End Role="t_categoria" Type="Self.t_categoria" Multiplicity="0..1" />
-          <End Role="t_producto" Type="Self.t_producto" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="t_categoria">
-              <PropertyRef Name="cat_id" />
-            </Principal>
-            <Dependent Role="t_producto">
-              <PropertyRef Name="cat_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__t_persona__ciu_i__38996AB5">
-          <End Role="t_ciudad" Type="Self.t_ciudad" Multiplicity="0..1" />
-          <End Role="t_persona" Type="Self.t_persona" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="t_ciudad">
-              <PropertyRef Name="ciu_id" />
-            </Principal>
-            <Dependent Role="t_persona">
-              <PropertyRef Name="ciu_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__t_detalle__pro_i__49C3F6B7">
           <End Role="t_producto" Type="Self.t_producto" Multiplicity="0..1" />
           <End Role="t_detalle_venta" Type="Self.t_detalle_venta" Multiplicity="*" />
@@ -462,6 +163,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__t_persona__ciu_i__38996AB5">
+          <End Role="t_ciudad" Type="Self.t_ciudad" Multiplicity="0..1" />
+          <End Role="t_persona" Type="Self.t_persona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_ciudad">
+              <PropertyRef Name="ciu_id" />
+            </Principal>
+            <Dependent Role="t_persona">
+              <PropertyRef Name="ciu_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__t_product__cat_i__45F365D3">
+          <End Role="t_categoria" Type="Self.t_categoria" Multiplicity="0..1" />
+          <End Role="t_producto" Type="Self.t_producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_categoria">
+              <PropertyRef Name="cat_id" />
+            </Principal>
+            <Dependent Role="t_producto">
+              <PropertyRef Name="cat_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__t_venta__per_id__403A8C7D">
           <End Role="t_persona" Type="Self.t_persona" Multiplicity="0..1" />
           <End Role="t_venta" Type="Self.t_venta" Multiplicity="*" />
@@ -486,24 +211,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="VENTAS_DBEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="t_categoria" EntityType="Self.t_categoria" />
-          <EntitySet Name="t_ciudad" EntityType="Self.t_ciudad" />
-          <EntitySet Name="t_detalle_venta" EntityType="Self.t_detalle_venta" />
-          <EntitySet Name="t_notificaciones" EntityType="Self.t_notificaciones" />
-          <EntitySet Name="t_pedido" EntityType="Self.t_pedido" />
-          <EntitySet Name="t_persona" EntityType="Self.t_persona" />
-          <EntitySet Name="t_producto" EntityType="Self.t_producto" />
-          <EntitySet Name="t_usuario" EntityType="Self.t_usuario" />
-          <EntitySet Name="t_venta" EntityType="Self.t_venta" />
-          <AssociationSet Name="FK__t_product__cat_i__45F365D3" Association="Self.FK__t_product__cat_i__45F365D3">
-            <End Role="t_categoria" EntitySet="t_categoria" />
-            <End Role="t_producto" EntitySet="t_producto" />
-          </AssociationSet>
-          <AssociationSet Name="FK__t_persona__ciu_i__38996AB5" Association="Self.FK__t_persona__ciu_i__38996AB5">
-            <End Role="t_ciudad" EntitySet="t_ciudad" />
-            <End Role="t_persona" EntitySet="t_persona" />
-          </AssociationSet>
+        <EntityContainer Name="VENTAS_DBModelStoreContainer">
+          <EntitySet Name="t_categoria" EntityType="Self.t_categoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_ciudad" EntityType="Self.t_ciudad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_detalle_venta" EntityType="Self.t_detalle_venta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_notificaciones" EntityType="Self.t_notificaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_pedido" EntityType="Self.t_pedido" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_persona" EntityType="Self.t_persona" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_producto" EntityType="Self.t_producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_usuario" EntityType="Self.t_usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_venta" EntityType="Self.t_venta" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__t_detalle__pro_i__49C3F6B7" Association="Self.FK__t_detalle__pro_i__49C3F6B7">
             <End Role="t_producto" EntitySet="t_producto" />
             <End Role="t_detalle_venta" EntitySet="t_detalle_venta" />
@@ -524,6 +241,14 @@
             <End Role="t_producto" EntitySet="t_producto" />
             <End Role="t_pedido" EntitySet="t_pedido" />
           </AssociationSet>
+          <AssociationSet Name="FK__t_persona__ciu_i__38996AB5" Association="Self.FK__t_persona__ciu_i__38996AB5">
+            <End Role="t_ciudad" EntitySet="t_ciudad" />
+            <End Role="t_persona" EntitySet="t_persona" />
+          </AssociationSet>
+          <AssociationSet Name="FK__t_product__cat_i__45F365D3" Association="Self.FK__t_product__cat_i__45F365D3">
+            <End Role="t_categoria" EntitySet="t_categoria" />
+            <End Role="t_producto" EntitySet="t_producto" />
+          </AssociationSet>
           <AssociationSet Name="FK__t_venta__per_id__403A8C7D" Association="Self.FK__t_venta__per_id__403A8C7D">
             <End Role="t_persona" EntitySet="t_persona" />
             <End Role="t_venta" EntitySet="t_venta" />
@@ -533,6 +258,281 @@
             <End Role="t_venta" EntitySet="t_venta" />
           </AssociationSet>
         </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VENTAS_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="VENTAS_DBEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="t_categoria" EntityType="VENTAS_DBModel.t_categoria" />
+          <EntitySet Name="t_ciudad" EntityType="VENTAS_DBModel.t_ciudad" />
+          <EntitySet Name="t_detalle_venta" EntityType="VENTAS_DBModel.t_detalle_venta" />
+          <EntitySet Name="t_notificaciones" EntityType="VENTAS_DBModel.t_notificaciones" />
+          <EntitySet Name="t_pedido" EntityType="VENTAS_DBModel.t_pedido" />
+          <EntitySet Name="t_persona" EntityType="VENTAS_DBModel.t_persona" />
+          <EntitySet Name="t_producto" EntityType="VENTAS_DBModel.t_producto" />
+          <EntitySet Name="t_usuario" EntityType="VENTAS_DBModel.t_usuario" />
+          <EntitySet Name="t_venta" EntityType="VENTAS_DBModel.t_venta" />
+          <AssociationSet Name="FK__t_product__cat_i__45F365D3" Association="VENTAS_DBModel.FK__t_product__cat_i__45F365D3">
+            <End Role="t_categoria" EntitySet="t_categoria" />
+            <End Role="t_producto" EntitySet="t_producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__t_persona__ciu_i__38996AB5" Association="VENTAS_DBModel.FK__t_persona__ciu_i__38996AB5">
+            <End Role="t_ciudad" EntitySet="t_ciudad" />
+            <End Role="t_persona" EntitySet="t_persona" />
+          </AssociationSet>
+          <AssociationSet Name="FK__t_detalle__pro_i__49C3F6B7" Association="VENTAS_DBModel.FK__t_detalle__pro_i__49C3F6B7">
+            <End Role="t_producto" EntitySet="t_producto" />
+            <End Role="t_detalle_venta" EntitySet="t_detalle_venta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__t_detalle__ven_i__48CFD27E" Association="VENTAS_DBModel.FK__t_detalle__ven_i__48CFD27E">
+            <End Role="t_venta" EntitySet="t_venta" />
+            <End Role="t_detalle_venta" EntitySet="t_detalle_venta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__t_notific__per_i__3B75D760" Association="VENTAS_DBModel.FK__t_notific__per_i__3B75D760">
+            <End Role="t_persona" EntitySet="t_persona" />
+            <End Role="t_notificaciones" EntitySet="t_notificaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__t_pedido__per_id__4D94879B" Association="VENTAS_DBModel.FK__t_pedido__per_id__4D94879B">
+            <End Role="t_persona" EntitySet="t_persona" />
+            <End Role="t_pedido" EntitySet="t_pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK__t_pedido__pro_id__4CA06362" Association="VENTAS_DBModel.FK__t_pedido__pro_id__4CA06362">
+            <End Role="t_producto" EntitySet="t_producto" />
+            <End Role="t_pedido" EntitySet="t_pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK__t_venta__per_id__403A8C7D" Association="VENTAS_DBModel.FK__t_venta__per_id__403A8C7D">
+            <End Role="t_persona" EntitySet="t_persona" />
+            <End Role="t_venta" EntitySet="t_venta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__t_venta__usu_id__412EB0B6" Association="VENTAS_DBModel.FK__t_venta__usu_id__412EB0B6">
+            <End Role="t_usuario" EntitySet="t_usuario" />
+            <End Role="t_venta" EntitySet="t_venta" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="t_categoria">
+          <Key>
+            <PropertyRef Name="cat_id" />
+          </Key>
+          <Property Name="cat_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cat_nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="t_producto" Relationship="VENTAS_DBModel.FK__t_product__cat_i__45F365D3" FromRole="t_categoria" ToRole="t_producto" />
+        </EntityType>
+        <EntityType Name="t_ciudad">
+          <Key>
+            <PropertyRef Name="ciu_id" />
+          </Key>
+          <Property Name="ciu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ciu_nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ciu_depto" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="t_persona" Relationship="VENTAS_DBModel.FK__t_persona__ciu_i__38996AB5" FromRole="t_ciudad" ToRole="t_persona" />
+        </EntityType>
+        <EntityType Name="t_detalle_venta">
+          <Key>
+            <PropertyRef Name="det_id" />
+          </Key>
+          <Property Name="det_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ven_id" Type="Int32" />
+          <Property Name="pro_id" Type="Int32" />
+          <Property Name="det_cantidad" Type="Int32" />
+          <Property Name="det_productos_vendidos" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="det_valor_total" Type="Int64" />
+          <NavigationProperty Name="t_producto" Relationship="VENTAS_DBModel.FK__t_detalle__pro_i__49C3F6B7" FromRole="t_detalle_venta" ToRole="t_producto" />
+          <NavigationProperty Name="t_venta" Relationship="VENTAS_DBModel.FK__t_detalle__ven_i__48CFD27E" FromRole="t_detalle_venta" ToRole="t_venta" />
+        </EntityType>
+        <EntityType Name="t_notificaciones">
+          <Key>
+            <PropertyRef Name="not_id" />
+          </Key>
+          <Property Name="not_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="per_id" Type="Int32" />
+          <Property Name="not_fecha" Type="DateTime" Precision="0" />
+          <Property Name="not_descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="t_persona" Relationship="VENTAS_DBModel.FK__t_notific__per_i__3B75D760" FromRole="t_notificaciones" ToRole="t_persona" />
+        </EntityType>
+        <EntityType Name="t_pedido">
+          <Key>
+            <PropertyRef Name="ped_id" />
+          </Key>
+          <Property Name="ped_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pro_id" Type="Int32" />
+          <Property Name="per_id" Type="Int32" />
+          <Property Name="ped_cant_solicitada" Type="Int32" />
+          <Property Name="ped_cant_entregada" Type="Int32" />
+          <Property Name="ped_fecha" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="t_persona" Relationship="VENTAS_DBModel.FK__t_pedido__per_id__4D94879B" FromRole="t_pedido" ToRole="t_persona" />
+          <NavigationProperty Name="t_producto" Relationship="VENTAS_DBModel.FK__t_pedido__pro_id__4CA06362" FromRole="t_pedido" ToRole="t_producto" />
+        </EntityType>
+        <EntityType Name="t_persona">
+          <Key>
+            <PropertyRef Name="per_id" />
+          </Key>
+          <Property Name="per_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ciu_id" Type="Int32" />
+          <Property Name="per_nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="per_direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="per_telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="per_cuenta_bancaria" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="per_correo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="per_nit" Type="Int32" />
+          <Property Name="per_tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="per_tipo_documento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="per_tipo_cuenta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="t_ciudad" Relationship="VENTAS_DBModel.FK__t_persona__ciu_i__38996AB5" FromRole="t_persona" ToRole="t_ciudad" />
+          <NavigationProperty Name="t_notificaciones" Relationship="VENTAS_DBModel.FK__t_notific__per_i__3B75D760" FromRole="t_persona" ToRole="t_notificaciones" />
+          <NavigationProperty Name="t_pedido" Relationship="VENTAS_DBModel.FK__t_pedido__per_id__4D94879B" FromRole="t_persona" ToRole="t_pedido" />
+          <NavigationProperty Name="t_venta" Relationship="VENTAS_DBModel.FK__t_venta__per_id__403A8C7D" FromRole="t_persona" ToRole="t_venta" />
+        </EntityType>
+        <EntityType Name="t_producto">
+          <Key>
+            <PropertyRef Name="pro_id" />
+          </Key>
+          <Property Name="pro_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cat_id" Type="Int32" />
+          <Property Name="pro_nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pro_descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="pro_valor_unitario" Type="Int32" />
+          <Property Name="pro_stock" Type="Int32" />
+          <Property Name="pro_url_img" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="pro_estado" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="t_categoria" Relationship="VENTAS_DBModel.FK__t_product__cat_i__45F365D3" FromRole="t_producto" ToRole="t_categoria" />
+          <NavigationProperty Name="t_detalle_venta" Relationship="VENTAS_DBModel.FK__t_detalle__pro_i__49C3F6B7" FromRole="t_producto" ToRole="t_detalle_venta" />
+          <NavigationProperty Name="t_pedido" Relationship="VENTAS_DBModel.FK__t_pedido__pro_id__4CA06362" FromRole="t_producto" ToRole="t_pedido" />
+        </EntityType>
+        <EntityType Name="t_usuario">
+          <Key>
+            <PropertyRef Name="usu_id" />
+          </Key>
+          <Property Name="usu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usu_nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="usu_contrasenia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="usu_rol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="usu_sesion_activa" Type="Boolean" />
+          <Property Name="usu_correo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="t_venta" Relationship="VENTAS_DBModel.FK__t_venta__usu_id__412EB0B6" FromRole="t_usuario" ToRole="t_venta" />
+        </EntityType>
+        <EntityType Name="t_venta">
+          <Key>
+            <PropertyRef Name="ven_id" />
+          </Key>
+          <Property Name="ven_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="per_id" Type="Int32" />
+          <Property Name="usu_id" Type="Int32" />
+          <Property Name="ven_fecha" Type="DateTime" Precision="0" />
+          <Property Name="ven_metodo_pago" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ven_total" Type="Int64" />
+          <Property Name="ven_numero_transaccion" Type="Int64" />
+          <NavigationProperty Name="t_detalle_venta" Relationship="VENTAS_DBModel.FK__t_detalle__ven_i__48CFD27E" FromRole="t_venta" ToRole="t_detalle_venta" />
+          <NavigationProperty Name="t_persona" Relationship="VENTAS_DBModel.FK__t_venta__per_id__403A8C7D" FromRole="t_venta" ToRole="t_persona" />
+          <NavigationProperty Name="t_usuario" Relationship="VENTAS_DBModel.FK__t_venta__usu_id__412EB0B6" FromRole="t_venta" ToRole="t_usuario" />
+        </EntityType>
+        <Association Name="FK__t_product__cat_i__45F365D3">
+          <End Type="VENTAS_DBModel.t_categoria" Role="t_categoria" Multiplicity="0..1" />
+          <End Type="VENTAS_DBModel.t_producto" Role="t_producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_categoria">
+              <PropertyRef Name="cat_id" />
+            </Principal>
+            <Dependent Role="t_producto">
+              <PropertyRef Name="cat_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__t_persona__ciu_i__38996AB5">
+          <End Type="VENTAS_DBModel.t_ciudad" Role="t_ciudad" Multiplicity="0..1" />
+          <End Type="VENTAS_DBModel.t_persona" Role="t_persona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_ciudad">
+              <PropertyRef Name="ciu_id" />
+            </Principal>
+            <Dependent Role="t_persona">
+              <PropertyRef Name="ciu_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__t_detalle__pro_i__49C3F6B7">
+          <End Type="VENTAS_DBModel.t_producto" Role="t_producto" Multiplicity="0..1" />
+          <End Type="VENTAS_DBModel.t_detalle_venta" Role="t_detalle_venta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_producto">
+              <PropertyRef Name="pro_id" />
+            </Principal>
+            <Dependent Role="t_detalle_venta">
+              <PropertyRef Name="pro_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__t_detalle__ven_i__48CFD27E">
+          <End Type="VENTAS_DBModel.t_venta" Role="t_venta" Multiplicity="0..1" />
+          <End Type="VENTAS_DBModel.t_detalle_venta" Role="t_detalle_venta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_venta">
+              <PropertyRef Name="ven_id" />
+            </Principal>
+            <Dependent Role="t_detalle_venta">
+              <PropertyRef Name="ven_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__t_notific__per_i__3B75D760">
+          <End Type="VENTAS_DBModel.t_persona" Role="t_persona" Multiplicity="0..1" />
+          <End Type="VENTAS_DBModel.t_notificaciones" Role="t_notificaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_persona">
+              <PropertyRef Name="per_id" />
+            </Principal>
+            <Dependent Role="t_notificaciones">
+              <PropertyRef Name="per_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__t_pedido__per_id__4D94879B">
+          <End Type="VENTAS_DBModel.t_persona" Role="t_persona" Multiplicity="0..1" />
+          <End Type="VENTAS_DBModel.t_pedido" Role="t_pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_persona">
+              <PropertyRef Name="per_id" />
+            </Principal>
+            <Dependent Role="t_pedido">
+              <PropertyRef Name="per_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__t_pedido__pro_id__4CA06362">
+          <End Type="VENTAS_DBModel.t_producto" Role="t_producto" Multiplicity="0..1" />
+          <End Type="VENTAS_DBModel.t_pedido" Role="t_pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_producto">
+              <PropertyRef Name="pro_id" />
+            </Principal>
+            <Dependent Role="t_pedido">
+              <PropertyRef Name="pro_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__t_venta__per_id__403A8C7D">
+          <End Type="VENTAS_DBModel.t_persona" Role="t_persona" Multiplicity="0..1" />
+          <End Type="VENTAS_DBModel.t_venta" Role="t_venta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_persona">
+              <PropertyRef Name="per_id" />
+            </Principal>
+            <Dependent Role="t_venta">
+              <PropertyRef Name="per_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__t_venta__usu_id__412EB0B6">
+          <End Type="VENTAS_DBModel.t_usuario" Role="t_usuario" Multiplicity="0..1" />
+          <End Type="VENTAS_DBModel.t_venta" Role="t_venta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_usuario">
+              <PropertyRef Name="usu_id" />
+            </Principal>
+            <Dependent Role="t_venta">
+              <PropertyRef Name="usu_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -542,51 +542,51 @@
           <EntitySetMapping Name="t_categoria">
             <EntityTypeMapping TypeName="VENTAS_DBModel.t_categoria">
               <MappingFragment StoreEntitySet="t_categoria">
-                <ScalarProperty Name="cat_id" ColumnName="cat_id" />
                 <ScalarProperty Name="cat_nombre" ColumnName="cat_nombre" />
+                <ScalarProperty Name="cat_id" ColumnName="cat_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="t_ciudad">
             <EntityTypeMapping TypeName="VENTAS_DBModel.t_ciudad">
               <MappingFragment StoreEntitySet="t_ciudad">
-                <ScalarProperty Name="ciu_id" ColumnName="ciu_id" />
-                <ScalarProperty Name="ciu_nombre" ColumnName="ciu_nombre" />
                 <ScalarProperty Name="ciu_depto" ColumnName="ciu_depto" />
+                <ScalarProperty Name="ciu_nombre" ColumnName="ciu_nombre" />
+                <ScalarProperty Name="ciu_id" ColumnName="ciu_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="t_detalle_venta">
             <EntityTypeMapping TypeName="VENTAS_DBModel.t_detalle_venta">
               <MappingFragment StoreEntitySet="t_detalle_venta">
-                <ScalarProperty Name="det_id" ColumnName="det_id" />
-                <ScalarProperty Name="ven_id" ColumnName="ven_id" />
-                <ScalarProperty Name="pro_id" ColumnName="pro_id" />
-                <ScalarProperty Name="det_cantidad" ColumnName="det_cantidad" />
-                <ScalarProperty Name="det_productos_vendidos" ColumnName="det_productos_vendidos" />
                 <ScalarProperty Name="det_valor_total" ColumnName="det_valor_total" />
+                <ScalarProperty Name="det_productos_vendidos" ColumnName="det_productos_vendidos" />
+                <ScalarProperty Name="det_cantidad" ColumnName="det_cantidad" />
+                <ScalarProperty Name="pro_id" ColumnName="pro_id" />
+                <ScalarProperty Name="ven_id" ColumnName="ven_id" />
+                <ScalarProperty Name="det_id" ColumnName="det_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="t_notificaciones">
             <EntityTypeMapping TypeName="VENTAS_DBModel.t_notificaciones">
               <MappingFragment StoreEntitySet="t_notificaciones">
-                <ScalarProperty Name="not_id" ColumnName="not_id" />
-                <ScalarProperty Name="per_id" ColumnName="per_id" />
-                <ScalarProperty Name="not_fecha" ColumnName="not_fecha" />
                 <ScalarProperty Name="not_descripcion" ColumnName="not_descripcion" />
+                <ScalarProperty Name="not_fecha" ColumnName="not_fecha" />
+                <ScalarProperty Name="per_id" ColumnName="per_id" />
+                <ScalarProperty Name="not_id" ColumnName="not_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="t_pedido">
             <EntityTypeMapping TypeName="VENTAS_DBModel.t_pedido">
               <MappingFragment StoreEntitySet="t_pedido">
-                <ScalarProperty Name="ped_id" ColumnName="ped_id" />
-                <ScalarProperty Name="pro_id" ColumnName="pro_id" />
-                <ScalarProperty Name="per_id" ColumnName="per_id" />
-                <ScalarProperty Name="ped_cant_solicitada" ColumnName="ped_cant_solicitada" />
-                <ScalarProperty Name="ped_cant_entregada" ColumnName="ped_cant_entregada" />
                 <ScalarProperty Name="ped_fecha" ColumnName="ped_fecha" />
+                <ScalarProperty Name="ped_cant_entregada" ColumnName="ped_cant_entregada" />
+                <ScalarProperty Name="ped_cant_solicitada" ColumnName="ped_cant_solicitada" />
+                <ScalarProperty Name="per_id" ColumnName="per_id" />
+                <ScalarProperty Name="pro_id" ColumnName="pro_id" />
+                <ScalarProperty Name="ped_id" ColumnName="ped_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -595,15 +595,15 @@
               <MappingFragment StoreEntitySet="t_persona">
                 <ScalarProperty Name="per_tipo_cuenta" ColumnName="per_tipo_cuenta" />
                 <ScalarProperty Name="per_tipo_documento" ColumnName="per_tipo_documento" />
-                <ScalarProperty Name="per_id" ColumnName="per_id" />
-                <ScalarProperty Name="ciu_id" ColumnName="ciu_id" />
-                <ScalarProperty Name="per_nombre" ColumnName="per_nombre" />
-                <ScalarProperty Name="per_direccion" ColumnName="per_direccion" />
-                <ScalarProperty Name="per_telefono" ColumnName="per_telefono" />
-                <ScalarProperty Name="per_cuenta_bancaria" ColumnName="per_cuenta_bancaria" />
-                <ScalarProperty Name="per_correo" ColumnName="per_correo" />
-                <ScalarProperty Name="per_nit" ColumnName="per_nit" />
                 <ScalarProperty Name="per_tipo" ColumnName="per_tipo" />
+                <ScalarProperty Name="per_nit" ColumnName="per_nit" />
+                <ScalarProperty Name="per_correo" ColumnName="per_correo" />
+                <ScalarProperty Name="per_cuenta_bancaria" ColumnName="per_cuenta_bancaria" />
+                <ScalarProperty Name="per_telefono" ColumnName="per_telefono" />
+                <ScalarProperty Name="per_direccion" ColumnName="per_direccion" />
+                <ScalarProperty Name="per_nombre" ColumnName="per_nombre" />
+                <ScalarProperty Name="ciu_id" ColumnName="ciu_id" />
+                <ScalarProperty Name="per_id" ColumnName="per_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -612,37 +612,37 @@
               <MappingFragment StoreEntitySet="t_producto">
                 <ScalarProperty Name="pro_estado" ColumnName="pro_estado" />
                 <ScalarProperty Name="pro_url_img" ColumnName="pro_url_img" />
-                <ScalarProperty Name="pro_id" ColumnName="pro_id" />
-                <ScalarProperty Name="cat_id" ColumnName="cat_id" />
-                <ScalarProperty Name="pro_nombre" ColumnName="pro_nombre" />
-                <ScalarProperty Name="pro_descripcion" ColumnName="pro_descripcion" />
-                <ScalarProperty Name="pro_valor_unitario" ColumnName="pro_valor_unitario" />
                 <ScalarProperty Name="pro_stock" ColumnName="pro_stock" />
+                <ScalarProperty Name="pro_valor_unitario" ColumnName="pro_valor_unitario" />
+                <ScalarProperty Name="pro_descripcion" ColumnName="pro_descripcion" />
+                <ScalarProperty Name="pro_nombre" ColumnName="pro_nombre" />
+                <ScalarProperty Name="cat_id" ColumnName="cat_id" />
+                <ScalarProperty Name="pro_id" ColumnName="pro_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="t_usuario">
             <EntityTypeMapping TypeName="VENTAS_DBModel.t_usuario">
               <MappingFragment StoreEntitySet="t_usuario">
-                <ScalarProperty Name="usu_id" ColumnName="usu_id" />
-                <ScalarProperty Name="usu_nombre" ColumnName="usu_nombre" />
-                <ScalarProperty Name="usu_contrasenia" ColumnName="usu_contrasenia" />
-                <ScalarProperty Name="usu_rol" ColumnName="usu_rol" />
-                <ScalarProperty Name="usu_sesion_activa" ColumnName="usu_sesion_activa" />
                 <ScalarProperty Name="usu_correo" ColumnName="usu_correo" />
+                <ScalarProperty Name="usu_sesion_activa" ColumnName="usu_sesion_activa" />
+                <ScalarProperty Name="usu_rol" ColumnName="usu_rol" />
+                <ScalarProperty Name="usu_contrasenia" ColumnName="usu_contrasenia" />
+                <ScalarProperty Name="usu_nombre" ColumnName="usu_nombre" />
+                <ScalarProperty Name="usu_id" ColumnName="usu_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="t_venta">
             <EntityTypeMapping TypeName="VENTAS_DBModel.t_venta">
               <MappingFragment StoreEntitySet="t_venta">
-                <ScalarProperty Name="ven_id" ColumnName="ven_id" />
-                <ScalarProperty Name="per_id" ColumnName="per_id" />
-                <ScalarProperty Name="usu_id" ColumnName="usu_id" />
-                <ScalarProperty Name="ven_fecha" ColumnName="ven_fecha" />
-                <ScalarProperty Name="ven_metodo_pago" ColumnName="ven_metodo_pago" />
-                <ScalarProperty Name="ven_total" ColumnName="ven_total" />
                 <ScalarProperty Name="ven_numero_transaccion" ColumnName="ven_numero_transaccion" />
+                <ScalarProperty Name="ven_total" ColumnName="ven_total" />
+                <ScalarProperty Name="ven_metodo_pago" ColumnName="ven_metodo_pago" />
+                <ScalarProperty Name="ven_fecha" ColumnName="ven_fecha" />
+                <ScalarProperty Name="usu_id" ColumnName="usu_id" />
+                <ScalarProperty Name="per_id" ColumnName="per_id" />
+                <ScalarProperty Name="ven_id" ColumnName="ven_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -104,3 +104,19 @@ td:last-child {
     background-color: #390063 !important;
 }
 
+#MyTableHead {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    #MyTableHead thead th {
+        text-align: center;
+        padding: 10px;
+        border: 1px solid #ddd;
+    }
+
+    #MyTableHead tbody td {
+        text-align: center;
+        padding: 10px;
+        border: 1px solid #ddd;
+    }
