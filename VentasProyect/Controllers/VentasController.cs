@@ -175,7 +175,7 @@ namespace VentasProyect.Controllers
                     var newData = new Models.Ventas.Ventas
                     {
                         ven_id = 0,
-                        per_id = 7,
+                        per_id = 1,
                         usu_id = 1,
                         ven_fecha = fechaActual,
                         ven_metodo_pago = "CONTADO",
