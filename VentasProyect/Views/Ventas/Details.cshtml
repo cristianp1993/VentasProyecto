@@ -1,0 +1,80 @@
+﻿@model VentasProyect.Models.Ventas.VentaConDetalle
+
+@{
+    ViewBag.Title = "Detalle Venta";
+}
+
+@Styles.Render("~/tables")
+
+<h2>Ventas</h2>
+
+<div class="col-md-12 table-style">
+    <div class="container-buttom">
+            <a href="@Url.Action("Index", "Ventas")" class="btn btn-default btn-add-form">
+                <span class="icon-logout">Regresar</span>
+                <span class="material-symbols-outlined">
+                    add
+                </span>
+            </a>
+        </div>
+
+    <h1>Detalle de Venta</h1>
+    @if (Model != null && Model.head != null)
+    {
+        <table id="MyTableHead">
+            <thead>
+                <tr>
+                    <th>ID Venta</th>
+                    <th>Fecha</th>
+                    <th>Metodo de Pago</th>
+                    <th>Valor Total</th>
+                    <th>Nro. Transacción</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td>@Model.head.ven_id</td>
+                    <td>@Model.head.ven_fecha</td>
+                    <td>@Model.head.ven_metodo_pago</td>
+                    <td>@Model.head.ven_total</td>
+                    <td>@Model.head.ven_numero_transaccion</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <h2>Detalle de Productos</h2>
+        <table id="MyTable">
+            <thead>
+                <tr>
+                    <th>ID Producto</th>
+                    <th>Nombre</th>
+                    <th>Cantidad</th>
+                    <th>Valor Total</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var detalle in Model.detail)
+                {
+                    <tr>
+                        <td>@detalle.pro_id</td>
+                        <td>@detalle.pro_nombre</td>
+                        <td>@detalle.det_cantidad</td>
+                        <td>@detalle.det_valor_total</td>
+
+                    </tr>
+                }
+            </tbody>
+        </table> }
+    else
+    {
+        <p>No se encontraron datos para mostrar.</p>
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/TableScript")
+}
+

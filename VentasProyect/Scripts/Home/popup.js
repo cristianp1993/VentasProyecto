@@ -1,51 +1,57 @@
 (function () {
     const arrayProducts = [];
     let productTemp;
-
-
+    let addCartListenerAdded = false;
+    let quantityEventListenersAdded = false;
+    let flagIncreasing = false;
     function tallCards() {
         const cards = document.querySelectorAll(".product-card");
         let maxHeight = 0;
 
-        //Se busca la altura maxima de las tarjeta
         cards.forEach((card) => {
             const height = card.offsetHeight;
             maxHeight = height > maxHeight ? height : maxHeight;
         });
 
-        //Se actualiza la altura de lamas grande a todas
         cards.forEach((card) => {
             card.style.height = `${maxHeight}px`;
         });
     }
-    tallCards()
-    function bindEvents() {
-        document.querySelectorAll('.increase-quantity').forEach(function (element) {
-            element.removeEventListener('click', increaseQuantity);
-            element.addEventListener('click', increaseQuantity);
-        });
+    tallCards();
 
-        document.querySelectorAll('.decrease-quantity').forEach(function (element) {
-            element.removeEventListener('click', decreaseQuantity);
-            element.addEventListener('click', decreaseQuantity);
-        });
+    function bindEvents() {
+        if (!quantityEventListenersAdded) {
+            document.querySelectorAll('.increase-quantity').forEach(function (element) {
+                element.addEventListener('click', increaseQuantity);
+            });
+
+            document.querySelectorAll('.decrease-quantity').forEach(function (element) {
+                element.addEventListener('click', decreaseQuantity);
+            });
+
+            quantityEventListenersAdded = true; 
+        }
     }
 
     function increaseQuantity() {
-        let quantity = parseInt(document.getElementById('quantity').value);
+        let quantityElement = document.getElementById('quantity');
+        let quantity = parseInt(quantityElement.value);
         let stock = parseInt(document.getElementById('popup-product-stock').textContent);
         if (quantity < stock) {
-            document.getElementById('quantity').value = quantity + 1;
+            quantityElement.value = quantity + 1;
         }
-        productTemp.pro_cantidad = document.getElementById('quantity').value;
+        productTemp.pro_cantidad = quantityElement.value;
+        console.log(`Increased quantity to ${productTemp.pro_cantidad}`);
     }
 
     function decreaseQuantity() {
-        let quantity = parseInt(document.getElementById('quantity').value);
+        let quantityElement = document.getElementById('quantity');
+        let quantity = parseInt(quantityElement.value);
         if (quantity > 1) {
-            document.getElementById('quantity').value = quantity - 1;
+            quantityElement.value = quantity - 1;
         }
-        productTemp.pro_cantidad = document.getElementById('quantity').value;
+        productTemp.pro_cantidad = quantityElement.value;
+        console.log(`Decreased quantity to ${productTemp.pro_cantidad}`);
     }
 
     document.querySelectorAll('.open-popup').forEach(function (element) {
@@ -104,25 +110,25 @@
         });
     }
 
-    bindEvents();
+    if (!addCartListenerAdded) {
+        document.getElementById('add-to-cart').addEventListener('click', function () {
+            document.getElementById('product-popup').style.display = 'none';
 
-    document.getElementById('add-to-cart').addEventListener('click', function () {
-        document.getElementById('product-popup').style.display = 'none';
+            const existingProduct = arrayProducts.find(product => product.pro_nombre === productTemp.pro_nombre);
+            if (existingProduct) {
+                existingProduct.pro_cantidad = parseInt(existingProduct.pro_cantidad) + parseInt(productTemp.pro_cantidad);
+            } else {
+                const productToAdd = { ...productTemp };
+                arrayProducts.push(productToAdd);
+            }
 
-        // Check if the product is already in the array
-        const existingProduct = arrayProducts.find(product => product.pro_nombre === productTemp.pro_nombre);
-        if (existingProduct) {
-            existingProduct.pro_cantidad = parseInt(existingProduct.pro_cantidad) + parseInt(productTemp.pro_cantidad);
-        } else {
-            const productToAdd = { ...productTemp };
-            arrayProducts.push(productToAdd);
-        }
+            console.log(arrayProducts);
 
-        console.log(arrayProducts);
+            renderCart();
+        });
 
-        renderCart();
-    });
-
+        addCartListenerAdded = true; // Set the flag to true after adding the listener
+    }
 
     document.querySelectorAll('.closePopupButton').forEach(function (element) {
         element.addEventListener('click', function () {
@@ -139,8 +145,8 @@
         arrayProducts.forEach(function (product) {
             const productItem = document.createElement('div');
             productItem.className = 'product-item';
-            productItem.style.display = 'flex'; 
-            productItem.style.alignItems = 'center'; 
+            productItem.style.display = 'flex';
+            productItem.style.alignItems = 'center';
             productItem.style.marginBottom = '20px';
             productItem.innerHTML = `
                 <div style="margin-right:25px">
@@ -159,17 +165,50 @@
         popupSale.style.display = 'block';
     }
 
+    let isRedirected = false;
 
     document.getElementById("end-Sale-Btn").addEventListener('click', async function () {
-
         if (arrayProducts.length > 0) {
+            const encodedProducts = JSON.stringify(arrayProducts);
 
-            const encodedProducts = encodeURIComponent(JSON.stringify(arrayProducts));
+            try {
+                const response = await fetch('/Ventas/MakeSale', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ dataProduct: encodedProducts })
+                });
 
-            const baseURL = "Ventas/MakeSale?dataProduct=" + encodedProducts;
-
-            window.open(baseURL, "_self");
-           
+                if (response.ok) {
+                    const result = await response.json();
+                    if (result.success) {
+                        const redirectUrl = result.redirectUrl + '?productos=' + encodeURIComponent(result.productos);
+                        if (!isRedirected) {
+                            isRedirected = true;
+                            window.location.href = redirectUrl;
+                        }
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'No se recibió una URL de redirección válida.'
+                        });
+                    }
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Ocurrió un error al procesar la venta.'
+                    });
+                }
+            } catch (error) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Ocurrió un error al procesar la venta.'
+                });
+            }
         } else {
             Swal.fire({
                 icon: 'warning',
@@ -177,8 +216,5 @@
                 text: 'Por favor, seleccione al menos un producto antes de proceder a la compra.'
             });
         }
-            
-    })
-
-    
+    });
 })();

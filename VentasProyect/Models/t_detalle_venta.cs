@@ -19,7 +19,7 @@ namespace VentasProyect.Models
         public Nullable<int> pro_id { get; set; }
         public Nullable<int> det_cantidad { get; set; }
         public string det_productos_vendidos { get; set; }
-        public Nullable<int> det_valor_total { get; set; }
+        public Nullable<long> det_valor_total { get; set; }
     
         public virtual t_producto t_producto { get; set; }
         public virtual t_venta t_venta { get; set; }

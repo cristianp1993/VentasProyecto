@@ -14,7 +14,13 @@ namespace VentasProyect.Models.Ventas
         public string usu_nombre { get; set; }
         public Nullable<System.DateTime> ven_fecha { get; set; }
         public string ven_metodo_pago { get; set; }
-        public Nullable<int> ven_total { get; set; }
-        public Nullable<int> ven_numero_transaccion { get; set; }
+        public long ven_total { get; set; }
+        public long ven_numero_transaccion { get; set; }
     }
+
+    public class VentaConDetalle
+    {
+        public Ventas head {get; set;}
+        public IEnumerable<DetalleVenta> detail {get; set;}
+    } 
 }
