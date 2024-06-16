@@ -53,19 +53,32 @@
                     <th>Nombre</th>
                     <th>Cantidad</th>
                     <th>Valor Total</th>
+                    <th></th>
 
                 </tr>
             </thead>
             <tbody>
                 @foreach (var detalle in Model.detail)
                 {
-                    <tr>
-                        <td>@detalle.pro_id</td>
-                        <td>@detalle.pro_nombre</td>
-                        <td>@detalle.det_cantidad</td>
-                        <td>@detalle.det_valor_total</td>
-
-                    </tr>
+                <tr>
+                    <td>@detalle.pro_id</td>
+                    <td>@detalle.pro_nombre</td>
+                    <td>@detalle.det_cantidad</td>
+                    <td>@detalle.det_valor_total</td>
+                    <td>
+                        <a href="@Url.Action("EditProduct", "Ventas", new { id = detalle.pro_id })">
+                            <span class="material-symbols-outlined icon-actions-table">
+                                edit_square
+                            </span>
+                        </a>
+                        <a href="@Url.Action("DeleteProduct", "Ventas", new { id = detalle.pro_id })">
+                            <span class="material-symbols-outlined icon-actions-table">
+                                delete
+                            </span>
+                        </a>
+                    </td>
+                    
+                </tr>
                 }
             </tbody>
         </table> }

@@ -442,6 +442,8 @@
     <Content Include="Views\Ventas\Edit.cshtml" />
     <Content Include="Views\Ventas\Details.cshtml" />
     <Content Include="Views\Reportes\Index.cshtml" />
+    <Content Include="Views\Ventas\EditProduct.cshtml" />
+    <Content Include="Views\Ventas\DeleteProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -230,3 +230,71 @@ WHERE NOT EXISTS (
 /*UPDATE t_producto
 SET cat_id = 6 WHERE pro_id = 7
 */
+
+
+CREATE OR ALTER TRIGGER trg_AfterDeleteDetalleVenta
+ON t_detalle_venta
+AFTER DELETE
+AS
+BEGIN
+    -- Variables para almacenar el ven_id y la suma del det_valor_total
+    DECLARE @ven_id INT;
+    DECLARE @new_total BIGINT;
+
+    -- Obtiene el ven_id del registro eliminado
+    SELECT @ven_id = deleted.ven_id
+    FROM deleted;
+
+    -- Calcula la suma del det_valor_total de los registros restantes con el mismo ven_id
+    SELECT @new_total = SUM(det_valor_total)
+    FROM t_detalle_venta
+    WHERE ven_id = @ven_id;
+
+    -- Si no hay registros restantes, establece la suma en 0
+    IF @new_total IS NULL
+    BEGIN
+        SET @new_total = 0;
+    END
+
+    -- Actualiza el campo ven_total en la tabla t_venta
+    UPDATE t_venta
+    SET ven_total = @new_total
+    WHERE ven_id = @ven_id;
+END;
+GO
+
+
+CREATE OR ALTER TRIGGER trg_AfterUpdateDetalleVenta
+ON t_detalle_venta
+AFTER UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Tabla temporal para almacenar los ven_id afectados
+    DECLARE @ven_id_table TABLE (ven_id INT);
+
+    -- Actualizar el campo det_valor_total basado en la nueva cantidad
+    UPDATE dv
+    SET dv.det_valor_total = dv.det_cantidad * p.pro_valor_unitario
+    FROM t_detalle_venta dv
+    JOIN t_producto p ON dv.pro_id = p.pro_id
+    JOIN inserted i ON dv.det_id = i.det_id;
+
+    -- Insertar los ven_id afectados en la tabla temporal
+    INSERT INTO @ven_id_table (ven_id)
+    SELECT DISTINCT i.ven_id
+    FROM inserted i;
+
+    -- Actualizar el campo ven_total en la tabla t_venta
+    UPDATE v
+    SET v.ven_total = (
+        SELECT SUM(dv.det_valor_total)
+        FROM t_detalle_venta dv
+        WHERE dv.ven_id = v.ven_id
+    )
+    FROM t_venta v
+    JOIN @ven_id_table t ON v.ven_id = t.ven_id;
+END;
+GO
+
