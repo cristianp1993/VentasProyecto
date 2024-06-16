@@ -17,4 +17,10 @@ namespace VentasProyect.Models.Ventas
         public Nullable<long> ven_total { get; set; }
         public Nullable<long> ven_numero_transaccion { get; set; }
     }
+
+    public class VentaConDetalle
+    {
+        public Ventas head { get; set; }
+        public IEnumerable<DetalleVenta> detail { get; set; }
+    }
 }

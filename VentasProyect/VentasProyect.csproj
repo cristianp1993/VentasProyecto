@@ -253,6 +253,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PersonaController.cs" />
     <Compile Include="Controllers\ProductosController.cs" />
+    <Compile Include="Controllers\ReportesController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Controllers\VentasController.cs" />
     <Compile Include="Global.asax.cs">
@@ -277,6 +278,7 @@
     </Compile>
     <Compile Include="Models\Persona\Persona.cs" />
     <Compile Include="Models\Productos\Productos.cs" />
+    <Compile Include="Models\Reportes\Reportes.cs" />
     <Compile Include="Models\t_categoria.cs">
       <DependentUpon>DbContext.tt</DependentUpon>
     </Compile>
@@ -316,6 +318,7 @@
     <Compile Include="Repository\LoginRepository.cs" />
     <Compile Include="Repository\PersonaRepository.cs" />
     <Compile Include="Repository\ProductosRepository.cs" />
+    <Compile Include="Repository\ReportesRepository.cs" />
     <Compile Include="Repository\UsuarioRepository.cs" />
     <Compile Include="Repository\VentasRepository.cs" />
   </ItemGroup>
@@ -438,11 +441,11 @@
     <Content Include="Views\Ventas\Index - Copia.cshtml" />
     <Content Include="Views\Ventas\Edit.cshtml" />
     <Content Include="Views\Ventas\Details.cshtml" />
+    <Content Include="Views\Reportes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Clientes\" />
-    <Folder Include="Views\Reportes\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
