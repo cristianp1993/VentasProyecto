@@ -1,0 +1,99 @@
+﻿@model VentasProyect.Models.Ventas.DetalleVenta
+@{
+    ViewBag.Title = "EditProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Styles.Render("~/Forms")
+<h2>Editar Producto</h2>
+<div class="container-buttom">
+    <a href="@Url.Action("Index", "Ciudad")" class="btn btn-default btn-back">
+        <span class="material-symbols-outlined">
+            arrow_circle_left
+        </span>
+        <span class="icon-logout">Regresar</span>
+    </a>
+</div>
+<div class="form-container">
+
+    <h2>EDITAR PRODUCTO DE VENTA</h2>
+
+    @using (Html.BeginForm("EditProduct", "Ventas", FormMethod.Post))
+    {
+        @Html.HiddenFor(model => model.pro_id)
+        @Html.HiddenFor(model => model.ven_id)
+
+        <div class="row-form">
+            <div class="input-form p-right">
+                @Html.LabelFor(model => model.pro_nombre)
+                <div class="icon-container">
+                    <span class="material-symbols-outlined pos-top">
+                        location_city
+                    </span>
+                    @Html.TextBoxFor(model => model.pro_nombre, new { @class = "form-control", @readonly = "readonly" })
+
+                </div>
+            </div>
+        </div>
+        <div class="row-form">
+            <div class="input-form p-right">
+                @Html.LabelFor(model => model.det_cantidad)
+                <div class="icon-container">
+                    <span class="material-symbols-outlined pos-top">
+                        home_pin
+                    </span>
+                    @Html.TextBoxFor(model => model.det_cantidad, new { @class = "form-control", @id = "quantity",@onchange = "UpdateTotalValue(this.value)" })
+
+                </div>
+            </div>
+        </div>
+        <div class="row-form">
+            <div class="input-form p-right">
+                @Html.LabelFor(model => model.pro_valor_unitario)
+                <div class="icon-container">
+                    <span class="material-symbols-outlined pos-top">
+                        home_pin
+                    </span>
+                    @Html.TextBoxFor(model => model.pro_valor_unitario, new { @class = "form-control", @readonly = "readonly", @id = "unitaryValue" })
+
+                </div>
+            </div>
+        </div>
+        <div class="row-form">
+            <div class="input-form p-right">
+                @Html.LabelFor(model => model.det_valor_total)
+                <div class="icon-container">
+                    <span class="material-symbols-outlined pos-top">
+                        home_pin
+                    </span>
+                    @Html.TextBoxFor(model => model.det_valor_total, new { @class = "form-control", @readonly = "readonly",@id="totalValue" })
+
+                </div>
+            </div>
+        </div>
+
+        <div class="content-button">
+            <div class="container-btn">
+                <button type="submit" class="btn btn-primary">
+                    GUARDAR
+                    <span class="material-symbols-outlined">
+                        source_notes
+                    </span>
+                </button>
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        function UpdateTotalValue(value) {
+            const unitaryValue = document.getElementById("unitaryValue").value;
+            const totalValue = document.getElementById("totalValue");
+           
+
+            if (value !== '' || quantity > 0) {
+                totalValue.value = value * unitaryValue;
+            } 
+        }
+    </script>
+}
