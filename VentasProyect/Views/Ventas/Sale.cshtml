@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<VentasProyect.Models.Productos.Productos>
 @{
     ViewBag.Title = "Realizar Venta";
-    //Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 
     decimal subtotal = 0;
     decimal subtotalProducto = 0;
@@ -24,53 +24,53 @@
         <tbody>
             @foreach (var product in Model)
             {
-            <tr id="product-row-@product.pro_id">
-                <td>@product.pro_id</td>
-                <td>
-                    <img src="@product.pro_url_img" alt="Imagen del producto" width="100" height="100" style="border-radius:10px" />
-                </td>
-                <td>@product.pro_nombre</td>
-                <td>@product.pro_valor_unitario</td>
-                <td>
-                    <div style="display: flex; align-items: center;">
-                        <button type="button" class="decrease-quantity quantity-button" data-product-id="@product.pro_id">-</button>
-                        <span id="product-quantity-@product.pro_id">@product.pro_cantidad</span>
-                        <button type="button" class="increase-quantity quantity-button" data-product-id="@product.pro_id">+</button>
-                    </div>
-                </td>
+                <tr id="product-row-@product.pro_id">
+                    <td>@product.pro_id</td>
+                    <td>
+                        <img src="@product.pro_url_img" alt="Imagen del producto" width="100" height="100" style="border-radius:10px" />
+                    </td>
+                    <td>@product.pro_nombre</td>
+                    <td>@product.pro_valor_unitario</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <button type="button" class="decrease-quantity quantity-button" data-product-id="@product.pro_id">-</button>
+                            <span id="product-quantity-@product.pro_id">@product.pro_cantidad</span>
+                            <button type="button" class="increase-quantity quantity-button" data-product-id="@product.pro_id">+</button>
+                        </div>
+                    </td>
 
-                @{
-                    if (int.TryParse(product.pro_cantidad, out int cantidad))
-                    {
-                        subtotalProducto = cantidad * product.pro_valor_unitario;
-                        subtotal += subtotalProducto;
-                        <td id="subtotal-@product.pro_id">@subtotalProducto</td>
+                    @{
+                        if (int.TryParse(product.pro_cantidad, out int cantidad))
+                        {
+                            subtotalProducto = cantidad * product.pro_valor_unitario;
+                            subtotal += subtotalProducto;
+                            <td id="subtotal-@product.pro_id">@subtotalProducto</td>
+                        }
+                        else
+                        {
+                            <td>0</td>
+                        }
                     }
-                    else
-                    {
-                        <td>0</td>
-                    }
-                }
-                <td align="center" style="cursor:pointer">
-                    <span id="delete-product-@product.pro_id" class="material-symbols-outlined delete-product" data-product-id="@product.pro_id">
-                        delete
-                    </span>
-                </td>
+                    <td align="center" style="cursor:pointer">
+                        <span id="delete-product-@product.pro_id" class="material-symbols-outlined delete-product" data-product-id="@product.pro_id">
+                            delete
+                        </span>
+                    </td>
 
-            </tr>
+                </tr>
             }
         </tbody>
     </table>
     <div class="checkout-container">
         <div class="order-summary">
-            
+
             <div class="payment-information text-left">
                 <h2>Entrega</h2>
                 <div>
                     <label>Ciudad</label>
                     @Html.DropDownList("ciu_idTemp", (IEnumerable<SelectListItem>)ViewBag.Ciudades, null, new { @class = "form-control col-md-3" })
                 </div>
-               
+
             </div>
             <div class="resume-information">
                 <div>
@@ -93,7 +93,56 @@
                     <div class="col-md-12">
                         <button id="btnFinalizarCompra" class="btn btn-primary">Finalizar Compra</button>
                     </div>
-                </div>               
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">CREAR VENTA</h5>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="row">
+                        <div class="row col-6">
+                            <div style="margin-top:3vh" class="mb-3">
+                                <label for="codigoPersona" class="form-label">Documento</label>
+                                <input type="number" class="form-control" id="codigoPersona" placeholder="Nro. documento del comprador">
+                            </div>
+                            <div style="margin-top:3vh" class="mb-3">
+                                <label for="codigoUsuario" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="codigoUsuario" placeholder="Nombre del comprador">
+                            </div>
+                        </div>
+                        <div style="margin-top:3vh" class="row col-6">
+                            <div class="mb-3">
+                                <label for="fechaVenta" class="form-label">Fecha</label>
+                                <input type="date" class="form-control" id="fechaVenta">
+                            </div>
+                            <div style="margin-top:3vh" class="mb-3">
+                                <label for="metodoPago" class="form-label">Metodo de Pago</label>
+                                <div>
+                                    <select class="form-select" id="metodoPago">
+                                        <option value="">Seleccionar</option>
+                                        <option value="CONTADO">CONTADO</option>
+                                        <option value="TARJETA">TARJETA</option>
+                                        <option value="TRANSFERENCIA">TRANSFERENCIA</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top:5vh" class="row mt-3">
+                        <div class="col-12">
+
+                            <button type="button" class="btn btn-success" id="btnCrearVenta">Guardar</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -106,7 +155,17 @@
     @Scripts.Render("~/TableScript")
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
+
+        const btnFinalizarCompra = document.getElementById('btnFinalizarCompra');
+        const exampleModal = $('#exampleModal');
+
+        btnFinalizarCompra.addEventListener('click', () => {
+            exampleModal.modal('show');
+        });
+
+        var today = new Date().toISOString().split('T')[0];
+        document.getElementById('fechaVenta').value = today;
     const arrayProducts = @Html.Raw(Json.Encode(Model));
 
     function updateQuantity(productId, delta) {
@@ -218,18 +277,65 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('btnFinalizarCompra').addEventListener('click', function () {
-        // Obtener la lista de productos en formato JSON
-        const products = @Html.Raw(Json.Encode(Model));
-        console.log(products)
+    document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('btnCrearVenta').addEventListener('click', function () {
+
+        let isValid = true;
+
+        const codigoPersona = document.getElementById('codigoPersona');
+        const codigoUsuario = document.getElementById('codigoUsuario');
+        const fechaVenta = document.getElementById('fechaVenta');
+        const metodoPago = document.getElementById('metodoPago');
+
+        // Reset styles
+        codigoPersona.style.borderColor = '';
+        codigoUsuario.style.borderColor = '';
+        fechaVenta.style.borderColor = '';
+        metodoPago.style.borderColor = '';
+
+        // Validate inputs
+        if (!codigoPersona.value) {
+            codigoPersona.style.borderColor = 'red';
+            codigoPersona.focus();
+            isValid = false;
+        } else if (!codigoUsuario.value) {
+            codigoUsuario.style.borderColor = 'red';
+            codigoUsuario.focus();
+            isValid = false;
+        } else if (!fechaVenta.value) {
+            fechaVenta.style.borderColor = 'red';
+            fechaVenta.focus();
+            isValid = false;
+        } else if (!metodoPago.value) {
+            metodoPago.style.borderColor = 'red';
+            metodoPago.focus();
+            isValid = false;
+        }
+
+
+        if (isValid) {
+            const products = @Html.Raw(Json.Encode(Model));
+            console.log(products)
+
+            const formData = {
+                nitPersona: codigoPersona.value,
+                nombrePersona: codigoUsuario.value,
+                fechaVenta: fechaVenta.value,
+                metodoPago: metodoPago.value
+            };
+
+            const dataToSend = {
+                formData: formData,
+                products: products 
+            };
+
         // Realizar la solicitud Fetch
         fetch('/Ventas/SaveSale', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(products)
+            body: JSON.stringify(dataToSend)
         })
         .then(response => {
             if (!response.ok) {
@@ -257,6 +363,8 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch(error => {
             console.error('There has been a problem with your fetch operation:', error);
         });
+        }
+
     });
 });
 </script>
@@ -269,7 +377,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     .payment-information,
     .resume-information {
-        width: calc(50% - 10px); 
+        width: calc(50% - 10px);
         padding: 10px;
         box-sizing: border-box;
     }
@@ -285,7 +393,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     .order-details th {
-        padding:10px;
+        padding: 10px;
         text-align: left;
     }
 
@@ -313,4 +421,17 @@ document.addEventListener('DOMContentLoaded', function () {
             outline: none;
         }
 
+    .modal-content {
+        background-color: #000038;
+        padding: 40px;
+    }
+
+    #metodoPago {
+        color: black;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        padding: 5px;
+        font-size: 16px;
+        background-color: white;
+    }
 </style>

@@ -40,4 +40,19 @@ namespace VentasProyect.Models.Productos
         public string pro_estado { get; set; }
         public string pro_cantidad { get; set; }
     }
+
+    public class SaleViewModel
+    {
+        public FormData formData { get; set; }
+        public List<Productos> products { get; set; }
+    }
+
+    public class FormData
+    {
+        public string NitPersona { get; set; }
+        public string NombrePersona { get; set; }
+        public DateTime FechaVenta { get; set; }
+        public string MetodoPago { get; set; }
+    }
+
 }

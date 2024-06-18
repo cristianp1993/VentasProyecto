@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using VentasProyect.Models.Productos;
@@ -155,37 +156,42 @@ namespace VentasProyect.Controllers
         {
             public string DataProduct { get; set; }
         }
-        public ActionResult SaveSale(List<Productos> products)
+        public async Task<ActionResult> SaveSale(SaleViewModel model)
         {
 
             try
             {
                 int totalSale = 0;
 
-                if (products.Count > 0)
+                if (model.products.Count > 0)
                 {
                     DateTime fechaActual = DateTime.Today;
 
                     Random rnd = new Random();
                     int transactionNumber = rnd.Next(100000000, 999999999);
 
-                    foreach (var item in products)
+                    int nitPerson = Convert.ToInt32(model.formData.NitPersona);
+
+                    foreach (var item in model.products)
                     {
                         totalSale += Convert.ToInt32(item.pro_cantidad) * item.pro_valor_unitario;
                     }
+
 
                     var newData = new Models.Ventas.Ventas
                     {
                         ven_id = 0,
                         per_id = 7,
                         usu_id = 1,
-                        ven_fecha = fechaActual,
-                        ven_metodo_pago = "CONTADO",
+                        ven_fecha = model.formData.FechaVenta,
+                        ven_metodo_pago = model.formData.MetodoPago,
                         ven_total = totalSale,
-                        ven_numero_transaccion = transactionNumber
+                        ven_numero_transaccion = transactionNumber,
+                        ven_cedula = nitPerson,
+                        ven_nombre = model.formData.NombrePersona,
                     };
 
-                    _ventasRepository.Create(newData, products);
+                    await _ventasRepository.Create(newData, model.products);
 
                 }
                                 
@@ -193,10 +199,11 @@ namespace VentasProyect.Controllers
             }
             catch (Exception ex)
             {
+               
 
-                return RedirectToAction("Index", "Error");
+                return Json(new { success = true, message = "Venta guardada exitosamente." });
             }
-           
+
         }
 
         // GET: Ventas/EditProduct/5

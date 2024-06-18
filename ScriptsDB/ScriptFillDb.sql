@@ -336,3 +336,63 @@ BEGIN
 END
 GO
 
+--Actualizar Stock de productos
+CREATE OR ALTER TRIGGER trg_UpdateStock
+ON t_detalle_venta
+AFTER INSERT
+AS
+BEGIN
+    DECLARE @pro_id INT;
+    DECLARE @det_cantidad INT;
+
+    -- Asignar valores de la tabla INSERTED
+    SELECT @pro_id = i.pro_id, @det_cantidad = i.det_cantidad
+    FROM INSERTED i;
+
+    -- Actualizar el stock del producto
+    UPDATE t_producto
+    SET pro_stock = CASE WHEN pro_stock - @det_cantidad < 0 THEN 0 ELSE pro_stock - @det_cantidad END
+    WHERE pro_id = @pro_id;
+
+    -- Manejo de errores
+    IF @@ERROR <> 0
+    BEGIN
+        RAISERROR('Error updating product stock', 16, 1, @pro_id, @det_cantidad);
+        ROLLBACK TRANSACTION;
+    END
+    ELSE
+    BEGIN
+        COMMIT TRANSACTION;
+    END;
+END;
+
+
+IF NOT EXISTS (
+    SELECT * 
+    FROM INFORMATION_SCHEMA.COLUMNS 
+    WHERE TABLE_NAME = 't_venta' 
+    AND COLUMN_NAME = 'ven_cedula'
+)
+BEGIN
+    ALTER TABLE t_venta ADD ven_cedula INT;
+END
+
+IF NOT EXISTS (
+    SELECT * 
+    FROM INFORMATION_SCHEMA.COLUMNS 
+    WHERE TABLE_NAME = 't_venta' 
+    AND COLUMN_NAME = 'ven_nombre'
+)
+BEGIN
+    ALTER TABLE t_venta ADD ven_nombre NVARCHAR(255); 
+END
+
+IF NOT EXISTS (
+    SELECT * 
+    FROM INFORMATION_SCHEMA.COLUMNS 
+    WHERE TABLE_NAME = 't_venta' 
+    AND COLUMN_NAME = 'ven_fecha'
+)
+BEGIN
+    ALTER TABLE t_venta ADD ven_fecha DATE;
+END

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -16,6 +17,12 @@ namespace VentasProyect.Models.Ventas
         public string ven_metodo_pago { get; set; }
         public Nullable<long> ven_total { get; set; }
         public Nullable<long> ven_numero_transaccion { get; set; }
+        public int ven_cedula { get; set; }
+
+        [MaxLength(255)]
+        public string ven_nombre { get; set; }
+
+        
     }
 
     public class VentaConDetalle
