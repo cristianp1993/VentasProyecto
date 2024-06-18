@@ -17,15 +17,16 @@ namespace VentasProyect.Controllers
         ProductosRepository _productosRepository = new ProductosRepository();
         VentasRepository _ventasRepository = new VentasRepository();
         CiudadRepository _ciudadRepository = new CiudadRepository();
+        
         // GET: Ventas
         public ActionResult Index()
         {
             IEnumerable<Models.Ventas.Ventas> ventas = _ventasRepository.GetAll();
 
             if (!ventas.Any())
-            {                
-                
-                ventas = new List<Models.Ventas.Ventas>(); 
+            {
+
+                ventas = new List<Models.Ventas.Ventas>();
             }
 
             return View(ventas);
@@ -70,6 +71,25 @@ namespace VentasProyect.Controllers
                 return HttpNotFound(); // Devuelve un error 404 si no se encuentra el usuario
             }
             return View(data);
+        }
+
+        [HttpGet]
+        public ActionResult DeleteProduct(int id)
+        {
+            var data = _ventasRepository.GetProductById(id);
+            if (data == null)
+            {
+                return HttpNotFound(); // Devuelve un error 404 si no se encuentra el usuario
+            }
+            return View(data);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteProduct(int pro_id, int ven_id)
+        {
+            _ventasRepository.DeleteProduct(pro_id);
+            // Redirige a una acción que muestra la venta con su id
+            return RedirectToAction("Edit", new { id = ven_id });
         }
 
         [HttpPost, ActionName("Delete")]
@@ -119,7 +139,8 @@ namespace VentasProyect.Controllers
             {
                 ViewBag.Ciudades = _ciudadRepository.GetSelectCiudades();
 
-                var productosList = JsonConvert.DeserializeObject<IEnumerable<Productos>>(productosJson);
+                var dataList = JsonConvert.DeserializeObject<IEnumerable<Productos>>(productosJson);
+                var productosList = _productosRepository.GetDataProductsToSale(dataList);
                 if (productosList.Any())
                 {
                     // Los productos ya han sido obtenidos, mostrar la vista directamente
@@ -176,6 +197,29 @@ namespace VentasProyect.Controllers
                 return RedirectToAction("Index", "Error");
             }
            
+        }
+
+        // GET: Ventas/EditProduct/5
+        public ActionResult EditProduct(int id)
+        {
+            var product = _ventasRepository.GetProductById(id);
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+            return View(product);
+        }
+
+        
+        [HttpPost]       
+        public ActionResult EditProduct(Models.Ventas.DetalleVenta product)
+        {
+            if (ModelState.IsValid)
+            {
+                _ventasRepository.EditProduct(product);
+                return RedirectToAction("Edit", new { id = product.ven_id}); 
+            }
+            return View(product);
         }
     }
 }

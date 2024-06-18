@@ -110,6 +110,16 @@ namespace VentasProyect.Repository
                 _dbContext.t_venta.Remove(toDelete);
                 _dbContext.SaveChanges();
             }
+        } 
+        
+        public void DeleteProduct(int id)
+        {
+            var toDelete = _dbContext.t_detalle_venta.FirstOrDefault(u => u.pro_id == id);
+            if (toDelete != null)
+            {
+                _dbContext.t_detalle_venta.Remove(toDelete);
+                _dbContext.SaveChanges();
+            }
         }
 
         public Models.Ventas.VentaConDetalle GetDataById(int id)
@@ -148,6 +158,42 @@ namespace VentasProyect.Repository
             .ToList();
 
             return nuevaVenta;
+        }
+
+        public Models.Ventas.DetalleVenta GetProductById(int id)
+        {
+            var nuevaVenta = _dbContext.t_detalle_venta
+                            .Join(_dbContext.t_producto,
+                                  detalle => detalle.pro_id,
+                                  producto => producto.pro_id,
+                                  (detalle, producto) => new { detalle, producto })
+                            .Where(joined => joined.detalle.pro_id == id)
+                            .Select(joined => new DetalleVenta
+                            {
+                                ven_id = (int)joined.detalle.ven_id,
+                                pro_id = (int)joined.detalle.pro_id,
+                                pro_nombre = joined.producto.pro_nombre, // Asignar el nombre del producto
+                                pro_valor_unitario = (int)joined.producto.pro_valor_unitario,
+                                det_cantidad = (int)joined.detalle.det_cantidad,
+                                det_valor_total = (long)joined.detalle.det_valor_total
+                            })
+                            .FirstOrDefault();
+
+            return nuevaVenta;
+        }
+
+        public void EditProduct(Models.Ventas.DetalleVenta product)
+        {
+            
+            var existingProduct = _dbContext.t_detalle_venta.FirstOrDefault(p => p.pro_id == product.pro_id);
+            if (existingProduct != null)
+            {
+                var total = product.det_cantidad * product.pro_valor_unitario;
+                existingProduct.det_cantidad = product.det_cantidad;
+                existingProduct.det_valor_total = total;
+                
+                _dbContext.SaveChanges();
+            }
         }
 
     }

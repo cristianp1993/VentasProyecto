@@ -18,10 +18,9 @@ namespace VentasProyect.Repository
 
         public IEnumerable<Models.Productos.Productos> GetAllProductos()
         {
-            using (VENTAS_DBEntities1 dbContext = new VENTAS_DBEntities1())
-            {
-                var data = dbContext.t_producto.Join(
-                    dbContext.t_categoria,
+            
+                var data = _dbContext.t_producto.Join(
+                    _dbContext.t_categoria,
                     producto => producto.cat_id,
                     categoria => categoria.cat_id,
                     (producto, categoria) => new Models.Productos.Productos
@@ -39,15 +38,14 @@ namespace VentasProyect.Repository
                     .ToList();
 
                 return data ?? new List<Models.Productos.Productos>();
-            }
+            
         }
 
         public IEnumerable<Models.Productos.Productos> GetProductos()
         {
-            using (VENTAS_DBEntities1 dbContext = new VENTAS_DBEntities1())
-            {
-                var data = dbContext.t_producto.Join(
-                    dbContext.t_categoria,
+            
+                var data = _dbContext.t_producto.Join(
+                    _dbContext.t_categoria,
                     producto => producto.cat_id,
                     categoria => categoria.cat_id,
                     (producto, categoria) => new Models.Productos.Productos
@@ -66,7 +64,7 @@ namespace VentasProyect.Repository
                     .ToList();
 
                 return data ?? new List<Models.Productos.Productos>();
-            }
+           
         }
 
         public void CreateProduct(Productos model)
@@ -107,9 +105,8 @@ namespace VentasProyect.Repository
 
         public Models.Productos.Productos GetDataById(int id)
         {
-            using (VENTAS_DBEntities1 dbContext = new VENTAS_DBEntities1())
-            {
-                var data = dbContext.t_producto.FirstOrDefault(u => u.pro_id == id);
+            
+                var data = _dbContext.t_producto.FirstOrDefault(u => u.pro_id == id);
 
                 if (data != null)
                 {
@@ -127,7 +124,43 @@ namespace VentasProyect.Repository
                 }
 
                 return null;
-            }
+           
         }
+
+
+        public IEnumerable<Productos> GetDataProductsToSale(IEnumerable<Productos> productosJson)
+        {
+            var productosList = new List<Productos>();
+
+            foreach (var productoJson in productosJson)
+            {
+                var productoId = productoJson.pro_id;
+                var cantidad = int.Parse(productoJson.pro_cantidad);
+
+               
+                var producto = _dbContext.t_producto.Find(productoId);
+
+                if (producto != null)
+                {
+                    
+                    var newProducto = new Productos
+                    {
+                        pro_id = producto.pro_id,                       
+                        pro_nombre = producto.pro_nombre,
+                        pro_descripcion = producto.pro_descripcion,
+                        pro_valor_unitario = (int)producto.pro_valor_unitario,
+                        pro_stock = (int)producto.pro_stock,
+                        pro_url_img = producto.pro_url_img,
+                        pro_estado = producto.pro_estado,
+                        pro_cantidad = Convert.ToString(cantidad) 
+                    };
+
+                    productosList.Add(newProducto);
+                }
+            }
+
+            return productosList.AsEnumerable();
+        }
+
     }
 }

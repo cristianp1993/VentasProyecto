@@ -1,0 +1,116 @@
+﻿@model VentasProyect.Models.Reportes.GraficosViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gráficos de Reportes</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .chart-container {
+            width: 45%; /* Reducir el ancho para que haya dos gráficos por fila */
+            margin: 10px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <h2>Gráficos de Reportes</h2>
+
+    <!-- Product Category Chart -->
+    <div class="chart-container">
+        <h3>Product Category (Bar Chart)</h3>
+        <canvas id="productCategoryChart"></canvas>
+    </div>
+
+    <!-- Sales By Product Chart -->
+    <div class="chart-container">
+        <h3>Sales By Product (Line Chart)</h3>
+        <canvas id="salesByProductChart"></canvas>
+    </div>
+
+    <!-- Best Selling Product Chart -->
+    <div class="chart-container">
+        <h3>Best Selling Product (Pie Chart)</h3>
+        <canvas id="bestSellingProductChart"></canvas>
+    </div>
+
+    <!-- Least Sold Product Chart -->
+    <div class="chart-container">
+        <h3>Least Sold Product (Doughnut Chart)</h3>
+        <canvas id="leastSoldProductChart"></canvas>
+    </div>
+
+    <!-- Sales By Date Chart -->
+    <div class="chart-container">
+        <h3>Sales By Date (Line Chart)</h3>
+        <canvas id="salesByDateChart"></canvas>
+    </div>
+
+    <!-- Sales For Client Chart -->
+    <div class="chart-container">
+        <h3>Sales For Client (Bubble Chart)</h3>
+        <canvas id="salesForClientChart"></canvas>
+    </div>
+
+    <!-- Customers By Product Category Chart -->
+    <div class="chart-container">
+        <h3>Customers By Product Category (Bar Chart)</h3>
+        <canvas id="customersByProductCategoryChart"></canvas>
+    </div>
+
+    <!-- Sales List Chart -->
+    <div class="chart-container">
+        <h3>Sales List (Horizontal Bar Chart)</h3>
+        <canvas id="salesListChart"></canvas>
+    </div>
+
+    <script>
+        // Retrieve data from model
+        var productCategoryData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.ProductCategory));
+        var salesByProductData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.SalesByProduct));
+        var bestSellingProductData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.BestSellingProduct));
+        var leastSoldProductData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.LeastSoldProduct));
+        var salesByDateData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.SalesByDate));
+        var salesForClientData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.SalesForClient));
+        var customersByProductCategoryData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.CustomersByProductCategory));
+        var salesListData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.SalesList));
+
+        // Function to create a chart
+        function createChart(ctx, data, label, type) {
+            var chartType = type || 'bar'; // Default to bar chart if type is not specified
+
+            new Chart(ctx, {
+                type: chartType,
+                data: {
+                    labels: data.map(item => item.cat_nombre || item.pro_nombre),
+                    datasets: [{
+                        label: label,
+                        data: data.map(item => item.cantidad_vendida || item.Total_Venta),
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        // Create charts
+        createChart(document.getElementById('productCategoryChart').getContext('2d'), productCategoryData, 'Product Category', 'bar');
+        createChart(document.getElementById('salesByProductChart').getContext('2d'), salesByProductData, 'Sales By Product', 'line');
+        createChart(document.getElementById('bestSellingProductChart').getContext('2d'), bestSellingProductData, 'Best Selling Product', 'pie');
+        createChart(document.getElementById('leastSoldProductChart').getContext('2d'), leastSoldProductData, 'Least Sold Product', 'doughnut');
+        createChart(document.getElementById('salesByDateChart').getContext('2d'), salesByDateData, 'Sales By Date', 'line');
+        createChart(document.getElementById('salesForClientChart').getContext('2d'), salesForClientData, 'Sales For Client', 'bubble');
+        createChart(document.getElementById('customersByProductCategoryChart').getContext('2d'), customersByProductCategoryData, 'Customers By Product Category', 'bar');
+        createChart(document.getElementById('salesListChart').getContext('2d'), salesListData, 'Sales List', 'horizontalBar');
+
+    </script>
+</body>
+</html>

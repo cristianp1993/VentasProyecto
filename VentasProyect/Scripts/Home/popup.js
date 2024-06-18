@@ -22,14 +22,14 @@
     function bindEvents() {
         if (!quantityEventListenersAdded) {
             document.querySelectorAll('.increase-quantity').forEach(function (element) {
-                element.addEventListener('click', increaseQuantity);
+                element.addEventListener('click', increaseQuantity, { capture: false }); // Add listener with capture: false
             });
 
             document.querySelectorAll('.decrease-quantity').forEach(function (element) {
-                element.addEventListener('click', decreaseQuantity);
+                element.addEventListener('click', decreaseQuantity, { capture: false }); // Add listener with capture: false
             });
 
-            quantityEventListenersAdded = true; 
+            quantityEventListenersAdded = true;
         }
     }
 
@@ -94,6 +94,14 @@
         });
     });
 
+    document.getElementById("buy-now").addEventListener('click', function () {
+
+        arrayProducts.push(productTemp);
+        console.log(arrayProducts)
+        sendDataToSale()
+    });
+
+
     function disableElements(selectors) {
         selectors.forEach(function (selector) {
             document.querySelectorAll(selector).forEach(function (element) {
@@ -140,7 +148,7 @@
     function renderCart() {
         const popupSale = document.getElementById('popupSale');
         const popupSaleArticles = document.getElementById('popupSaleArticles');
-        popupSaleArticles.innerHTML = '';
+        popupSaleArticles.innerHTML = ''; 
 
         arrayProducts.forEach(function (product) {
             const productItem = document.createElement('div');
@@ -148,67 +156,57 @@
             productItem.style.display = 'flex';
             productItem.style.alignItems = 'center';
             productItem.style.marginBottom = '20px';
-            productItem.innerHTML = `
-                <div style="margin-right:25px">
-                    <img src="${product.pro_url_img}" alt="${product.pro_nombre}" style="width: 20vh; height: 25vh;margin-right: 20px;" />
-                </div>
-                <div>
-                    <h4>${product.pro_nombre}</h4>                   
-                    <p>Precio: $${Number(product.pro_valor_unitario).toLocaleString('es-CO', { minimumFractionDigits: 0 })} COP</p>
-                    <p>Stock: ${product.pro_stock}</p>
-                    <p>Cantidad: ${product.pro_cantidad}</p>
-                </div>
-            `;
+            
+            const productDetails = document.createElement('div');
+            productDetails.style.display = 'flex';
+            productDetails.style.width = '100%';
+            
+            const productImage = document.createElement('img');
+            productImage.src = product.pro_url_img;
+            productImage.alt = product.pro_nombre;
+            productImage.style.width = '20vh';
+            productImage.style.height = '25vh';
+            productImage.style.marginRight = '20px';
+
+            const productInfo = document.createElement('div');
+            productInfo.innerHTML = `
+      <h4>${product.pro_nombre}</h4>
+      <p>Precio: $${Number(product.pro_valor_unitario).toLocaleString('es-CO', { minimumFractionDigits: 0 })} COP</p>
+      <p>Stock: ${product.pro_stock}</p>
+      <p>Cantidad: ${product.pro_cantidad}</p>
+    `;
+
+            const deleteButton = document.createElement('span');
+            deleteButton.classList.add('material-symbols-outlined', 'icon-actions-table');
+            deleteButton.textContent = 'delete';
+            deleteButton.style.cursor = "pointer";
+            deleteButton.addEventListener('click', function () {
+
+                const productIndex = arrayProducts.indexOf(product);
+                arrayProducts.splice(productIndex, 1);
+                console.log(arrayProducts)
+
+                renderCart();
+            });
+            
+            productDetails.appendChild(productInfo);
+            productItem.appendChild(productImage);
+            productItem.appendChild(productDetails);
+            productDetails.appendChild(deleteButton);
+
+            
             popupSaleArticles.appendChild(productItem);
         });
 
         popupSale.style.display = 'block';
     }
 
+
     let isRedirected = false;
 
     document.getElementById("end-Sale-Btn").addEventListener('click', async function () {
         if (arrayProducts.length > 0) {
-            const encodedProducts = JSON.stringify(arrayProducts);
-
-            try {
-                const response = await fetch('/Ventas/MakeSale', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ dataProduct: encodedProducts })
-                });
-
-                if (response.ok) {
-                    const result = await response.json();
-                    if (result.success) {
-                        const redirectUrl = result.redirectUrl + '?productos=' + encodeURIComponent(result.productos);
-                        if (!isRedirected) {
-                            isRedirected = true;
-                            window.location.href = redirectUrl;
-                        }
-                    } else {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Error',
-                            text: 'No se recibió una URL de redirección válida.'
-                        });
-                    }
-                } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Error',
-                        text: 'Ocurrió un error al procesar la venta.'
-                    });
-                }
-            } catch (error) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error',
-                    text: 'Ocurrió un error al procesar la venta.'
-                });
-            }
+            sendDataToSale();
         } else {
             Swal.fire({
                 icon: 'warning',
@@ -217,4 +215,53 @@
             });
         }
     });
+
+    async function sendDataToSale() {
+
+        const filteredProducts = arrayProducts.map(product => ({
+            pro_id: product.pro_id,
+            pro_cantidad: product.pro_cantidad
+        }));
+
+        const encodedProducts = JSON.stringify(filteredProducts);
+
+        try {
+            const response = await fetch('/Ventas/MakeSale', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ dataProduct: encodedProducts })
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                if (result.success) {
+                    const redirectUrl = result.redirectUrl + '?productos=' + encodeURIComponent(result.productos);
+                    if (!isRedirected) {
+                        isRedirected = true;
+                        window.location.href = redirectUrl;
+                    }
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'No se recibió una URL de redirección válida.'
+                    });
+                }
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Ocurrió un error al procesar la venta.'
+                });
+            }
+        } catch (error) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Ocurrió un error al procesar la venta.'
+            });
+        }
+    }
 })();

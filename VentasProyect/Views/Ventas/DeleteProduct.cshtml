@@ -1,0 +1,35 @@
+﻿@model VentasProyect.Models.Ventas.DetalleVenta
+
+@{
+    ViewBag.Title = "Eliminar Producto";
+}
+
+<h2>Eliminar Producto de Venta</h2>
+
+<h3>¿Estás seguro de que deseas eliminar este producto?</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>ID:</dt>
+        <dd>@Model.pro_id</dd>
+        <dt>Nombre:</dt>
+        <dd>@Model.pro_nombre</dd>
+        <dt>Cantidad:</dt>
+        <dd>@Model.det_cantidad</dd>
+        <dt>Valor Total:</dt>
+        <dd>@Model.det_valor_total</dd>
+
+    </dl>
+</div>
+
+@using (Html.BeginForm("DeleteProduct", "Ventas", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(model => model.pro_id)
+    @Html.HiddenFor(model => model.ven_id) <!-- Campo oculto para ven_id -->
+
+    <p>
+        <input type="submit" value="Eliminar" class="btn btn-danger" />
+        @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-default" })
+    </p>
+}

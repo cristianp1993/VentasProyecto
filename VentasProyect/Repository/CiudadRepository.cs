@@ -19,9 +19,8 @@ namespace VentasProyect.Repository
         public IEnumerable<Models.Ciudad.Ciudad> GetData()
         {
 
-            using (VENTAS_DBEntities1 dbContext = new VENTAS_DBEntities1())
-            {
-                var data = dbContext.t_ciudad.Select(xh => new Models.Ciudad.Ciudad
+           
+                var data = _dbContext.t_ciudad.Select(xh => new Models.Ciudad.Ciudad
                 {
                     ciu_id = xh.ciu_id,
                     ciu_nombre = xh.ciu_nombre,
@@ -31,7 +30,7 @@ namespace VentasProyect.Repository
                 }).ToList();
 
                 return data;
-            }
+            
         }
         public void CreateCiudad(Ciudad model)
         {
@@ -76,9 +75,8 @@ namespace VentasProyect.Repository
 
         public Models.Ciudad.Ciudad GetDataById(int id)
         {
-            using (VENTAS_DBEntities1 dbContext = new VENTAS_DBEntities1())
-            {
-                var data = dbContext.t_ciudad.FirstOrDefault(u => u.ciu_id == id);
+           
+                var data = _dbContext.t_ciudad.FirstOrDefault(u => u.ciu_id == id);
 
                 if (data != null)
                 {
@@ -95,7 +93,7 @@ namespace VentasProyect.Repository
 
                     return null;
                 }
-            }
+            
         }
 
         public IEnumerable<SelectListItem> GetSelectCiudades()

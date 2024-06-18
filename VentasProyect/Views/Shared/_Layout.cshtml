@@ -10,7 +10,7 @@
     @*<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>*@
     <script src="~/Scripts/jquery-3.x-git.min.js"></script>
     @*<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />*@
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />*@
     <link rel="stylesheet" href="~/Content/Fonts-css2.css" />
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -30,8 +30,8 @@
             var displayStatus = sessionStatus ? "block" : "none";
         }
 
-    @*@@{
-        bool sessionStatus = true; // Asigna true de manera fija
+    @{
+        bool sessionStatus = true; 
         var displayStatus = sessionStatus ? "block" : "none";
     }*@
     <div class="distribution">
@@ -60,10 +60,7 @@
         </div>
     </div>
 
-
-
     <div class="sidebar" style="display:@displayStatus">
-
         <div class="">
             <div class="nav-item name">
                 <a class="name-style" href="@Url.Action("Index", "Home")" asp-controller="Home" asp-action="Index">
@@ -138,9 +135,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="@Url.Action("Index", "Ciudad")">
                             <span class="material-symbols-outlined icon @(ViewContext.RouteData.Values["Controller"].ToString() == "Ciudad" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
-
                                 location_city
-
                             </span>
                             <span class="nav-link-text">
                                 Ciudades
@@ -168,7 +163,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index", "Reportes")">
+                        <a class="nav-link" href="#" id="reportLink">
                             <span class="material-symbols-outlined icon @(ViewContext.RouteData.Values["Controller"].ToString() == "Reportes" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
                                 lab_profile
                             </span>
@@ -176,6 +171,15 @@
                                 Reportes
                             </span>
                         </a>
+                        <div id="reportOptions" style="display: none; padding-left: 20px;">
+                            <a class="nav-link" href="@Url.Action("Graficos", "Reportes", new { reportType = "Graficos" })">
+                                Sitio Web
+                            </a>
+                            <a class="nav-link" href="@Url.Action("Index", "Reportes", new { reportType = "Para exportar" })">
+                                Administrativos
+                            </a>
+                        </div>
+
                     </li>
                 </ul>
             </div>
@@ -210,24 +214,36 @@
     <script src="~/Scripts/datatables.min.js"></script>
 
     <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        let isLoggedIn = @( (bool)(Session["SessionStatus"] ?? false) ? "true" : "false" );
+document.addEventListener('DOMContentLoaded', function () {
+    let isLoggedIn = @( (bool)(Session["SessionStatus"] ?? false) ? "true" : "false" );
 
-        if (isLoggedIn) {
-            let navbar = document.querySelector('.nav-bar');
-            let bodyContent = document.querySelector('.body-content');
-            if (navbar) {
-                navbar.classList.add('logged-in2');
-            }
-            if (bodyContent) {
-                bodyContent.classList.add('logged-in');
-            }
+    if (isLoggedIn) {
+        let navbar = document.querySelector('.nav-bar');
+        let bodyContent = document.querySelector('.body-content');
+        if (navbar) {
+            navbar.classList.add('logged-in2');
+        }
+        if (bodyContent) {
+            bodyContent.classList.add('logged-in');
+        }
+    }
+
+    // Agregar el manejador de eventos para el enlace de "Reportes"
+    var reportLink = document.getElementById("reportLink");
+    var reportOptions = document.getElementById("reportOptions");
+
+    reportLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        if (reportOptions.style.display === "none" || reportOptions.style.display === "") {
+            reportOptions.style.display = "block";
+        } else {
+            reportOptions.style.display = "none";
         }
     });
+});
     </script>
 
 
 </body>
 </html>
-
 
