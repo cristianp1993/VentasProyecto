@@ -8,12 +8,13 @@ namespace VentasProyect.Controllers
     {
         public CiudadRepository _ciudadRepository = new CiudadRepository();
         // GET: Ciudad
+
+        [FiltroSeguridadController]
         public ActionResult Index()
         {
             try
             {
-                Session["SessionStatus"] = true;
-
+               
                 var data = _ciudadRepository.GetData();
 
                 return View(data);
@@ -25,6 +26,7 @@ namespace VentasProyect.Controllers
             }
         }
 
+        [FiltroSeguridadController]
         public ActionResult Create()
         {
             try
@@ -63,6 +65,7 @@ namespace VentasProyect.Controllers
             }
 
         }
+        [FiltroSeguridadController]
         public ActionResult Edit(int id)
         {
             try
@@ -102,7 +105,7 @@ namespace VentasProyect.Controllers
                 return View("Index", "Error");
             }
         }
-
+        [FiltroSeguridadController]
         public ActionResult Details(int id)
         {
             try
@@ -120,7 +123,7 @@ namespace VentasProyect.Controllers
                 return View("Index", "Error");
             }
         }
-
+        [FiltroSeguridadController]
         public ActionResult Delete(int id)
         {
             try

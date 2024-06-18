@@ -12,6 +12,7 @@ namespace VentasProyect.Controllers
     {
         CategoriaRepository _categoriaRepository = new CategoriaRepository();
         // GET: Categoria
+        [FiltroSeguridadController]
         public ActionResult Index()
         {
             IEnumerable<Models.Categoria.Categoria> data = _categoriaRepository.GetData();
@@ -34,6 +35,8 @@ namespace VentasProyect.Controllers
             }
             return View(model);
         }
+
+        [FiltroSeguridadController]
         public ActionResult Edit(int id)
         {
             var data = _categoriaRepository.GetDataById(id);
@@ -55,6 +58,7 @@ namespace VentasProyect.Controllers
             return View(usuario);
         }
 
+        [FiltroSeguridadController]
         public ActionResult Details(int id)
         {
             var usuario = _categoriaRepository.GetDataById(id);
@@ -65,6 +69,7 @@ namespace VentasProyect.Controllers
             return View(usuario);
         }
 
+        [FiltroSeguridadController]
         public ActionResult Delete(int id)
         {
             var usuario = _categoriaRepository.GetDataById(id);

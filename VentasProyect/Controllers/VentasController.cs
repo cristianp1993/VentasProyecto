@@ -18,8 +18,9 @@ namespace VentasProyect.Controllers
         ProductosRepository _productosRepository = new ProductosRepository();
         VentasRepository _ventasRepository = new VentasRepository();
         CiudadRepository _ciudadRepository = new CiudadRepository();
-        
+
         // GET: Ventas
+        [FiltroSeguridadController]
         public ActionResult Index()
         {
             IEnumerable<Models.Ventas.Ventas> ventas = _ventasRepository.GetAll();
@@ -33,6 +34,7 @@ namespace VentasProyect.Controllers
             return View(ventas);
         }
 
+        [FiltroSeguridadController]
         public ActionResult Edit(int id)
         {
             var data = _ventasRepository.GetDataById(id);
@@ -43,6 +45,7 @@ namespace VentasProyect.Controllers
             return View(data);
         }
 
+        [FiltroSeguridadController]
         [HttpPost]
         public ActionResult Edit(Ventas data)
         {
@@ -54,6 +57,7 @@ namespace VentasProyect.Controllers
             return View(data);
         }
 
+        [FiltroSeguridadController]
         public ActionResult Details(int id)
         {
             var data = _ventasRepository.GetDataById(id);
@@ -64,6 +68,7 @@ namespace VentasProyect.Controllers
             return View(data);
         }
 
+        [FiltroSeguridadController]
         public ActionResult Delete(int id)
         {
             var data = _ventasRepository.GetDataById(id);
@@ -74,6 +79,7 @@ namespace VentasProyect.Controllers
             return View(data);
         }
 
+        [FiltroSeguridadController]
         [HttpGet]
         public ActionResult DeleteProduct(int id)
         {
@@ -85,6 +91,7 @@ namespace VentasProyect.Controllers
             return View(data);
         }
 
+        [FiltroSeguridadController]
         [HttpPost]
         public ActionResult DeleteProduct(int pro_id, int ven_id)
         {
@@ -101,6 +108,7 @@ namespace VentasProyect.Controllers
             return RedirectToAction("Index");
         }
 
+        [FiltroSeguridadController]
         [HttpPost]
         public JsonResult MakeSale(DataProductRequest request)
         {
@@ -130,6 +138,7 @@ namespace VentasProyect.Controllers
             }
         }
 
+        [FiltroSeguridadController]
         [HttpGet]
         public ActionResult Sale()
         {
@@ -156,6 +165,7 @@ namespace VentasProyect.Controllers
         {
             public string DataProduct { get; set; }
         }
+
         public async Task<ActionResult> SaveSale(SaleViewModel model)
         {
 
@@ -206,7 +216,7 @@ namespace VentasProyect.Controllers
 
         }
 
-        // GET: Ventas/EditProduct/5
+        [FiltroSeguridadController]
         public ActionResult EditProduct(int id)
         {
             var product = _ventasRepository.GetProductById(id);
@@ -217,7 +227,7 @@ namespace VentasProyect.Controllers
             return View(product);
         }
 
-        
+        [FiltroSeguridadController]
         [HttpPost]       
         public ActionResult EditProduct(Models.Ventas.DetalleVenta product)
         {

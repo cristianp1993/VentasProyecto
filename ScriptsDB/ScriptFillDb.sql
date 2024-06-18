@@ -397,3 +397,13 @@ IF NOT EXISTS (
 BEGIN
     ALTER TABLE t_venta ADD ven_fecha DATE;
 END
+
+IF EXISTS (
+    SELECT * 
+    FROM INFORMATION_SCHEMA.COLUMNS 
+    WHERE TABLE_NAME = 't_usuario' AND COLUMN_NAME = 'usu_contrasenia'
+)
+BEGIN
+    ALTER TABLE t_usuario
+    ALTER COLUMN usu_contrasenia VARCHAR(255)
+END

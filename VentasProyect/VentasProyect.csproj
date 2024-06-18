@@ -273,6 +273,7 @@
     <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\CiudadController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\FiltroSeguridadController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PersonaController.cs" />
@@ -473,6 +474,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Clientes\" />
+    <Folder Include="Views\FiltroSeguridad\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -14,6 +14,7 @@ namespace VentasProyect.Controllers
             _usuarioRepository = new UsuarioRepository();
         }
 
+        [FiltroSeguridadController]
         // GET: Usuario
         public ActionResult Index()
         {
@@ -23,12 +24,14 @@ namespace VentasProyect.Controllers
             return View(usuarios);
         }
 
+        [FiltroSeguridadController]
         public ActionResult Create()
         {
             Session["SessionStatus"] = true;
             return View();
         }
 
+        [FiltroSeguridadController]
         [HttpPost]
         public ActionResult Create(usuario usuario)
         {
@@ -37,7 +40,7 @@ namespace VentasProyect.Controllers
             if (ModelState.IsValid)
             {
                 //Encriptar contraseña
-                usuario.usu_contrasenia = _encryptRepository.EncryptPassword(usuario.usu_contrasenia);
+                //usuario.usu_contrasenia = _encryptRepository.EncryptPassword(usuario.usu_contrasenia);
 
                 // Lógica para guardar el nuevo usuario en la base de datos
                 _usuarioRepository.CreateUsuario(usuario);
@@ -48,6 +51,7 @@ namespace VentasProyect.Controllers
             return View(usuario);
         }
 
+        [FiltroSeguridadController]
         public ActionResult Edit(int id)
         {
             var usuario = _usuarioRepository.GetUsuarioById(id);
@@ -58,6 +62,7 @@ namespace VentasProyect.Controllers
             return View(usuario);
         }
 
+        [FiltroSeguridadController]
         [HttpPost]
         public ActionResult Edit(usuario usuario)
         {
@@ -69,6 +74,7 @@ namespace VentasProyect.Controllers
             return View(usuario);
         }
 
+        [FiltroSeguridadController]
         public ActionResult Details(int id)
         {
             var usuario = _usuarioRepository.GetUsuarioById(id);
@@ -79,6 +85,7 @@ namespace VentasProyect.Controllers
             return View(usuario);
         }
 
+        [FiltroSeguridadController]
         public ActionResult Delete(int id)
         {
             var usuario = _usuarioRepository.GetUsuarioById(id);

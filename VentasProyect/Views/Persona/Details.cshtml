@@ -9,11 +9,38 @@
 
 <div>
     <dl class="dl-horizontal">
-        <dt>Nombre del producto:</dt>
-        <dd>@Model</dd>
+
+        <dt>Tipo Documento:</dt>
+        <dd>@Model.per_tipo_documento</dd>
+        <dt>Documento:</dt>
+        <dd>@Model.per_nit</dd>
+
+        <dt>Nombre:</dt>
+        <dd>@Model.per_nombre</dd>
+
+        <dt>Dirección:</dt>
+        <dd>@Model.per_direccion</dd>
+
+        <dt>Teléfono:</dt>
+        <dd>@Model.per_telefono</dd>
+
+        <dt>Cuenta Bancaria:</dt>
+        <dd>@Model.per_cuenta_bancaria</dd>
+
+        <dt>Correo Electrónico:</dt>
+        <dd>@Model.per_correo</dd>
+
+
+
+        <dt>Tipo Persona:</dt>
+        <dd>@Model.per_tipo</dd>
+
+        <dt>Tipo Cuenta:</dt>
+        <dd>@Model.per_tipo_cuenta</dd>
+
     </dl>
 </div>
 
 <p>
-    @Html.ActionLink("Volver a la lista", "Index")
+    @Html.ActionLink("Volver a la lista", "Index",new { typeView= @Model.per_vista })
 </p>

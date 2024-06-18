@@ -15,9 +15,19 @@ namespace VentasProyect.Controllers
         {
             try
             {
-
-                Session["SessionStatus"] = true;
-
+                
+                if (HttpContext.Session["SessionStatus"] == null)
+                {
+                    // La sesión existe, entonces obtén su valor y conviértelo a booleano
+                    HttpContext.Session["SessionStatus"] = false;
+                } 
+                
+                if (HttpContext.Session["Email"] == null)
+                {
+                    // La sesión existe, entonces obtén su valor y conviértelo a booleano
+                    HttpContext.Session["Email"] = string.Empty;
+                }
+                
                 IEnumerable<Productos> productos = _productosRepository.GetProductos(); // Este método ya filtra productos inactivos
 
                 if (!string.IsNullOrEmpty(selectedCategories))
