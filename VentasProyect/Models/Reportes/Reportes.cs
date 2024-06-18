@@ -120,5 +120,20 @@ namespace VentasProyect.Models.Reportes
         public virtual ICollection<t_venta> Ventas { get; set; }
     }
 
+    public class GraficosViewModel
+    {
+        public List<Dictionary<string, object>> ProductCategory { get; set; }
+        public List<Dictionary<string, object>> SalesByProduct { get; set; }
+        public List<Dictionary<string, object>> BestSellingProduct { get; set; }
+        public List<Dictionary<string, object>> LeastSoldProduct { get; set; }
+        public List<Dictionary<string, object>> ProductsOutOfStock { get; set; }
+        public List<Dictionary<string, object>> SalesByDate { get; set; }
+        public List<Dictionary<string, object>> SalesForClient { get; set; }
+        public List<Dictionary<string, object>> StoreCustomers { get; set; }
+        public List<Dictionary<string, object>> PurchasedByTheCust { get; set; }
+        public List<Dictionary<string, object>> CustomersByProductCategory { get; set; }
+        public List<Dictionary<string, object>> SalesList { get; set; }
+    }
+
 
 }

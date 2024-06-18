@@ -298,3 +298,41 @@ BEGIN
 END;
 GO
 
+IF EXISTS (
+    SELECT COLUMN_NAME
+    FROM INFORMATION_SCHEMA.COLUMNS
+    WHERE TABLE_NAME = 't_venta'
+    AND COLUMN_NAME = 'ven_total'
+)
+BEGIN
+    ALTER TABLE t_venta
+    ALTER COLUMN ven_total BIGINT;
+END
+GO
+
+-- Cambiar el tipo de datos de la columna ven_numero_transaccion a BIGINT si existe
+IF EXISTS (
+    SELECT COLUMN_NAME
+    FROM INFORMATION_SCHEMA.COLUMNS
+    WHERE TABLE_NAME = 't_venta'
+    AND COLUMN_NAME = 'ven_numero_transaccion'
+)
+BEGIN
+    ALTER TABLE t_venta
+    ALTER COLUMN ven_numero_transaccion BIGINT;
+END
+GO
+
+-- Cambiar el tipo de datos de la columna det_valor_total a BIGINT si existe
+IF EXISTS (
+    SELECT COLUMN_NAME
+    FROM INFORMATION_SCHEMA.COLUMNS
+    WHERE TABLE_NAME = 't_detalle_venta'
+    AND COLUMN_NAME = 'det_valor_total'
+)
+BEGIN
+    ALTER TABLE t_detalle_venta
+    ALTER COLUMN det_valor_total BIGINT;
+END
+GO
+
