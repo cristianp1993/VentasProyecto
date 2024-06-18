@@ -13,7 +13,7 @@ namespace VentasProyect.Controllers
 
         public ActionResult Index(string selectedCategories)
         {
-            Session["SessionStatus"] = true;
+            Session["SessionStatus"] = false;
 
             IEnumerable<Productos> productos = _productosRepository.GetProductos(); // Este método ya filtra productos inactivos
 
