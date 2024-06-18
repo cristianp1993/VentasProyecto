@@ -28,20 +28,10 @@
     @{
             bool sessionStatus = (bool)(Session["SessionStatus"] ?? false);
             var displayStatus = sessionStatus ? "block" : "none";
-        }
+    }
 
-    @{
-        bool sessionStatus = true; 
-        var displayStatus = sessionStatus ? "block" : "none";
-    }*@
     <div class="distribution">
         <div class="nav-bar @(sessionStatus ? "sidebar-visible" : "sidebar-hidden")">
-            <div class="txtBox-search">
-                <input type="text" id="search" class="input-search form-control" placeholder="Realizar busqueda" />
-                <span class="material-symbols-outlined icon-search">
-                    search
-                </span>
-            </div>
             <div class="user-info @(sessionStatus ? "visible" : "hidden")">
                 <span class="user-name">Administrador</span>
                 <span class="material-symbols-outlined account-icon">
