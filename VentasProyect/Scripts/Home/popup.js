@@ -14,10 +14,17 @@
         });
 
         cards.forEach((card) => {
-            card.style.height = `${maxHeight}px`;
+            card.style.height = `${maxHeight + 5}px`;
         });
     }
     tallCards();
+
+    function updateCartCounter() {
+        const cartCounter = document.getElementById('cart-counter');
+        if (cartCounter) {
+            cartCounter.textContent = arrayProducts.length.toString();
+        }
+    }
 
     function bindEvents() {
         if (!quantityEventListenersAdded) {
@@ -219,6 +226,8 @@
 
             
             popupSaleArticles.appendChild(productItem);
+
+            updateCartCounter(arrayProducts)
         });
 
         popupSale.style.display = 'block';

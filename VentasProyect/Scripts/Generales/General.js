@@ -26,3 +26,11 @@ function ValidateEmpy() {
         })
     }
 }
+
+function updateCartCounter(arrayProducts) {
+    const cartCounter = document.getElementById('cart-counter');
+    if (cartCounter) {
+        cartCounter.textContent = arrayProducts.length.toString();
+       
+    }
+}

@@ -27,6 +27,8 @@ namespace VentasProyect.Models
         public string ven_metodo_pago { get; set; }
         public Nullable<long> ven_total { get; set; }
         public Nullable<long> ven_numero_transaccion { get; set; }
+        public Nullable<int> ven_cedula { get; set; }
+        public string ven_nombre { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<t_detalle_venta> t_detalle_venta { get; set; }

@@ -153,9 +153,11 @@
 
 @section Scripts {
     @Scripts.Render("~/TableScript")
-
+<script src="~/Scripts/Generales/General.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+
+        
 
         const btnFinalizarCompra = document.getElementById('btnFinalizarCompra');
         const exampleModal = $('#exampleModal');
@@ -167,6 +169,8 @@
         var today = new Date().toISOString().split('T')[0];
         document.getElementById('fechaVenta').value = today;
     const arrayProducts = @Html.Raw(Json.Encode(Model));
+
+        updateCartCounter(arrayProducts)
 
     function updateQuantity(productId, delta) {
         const quantityElement = document.getElementById(`product-quantity-${productId}`);
@@ -369,6 +373,7 @@
 });
 </script>
 }
+
 <style>
     .order-summary {
         display: flex;

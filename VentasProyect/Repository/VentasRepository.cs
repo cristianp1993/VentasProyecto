@@ -59,7 +59,9 @@ namespace VentasProyect.Repository
                 ven_fecha = model.ven_fecha,
                 ven_metodo_pago = model.ven_metodo_pago,
                 ven_total = model.ven_total,
-                ven_numero_transaccion = model.ven_numero_transaccion
+                ven_numero_transaccion = model.ven_numero_transaccion,
+                ven_cedula = model.ven_cedula,
+                ven_nombre = model.ven_nombre,
             };
 
             _dbContext.t_venta.Add(newData);

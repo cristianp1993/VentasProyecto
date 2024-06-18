@@ -1,0 +1,47 @@
+﻿.cart-container {
+    margin-left: 3vh;
+    position: relative;
+    display: inline-block;
+}
+
+.cart-counter {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px) rotate(-1deg);
+    }
+
+    50% {
+        transform: translateX(5px) rotate(1deg);
+    }
+
+    75% {
+        transform: translateX(-3px) rotate(-1deg);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.cart-container {
+    animation: shake 2s ease-in-out infinite;
+}

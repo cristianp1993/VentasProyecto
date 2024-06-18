@@ -102,6 +102,8 @@
           <Property Name="ven_metodo_pago" Type="nvarchar" MaxLength="100" />
           <Property Name="ven_total" Type="bigint" />
           <Property Name="ven_numero_transaccion" Type="bigint" />
+          <Property Name="ven_cedula" Type="int" />
+          <Property Name="ven_nombre" Type="nvarchar" MaxLength="255" />
         </EntityType>
         <Association Name="FK__t_detalle__pro_i__49C3F6B7">
           <End Role="t_producto" Type="Self.t_producto" Multiplicity="0..1" />
@@ -424,6 +426,8 @@
           <NavigationProperty Name="t_detalle_venta" Relationship="VENTAS_DBModel.FK__t_detalle__ven_i__48CFD27E" FromRole="t_venta" ToRole="t_detalle_venta" />
           <NavigationProperty Name="t_persona" Relationship="VENTAS_DBModel.FK__t_venta__per_id__403A8C7D" FromRole="t_venta" ToRole="t_persona" />
           <NavigationProperty Name="t_usuario" Relationship="VENTAS_DBModel.FK__t_venta__usu_id__412EB0B6" FromRole="t_venta" ToRole="t_usuario" />
+          <Property Name="ven_cedula" Type="Int32" />
+          <Property Name="ven_nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK__t_product__cat_i__45F365D3">
           <End Type="VENTAS_DBModel.t_categoria" Role="t_categoria" Multiplicity="0..1" />
@@ -636,6 +640,8 @@
           <EntitySetMapping Name="t_venta">
             <EntityTypeMapping TypeName="VENTAS_DBModel.t_venta">
               <MappingFragment StoreEntitySet="t_venta">
+                <ScalarProperty Name="ven_nombre" ColumnName="ven_nombre" />
+                <ScalarProperty Name="ven_cedula" ColumnName="ven_cedula" />
                 <ScalarProperty Name="ven_numero_transaccion" ColumnName="ven_numero_transaccion" />
                 <ScalarProperty Name="ven_total" ColumnName="ven_total" />
                 <ScalarProperty Name="ven_metodo_pago" ColumnName="ven_metodo_pago" />
