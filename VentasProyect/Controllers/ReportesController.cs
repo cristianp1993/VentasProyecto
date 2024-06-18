@@ -212,5 +212,26 @@ namespace VentasProyect.Controllers
             }
         }
 
+        // Acción para mostrar gráficos
+        public ActionResult Graficos()
+        {
+            var viewModel = new GraficosViewModel
+            {
+                ProductCategory = _reportesRepository.ProductCategory(),
+                SalesByProduct = _reportesRepository.SalesByProduct(),
+                BestSellingProduct = _reportesRepository.BestSellingProduct(),
+                LeastSoldProduct = _reportesRepository.LeastSoldProduct(),
+                ProductsOutOfStock = _reportesRepository.ProductsOutOfStock(),
+                SalesByDate = _reportesRepository.SalesByDate(),
+                SalesForClient = _reportesRepository.SalesForClient(),
+                StoreCustomers = _reportesRepository.StoreCustomers(),
+                PurchasedByTheCust = _reportesRepository.PurchasedByTheCust(),
+                CustomersByProductCategory = _reportesRepository.CustomersByProductCategory(),
+                SalesList = _reportesRepository.SalesList()
+            };
+
+            return View(viewModel);
+        }
+
     }
 }
