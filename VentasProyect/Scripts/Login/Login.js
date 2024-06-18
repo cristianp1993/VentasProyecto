@@ -74,5 +74,3 @@ function ValidateLogin() {
         alert('Hubo un error al intentar iniciar sesión.');
     });
 }
-
-
