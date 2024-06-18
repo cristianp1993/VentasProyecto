@@ -365,6 +365,7 @@ BEGIN
         COMMIT TRANSACTION;
     END;
 END;
+DISABLE TRIGGER trg_UpdateStock ON t_detalle_venta;
 
 
 IF NOT EXISTS (

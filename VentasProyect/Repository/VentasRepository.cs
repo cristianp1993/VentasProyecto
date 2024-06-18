@@ -85,6 +85,14 @@ namespace VentasProyect.Repository
 
                 _dbContext.t_detalle_venta.Add(newProduct);
                 _dbContext.SaveChanges();
+
+                // Actualizar pro_stock
+                var productToUpdate = _dbContext.t_producto.FirstOrDefault(p => p.pro_id == item.pro_id);
+                if (productToUpdate != null)
+                {
+                    productToUpdate.pro_stock -= quantity;
+                    _dbContext.SaveChanges();
+                }
             }
         }
 
