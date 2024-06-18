@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Crear Persona";
-    var typeView = ViewBag.vista;
+    var typeView = ViewBag.Type;
 }
 
 @Styles.Render("~/Forms")
@@ -24,7 +24,7 @@
     {
         @Html.AntiForgeryToken()
 
-        @Html.HiddenFor(model => model.per_vista, new { @value = typeView })
+        @Html.HiddenFor(model => model.per_vista, new { @value = @typeView })
         <div class="row-form">
             <div class="input-form p-right">
                 <div class="icon-container">
@@ -111,7 +111,7 @@
                     <span class="material-symbols-outlined">
                         location_city
                     </span>
-                    @Html.HiddenFor(model => model.ciu_id, new { id = "ciu_id_hidden" })
+                    @Html.HiddenFor(model => model.ciu_id, new { id = "Dropdown_id_hidden" })
                     @Html.DropDownList("ciu_idTemp", (IEnumerable<SelectListItem>)ViewBag.Ciudades, null, new { @class = "form-control", onchange = "UpdateHiddenValue(this);" })
 
                     @Html.ValidationMessageFor(model => model.ciu_id, "", new { @class = "field-validation-error error-message" })

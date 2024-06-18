@@ -16,6 +16,7 @@ namespace VentasProyect.Controllers
         public EncryptRepository _encryptRepository = new EncryptRepository();
 
         // GET: Persona
+        [FiltroSeguridadController]
         public ActionResult Index(string type)
         {
             Session["SessionStatus"] = true;
@@ -23,10 +24,10 @@ namespace VentasProyect.Controllers
             var data = _personaRepository.GetData(type);
             return View(data);
         }
-
+        [FiltroSeguridadController]
         public ActionResult Create(string typeView)
         {
-            ViewBag.vista = typeView;
+            ViewBag.Type = typeView;
             ViewBag.Ciudades = _ciudadRepository.GetSelectCiudades();
             return View();
         }
@@ -47,7 +48,7 @@ namespace VentasProyect.Controllers
                 }
 
                 //Encriptar cuenta Bancaria
-                model.per_cuenta_bancaria = _encryptRepository.EncryptPassword(model.per_cuenta_bancaria);
+                //model.per_cuenta_bancaria = _encryptRepository.EncryptPassword(model.per_cuenta_bancaria);
 
                 // Lógica para guardar el nuevo usuario en la base de datos
                 _personaRepository.Create(model);
@@ -59,11 +60,13 @@ namespace VentasProyect.Controllers
             ViewBag.Ciudades = _ciudadRepository.GetSelectCiudades();
             return View(model);
         }
-
+        [FiltroSeguridadController]
         public ActionResult Edit(int id, string typeView)
         {
+
             ViewBag.Ciudades = _ciudadRepository.GetSelectCiudades();
             var data = _personaRepository.GetDataById(id, typeView);
+            data.per_vista = typeView;
             if (data == null)
             {
                 return HttpNotFound();
@@ -72,7 +75,7 @@ namespace VentasProyect.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(Persona data, sbyte typeView)
+        public ActionResult Edit(Persona data, string typeView)
         {
             if (ModelState.IsValid)
             {
@@ -81,7 +84,7 @@ namespace VentasProyect.Controllers
             }
             return RedirectToAction("Index", new { type = typeView });
         }
-
+        [FiltroSeguridadController]
         public ActionResult Details(int id, string typeView)
         {
             var usuario = _personaRepository.GetDataById(id, typeView);
@@ -91,7 +94,7 @@ namespace VentasProyect.Controllers
             }
             return View(usuario);
         }
-
+        [FiltroSeguridadController]
         public ActionResult Delete(int id, string typeView)
         {
             var usuario = _personaRepository.GetDataById(id, typeView);

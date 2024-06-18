@@ -44,43 +44,44 @@ namespace VentasProyect.Controllers
             _ftpUsername = (string)config["FtpUsername"];
             _ftpPassword = (string)config["FtpPassword"];
         }
+        [FiltroSeguridadController]
 
-[HttpPost]
-public ActionResult UploadImages(IEnumerable<HttpPostedFileBase> files)
-{
-    if (files != null && files.Any())
-    {
-        var imageUrls = new List<string>();
-        foreach (var file in files)
+        [HttpPost]
+        public ActionResult UploadImages(IEnumerable<HttpPostedFileBase> files)
         {
-            if (file != null && file.ContentLength > 0)
+            if (files != null && files.Any())
             {
-                var fileName = Path.GetFileName(file.FileName);
-                var ftpPath = $"ftp://{_ftpIp}:{_ftpPort}/{fileName}";
+                var imageUrls = new List<string>();
+                foreach (var file in files)
+                {
+                    if (file != null && file.ContentLength > 0)
+                    {
+                        var fileName = Path.GetFileName(file.FileName);
+                        var ftpPath = $"ftp://{_ftpIp}:{_ftpPort}/{fileName}";
 
-                // Subir el archivo al FTP
-                UploadFileToFtp(file.InputStream, ftpPath);
+                        // Subir el archivo al FTP
+                        UploadFileToFtp(file.InputStream, ftpPath);
 
-                // Reemplazar la parte inicial de la URL FTP con la parte inicial de la URL HTTP
-                var httpUrl = ftpPath.Replace($"ftp://{_ftpIp}:{_ftpPort}/", "https://rep-file.sagerp.cloud/Pruebas/VentureSales/");
+                        // Reemplazar la parte inicial de la URL FTP con la parte inicial de la URL HTTP
+                        var httpUrl = ftpPath.Replace($"ftp://{_ftpIp}:{_ftpPort}/", "https://rep-file.sagerp.cloud/Pruebas/VentureSales/");
 
-                imageUrls.Add(httpUrl);
+                        imageUrls.Add(httpUrl);
+                    }
+                }
+
+                // Guardar las URLs de las imagenes en la sesión
+                Session["UploadedImages"] = imageUrls;
+                TempData["Message"] = "Imágenes cargadas con éxito.";
             }
+            else
+            {
+                TempData["Error"] = "No se seleccionaron archivos.";
+            }
+
+            return RedirectToAction("BulkUpload");
         }
 
-        // Guardar las URLs de las imagenes en la sesión
-        Session["UploadedImages"] = imageUrls;
-        TempData["Message"] = "Imágenes cargadas con éxito.";
-    }
-    else
-    {
-        TempData["Error"] = "No se seleccionaron archivos.";
-    }
-
-    return RedirectToAction("BulkUpload");
-}
-
-
+        [FiltroSeguridadController]
         [HttpPost]
         public ActionResult BulkUpload(HttpPostedFileBase file)
         {
@@ -168,24 +169,25 @@ public ActionResult UploadImages(IEnumerable<HttpPostedFileBase> files)
                 fileStream.CopyTo(ftpStream);
             }
         }
-
+        [FiltroSeguridadController]
         public ActionResult Index()
         {
             IEnumerable<Models.Productos.Productos> data = _productosRepository.GetAllProductos();
             return View(data);
         }
 
-
+        [FiltroSeguridadController]
         public ActionResult Create()
         {
             ViewBag.Categorias = _categoriaRepository.GetSelectCategorias();
             return View();
         }
 
+        [FiltroSeguridadController]
         [HttpPost]
         public ActionResult Create(Productos model)
         {
-            if (ModelState.IsValid) 
+            if (ModelState.IsValid)
             {
                 _productosRepository.CreateProduct(model);
 
@@ -194,7 +196,8 @@ public ActionResult UploadImages(IEnumerable<HttpPostedFileBase> files)
             return View(model);
         }
 
-        public ActionResult Edit(int id) 
+        [FiltroSeguridadController]
+        public ActionResult Edit(int id)
         {
             ViewBag.Categorias = _categoriaRepository.GetSelectCategorias();
             var data = _productosRepository.GetDataById(id);
@@ -214,6 +217,7 @@ public ActionResult UploadImages(IEnumerable<HttpPostedFileBase> files)
             return View(data);
         }
 
+        [FiltroSeguridadController]
         [HttpPost]
         public ActionResult Edit(Productos data)
         {
@@ -263,7 +267,7 @@ public ActionResult UploadImages(IEnumerable<HttpPostedFileBase> files)
             return View(data);
         }
 
-
+        [FiltroSeguridadController]
         public ActionResult Details(int id)
         {
             var producto = _productosRepository.GetDataById(id);

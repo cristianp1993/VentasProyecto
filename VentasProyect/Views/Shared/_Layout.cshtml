@@ -25,9 +25,12 @@
 </head>
 <body>
 
-    @{
-            bool sessionStatus = (bool)(Session["SessionStatus"] ?? false);
-            var displayStatus = sessionStatus ? "block" : "none";
+        @{
+            var sessionStatus = false; // Valor predeterminado
+            if (ViewContext.HttpContext.Session["SessionStatus"] != null && ViewContext.HttpContext.Session["SessionStatus"] is bool)
+            {
+                sessionStatus = (bool)ViewContext.HttpContext.Session["SessionStatus"];
+            }
         }
 
     @*@{
@@ -58,7 +61,7 @@
         </div>
     </div>
 
-    <div class="sidebar" style="display:@displayStatus">
+    <div class="sidebar" style="display:@(sessionStatus ? "block" : "none")">
         <div class="">
             <div class="nav-item name">
                 <a class="name-style" href="@Url.Action("Index", "Home")" asp-controller="Home" asp-action="Index">
@@ -185,7 +188,7 @@
         <div class="btn-logout">
             <ul class="nav navbar-nav navbar-right " style="display:@((bool)Session["SessionStatus"] ? "block" : "none")" id="btnCloseSesion">
                 <li>
-                    <a href="" class="btn btn-default navbar-btn btn-logout-in">
+                    <a href="@Url.Action("CloseSesion", "Login")" class="btn btn-default navbar-btn btn-logout-in">
                         <span class="material-symbols-outlined">
                             logout
                         </span>

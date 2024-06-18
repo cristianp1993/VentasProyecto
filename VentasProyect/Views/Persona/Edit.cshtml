@@ -21,7 +21,7 @@
 
     <h2>EDITAR PERSONA</h2>
 
-    @using (Html.BeginForm("Edit", "Persona", new { type = Model.per_vista }, FormMethod.Post))
+    @using (Html.BeginForm("Edit", "Persona", new { typeView = Model.per_vista }, FormMethod.Post))
     {
 
         @Html.HiddenFor(model => model.per_id)

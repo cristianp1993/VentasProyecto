@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using VentasProyect.Repository.LoginRepository;
 
 namespace VentasProyect.Controllers
@@ -19,27 +20,29 @@ namespace VentasProyect.Controllers
         {
 
             var result = loginRepository.ValidateLogin(user,password);
-            Session["SessionStatus"] = false;
+            HttpContext.Session["SessionStatus"] = false;
             if (result)
             {
-                Session["Email"] = user;
-                Session["SessionStatus"] = true;
+                HttpContext.Session["Email"] = user;
+                HttpContext.Session["SessionStatus"] = true;
             }
             else
             {
-                Session["SessionStatus"] = false;
+                HttpContext.Session["SessionStatus"] = false;
             }
 
             return result;
 
         }
 
-        public bool CloseSesion()
-        {
-            Session["SessionStatus"] = false;
-            ViewBag.SessionStatus = Session["SessionStatus"];
+      
 
-            return false;
+        public ActionResult CloseSesion()
+        {
+            HttpContext.Session["SessionStatus"] = false;
+            ViewBag.SessionStatus = HttpContext.Session["SessionStatus"];
+            HttpContext.Session["Email"] = string.Empty;
+            return View("Index");
         }
     }
 }
