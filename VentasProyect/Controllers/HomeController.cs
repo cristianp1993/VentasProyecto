@@ -30,7 +30,7 @@ namespace VentasProyect.Controllers
 
                 return View(productos);
             }
-            catch (System.Exception)
+            catch (System.Exception ex)
             {
 
                 return View("Index", "Error");

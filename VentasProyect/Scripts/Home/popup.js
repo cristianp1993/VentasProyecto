@@ -168,19 +168,24 @@
             productImage.style.height = '25vh';
             productImage.style.marginRight = '20px';
 
-            const productInfo = document.createElement('div');
-            productInfo.innerHTML = `
-      <h4>${product.pro_nombre}</h4>
-      <p>Precio: $${Number(product.pro_valor_unitario).toLocaleString('es-CO', { minimumFractionDigits: 0 })} COP</p>
-      <p>Stock: ${product.pro_stock}</p>
-      <p>Cantidad: ${product.pro_cantidad}</p>
-    `;
+            const productInfo = document.createElement('div');            
+                productInfo.innerHTML = `
+                  <h4>${product.pro_nombre}</h4>
+                  <p>Precio: $${Number(product.pro_valor_unitario).toLocaleString('es-CO', { minimumFractionDigits: 0 })} COP</p>
+                  <p>Stock: ${product.pro_stock}</p>
+                  <p>Cantidad:
+                  <input style="width: 7vh;" type="number" min="1" value="${product.pro_cantidad}" class="quantity-input">
+                  </p>`;
 
             const deleteButton = document.createElement('span');
-            deleteButton.classList.add('material-symbols-outlined', 'icon-actions-table');
-            deleteButton.textContent = 'delete';
-            deleteButton.style.cursor = "pointer";
-            deleteButton.addEventListener('click', function () {
+                deleteButton.style.cssText = `
+                  flex: 0 0 auto;
+                  margin-left: auto;
+                `;
+                deleteButton.classList.add('material-symbols-outlined', 'icon-actions-table');
+                deleteButton.textContent = 'delete';
+                deleteButton.style.cursor = "pointer";
+                deleteButton.addEventListener('click', function () {
 
                 const productIndex = arrayProducts.indexOf(product);
                 arrayProducts.splice(productIndex, 1);
@@ -188,7 +193,25 @@
 
                 renderCart();
             });
+
             
+            const quantityInput = productInfo.querySelector('.quantity-input');
+            
+            quantityInput.addEventListener('change', function () {
+                
+                let newQuantity = parseInt(this.value);
+                
+                if (isNaN(newQuantity) || newQuantity <= 0) {
+                    newQuantity = product.pro_cantidad; 
+                    this.value = newQuantity;
+                    
+                } else {                   
+                    product.pro_cantidad = newQuantity;                   
+                    this.value = newQuantity;
+                    console.log("Quantity updated for", product.pro_nombre, "to", newQuantity);
+                }
+            });
+
             productDetails.appendChild(productInfo);
             productItem.appendChild(productImage);
             productItem.appendChild(productDetails);
