@@ -1,0 +1,27 @@
+.content_shadow {
+    box-shadow: 0px 0px 22px 6px #333333;
+}
+
+#name_product {
+    text-align: center;
+}
+
+.detail_product{
+    display:flex;
+}
+
+.column_detail_1 {
+    display: flex;
+    padding: 5px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.column_detail_1 div img{
+    border-radius:10px;
+}
+
+.column_detail_2 {
+    padding: 5px;
+}
+

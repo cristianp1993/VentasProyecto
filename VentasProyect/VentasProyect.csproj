@@ -355,6 +355,7 @@
     <Content Include="Content\datatables.min.css" />
     <Content Include="Content\Fonts-css2.css" />
     <Content Include="Content\Generales\animation.css" />
+    <Content Include="Content\Generales\detail.css" />
     <Content Include="Content\Generales\Form.css" />
     <Content Include="Content\Generales\Validation.css" />
     <Content Include="Content\Home\index.css" />

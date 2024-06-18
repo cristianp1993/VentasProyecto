@@ -4,27 +4,39 @@
     ViewBag.Title = "Detalles deL Producto";
 }
 
-<h2>Detalles de la Persona</h2>
 
-<div>
-    <dl class="dl-horizontal">
-        <dt>Nombre del producto:</dt>
-        <dd>@Model.pro_nombre</dd>
-        <dt>Descripción:</dt>
-        <dd>@Model.pro_descripcion</dd>
-        <dt>Stock:</dt>
-        <dd>@Model.pro_stock</dd>
-        <dt>Valor unitario:</dt>
-        <dd>@string.Format("{0:C0}", Model.pro_valor_unitario)</dd>
-        <dt>Estado:</dt>
-        <dd>@Model.pro_estado</dd>
-        <dt>URL imagen:</dt>
-        <dd>@Model.pro_url_img</dd>
-        <dt>Categoría:</dt>
-        <dd>@Model.cat_nombre</dd>
-    </dl>
+@Styles.Render("~/Forms")
+
+<link rel="stylesheet" href="~/Content/Generales/detail.css" />
+
+<div class="container-buttom">
+    <a href="@Url.Action("Index", "Productos")" class="btn btn-default btn-back">
+        <span class="material-symbols-outlined">
+            arrow_circle_left
+        </span>
+        <span class="icon-logout">Regresar</span>
+    </a>
 </div>
 
-<p>
-    @Html.ActionLink("Volver a la lista", "Index")
-</p>
+<div class="form-container content_shadow">
+    <h2>Detalles del Producto</h2>
+
+    <h3 id="name_product">@Model.pro_nombre</h3>
+
+    <div class="detail_product">
+        <div class="column_detail_1">
+            <div><img src="@Model.pro_url_img" class="card-img-top" alt="@Model.pro_nombre"></div>
+            <h4>@string.Format("{0:C0}", Model.pro_valor_unitario)</h4>
+        </div>
+        <div class="column_detail_2">
+            <h4>Descripción:</h4>
+            <div>@Model.pro_descripcion</div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+
+}
+
+<script src="~/Scripts/Generales/General.js"></script>
