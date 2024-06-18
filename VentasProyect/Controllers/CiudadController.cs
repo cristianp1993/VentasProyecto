@@ -10,81 +10,150 @@ namespace VentasProyect.Controllers
         // GET: Ciudad
         public ActionResult Index()
         {
-            Session["SessionStatus"] = true;
+            try
+            {
+                Session["SessionStatus"] = true;
 
-            var data = _ciudadRepository.GetData();
-            
-            return View(data);
+                var data = _ciudadRepository.GetData();
+
+                return View(data);
+            }
+            catch (System.Exception)
+            {
+
+                return View("Index", "Error");
+            }
         }
 
         public ActionResult Create()
         {
-            
-            return View();
+            try
+            {
+                return View();
+
+            }
+            catch (System.Exception)
+            {
+
+                return View("Index", "Error");
+            }
         }
 
         [HttpPost]
-        public ActionResult Create(Ciudad  model)
+        public ActionResult Create(Ciudad model)
         {
-            if (ModelState.IsValid)
+            try
+            {
+                if (ModelState.IsValid)
+                {
+
+
+                    // Lógica para guardar el nuevo usuario en la base de datos
+                    _ciudadRepository.CreateCiudad(model);
+
+                    // Redirecciona al usuario a alguna página de confirmación o a la lista de usuarios
+                    return RedirectToAction("Index");
+                }
+                return View(model);
+            }
+            catch (System.Exception)
             {
 
-
-                // Lógica para guardar el nuevo usuario en la base de datos
-                _ciudadRepository.CreateCiudad(model);
-
-                // Redirecciona al usuario a alguna página de confirmación o a la lista de usuarios
-                return RedirectToAction("Index");
+                return View("Index", "Error");
             }
-            return View(model);
+
         }
         public ActionResult Edit(int id)
         {
-            var data = _ciudadRepository.GetDataById(id);
-            if (data == null)
+            try
             {
-                return HttpNotFound();
+                var data = _ciudadRepository.GetDataById(id);
+                if (data == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(data);
             }
-            return View(data);
+            catch (System.Exception)
+            {
+
+                return View("Index", "Error");
+            }
         }
 
         [HttpPost]
         public ActionResult Edit(Ciudad usuario)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _ciudadRepository.UpdateUsuario(usuario);
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    _ciudadRepository.UpdateUsuario(usuario);
+                    return RedirectToAction("Index");
+                }
+
+                return View(usuario);
             }
-            return View(usuario);
+
+
+            catch (System.Exception)
+            {
+
+                return View("Index", "Error");
+            }
         }
 
         public ActionResult Details(int id)
         {
-            var usuario = _ciudadRepository.GetDataById(id);
-            if (usuario == null)
+            try
             {
-                return HttpNotFound(); // Devuelve un error 404 si no se encuentra el usuario
+                var usuario = _ciudadRepository.GetDataById(id);
+                if (usuario == null)
+                {
+                    return HttpNotFound(); // Devuelve un error 404 si no se encuentra el usuario
+                }
+                return View(usuario);
             }
-            return View(usuario);
+            catch (System.Exception)
+            {
+
+                return View("Index", "Error");
+            }
         }
 
         public ActionResult Delete(int id)
         {
-            var usuario = _ciudadRepository.GetDataById(id);
-            if (usuario == null)
+            try
             {
-                return HttpNotFound(); // Devuelve un error 404 si no se encuentra el usuario
+                var usuario = _ciudadRepository.GetDataById(id);
+                if (usuario == null)
+                {
+                    return HttpNotFound(); // Devuelve un error 404 si no se encuentra el usuario
+                }
+                return View(usuario);
             }
-            return View(usuario);
+            catch (System.Exception)
+            {
+
+                return View("Index", "Error");
+            }
+
         }
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            _ciudadRepository.Delete(id);
-            return RedirectToAction("Index");
+            try
+            {
+                _ciudadRepository.Delete(id);
+                return RedirectToAction("Index");
+            }
+            catch (System.Exception)
+            {
+
+                return View("Index", "Error");
+            }
         }
     }
 }

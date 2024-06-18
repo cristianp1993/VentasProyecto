@@ -456,12 +456,12 @@
     <Content Include="Views\Ventas\Index.cshtml" />
     <Content Include="Views\Ventas\Sale.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
-    <Content Include="Views\Ventas\Index - Copia.cshtml" />
     <Content Include="Views\Ventas\Edit.cshtml" />
     <Content Include="Views\Ventas\Details.cshtml" />
     <Content Include="Views\Reportes\Index.cshtml" />
     <Content Include="Views\Ventas\EditProduct.cshtml" />
     <Content Include="Views\Ventas\DeleteProduct.cshtml" />
+    <Content Include="Views\Ventas\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

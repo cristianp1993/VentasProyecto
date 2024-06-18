@@ -17,6 +17,7 @@ namespace VentasProyect.Controllers
         ProductosRepository _productosRepository = new ProductosRepository();
         VentasRepository _ventasRepository = new VentasRepository();
         CiudadRepository _ciudadRepository = new CiudadRepository();
+        
         // GET: Ventas
         public ActionResult Index()
         {
@@ -138,7 +139,8 @@ namespace VentasProyect.Controllers
             {
                 ViewBag.Ciudades = _ciudadRepository.GetSelectCiudades();
 
-                var productosList = JsonConvert.DeserializeObject<IEnumerable<Productos>>(productosJson);
+                var dataList = JsonConvert.DeserializeObject<IEnumerable<Productos>>(productosJson);
+                var productosList = _productosRepository.GetDataProductsToSale(dataList);
                 if (productosList.Any())
                 {
                     // Los productos ya han sido obtenidos, mostrar la vista directamente
@@ -175,7 +177,7 @@ namespace VentasProyect.Controllers
                     var newData = new Models.Ventas.Ventas
                     {
                         ven_id = 0,
-                        per_id = 1,
+                        per_id = 7,
                         usu_id = 1,
                         ven_fecha = fechaActual,
                         ven_metodo_pago = "CONTADO",

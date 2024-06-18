@@ -13,19 +13,29 @@ namespace VentasProyect.Controllers
 
         public ActionResult Index(string selectedCategories)
         {
-            Session["SessionStatus"] = true;
-
-            IEnumerable<Productos> productos = _productosRepository.GetProductos(); // Este método ya filtra productos inactivos
-
-            if (!string.IsNullOrEmpty(selectedCategories))
+            try
             {
-                var categories = selectedCategories.Split(',').Select(int.Parse).ToList();
-                productos = productos.Where(p => categories.Contains(int.Parse(p.cat_id)));
+
+                Session["SessionStatus"] = true;
+
+                IEnumerable<Productos> productos = _productosRepository.GetProductos(); // Este método ya filtra productos inactivos
+
+                if (!string.IsNullOrEmpty(selectedCategories))
+                {
+                    var categories = selectedCategories.Split(',').Select(int.Parse).ToList();
+                    productos = productos.Where(p => categories.Contains(int.Parse(p.cat_id)));
+                }
+
+                ViewBag.Categories = _categoriaRepository.GetSelectCategorias();
+
+                return View(productos);
+            }
+            catch (System.Exception)
+            {
+
+                return View("Index", "Error");
             }
 
-            ViewBag.Categories = _categoriaRepository.GetSelectCategorias();
-
-            return View(productos);
         }
 
         public ActionResult About()
