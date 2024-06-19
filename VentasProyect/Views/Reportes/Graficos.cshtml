@@ -16,54 +16,62 @@
 <body>
     <h2>Gráficos de Reportes</h2>
 
-    <!-- Product Category Chart -->
-    <div class="chart-container">
-        <h3>Product Category (Bar Chart)</h3>
-        <canvas id="productCategoryChart"></canvas>
-    </div>
 
-    <!-- Sales By Product Chart -->
-    <div class="chart-container">
-        <h3>Sales By Product (Line Chart)</h3>
-        <canvas id="salesByProductChart"></canvas>
-    </div>
 
-    <!-- Best Selling Product Chart -->
-    <div class="chart-container">
-        <h3>Best Selling Product (Pie Chart)</h3>
-        <canvas id="bestSellingProductChart"></canvas>
-    </div>
+    <div class="row">
+        <!-- Best Selling Product Chart -->
+        <div class="chart-container">
+            <h3>Ventas x Producto</h3>
+            <canvas id="salesByProductChart"></canvas>
+           
+        </div>
 
-    <!-- Least Sold Product Chart -->
-    <div class="chart-container">
-        <h3>Least Sold Product (Doughnut Chart)</h3>
-        <canvas id="leastSoldProductChart"></canvas>
+        <!-- Least Sold Product Chart -->
+        <div class="chart-container">
+            <h3>Producto Menos Vendido</h3>
+            <canvas id="leastSoldProductChart"></canvas>
+        </div>
     </div>
+    <div class="row">
+        <!-- Sales By Date Chart -->
+        <div class="chart-container">
+            <h3>Producto Mas Vendido</h3>
+            <canvas id="bestSellingProductChart"></canvas>
+           
+        </div>
 
-    <!-- Sales By Date Chart -->
-    <div class="chart-container">
-        <h3>Sales By Date (Line Chart)</h3>
-        <canvas id="salesByDateChart"></canvas>
+        <!-- Sales For Client Chart -->
+        <div class="chart-container">
+            <h3>Ventas Por Vendedor</h3>
+            <canvas id="salesForClientChart"></canvas>
+        </div>
     </div>
+    <div class="row">
+        <!-- Customers By Product Category Chart -->
+        <div class="chart-container">
+            <h3>Clientes Por Categoria Producto</h3>
+            <canvas id="customersByProductCategoryChart"></canvas>
+        </div>
 
-    <!-- Sales For Client Chart -->
-    <div class="chart-container">
-        <h3>Sales For Client (Bubble Chart)</h3>
-        <canvas id="salesForClientChart"></canvas>
+        <!-- Sales List Chart -->
+        <div class="chart-container">
+            <h3>Ventas</h3>
+            <canvas id="salesListChart"></canvas>
+        </div>
     </div>
+    <div class="row">
+        <!-- Product Category Chart -->
+        <div class="chart-container">
+            <h3>Productos x Categoria</h3>
+            <canvas id="productCategoryChart"></canvas>
+        </div>
 
-    <!-- Customers By Product Category Chart -->
-    <div class="chart-container">
-        <h3>Customers By Product Category (Bar Chart)</h3>
-        <canvas id="customersByProductCategoryChart"></canvas>
+        <!-- Sales By Product Chart -->
+        <div class="chart-container">
+            <h3>Ventas Por Fecha</h3>
+            <canvas id="salesByDateChart"></canvas>
+        </div>
     </div>
-
-    <!-- Sales List Chart -->
-    <div class="chart-container">
-        <h3>Sales List (Horizontal Bar Chart)</h3>
-        <canvas id="salesListChart"></canvas>
-    </div>
-
     <script>
         // Retrieve data from model
         var productCategoryData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.ProductCategory));
@@ -86,7 +94,32 @@
                     datasets: [{
                         label: label,
                         data: data.map(item => item.cantidad_vendida || item.Total_Venta),
-                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        backgroundColor: 'rgba(255, 0, 255, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        function createChart2(ctx, data, label, type) {
+            var chartType = type || 'bar'; // Default to bar chart if type is not specified
+
+            new Chart(ctx, {
+                type: chartType,
+                data: {
+                    labels: data.map(item => item.ven_fecha),
+                    datasets: [{
+                        label: label,
+                        data: data.map(item => item.total_ventas),
+                        backgroundColor: 'rgba(255, 0, 255, 0.2)',
                         borderColor: 'rgba(75, 192, 192, 1)',
                         borderWidth: 1
                     }]
@@ -109,7 +142,7 @@
         createChart(document.getElementById('salesByDateChart').getContext('2d'), salesByDateData, 'Sales By Date', 'line');
         createChart(document.getElementById('salesForClientChart').getContext('2d'), salesForClientData, 'Sales For Client', 'bubble');
         createChart(document.getElementById('customersByProductCategoryChart').getContext('2d'), customersByProductCategoryData, 'Customers By Product Category', 'bar');
-        createChart(document.getElementById('salesListChart').getContext('2d'), salesListData, 'Sales List', 'horizontalBar');
+        createChart2(document.getElementById('salesListChart').getContext('2d'), salesListData, 'Sales List', 'line');
 
     </script>
 </body>

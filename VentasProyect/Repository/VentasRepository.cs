@@ -34,10 +34,12 @@ namespace VentasProyect.Repository
                                 ven_fecha = v.ven_fecha,
                                 ven_metodo_pago = v.ven_metodo_pago,
                                 ven_total = (long)v.ven_total,
-                                ven_numero_transaccion = (long)v.ven_numero_transaccion
+                                ven_numero_transaccion = (long)v.ven_numero_transaccion,
+                                ven_cedula = (int)v.ven_cedula,
+                                ven_nombre = v.ven_nombre
                             };
 
-                return query.ToList();
+                return query.ToList().OrderByDescending(xh=> xh.ven_id);
             }
             catch (Exception ex)
             {

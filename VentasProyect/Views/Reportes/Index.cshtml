@@ -1,24 +1,27 @@
 ﻿@{
     ViewBag.Title = "Reportes Index";
 }
+@Styles.Render("~/Forms")
 
 <h2>Reportes</h2>
 
 @* Crear un formulario para seleccionar el reporte y el formato *@
 @using (Html.BeginForm("DownloadReport", "Reportes", FormMethod.Post))
 {
-<div>
-    @* Dropdown list para seleccionar el reporte *@
-    @Html.DropDownList("Items", (IEnumerable<SelectListItem>)ViewBag.Items, "Selecciona un reporte", new { @class = "form-control" })
+    <div class="form-container">
+        <div>
+            @* Dropdown list para seleccionar el reporte *@
+            @Html.DropDownList("Items", (IEnumerable<SelectListItem>)ViewBag.Items, "Selecciona un reporte", new { @class = "form-control" })
 
-    <br />
+            <br />
 
-    @* Dropdown list para seleccionar el formato *@
-    @Html.DropDownList("Formatos", (IEnumerable<SelectListItem>)ViewBag.Formatos, "Selecciona un formato", new { @class = "form-control" })
+            @* Dropdown list para seleccionar el formato *@
+            @Html.DropDownList("Formatos", (IEnumerable<SelectListItem>)ViewBag.Formatos, "Selecciona un formato", new { @class = "form-control" })
 
-    <br />
+            <br />
 
-    @* Botón para descargar el reporte en el formato seleccionado *@
-    <button type="submit" class="btn btn-primary">Descargar</button>
-</div>
+            @* Botón para descargar el reporte en el formato seleccionado *@
+            <button type="submit" class="btn btn-primary">Descargar</button>
+        </div>
+    </div>
 }
