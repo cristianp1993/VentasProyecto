@@ -1,0 +1,29 @@
+name: CodeQL
+
+on:
+  push:
+    branches: [ main ] # Cambia esto si tu rama principal es diferente
+  pull_request:
+    branches: [ main ] # Cambia esto si tu rama principal es diferente
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up CodeQL
+        uses: github/codeql-action/setup@v2
+        with:
+          languages: javascript, csharp # Cambia esto según el lenguaje de tu proyecto
+
+      - name: Auto-detect CodeQL languages
+        uses: github/codeql-action/autodetect@v2
+
+      - name: Run CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
+        with:
+          category: "security"
